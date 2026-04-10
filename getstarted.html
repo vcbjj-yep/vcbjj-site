@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Started — VCBJJ</title>
+<meta name="description" content="Start your BJJ journey at VCBJJ. Five simple steps to get on the mat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF5EC;--bg-alt:#F2E8D4;--surface:#FFFFFF;--text:#1E1E1E;--muted:#6B5E4E;--accent:#D94432;--accent-hover:#C13828;--gold:#E8A828;--teal:#28B8C8;--orange:#E8762B;--border:#E0D5C0;--dark:#1E1E1E;--dark-text:#FAF5EC;--dark-muted:#B8A890;--sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'IBM Plex Mono','SF Mono',monospace;--content-max:720px;--nav-max:760px;--radius:14px;--pill:100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.nav{background:var(--dark);padding:0 20px;position:sticky;top:0;z-index:100}.nav-inner{max-width:var(--nav-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}.nav-brand{display:flex;align-items:center}.nav-brand img{height:36px;width:auto}.nav-links{display:flex;gap:4px}.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-muted);padding:8px 12px;transition:color 0.2s}.nav-links a:hover{color:var(--dark-text)}.nav-toggle{display:none;background:none;border:none;color:var(--dark-muted);font-size:22px;cursor:pointer;padding:6px}
+@media(max-width:600px){.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--dark);flex-direction:column;padding:8px 20px 16px;border-top:1px solid #333}.nav-links.open{display:flex}.nav-links a{padding:14px 0;font-size:13px;border-bottom:1px solid #2a2a2a}.nav-links a:last-child{border-bottom:none}}
+.section{padding:80px 20px}.section-inner{max-width:var(--content-max);margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.page-hero{background:var(--dark);padding:48px 20px 44px;text-align:center}.page-hero-inner{max-width:var(--content-max);margin:0 auto}.page-hero .eyebrow{color:var(--gold)}.page-hero h1{font-size:30px;font-weight:700;color:var(--dark-text);margin-bottom:12px}.page-hero p{font-size:16px;color:var(--dark-muted);max-width:540px;margin:0 auto;line-height:1.65}
+.steps{margin-top:0}
+.step{display:flex;gap:20px;padding:32px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-num{font-family:var(--mono);font-size:36px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0;width:48px;text-align:center}
+.step-body{flex:1}
+.step-title{font-size:18px;font-weight:600;margin-bottom:6px}
+.step-desc{font-size:14px;color:var(--muted);line-height:1.7}
+.step-desc a{color:var(--teal);font-weight:600}
+.step-desc a:hover{text-decoration:underline}
+.qr-img{max-width:240px;border:1px solid var(--border);border-radius:var(--radius);margin-top:12px}
+.step-note{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:10px;padding:10px 14px;background:var(--bg-alt);border-radius:var(--radius)}
+.footer{background:var(--dark);padding:48px 20px 32px;color:var(--dark-muted)}.footer-inner{max-width:var(--nav-max);margin:0 auto}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}.footer-col-title{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}.footer-links{list-style:none}.footer-links li{margin-bottom:8px}.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}.footer-links a:hover{color:var(--dark-text)}.footer-bottom{border-top:1px solid #333;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}.footer-bottom a{color:var(--gold)}
+@media(max-width:480px){.step{gap:14px}.step-num{font-size:28px;width:36px}.footer-grid{grid-template-columns:1fr;gap:24px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-brand"><img src="https://i.ibb.co/PZ7SrppN/VCBJJ-circle-2.png" alt="VCBJJ"></a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button><div class="nav-links"><a href="info.html">Is It Right For You?</a><a href="about.html">Coach Vince</a><a href="getstarted.html">Get Started</a></div></div></nav>
+
+<section class="page-hero"><div class="page-hero-inner"><div class="eyebrow">Your First Step</div><h1>Get Started</h1><p>Five steps from here to the mat. No gatekeeping &mdash; just a clear process.</p></div></section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Read the Info Page</div>
+          <div class="step-desc">Make sure VCBJJ is the right fit for you. We&rsquo;re upfront about what we are and what we&rsquo;re not. <a href="info.html">Read it here &rarr;</a></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Register Your Interest</div>
+          <div class="step-desc">Fill out the contact form so we know you&rsquo;re coming. We&rsquo;ll confirm your details and answer any questions. <a href="contact.html">Contact form &rarr;</a></div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Sign the Participation Agreement</div>
+          <div class="step-desc">BJJ is a contact sport. Before your first session, you&rsquo;ll sign a participation agreement acknowledging the inherent risks. This is done digitally through the member portal.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Make Your First Payment</div>
+          <div class="step-desc">Transfer via bank or scan the QR code below. Once done, send your payment receipt via <a href="https://wa.me/60123456789" target="_blank" rel="noopener">WhatsApp</a> for confirmation.</div>
+          <img class="qr-img" src="https://i.ibb.co/1J9BCDx/Feb2023-MBB.jpg" alt="VCBJJ Payment QR Code" loading="lazy">
+          <div class="step-note">WhatsApp is used only for payment receipt confirmation. Please do not call &mdash; all enquiries go through the contact form.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Book Your First Session</div>
+          <div class="step-desc">Once your payment is confirmed, you&rsquo;ll get access to the member portal where you can book group classes or private training sessions. <a href="https://portal.vcbjj.com" target="_blank" rel="noopener">Member portal &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjj" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
+</body>
+</html>

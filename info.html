@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is VCBJJ Right For You? — VCBJJ</title>
+<meta name="description" content="Find out if VCBJJ is the right BJJ gym for you. Policies, FAQ, what to expect, and who we're built for.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAF5EC;--bg-alt:#F2E8D4;--surface:#FFFFFF;--text:#1E1E1E;--muted:#6B5E4E;--accent:#D94432;--accent-hover:#C13828;--gold:#E8A828;--teal:#28B8C8;--orange:#E8762B;--border:#E0D5C0;--dark:#1E1E1E;--dark-text:#FAF5EC;--dark-muted:#B8A890;--sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'IBM Plex Mono','SF Mono',monospace;--content-max:720px;--nav-max:760px;--radius:14px;--pill:100px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.nav{background:var(--dark);padding:0 20px;position:sticky;top:0;z-index:100}.nav-inner{max-width:var(--nav-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}.nav-brand{display:flex;align-items:center}.nav-brand img{height:36px;width:auto}.nav-links{display:flex;gap:4px}.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-muted);padding:8px 12px;transition:color 0.2s}.nav-links a:hover{color:var(--dark-text)}.nav-toggle{display:none;background:none;border:none;color:var(--dark-muted);font-size:22px;cursor:pointer;padding:6px}
+@media(max-width:600px){.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--dark);flex-direction:column;padding:8px 20px 16px;border-top:1px solid #333}.nav-links.open{display:flex}.nav-links a{padding:14px 0;font-size:13px;border-bottom:1px solid #2a2a2a}.nav-links a:last-child{border-bottom:none}}
+.section{padding:80px 20px}.section-inner{max-width:var(--content-max);margin:0 auto}.section-alt{background:var(--bg-alt)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:16px}
+.page-hero{background:var(--dark);padding:48px 20px 44px;text-align:center}.page-hero-inner{max-width:var(--content-max);margin:0 auto}.page-hero .eyebrow{color:var(--gold)}.page-hero h1{font-size:30px;font-weight:700;color:var(--dark-text);margin-bottom:12px}.page-hero p{font-size:16px;color:var(--dark-muted);max-width:540px;margin:0 auto;line-height:1.65}
+.prose{font-size:16px;line-height:1.8;color:var(--text)}.prose p{margin-bottom:16px}.prose p:last-child{margin-bottom:0}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.fit-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+.fit-card-title{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.fit-yes .fit-card-title{color:var(--teal)}.fit-no .fit-card-title{color:var(--accent)}
+.fit-card ul{list-style:none;font-size:14px;line-height:1.9;color:var(--text)}
+.fit-card li{padding-left:20px;position:relative}.fit-card li::before{position:absolute;left:0}
+.fit-yes li::before{content:'✓';color:var(--teal);font-weight:700}
+.fit-no li::before{content:'✗';color:var(--accent);font-weight:700}
+.policy-block{padding:20px 0;border-bottom:1px solid var(--border)}
+.policy-block:last-child{border-bottom:none}
+.policy-title{font-size:16px;font-weight:600;margin-bottom:6px}
+.policy-text{font-size:14px;color:var(--muted);line-height:1.7}
+.faq-item{border-bottom:1px solid var(--border);padding:18px 0;cursor:pointer}
+.faq-item:last-child{border-bottom:none}
+.faq-q{font-size:15px;font-weight:600;color:var(--text);display:flex;justify-content:space-between;align-items:center;gap:12px}
+.faq-q::after{content:'+';font-family:var(--mono);font-size:20px;color:var(--muted);flex-shrink:0;transition:transform 0.2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--accent)}
+.faq-a{display:none;font-size:14px;color:var(--muted);line-height:1.75;padding-top:12px}
+.faq-item.open .faq-a{display:block}
+.info-cta{margin-top:40px;text-align:center}
+.btn{display:inline-block;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:16px 32px;border-radius:var(--pill);cursor:pointer;transition:all 0.2s;border:2px solid transparent;text-align:center}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.footer{background:var(--dark);padding:48px 20px 32px;color:var(--dark-muted)}.footer-inner{max-width:var(--nav-max);margin:0 auto}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}.footer-col-title{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}.footer-links{list-style:none}.footer-links li{margin-bottom:8px}.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}.footer-links a:hover{color:var(--dark-text)}.footer-bottom{border-top:1px solid #333;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}.footer-bottom a{color:var(--gold)}
+@media(max-width:480px){.fit-grid{grid-template-columns:1fr}.btn{width:100%;padding:18px 24px;font-size:14px}.footer-grid{grid-template-columns:1fr;gap:24px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-brand"><img src="https://i.ibb.co/PZ7SrppN/VCBJJ-circle-2.png" alt="VCBJJ"></a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button><div class="nav-links"><a href="info.html">Is It Right For You?</a><a href="about.html">Coach Vince</a><a href="getstarted.html">Get Started</a></div></div></nav>
+
+<section class="page-hero"><div class="page-hero-inner"><div class="eyebrow">Before You Start</div><h1>Is VCBJJ Right For You?</h1><p>This page gives you everything you need to decide. No sales pitch &mdash; just honest information about how we train and who we train.</p></div></section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow">Good Fit / Not a Fit</div>
+    <div class="fit-grid">
+      <div class="fit-card fit-yes">
+        <div class="fit-card-title">&#10003; VCBJJ is for you if</div>
+        <ul>
+          <li>You&rsquo;re a working adult (40+) looking for structured training</li>
+          <li>You want to learn BJJ safely, at your own pace</li>
+          <li>You value small classes and personal attention</li>
+          <li>You have zero martial arts experience &mdash; that&rsquo;s fine</li>
+          <li>You want physical and mental development, not competition</li>
+          <li>You&rsquo;re comfortable with pay-as-you-go, no contracts</li>
+        </ul>
+      </div>
+      <div class="fit-card fit-no">
+        <div class="fit-card-title">&#10007; VCBJJ is not for you if</div>
+        <ul>
+          <li>You&rsquo;re looking for competition-focused training</li>
+          <li>You want a large commercial gym with lots of sparring partners</li>
+          <li>You expect free trial classes</li>
+          <li>You&rsquo;re looking for kids&rsquo; programmes (see Jeet Academy)</li>
+          <li>You want to drop in without booking</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow">What to Expect</div>
+    <div class="prose">
+      <p>Sessions move between partner drills, constraint-based games, and live rolling (sparring). There is no fixed warm-up routine &mdash; warm-up responsibility sits with you, before class. You won&rsquo;t always know exactly what you&rsquo;re working on, and that&rsquo;s intentional. The discomfort of not knowing what to do is exactly when skill develops.</p>
+      <p>BJJ involves close physical contact. You&rsquo;ll be put in awkward positions, struggle, and not always know what to do. This passes faster than you think &mdash; and working through it is part of why the training builds real confidence.</p>
+      <p>You will tap (submit) often when you&rsquo;re new. So does everyone. Tapping is how you learn safely.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow">Policies</div>
+    <div class="policy-block">
+      <div class="policy-title">No Trial Classes</div>
+      <div class="policy-text">VCBJJ does not offer trial sessions. This is a deliberate choice &mdash; it keeps the training environment consistent for existing students and ensures new members are committed from day one.</div>
+    </div>
+    <div class="policy-block">
+      <div class="policy-title">Pay As You Go</div>
+      <div class="policy-text">RM 65 per group class. RM 245 per private session (splittable by 2). No contracts, no registration fees, no admin fees, no grading fees &mdash; ever.</div>
+    </div>
+    <div class="policy-block">
+      <div class="policy-title">Booking Required</div>
+      <div class="policy-text">All sessions are booked through the member portal. Group classes are capped at 10 students. Private training is by appointment Monday to Saturday, 9am&ndash;8pm.</div>
+    </div>
+    <div class="policy-block">
+      <div class="policy-title">Participation Agreement</div>
+      <div class="policy-text">All students sign a participation agreement before their first session. BJJ is a contact sport with inherent risks that cannot be fully eliminated by instruction or supervision.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow">Frequently Asked Questions</div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Do I need any experience to start?</div>
+      <div class="faq-a">None at all. No prior exposure to BJJ or grappling is assumed. Every concept, position, and movement will be introduced and named. You&rsquo;ll be taught from Day 0.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">What should I wear?</div>
+      <div class="faq-a">For NoGi classes (Monday): rash guard and shorts or leggings. For Gi classes (Thursday): a BJJ gi. Coach Vince can advise on purchasing your first gi.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">How fit do I need to be?</div>
+      <div class="faq-a">BJJ builds fitness &mdash; it doesn&rsquo;t require it. Many students start with limited flexibility and mobility and see significant improvement within weeks. The training adapts to your current level.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Will I get hurt?</div>
+      <div class="faq-a">Safety is a top priority. The training is structured to minimise risk, classes are small, and the coaching is hands-on. BJJ is a contact sport and minor bumps happen, but the environment here is built to protect you &mdash; not test your toughness.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">Why no trial classes?</div>
+      <div class="faq-a">Trial classes change the dynamic of the room. Every person on the mat has committed to being there. That consistency is what makes the training environment work. This page gives you all the information you need to decide &mdash; the training itself starts when you&rsquo;re ready to commit.</div>
+    </div>
+    <div class="faq-item" onclick="this.classList.toggle('open')">
+      <div class="faq-q">I&rsquo;m over 50 / 60. Am I too old?</div>
+      <div class="faq-a">No. Several of our most dedicated students are in their 50s and 60s. The training is designed for adults who want to practice BJJ sustainably for years, not months. Age is not a barrier &mdash; ego is, and we don&rsquo;t have that here.</div>
+    </div>
+    <div class="info-cta">
+      <a href="getstarted.html" class="btn btn-primary">Get Started &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjj" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
+</body>
+</html>

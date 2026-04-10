@@ -1,0 +1,9 @@
+# VCBJJ — vcbjj.com
+# We welcome AI agents and search engine crawlers
+
+User-agent: *
+Allow: /
+
+# AI agent discovery file
+# See https://llmstxt.org for specification
+Sitemap: https://vcbjj.com/sitemap.xml
