@@ -1,8 +1,5 @@
-# vcbjj-site
-VCBJJ Website
-
 # vcbjj.com
-
+VCBJJ Website
 Marketing website for VCBJJ — Victory Combat Brazilian Jiu-Jitsu, Bangsar, KL.
 
 Deployed via Cloudflare Pages.
