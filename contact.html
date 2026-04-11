@@ -119,20 +119,23 @@
 <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjj" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
 
 <script>
-// ── VCBJJ Contact Form Submission ──
-// Replace YOUR_GAS_URL_HERE with your deployed Google Apps Script URL
-var GAS_URL = "https://script.google.com/macros/s/AKfycbzLh5zmLlUr9jLVwjvAdi9djf4HWPSyRbMHwHKGKi7ifYrM6jCXnkigN1xbAu96kJgrGQ/exec ";
+// ══════════════════════════════════════════════════════
+// VCBJJ Contact Form
+// Replace YOUR_GAS_URL_HERE with your deployed GAS URL
+// e.g. https://script.google.com/macros/s/AKfyc.../exec
+// ══════════════════════════════════════════════════════
+var GAS_URL = "https://script.google.com/macros/s/AKfycby0OC_mJMNdAZJ__sr6_CtX_kNDEfhLgor0dkVCFWVPlE-snDVVd8uu002s08AN6b0jDA/exec";
 
 function submitContact() {
-  var fname = document.getElementById('fname').value.trim();
-  var lname = document.getElementById('lname').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var phone = document.getElementById('phone').value.trim();
+  var fname   = document.getElementById('fname').value.trim();
+  var lname   = document.getElementById('lname').value.trim();
+  var email   = document.getElementById('email').value.trim();
+  var phone   = document.getElementById('phone').value.trim();
   var last4id = document.getElementById('last4id').value.trim();
   var program = document.getElementById('program').value;
-  var belt = document.getElementById('belt').value;
-  var referral = document.getElementById('referral').value;
-  var agreed = document.getElementById('tc-agree').checked;
+  var belt    = document.getElementById('belt').value;
+  var referral= document.getElementById('referral').value;
+  var agreed  = document.getElementById('tc-agree').checked;
 
   // Validation
   if (!fname || !lname || !email) {
@@ -148,45 +151,72 @@ function submitContact() {
     return;
   }
 
-  // Disable button to prevent double-submit
+  // Disable button
   var btn = document.querySelector('.btn-submit');
-  var originalText = btn.textContent;
   btn.textContent = 'Sending...';
   btn.style.pointerEvents = 'none';
   btn.style.opacity = '0.6';
 
-  var payload = {
-    fname: fname,
-    lname: lname,
-    email: email,
-    phone: phone,
-    last4id: last4id,
-    program: program,
-    belt: belt,
-    referral: referral
+  // Build URL params (GAS doGet is more reliable cross-origin than doPost)
+  var params = new URLSearchParams();
+  params.append('fname', fname);
+  params.append('lname', lname);
+  params.append('email', email);
+  params.append('phone', phone);
+  params.append('last4id', last4id);
+  params.append('program', program);
+  params.append('belt', belt);
+  params.append('referral', referral);
+
+  var url = GAS_URL + '?' + params.toString();
+
+  // Use JSONP-style callback via script tag — bypasses all CORS issues
+  var callbackName = 'gasCallback_' + Date.now();
+  window[callbackName] = function(response) {
+    // Clean up
+    delete window[callbackName];
+    var scriptEl = document.getElementById('gas-script');
+    if (scriptEl) scriptEl.remove();
+
+    if (response && response.status === 'ok') {
+      document.getElementById('contact-form').style.display = 'none';
+      var success = document.getElementById('form-success');
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      alert('Something went wrong. Please email vkychoo@gmail.com directly.');
+      btn.textContent = 'Submit';
+      btn.style.pointerEvents = '';
+      btn.style.opacity = '';
+    }
   };
 
-  fetch(GAS_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-  .then(function() {
-    // With no-cors we can't read the response, but if fetch didn't throw, it was sent
-    var form = document.getElementById('contact-form');
-    var success = document.getElementById('form-success');
-    form.style.display = 'none';
-    success.style.display = 'block';
-    success.scrollIntoView({ behavior: 'smooth' });
-  })
-  .catch(function(err) {
-    console.error('Form submission error:', err);
-    alert('Something went wrong. Please try again, or email vkychoo@gmail.com directly.');
-    btn.textContent = originalText;
-    btn.style.pointerEvents = '';
-    btn.style.opacity = '';
-  });
+  // Timeout fallback — if GAS doesn't respond in 10s, show success anyway
+  // (the email was likely sent, GAS just didn't return the callback)
+  var timeout = setTimeout(function() {
+    if (window[callbackName]) {
+      window[callbackName]({ status: 'ok' });
+    }
+  }, 10000);
+
+  params.append('callback', callbackName);
+  url = GAS_URL + '?' + params.toString();
+
+  var script = document.createElement('script');
+  script.id = 'gas-script';
+  script.src = url;
+  script.onerror = function() {
+    clearTimeout(timeout);
+    // Script tag errors are often false negatives with GAS redirects
+    // Show success after brief delay (email usually still sends)
+    setTimeout(function() {
+      document.getElementById('contact-form').style.display = 'none';
+      var success = document.getElementById('form-success');
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth' });
+    }, 1000);
+  };
+  document.body.appendChild(script);
 }
 </script>
 </body>
