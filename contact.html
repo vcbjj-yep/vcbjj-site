@@ -119,14 +119,74 @@
 <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjj" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
 
 <script>
-// Placeholder — wire to GAS submitContactForm endpoint during integration
-function submitContact(){
-  var form=document.getElementById('contact-form');
-  var success=document.getElementById('form-success');
-  // TODO: JSONP call to GAS submitContactForm
-  form.style.display='none';
-  success.style.display='block';
-  success.scrollIntoView({behavior:'smooth'});
+// ── VCBJJ Contact Form Submission ──
+// Replace YOUR_GAS_URL_HERE with your deployed Google Apps Script URL
+var GAS_URL = "https://script.google.com/macros/s/AKfycbzLh5zmLlUr9jLVwjvAdi9djf4HWPSyRbMHwHKGKi7ifYrM6jCXnkigN1xbAu96kJgrGQ/exec ";
+
+function submitContact() {
+  var fname = document.getElementById('fname').value.trim();
+  var lname = document.getElementById('lname').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var last4id = document.getElementById('last4id').value.trim();
+  var program = document.getElementById('program').value;
+  var belt = document.getElementById('belt').value;
+  var referral = document.getElementById('referral').value;
+  var agreed = document.getElementById('tc-agree').checked;
+
+  // Validation
+  if (!fname || !lname || !email) {
+    alert('Please fill in your first name, last name, and email.');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+  if (!agreed) {
+    alert('Please read and acknowledge the information checkbox before submitting.');
+    return;
+  }
+
+  // Disable button to prevent double-submit
+  var btn = document.querySelector('.btn-submit');
+  var originalText = btn.textContent;
+  btn.textContent = 'Sending...';
+  btn.style.pointerEvents = 'none';
+  btn.style.opacity = '0.6';
+
+  var payload = {
+    fname: fname,
+    lname: lname,
+    email: email,
+    phone: phone,
+    last4id: last4id,
+    program: program,
+    belt: belt,
+    referral: referral
+  };
+
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(function() {
+    // With no-cors we can't read the response, but if fetch didn't throw, it was sent
+    var form = document.getElementById('contact-form');
+    var success = document.getElementById('form-success');
+    form.style.display = 'none';
+    success.style.display = 'block';
+    success.scrollIntoView({ behavior: 'smooth' });
+  })
+  .catch(function(err) {
+    console.error('Form submission error:', err);
+    alert('Something went wrong. Please try again, or email vkychoo@gmail.com directly.');
+    btn.textContent = originalText;
+    btn.style.pointerEvents = '';
+    btn.style.opacity = '';
+  });
 }
 </script>
 </body>
