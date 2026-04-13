@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCBJJ · Student Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+  :root {
+    /* ── VCBJJ Manual — light theme, high contrast, glaucoma-friendly ── */
+    --bg:         #fffdf5;   /* warm white — matches portal */
+    --surface:    #ffffff;
+    --surface2:   #fff8e0;   /* light yellow tint */
+    --surface3:   #fdf5d8;
+    --border:     #e8dfa0;   /* gold border */
+    --border-mid: #d4c870;
+    --ink:        #111111;   /* near-black — max contrast */
+    --ink-mid:    #2a2a2a;   /* dark grey — still very readable */
+    --ink-dim:    #444444;   /* medium grey — accessible on white */
+    --ink-muted:  #6b6340;   /* muted gold-brown — used for labels */
+    --accent:     #111111;   /* black — primary accent */
+    --accent-dim: #333333;
+    --accent-dark:#F4BB09;   /* gold — highlight backgrounds */
+    --gi:         #1a6b2a;   /* deep green for Gi tag */
+    --nogi:       #1a4a8a;   /* deep blue for NoGi tag */
+    --both:       #7a4a00;   /* dark amber for Both tag */
+    --gi-bg:      rgba(26,107,42,0.07);
+    --nogi-bg:    rgba(26,74,138,0.07);
+    --both-bg:    rgba(122,74,0,0.07);
+    --gi-border:  rgba(26,107,42,0.25);
+    --nogi-border:rgba(26,74,138,0.25);
+    --both-border:rgba(122,74,0,0.25);
+    --sidebar:    260px;
+    --red:        #c0392b;   /* deep red — accessible */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 17px;   /* increased from 15px — easier for 40+ readers */
+    line-height: 1.85;
+  }
+
+  /* ── LAYOUT ───────────────────────────── */
+  .app { display: flex; min-height: 100vh; }
+
+  /* ── SIDEBAR ──────────────────────────── */
+  .sidenav {
+    width: var(--sidebar);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    background: #111111;
+    border-right: 3px solid #F4BB09;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+  }
+
+  .sidenav-brand {
+    padding: 24px 20px 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 4px;
+    color: #F4BB09;
+    line-height: 1;
+  }
+
+  .brand-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .nav-section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #555550;
+    text-transform: uppercase;
+    padding: 16px 20px 5px;
+  }
+
+  .nav-item {
+    display: block;
+    padding: 8px 20px;
+    color: #c8c7b8;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.1s;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-item:hover { color: #ffffff; background: rgba(244,187,9,0.12); }
+  .nav-item.active { color: #F4BB09; border-left-color: #F4BB09; background: rgba(244,187,9,0.12); }
+  .nav-item.l2 { padding-left: 32px; font-size: 12px; color: #888880; }
+  .nav-item.l2:hover { color: #ffffff; }
+  .nav-item.l2.active { color: #F4BB09; }
+
+  /* ── MAIN ─────────────────────────────── */
+  .main {
+    margin-left: var(--sidebar);
+    flex: 1;
+    max-width: 860px;
+  }
+
+  /* ── COVER ────────────────────────────── */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 64px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .cover-bg {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(244,187,9,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(244,187,9,0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cover-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .cover-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 80px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    line-height: 0.9;
+    margin-bottom: 32px;
+  }
+
+  .cover-title span { color: #F4BB09; -webkit-text-stroke: 1px #111; }
+
+  .cover-lead {
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink-mid);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+
+  .cover-pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+  }
+
+  .pill {
+    padding: 6px 14px;
+    border: 1px solid var(--border-mid);
+    color: var(--ink-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .cover-scroll {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ── SECTION LAYOUT ───────────────────── */
+  .section {
+    padding: 72px 64px;
+    border-bottom: 1px solid var(--border);
+    scroll-margin-top: 0;
+  }
+
+  .section-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 36px 0 12px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #F4BB09;
+    display: inline-block;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 24px 0 8px;
+  }
+
+  p {
+    color: var(--ink-mid);
+    margin-bottom: 16px;
+    max-width: 660px;
+  }
+
+  p strong { color: var(--ink); font-weight: 600; }
+  p em { color: var(--ink-mid); font-style: italic; }
+
+  ul, ol {
+    color: var(--ink-mid);
+    padding-left: 22px;
+    margin-bottom: 16px;
+    max-width: 660px;
+  }
+
+  li { margin-bottom: 6px; line-height: 1.6; }
+  li strong { color: var(--ink); }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+
+  /* ── LEVEL CARDS ──────────────────────── */
+  .level-card {
+    border: 1px solid var(--border);
+    margin-bottom: 3px;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+
+  .level-card:hover { border-color: var(--border-mid); }
+
+  .level-card-head {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+  }
+
+  .level-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    line-height: 1;
+    padding: 16px 20px;
+    min-width: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .level-1 .level-num { background: rgba(192,57,43,0.10); color: #c0392b; }
+  .level-2 .level-num { background: rgba(230,126,34,0.10); color: #a05000; }
+  .level-3 .level-num { background: rgba(244,187,9,0.15); color: #7a5000; }
+  .level-4 .level-num { background: rgba(26,74,138,0.10); color: #1a3d7a; }
+  .level-5 .level-num { background: rgba(17,17,17,0.06); color: #333333; }
+
+  .level-info {
+    padding: 16px 20px;
+    flex: 1;
+    border-left: 1px solid var(--border);
+  }
+
+  .level-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .level-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  .level-body {
+    padding: 0 20px 0 92px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    border-top: 0px solid var(--border);
+  }
+
+  .level-body.open {
+    max-height: 800px;
+    padding: 20px 20px 24px 92px;
+    border-top-width: 1px;
+  }
+
+  .level-body p, .level-body ul { max-width: 100%; }
+
+  /* ── FUNNEL VISUAL ────────────────────── */
+  .funnel-viz {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 32px 0;
+    flex-wrap: wrap;
+  }
+
+  .funnel-node {
+    text-align: center;
+    padding: 20px 28px;
+    border: 1px solid;
+    min-width: 150px;
+  }
+
+  .fn-sweep { border-color: rgba(26,107,42,0.3); background: rgba(26,107,42,0.06); }
+  .fn-choke { border-color: rgba(26,74,138,0.3); background: rgba(26,74,138,0.06); }
+  .fn-lock  { border-color: rgba(122,74,0,0.3); background: rgba(122,74,0,0.06); }
+
+  .funnel-node-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+
+  .fn-sweep .funnel-node-label { color: #1a5a22; }
+  .fn-choke .funnel-node-label { color: #1a3d7a; }
+  .fn-lock  .funnel-node-label { color: #6b4000; }
+
+  .funnel-node-sub {
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.4;
+  }
+
+  .funnel-arrow {
+    font-size: 22px;
+    color: var(--border-mid);
+    padding: 0 8px;
+    margin-top: -16px;
+  }
+
+  .funnel-cycle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    letter-spacing: 1px;
+    gap: 8px;
+  }
+
+  /* ── SELF-ASSESSMENT ─────────────────── */
+  .assessment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 24px 0;
+  }
+
+  .assess-card {
+    border: 1px solid var(--border);
+    padding: 20px;
+    position: relative;
+    transition: border-color 0.15s;
+  }
+
+  .assess-card:hover { border-color: #F4BB09; box-shadow: 0 2px 8px rgba(244,187,9,0.15); }
+
+  .assess-level {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .assess-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .assess-check {
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.9;
+  }
+
+  .assess-check span {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--border-mid);
+    margin-right: 8px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+  }
+
+  /* ── BETWEEN SESSIONS ────────────────── */
+  .practice-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+
+  .practice-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .practice-content { flex: 1; }
+  .practice-title { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .practice-desc { font-size: 13px; color: var(--ink-dim); line-height: 1.5; }
+
+  /* ── FAQ ─────────────────────────────── */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+
+  .faq-q {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 20px;
+    color: var(--ink-muted);
+    font-weight: 300;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq-item.open .faq-q::after { transform: rotate(45deg); }
+
+  .faq-a {
+    color: var(--ink-dim);
+    font-size: 14px;
+    line-height: 1.7;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+    max-width: 640px;
+  }
+
+  .faq-item.open .faq-a { max-height: 400px; }
+
+  /* ── TECHNIQUE QUICK-REF ─────────────── */
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .tech-card {
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+  }
+
+  .tech-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .tech-where {
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 6px;
+  }
+
+  .tech-key {
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+
+  /* ── TAGS ────────────────────────────── */
+  .tag {
+    display: inline-block;
+    padding: 2px 7px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 1px;
+    margin-left: 5px;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+
+  .tag-gi   { background: rgba(26,107,42,0.10); color: #1a5a22; border: 1px solid rgba(26,107,42,0.35); font-weight:700; }
+  .tag-nogi { background: rgba(26,74,138,0.10); color: #1a3d7a; border: 1px solid rgba(26,74,138,0.35); font-weight:700; }
+  .tag-both { background: rgba(122,74,0,0.10); color: #6b4000; border: 1px solid rgba(122,74,0,0.35); font-weight:700; }
+
+  /* ── CALLOUTS ────────────────────────── */
+  .callout {
+    border-left: 3px solid;
+    padding: 16px 20px;
+    margin: 20px 0;
+  }
+
+  .callout-accent { border-color: #F4BB09; background: #fff8e0; }
+  .callout-nogi   { border-color: #1a4a8a; background: rgba(26,74,138,0.05); }
+  .callout-both   { border-color: #7a4a00; background: rgba(122,74,0,0.05); }
+  .callout-muted  { border-color: var(--border-mid); background: var(--surface2); }
+
+  .callout-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .callout-accent .callout-title { color: #6b4a00; }
+  .callout-nogi   .callout-title { color: #1a3d7a; }
+  .callout-both   .callout-title { color: #5a3400; }
+  .callout-muted  .callout-title { color: var(--ink-muted); }
+
+  .callout p { color: var(--ink-dim); margin-bottom: 0; max-width: 100%; }
+  .callout p + p { margin-top: 8px; }
+
+  /* ── POSITION CARDS ──────────────────── */
+  .position-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .pos-card {
+    border: 1px solid var(--border);
+    padding: 18px;
+  }
+
+  .pos-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .pos-question {
+    font-size: 12px;
+    color: var(--accent);
+    font-style: italic;
+    margin-bottom: 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
+  .pos-options {
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.8;
+  }
+
+  /* ── AXIOM TABLE ─────────────────────── */
+  .axiom-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    margin: 20px 0;
+  }
+
+  .axiom-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .axiom-rule {
+    padding: 14px 18px;
+    background: #111111;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #F4BB09;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .axiom-meaning {
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--ink-dim);
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── SUB-FUNNELS ─────────────────────── */
+  .subfunnel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  .sf-card {
+    border: 1px solid var(--border);
+    padding: 16px;
+  }
+
+  .sf-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .sf-chain {
+    font-size: 13px;
+    color: var(--ink-mid);
+    line-height: 2.2;
+  }
+
+  .sf-trigger {
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-left: 10px;
+    display: block;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  /* ── SCROLLBAR ───────────────────────── */
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: #f0ede0; }
+  ::-webkit-scrollbar-thumb { background: #d4c870; }
+
+  .section-anchor { scroll-margin-top: 0; }
+
+  /* ── WHITE BELT / STARTING OUT ──────────── */
+  .wb-phase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 600px) {
+    .wb-phase-grid { grid-template-columns: 1fr; }
+  }
+
+  .wb-phase-card {
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .wb-phase-head {
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .wb-phase-1 .wb-phase-head { background: rgba(192,57,43,0.07); border-bottom:1px solid rgba(192,57,43,0.2); }
+  .wb-phase-2 .wb-phase-head { background: rgba(230,126,34,0.07); border-bottom:1px solid rgba(230,126,34,0.2); }
+  .wb-phase-3 .wb-phase-head { background: rgba(244,187,9,0.09); border-bottom:1px solid rgba(244,187,9,0.25); }
+  .wb-phase-4 .wb-phase-head { background: rgba(26,74,138,0.07); border-bottom:1px solid rgba(26,74,138,0.2); }
+
+  .wb-phase-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .wb-phase-1 .wb-phase-num { color: #c0392b; }
+  .wb-phase-2 .wb-phase-num { color: #a05000; }
+  .wb-phase-3 .wb-phase-num { color: #7a5000; }
+  .wb-phase-4 .wb-phase-num { color: #1a3d7a; }
+
+  .wb-phase-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .wb-phase-sub {
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--ink-muted);
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+
+  .wb-phase-body {
+    padding: 12px 14px;
+  }
+
+  .wb-phase-body ul {
+    padding-left: 16px;
+    margin: 0;
+    color: var(--ink-dim);
+  }
+
+  .wb-phase-body li {
+    font-size: 12px;
+    margin-bottom: 4px;
+    line-height: 1.5;
+  }
+
+  .wb-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+  }
+
+  .wb-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+
+  .wb-checklist li:last-child { border-bottom: none; }
+
+  .wb-checklist li::before {
+    content: '○';
+    font-size: 12px;
+    color: var(--ink-muted);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .wb-star-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .wb-star-row:last-child { border-bottom: none; }
+
+  .wb-star {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    line-height: 1;
+  }
+
+  .wb-star-content { flex: 1; }
+
+  .wb-star-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .wb-star-desc {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+  }
+
+  /* ── BELT PROGRESSION ────────────────── */
+  .belt-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 28px 0;
+  }
+
+  @media (max-width: 700px) {
+    .belt-cards { grid-template-columns: 1fr; }
+  }
+
+  .belt-card {
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .belt-card.current-belt {
+    border-width: 2px;
+  }
+
+  .belt-card-blue { border-color: rgba(69, 130, 255, 0.35); }
+  .belt-card-blue.current-belt { border-color: rgba(69, 130, 255, 0.8); }
+  .belt-card-purple { border-color: rgba(160, 80, 220, 0.35); }
+  .belt-card-purple.current-belt { border-color: rgba(160, 80, 220, 0.8); }
+
+  .belt-card-header {
+    padding: 18px 20px 14px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .belt-card-blue .belt-card-header { background: rgba(69, 130, 255, 0.08); border-bottom: 2px solid rgba(69, 130, 255, 0.35); }
+  .belt-card-purple .belt-card-header { background: rgba(160, 80, 220, 0.07); border-bottom: 2px solid rgba(120,50,180,0.35); }
+
+  .belt-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .belt-card-blue .belt-name { color: #1a4a9a; }
+  .belt-card-purple .belt-name { color: #6b2aaa; }
+
+  .belt-card-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .belt-current-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border: 1px solid;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .belt-card-blue .belt-current-badge { color: #1a4a9a; border-color: rgba(26,74,154,0.4); background: rgba(26,74,154,0.08); }
+  .belt-card-purple .belt-current-badge { color: #6b2aaa; border-color: rgba(107,42,170,0.4); background: rgba(107,42,170,0.08); }
+
+  /* Pyramid */
+  .belt-pyramid {
+    padding: 20px 20px 4px;
+  }
+
+  .pyramid-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 16px;
+  }
+
+  .pyramid-tier {
+    padding: 9px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    position: relative;
+    cursor: default;
+    transition: filter 0.15s;
+  }
+
+  .pyramid-tier:hover { filter: brightness(1.15); }
+
+  .pyramid-tier-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--ink-dim);
+    margin-top: 3px;
+    font-style: italic;
+  }
+
+  /* Blue belt tier colours */
+  .belt-card-blue .tier-1 { background: rgba(0,200,130,0.13); border-left: 3px solid #00c882; }
+  .belt-card-blue .tier-2 { background: rgba(0,180,120,0.10); border-left: 3px solid #00b478; }
+  .belt-card-blue .tier-3 { background: rgba(0,160,110,0.09); border-left: 3px solid #00a06e; }
+  .belt-card-blue .tier-4 { background: rgba(0,140,100,0.08); border-left: 3px solid #008c64; }
+  .belt-card-blue .tier-5 { background: rgba(0,120,90,0.07); border-left: 3px solid #00785a; }
+  .belt-card-blue .tier-6 { background: rgba(0,100,80,0.07); border-left: 3px solid #006450; }
+
+  /* Purple belt tier colours */
+  .belt-card-purple .tier-1 { background: rgba(220,60,40,0.13); border-left: 3px solid #dc3c28; }
+  .belt-card-purple .tier-2 { background: rgba(210,100,20,0.12); border-left: 3px solid #d26414; }
+  .belt-card-purple .tier-3 { background: rgba(210,150,20,0.11); border-left: 3px solid #d29614; }
+  .belt-card-purple .tier-4 { background: rgba(200,180,40,0.10); border-left: 3px solid #c8b428; }
+  .belt-card-purple .tier-5 { background: rgba(180,200,60,0.09); border-left: 3px solid #b4c83c; }
+
+  /* Pillars */
+  .belt-pillars {
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+
+  .pillars-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    padding: 12px 0 8px;
+  }
+
+  .pillar-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+
+  .pillar-key {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    min-width: 90px;
+    flex-shrink: 0;
+    padding-top: 1px;
+    line-height: 1.4;
+  }
+
+  .belt-card-blue .pillar-key { color: #1a4a9a; }
+  .belt-card-purple .pillar-key { color: #6b2aaa; }
+  .belt-card-brown .pillar-key { color: #8a4a10; }
+  .belt-card-black .pillar-key { color: #111111; font-weight:700; }
+
+  /* Brown belt card */
+  .belt-card-brown { border-color: rgba(160, 100, 40, 0.35); }
+  .belt-card-brown.current-belt { border-color: rgba(160, 100, 40, 0.8); }
+  .belt-card-brown .belt-card-header { background: rgba(160, 100, 40, 0.07); border-bottom: 1px solid rgba(160, 100, 40, 0.2); }
+  .belt-card-brown .belt-name { color: #8a4a10; }
+  .belt-card-brown .belt-current-badge { color: #8a4a10; border-color: rgba(138,74,16,0.4); background: rgba(138,74,16,0.08); }
+  .belt-card-brown .tier-1 { background: rgba(160,80,20,0.14); border-left: 3px solid #a05014; }
+  .belt-card-brown .tier-2 { background: rgba(170,100,30,0.12); border-left: 3px solid #aa641e; }
+  .belt-card-brown .tier-3 { background: rgba(180,120,40,0.11); border-left: 3px solid #b47828; }
+  .belt-card-brown .tier-4 { background: rgba(190,140,50,0.10); border-left: 3px solid #be8c32; }
+  .belt-card-brown .tier-5 { background: rgba(200,160,60,0.09); border-left: 3px solid #c8a03c; }
+
+  /* Black belt card */
+  .belt-card-black { border-color: rgba(30, 30, 25, 0.35); }
+  .belt-card-black.current-belt { border-color: #111111; }
+  .belt-card-black .belt-card-header { background: #111111; border-bottom: 2px solid #F4BB09; }
+  .belt-card-black .belt-name { color: #F4BB09; }
+  .belt-card-black .belt-current-badge { color: #F4BB09; border-color: rgba(244,187,9,0.5); background: rgba(244,187,9,0.1); }
+  .belt-card-black .tier-1 { background: rgba(100,100,90,0.10); border-left: 3px solid #64645a; }
+  .belt-card-black .tier-2 { background: rgba(120,120,110,0.09); border-left: 3px solid #78786e; }
+  .belt-card-black .tier-3 { background: rgba(140,140,130,0.08); border-left: 3px solid #8c8c82; }
+  .belt-card-black .tier-4 { background: rgba(158,158,148,0.07); border-left: 3px solid #9e9e94; }
+  .belt-card-black .tier-5 { background: rgba(175,175,165,0.06); border-left: 3px solid #afafa5; }
+
+  .pillar-val {
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+
+  /* Print */
+  @media print {
+    .sidenav { display: none; }
+    .main { margin-left: 0; max-width: 100%; }
+    .cover { min-height: auto; }
+    body { font-size: 13px; }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    .sidenav { display: none; }
+    .main { margin-left: 0; }
+    .cover { padding: 40px 24px; }
+    .cover-title { font-size: 52px; }
+    .section { padding: 48px 24px; }
+    h2 { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- SIDEBAR -->
+<nav class="sidenav">
+  <div class="sidenav-brand">
+    <div class="brand-title">VCBJJ</div>
+    <div class="brand-sub">Your Training Guide</div>
+  </div>
+
+  <div class="nav-section-label">Start Here</div>
+  <a class="nav-item" href="#intro">What You're Training For</a>
+  <a class="nav-item l2" href="#philosophy">The Philosophy</a>
+  <a class="nav-item l2" href="#system">How the System Works</a>
+
+  <div class="nav-section-label">Starting Out</div>
+  <a class="nav-item" href="#white-belt">Day 0 — White Belt</a>
+  <a class="nav-item l2" href="#wb-orientation">What to Expect</a>
+  <a class="nav-item l2" href="#wb-selfpres">The Self-Preservation Principle</a>
+  <a class="nav-item l2" href="#wb-curriculum">Your White Belt Curriculum</a>
+  <a class="nav-item l2" href="#wb-fightiq">Fight IQ</a>
+
+  <div class="nav-section-label">The Five Levels</div>
+  <a class="nav-item" href="#levels">Overview</a>
+  <a class="nav-item l2" href="#level1">Level 1 — Survival</a>
+  <a class="nav-item l2" href="#level2">Level 2 — Guard</a>
+  <a class="nav-item l2" href="#level3">Level 3 — The Funnel</a>
+  <a class="nav-item l2" href="#level4">Level 4 — Reversal</a>
+  <a class="nav-item l2" href="#level5">Level 5 — Top Control</a>
+
+  <div class="nav-section-label">Belt Progression</div>
+  <a class="nav-item" href="#belt-progression">Your Curriculum Map</a>
+  <a class="nav-item l2" href="#belt-blue">Beyond Blue Belt</a>
+  <a class="nav-item l2" href="#belt-purple">Beyond Purple Belt</a>
+  <a class="nav-item l2" href="#belt-brown">Beyond Brown Belt</a>
+  <a class="nav-item l2" href="#belt-black">Black Belt</a>
+
+  <div class="nav-section-label">Understanding Your Training</div>
+  <a class="nav-item" href="#axioms">The Rules That Never Change</a>
+  <a class="nav-item" href="#positions">Positions & What to Do</a>
+  <a class="nav-item" href="#techniques">Techniques at a Glance</a>
+  <a class="nav-item" href="#gi-nogi">Gi vs NoGi — What's Different</a>
+
+  <div class="nav-section-label">Your Development</div>
+  <a class="nav-item" href="#assess">Where Are You Now?</a>
+  <a class="nav-item" href="#between">Between Sessions</a>
+  <a class="nav-item" href="#faq">Why We Train This Way</a>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+<!-- ── COVER ───────────────────────────────────────────────── -->
+<div class="cover" id="intro">
+  <div class="cover-bg"></div>
+  <div class="cover-eyebrow">VCBJJ · Student Guide · 2026</div>
+  <div class="cover-title">
+    BJJ as a<br><span>Functional</span><br>Skill.
+  </div>
+  <div class="cover-lead">
+    This guide explains what you're training, why the sessions are structured the way they are, and how to read your own progress. It's the system behind every drill, game, and round — written for you, not about you.
+  </div>
+  <div class="cover-pills">
+    <div class="pill">Gi & NoGi</div>
+    <div class="pill">Five Levels</div>
+    <div class="pill">The Funnel</div>
+    <div class="pill">Problem-first learning</div>
+    <div class="pill">No competition focus</div>
+  </div>
+  <div class="cover-scroll">↓ &nbsp; scroll to begin</div>
+</div>
+
+<!-- ── PHILOSOPHY ──────────────────────────────────────────── -->
+<div class="section" id="philosophy">
+  <div class="section-eyebrow">The Foundation</div>
+  <h2>Why We Train<br>This Way</h2>
+
+  <p>BJJ at VCBJJ is treated like <strong>a functional skill set — not an identity, not a sport, not a lifestyle brand</strong>. The goal is the same as learning first aid: you want to know it, be able to use it under stress, and not need to think about it when it matters.</p>
+
+  <p>That framing changes everything about how training is designed. We are not preparing for competition. We are not collecting techniques. We are building a <em>working understanding</em> of how bodies control each other — and what to do in any situation you find yourself in.</p>
+
+  <div class="callout callout-accent">
+    <div class="callout-title">The Guiding Principle</div>
+    <p>Technique is not the goal. The goal is to develop a response to any situation. Technique is how we name what worked — after you've already felt it.</p>
+  </div>
+
+  <h3 id="system">How the System Works</h3>
+
+  <p>Every session, every drill, every roll fits into a five-level map. The map is a <strong>loop</strong> — you can enter it at any point, and you'll cycle through all five levels repeatedly in any meaningful exchange. The levels don't describe how good you are. They describe <em>what's happening</em> in the moment.</p>
+
+  <p>Understanding the map means you always know where you are — and what your job is from that position.</p>
+</div>
+
+<!-- ── WHITE BELT — STARTING OUT ───────────────────────────── -->
+<div class="section" id="white-belt">
+  <div class="section-eyebrow">Starting Out</div>
+  <h2>Day 0 —<br>White Belt</h2>
+
+  <p>This section is for students who are just beginning — or who want a clear picture of what the White Belt phase is actually building toward. Everything here maps directly to the Five Levels system you'll find in the next section.</p>
+
+  <h3 id="wb-orientation">What to Expect</h3>
+
+  <div class="wb-star-row">
+    <div class="wb-star">◎</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">You will be taught from Day 0</div>
+      <div class="wb-star-desc">No prior exposure to BJJ or grappling is assumed. Every concept, every position, every movement will be introduced and named. You won't be thrown in and expected to figure it out — but you will be expected to try things before you fully understand them. That's intentional.</div>
+    </div>
+  </div>
+
+  <div class="wb-star-row">
+    <div class="wb-star">◎</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">Sessions will feel different from other martial arts</div>
+      <div class="wb-star-desc">There is no fixed warm-up routine. Warm-up responsibility sits with you, before class. Sessions move between partner drills, constraint games, and live rolling. You won't always know exactly what you're working on — that's not confusion, that's how skill develops in this system.</div>
+    </div>
+  </div>
+
+  <div class="wb-star-row">
+    <div class="wb-star">◎</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">"Rolling" is sparring — and it's part of the curriculum</div>
+      <div class="wb-star-desc">Rolling means live, fully-resisting practice with a partner. It's not a test. It's not a competition. It's training — with real resistance, which is the only environment where technique actually sticks. You'll tap (submit) often when you're new. So does everyone. Tapping is how you learn safely.</div>
+    </div>
+  </div>
+
+  <div class="wb-star-row">
+    <div class="wb-star">◎</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">Overcome self-consciousness early</div>
+      <div class="wb-star-desc">BJJ involves close physical contact that most adults haven't experienced since childhood. You'll be put in awkward positions, struggle, and not always know what to do. This passes faster than you think — and working through it is part of why the training builds real confidence.</div>
+    </div>
+  </div>
+
+  <h3 id="wb-selfpres">The Self-Preservation Principle</h3>
+
+  <p>BJJ at VCBJJ is rooted in a specific philosophy — one that predates the sport competition scene and is captured in the character <strong>柔</strong> (jū): <em>yielding</em>.</p>
+
+  <div class="callout callout-accent">
+    <div class="callout-title">柔 — The Core Idea</div>
+    <p>Instead of imposing force on an attacker, you learn to receive their energy and redirect it. Strength is not the tool. Timing, position, and leverage are. A right move at the right time yields effortless results. A right move at the wrong time costs energy and produces frustration. A wrong move at the wrong time makes things worse.</p>
+  </div>
+
+  <p>This means the first priority at White Belt is not to attack — it's to <strong>survive, stabilise, and create options</strong>. Every defensive posture you learn in the early weeks is a direct expression of this principle.</p>
+
+  <p>The self-preservation objective, simplified: <em>take your opponent off their feet → get to top → stay on top → submit or exit safely. If you have to play guard — keep them in your guard, don't let them pass, sweep or submit.</em></p>
+
+  <h3 id="wb-curriculum">Your White Belt Curriculum</h3>
+
+  <p>The White Belt phase is structured around the <strong>4 Phases</strong> — the same cycle that governs every class at every level. At White Belt, you're learning the fundamental expression of each phase.</p>
+
+  <div class="wb-phase-grid">
+
+    <div class="wb-phase-card wb-phase-1">
+      <div class="wb-phase-head">
+        <div class="wb-phase-num">1</div>
+        <div>
+          <div class="wb-phase-label">Pin Escapes</div>
+          <div class="wb-phase-sub">Survive first</div>
+        </div>
+      </div>
+      <div class="wb-phase-body">
+        <ul>
+          <li>Defensive postures: Turtle, Running Man, Hawking, Baby Bridge, Panda (Seated Guard)</li>
+          <li>Hip escapes: shrimping, reverse shrimp, side shrimp</li>
+          <li>Bridge variations: basic, single leg, bridge and roll</li>
+          <li>Shoulder rolls: forward, backward, Granby (semi-inverted)</li>
+          <li>Breakfalls: front, back, sides</li>
+          <li>Technical stand-up and its self-preservation application</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wb-phase-card wb-phase-2">
+      <div class="wb-phase-head">
+        <div class="wb-phase-num">2</div>
+        <div>
+          <div class="wb-phase-label">Defense to Offense</div>
+          <div class="wb-phase-sub">Guard & transitions</div>
+        </div>
+      </div>
+      <div class="wb-phase-body">
+        <ul>
+          <li>Close Guard — maintaining and attacking from bottom</li>
+          <li>Half Guard — entry and retention</li>
+          <li>Open Guard — basic retention principles</li>
+          <li>Inside the Close Guard: defensive posture for the top player</li>
+          <li>Opening the Close Guard: systematic and sequential guard breaks</li>
+          <li>Combat base positioning</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wb-phase-card wb-phase-3">
+      <div class="wb-phase-head">
+        <div class="wb-phase-num">3</div>
+        <div>
+          <div class="wb-phase-label">Pinning</div>
+          <div class="wb-phase-sub">Top position control</div>
+        </div>
+      </div>
+      <div class="wb-phase-body">
+        <ul>
+          <li>Side Control / Cross Side (Yoko shiho gatame)</li>
+          <li>Scarf Hold — 2 variations (Kesa gatame)</li>
+          <li>Mount (Tate shiho gatame)</li>
+          <li>North-South / Top Control (Kami shiho gatame)</li>
+          <li>Knee on Belly / Knee Ride</li>
+          <li>Back Mount / Back Control</li>
+          <li>Transition Drill #1 — flowing between pins</li>
+          <li>Guard passes: knee cut, under-leg, Toreando (bullfighter)</li>
+          <li>Reversals: scissors sweep, hip bump sweep, waiter/flower sweep</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="wb-phase-card wb-phase-4">
+      <div class="wb-phase-head">
+        <div class="wb-phase-num">4</div>
+        <div>
+          <div class="wb-phase-label">Submissions</div>
+          <div class="wb-phase-sub">Attacks & locks</div>
+        </div>
+      </div>
+      <div class="wb-phase-body">
+        <ul>
+          <li>Cross lapel choke, Bow &amp; Arrow, Paper cutter</li>
+          <li>Rear Naked Choke (hadaka jime / mata leão)</li>
+          <li>Chicken wing choke (kata ha jime)</li>
+          <li>Sliding collar choke (Okuri eri jime)</li>
+          <li>Blood vs air chokes — understanding the difference</li>
+          <li>Americana (figure-4 shoulder lock)</li>
+          <li>Kimura (ude garami)</li>
+          <li>Armbar, Triangle, Omoplata — all from Closed Guard</li>
+        </ul>
+      </div>
+    </div>
+
+  </div><!-- /wb-phase-grid -->
+
+  <div class="callout callout-muted">
+    <div class="callout-title">How to read this list</div>
+    <p>This is not a checklist to complete in order. Techniques emerge from the games and drills — you'll encounter them as problems to solve before they're named. The list shows you the territory, not the path. Not everything will be covered in the time available; sessions are dynamic and content evolves. Take your own notes after each class.</p>
+  </div>
+
+  <h3 id="wb-fightiq">Fight IQ — The Bridge to the Five Levels</h3>
+
+  <p>Before you encounter the Five Levels framework in the next section, here's the intuition behind it:</p>
+
+  <div class="wb-star-row">
+    <div class="wb-star">★</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">Give something to get something</div>
+      <div class="wb-star-desc">Every position you attack from requires your partner to respond. Their response is what creates the next opportunity. You're not executing a fixed plan — you're reading reactions and selecting from what's available. This is why rolling never feels the same twice.</div>
+    </div>
+  </div>
+
+  <div class="wb-star-row">
+    <div class="wb-star">★</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">It's easier to move yourself than your opponent</div>
+      <div class="wb-star-desc">Trying to move a resisting person is exhausting and inefficient. Moving your own body to a better position — even a small hip escape or a frame — changes the geometry of the exchange without requiring strength. This is the 柔 principle in practice.</div>
+    </div>
+  </div>
+
+  <div class="wb-star-row">
+    <div class="wb-star">★</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">Recognise conditions, then act</div>
+      <div class="wb-star-desc">A right move at the right time is effortless. A right move at the wrong time costs energy you don't have. Training your ability to read conditions — when to hold, when to move, when to attack — is what separates developing grapplers from beginners. The Five Levels give you a map for this.</div>
+    </div>
+  </div>
+
+  <div class="wb-star-row">
+    <div class="wb-star">★</div>
+    <div class="wb-star-content">
+      <div class="wb-star-title">What you learn on the mat applies off it</div>
+      <div class="wb-star-desc">How you approach pressure on the mats — whether you panic, freeze, or stay calm and make small moves — reflects how you approach difficult situations generally. Training BJJ builds more than physical skill. Most students notice the carry-over within a few months.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── FIVE LEVELS OVERVIEW ────────────────────────────────── -->
+<div class="section" id="levels">
+  <div class="section-eyebrow">The System</div>
+  <h2>Five Levels.<br>One Loop.</h2>
+
+  <p>These five levels describe every possible situation in a grappling exchange. Click any level to expand it.</p>
+
+  <!-- Level 1 -->
+  <div class="level-card level-1" id="level1">
+    <div class="level-card-head" onclick="toggleLevel(this)">
+      <div class="level-num">1</div>
+      <div class="level-info">
+        <div class="level-title">SURVIVAL</div>
+        <div class="level-sub">You're underneath someone. Your only job is to not get worse.</div>
+      </div>
+    </div>
+    <div class="level-body">
+      <p>Level 1 is where everyone starts, and where everyone returns. If you're on the bottom of side control, mount, back control, or scarf hold — you are in a survival position. The situation is not neutral. Your partner has the advantage.</p>
+      <p><strong>Your job at Level 1 is not to escape immediately.</strong> It's to prevent things from getting worse, buy time, and find the first opportunity to move. Most beginners make the mistake of burning energy trying to escape too fast, which is exactly how you get submitted.</p>
+      <h4>What you're preventing</h4>
+      <ul>
+        <li>Partner getting chest-to-chest connection on you</li>
+        <li>Partner securing an underhook</li>
+        <li>Partner cross-facing your shoulder</li>
+      </ul>
+      <h4>What you're trying to achieve</h4>
+      <ul>
+        <li>Sit up — even just to your elbow is progress</li>
+        <li>Extend your body enough to get a leg or guard back</li>
+      </ul>
+      <div class="callout callout-muted">
+        <div class="callout-title">What "good at Level 1" looks like</div>
+        <p>You don't panic. You create small frames, move on the horizontal plane first, and wait for your partner to shift their weight before you attempt anything. You're calm in a bad spot — and that alone puts you ahead of most people.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 2 -->
+  <div class="level-card level-2" id="level2">
+    <div class="level-card-head" onclick="toggleLevel(this)">
+      <div class="level-num">2</div>
+      <div class="level-info">
+        <div class="level-title">GUARD ENGAGEMENT</div>
+        <div class="level-sub">You have a guard. Now you need to do something with it.</div>
+      </div>
+    </div>
+    <div class="level-body">
+      <p>You've recovered your guard — close, open, K-Guard, half guard, seated, shin-to-shin. The exchange is now neutral, or close to it. Level 2 is about converting that neutral position into an attacking one.</p>
+      <p>There is only <strong>one primary directive</strong> at Level 2: <strong>Destabilize.</strong></p>
+      <p>That means getting your partner's <em>hand</em> to the mat, or their <em>hip</em> to the mat. That's the signal. When their hand or hip touches down, the balance has shifted — and you enter the Funnel.</p>
+      <h4>Guard types you'll work from</h4>
+      <ul>
+        <li><strong>Close Guard</strong> — your legs wrapped around their waist; most controlled starting point</li>
+        <li><strong>K-Guard / X-Guard</strong> — your legs inside theirs; high sweep and leg attack potential</li>
+        <li><strong>DLR / Reverse DLR</strong> — hooking their leg; Gi-preferred</li>
+        <li><strong>Shin-to-Shin</strong> — standing entry guard; works both formats</li>
+        <li><strong>Open / Seated Guard</strong> — fluid; used when they're standing or passing</li>
+      </ul>
+      <div class="callout callout-both">
+        <div class="callout-title">The single question at Level 2</div>
+        <p>"Have I destabilized them?" If the answer is no — keep working on posture control and connection. If yes — you're entering Level 3.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 3 -->
+  <div class="level-card level-3" id="level3">
+    <div class="level-card-head" onclick="toggleLevel(this)">
+      <div class="level-num">3</div>
+      <div class="level-info">
+        <div class="level-title">THE FUNNEL</div>
+        <div class="level-sub">You're attacking. Three options. All connected. All cycling.</div>
+      </div>
+    </div>
+    <div class="level-body">
+      <p>The Funnel is the most important concept in the system. Once you've destabilized your partner, you have three attack options — and they all feed into each other. This is not a decision tree. It's a cycle that your partner drives.</p>
+
+      <div class="funnel-viz">
+        <div class="funnel-node fn-sweep">
+          <div class="funnel-node-label">SWEEP</div>
+          <div class="funnel-node-sub">Reverse the<br>position</div>
+        </div>
+        <div class="funnel-arrow">⟷</div>
+        <div class="funnel-node fn-choke">
+          <div class="funnel-node-label">CHOKE</div>
+          <div class="funnel-node-sub">Restrict air<br>or blood</div>
+        </div>
+        <div class="funnel-arrow">⟷</div>
+        <div class="funnel-node fn-lock">
+          <div class="funnel-node-label">JOINT LOCK</div>
+          <div class="funnel-node-sub">Control<br>a limb</div>
+        </div>
+      </div>
+      <div class="funnel-cycle">↺ &nbsp; your partner's response selects your next move</div>
+
+      <p style="margin-top:20px">Here's what this looks like in practice: you attempt a sweep. Your partner bases their hand on the mat to stop it. That hand on the mat is now available for a kimura. They defend the kimura by straightening their arm. Straight arm is an armbar. The sweep didn't fail — it generated the next opportunity.</p>
+
+      <p>When you're stuck, ask yourself: <strong>"Am I sweeping, choking, or locking?"</strong> Then ask: <strong>"What did they just give me?"</strong> The second answer selects from the first.</p>
+
+      <h4>The Sub-Funnels</h4>
+      <p>Within each branch, there are chains — techniques that flow naturally from one to the next based on how your partner responds. You don't need to know all of these immediately. They emerge as you develop.</p>
+
+      <div class="subfunnel-grid">
+        <div class="sf-card">
+          <div class="sf-title" style="color:var(--gi);">Chain A — Arm</div>
+          <div class="sf-chain">
+            Omoplata
+            <span class="sf-trigger">↓ if they roll to escape</span>
+            Triangle
+            <span class="sf-trigger">↓ if they posture up</span>
+            Armbar
+          </div>
+        </div>
+        <div class="sf-card">
+          <div class="sf-title" style="color:var(--nogi);">Chain B — Kimura</div>
+          <div class="sf-chain">
+            Kimura
+            <span class="sf-trigger">↓ if they straighten arm</span>
+            Guillotine
+            <span class="sf-trigger">↓ if they defend neck</span>
+            Sweep
+          </div>
+        </div>
+        <div class="sf-card">
+          <div class="sf-title" style="color:var(--both);">Chain C — Collar <span class="tag tag-gi">GI</span></div>
+          <div class="sf-chain">
+            Cross lapel choke
+            <span class="sf-trigger">↓ phonecall block</span>
+            Baratoplata
+            <span class="sf-trigger">↓ they defend</span>
+            Re-enter Funnel
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-accent">
+        <div class="callout-title">Why the Funnel works</div>
+        <p>Every defence your partner makes opens something else. You don't need a plan — you need to read what they give you. The Funnel is how you turn your partner's movement into your attack. The more your partner resists, the more options you have.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Level 4 -->
+  <div class="level-card level-4" id="level4">
+    <div class="level-card-head" onclick="toggleLevel(this)">
+      <div class="level-num">4</div>
+      <div class="level-info">
+        <div class="level-title">POSITION REVERSAL</div>
+        <div class="level-sub">Something worked. Now what?</div>
+      </div>
+    </div>
+    <div class="level-body">
+      <p>A sweep landed. You're now on top, or back on your feet. This is the transition moment — and it's where many people lose what they just earned by not committing to the new position.</p>
+      <h4>Your two options</h4>
+      <ul>
+        <li><strong>Reverse the position</strong> — you're now on top, entering Level 5 (Top Control)</li>
+        <li><strong>Recover to standing</strong> — enter the takedown game (throws, single legs, clinch)</li>
+      </ul>
+      <p>The standing game feeds directly back into the system — a takedown lands, you end up in side control or mount (Level 5), and the loop continues. This is why the system is a cycle, not a checklist.</p>
+    </div>
+  </div>
+
+  <!-- Level 5 -->
+  <div class="level-card level-5" id="level5">
+    <div class="level-card-head" onclick="toggleLevel(this)">
+      <div class="level-num">5</div>
+      <div class="level-info">
+        <div class="level-title">TOP CONTROL</div>
+        <div class="level-sub">You're on top. Control it — then attack, or start the loop again.</div>
+      </div>
+    </div>
+    <div class="level-body">
+      <p>You're in a dominant position. The priority now is maintaining it — not scrambling for a submission before the control is established. This is where patience separates good grapplers from impatient ones.</p>
+      <h4>The pinning principles</h4>
+      <ul>
+        <li><strong>Chest-to-chest</strong> — your primary connection; if you lose this, you're losing control</li>
+        <li><strong>Underhook control</strong> — trapping the near arm removes one of their main escape tools</li>
+        <li><strong>Cross-face</strong> — limits their range of rotation; they must move hips before head</li>
+        <li><strong>Balance and pressure</strong> — body weight into them, not propped up on your hands</li>
+      </ul>
+      <p>From here, the system loops back. You'll enter the Funnel again from the top position — or your partner escapes and you return to Level 1 from the other side.</p>
+      <div class="callout callout-muted">
+        <div class="callout-title">The cycle restarts</div>
+        <p>There is no endpoint. Every successful top control position is an opportunity to enter the Funnel again — now from the top. Your partner surviving and re-guarding sends them into their Level 2, which eventually puts you back in Level 1. The loop is the whole game.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BELT PROGRESSION ─────────────────────────────────────── -->
+<div class="section" id="belt-progression">
+  <div class="section-eyebrow">Your Curriculum Map</div>
+  <h2>Belt<br>Progression</h2>
+
+  <p>The five-level system applies at every stage of your journey — but what you're developing at each belt level is different. This map shows you what the curriculum looks like from where you are now, and where it's heading.</p>
+
+  <p>Each belt level has a pyramid of skills to build, and five pillars that describe how you should be thinking about your training. <strong>Your current belt is highlighted.</strong> Read yours first — then read the next level, so you know which direction your training is already pointing.</p>
+
+  <div class="belt-cards">
+
+    <!-- BLUE BELT CARD -->
+    <div class="belt-card belt-card-blue" id="belt-blue" data-belt="blue">
+      <div class="belt-card-header">
+        <div>
+          <div class="belt-name">Blue Belt</div>
+          <div class="belt-card-sub">Foundation & Execution</div>
+        </div>
+        <div class="belt-current-badge belt-blue-badge" style="display:none">▶ Your Level</div>
+      </div>
+
+      <div class="belt-pyramid">
+        <div class="pyramid-wrap">
+          <!-- Apex = most advanced, base = most fundamental -->
+          <div class="pyramid-tier tier-6">
+            Top Game Submissions
+            <div class="pyramid-tier-sub">You're finishing from control — not scrambling for it</div>
+          </div>
+          <div class="pyramid-tier tier-5">
+            Top Game Passes
+            <div class="pyramid-tier-sub">You're working through guard with weight and timing, not muscle</div>
+          </div>
+          <div class="pyramid-tier tier-4">
+            Open to Close Guard
+            <div class="pyramid-tier-sub">You can adapt when your primary guard is denied</div>
+          </div>
+          <div class="pyramid-tier tier-3">
+            Bottom Game Submission
+            <div class="pyramid-tier-sub">You're entering the Funnel with intent — not just hoping</div>
+          </div>
+          <div class="pyramid-tier tier-2">
+            Reversals & Sweeps to Top
+            <div class="pyramid-tier-sub">Sweeps land. You follow through. You don't lose the position.</div>
+          </div>
+          <div class="pyramid-tier tier-1">
+            Survive & Recover<br><span style="font-size:10px;color:var(--ink-muted);font-weight:400">Turtle · Running Man · Close Guard & transitions</span>
+            <div class="pyramid-tier-sub">You're not panicking. You're not giving up your back. You're waiting.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="belt-pillars">
+        <div class="pillars-label">What you're developing</div>
+        <div class="pillar-row">
+          <div class="pillar-key">Strategic</div>
+          <div class="pillar-val">Read the situation. Know whether to hold, abandon, transition, or pursue.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Technical</div>
+          <div class="pillar-val">Move and transition between postures without thinking — the body learns the map.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Tactical</div>
+          <div class="pillar-val">Know your technique combinations and be able to chain them live.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Mental</div>
+          <div class="pillar-val">Stay focused. Trust the technique. Don't get distracted by outcome.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Next step</div>
+          <div class="pillar-val">When your A-game works consistently against resistant partners — you're ready for Purple.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PURPLE BELT CARD -->
+    <div class="belt-card belt-card-purple" id="belt-purple" data-belt="purple">
+      <div class="belt-card-header">
+        <div>
+          <div class="belt-name">Purple Belt</div>
+          <div class="belt-card-sub">Efficiency & Anticipation</div>
+        </div>
+        <div class="belt-current-badge belt-purple-badge" style="display:none">▶ Your Level</div>
+      </div>
+
+      <div class="belt-pyramid">
+        <div class="pyramid-wrap">
+          <div class="pyramid-tier tier-5">
+            Demonstrate Efficient Skills
+            <div class="pyramid-tier-sub">20% effort, 80% result. If it's costing you energy, something is wrong.</div>
+          </div>
+          <div class="pyramid-tier tier-4">
+            Anticipate What's Coming
+            <div class="pyramid-tier-sub">You're a move ahead. You know what they'll do before they do it.</div>
+          </div>
+          <div class="pyramid-tier tier-3">
+            Comfortable Both Ways
+            <div class="pyramid-tier-sub">Top or bottom — you don't have a preference. Both are opportunities.</div>
+          </div>
+          <div class="pyramid-tier tier-2">
+            Create & Limit Options
+            <div class="pyramid-tier-sub">You're setting traps. You close their exits before you attack.</div>
+          </div>
+          <div class="pyramid-tier tier-1">
+            Recognise & Exploit Errors
+            <div class="pyramid-tier-sub">You see the mistake before they know they've made it.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="belt-pillars">
+        <div class="pillars-label">What you're developing</div>
+        <div class="pillar-row">
+          <div class="pillar-key">Strategic</div>
+          <div class="pillar-val">Hunt for errors before they happen. Your movement is more efficient because your read is earlier.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Technical</div>
+          <div class="pillar-val">Use angles, weight, and timing to remove your partner's options — not just respond to them.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Tactical</div>
+          <div class="pillar-val">Move off the beaten path. Your A-game is now your backup. Explore what you don't yet own.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Counter</div>
+          <div class="pillar-val">When your game is shut down, switch tracks. Adapt to pressure, speed, and strength — don't fight them.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Mental</div>
+          <div class="pillar-val">Be comfortable with failure. Failure is data. Keep testing until the unexplored becomes your new normal.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .belt-cards -->
+
+  <!-- BROWN + BLACK row -->
+  <div class="belt-cards">
+
+    <!-- BROWN BELT CARD -->
+    <div class="belt-card belt-card-brown" id="belt-brown" data-belt="brown">
+      <div class="belt-card-header">
+        <div>
+          <div class="belt-name">Brown Belt</div>
+          <div class="belt-card-sub">Dangerous from Any Position</div>
+        </div>
+        <div class="belt-current-badge belt-brown-badge" style="display:none">▶ Your Level</div>
+      </div>
+
+      <div class="belt-pyramid">
+        <div class="pyramid-wrap">
+          <div class="pyramid-tier tier-5">
+            Complex Submission Integration
+            <div class="pyramid-tier-sub">Leg locks chain with upper body attacks. You hunt across the whole body, not just your favourite limb.</div>
+          </div>
+          <div class="pyramid-tier tier-4">
+            Seamless Defense to Offense
+            <div class="pyramid-tier-sub">Half guard, open guard transitions — the shift from defending to attacking is invisible. There is no "now I switch".</div>
+          </div>
+          <div class="pyramid-tier tier-3">
+            Pressure & Positional Dominance
+            <div class="pyramid-tier-sub">Knee on belly, pin transitions — you make top positions uncomfortable, not just stable.</div>
+          </div>
+          <div class="pyramid-tier tier-2">
+            Advanced Reversals & Turtle Counter
+            <div class="pyramid-tier-sub">You escape and reverse with intent, not just survival. Turtle becomes a launch pad, not a last resort.</div>
+          </div>
+          <div class="pyramid-tier tier-1">
+            Own All Four Phases
+            <div class="pyramid-tier-sub">Pin escapes, pinning, defense-to-offense, submissions — no phase is avoided. All of it is home.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="belt-pillars">
+        <div class="pillars-label">What you\'re developing</div>
+        <div class="pillar-row">
+          <div class="pillar-key">Strategic</div>
+          <div class="pillar-val">You don\'t have a phase preference. Wherever the roll goes, you\'re working — not waiting to get back to your game.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Technical</div>
+          <div class="pillar-val">Refinement over addition. Each technique works across size, speed, and resistance — not just against compliant partners.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Tactical</div>
+          <div class="pillar-val">You\'re dangerous from positions most people only try to escape. Turtle, half guard, and knee on belly are attack platforms.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Transfer</div>
+          <div class="pillar-val">You feel what your partner is about to do and preempt it. Understanding has become instinct.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Mental</div>
+          <div class="pillar-val">Leg locks demand ego-free training. You tap early, test often, and treat unfamiliar territory as data — not threat.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLACK BELT CARD -->
+    <div class="belt-card belt-card-black" id="belt-black" data-belt="black">
+      <div class="belt-card-header">
+        <div>
+          <div class="belt-name">Black Belt</div>
+          <div class="belt-card-sub">Refinement & Contribution</div>
+        </div>
+        <div class="belt-current-badge belt-black-badge" style="display:none">▶ Your Level</div>
+      </div>
+
+      <div class="belt-pyramid">
+        <div class="pyramid-wrap">
+          <div class="pyramid-tier tier-5">
+            Contribute to the Game
+            <div class="pyramid-tier-sub">Through instruction, mentoring, or exploration — you give something back.</div>
+          </div>
+          <div class="pyramid-tier tier-4">
+            Explore Without a Map
+            <div class="pyramid-tier-sub">New techniques and strategies are tested with curiosity, not urgency.</div>
+          </div>
+          <div class="pyramid-tier tier-3">
+            Continuous Refinement
+            <div class="pyramid-tier-sub">Every technique you own still has room in it. The work is never finished.</div>
+          </div>
+          <div class="pyramid-tier tier-2">
+            Adapt Across All Contexts
+            <div class="pyramid-tier-sub">Gi, NoGi, size, age, experience — the game adjusts. You don't need to.</div>
+          </div>
+          <div class="pyramid-tier tier-1">
+            The Foundation Holds
+            <div class="pyramid-tier-sub">Survival, efficiency, and the Funnel — still the answer, at every level.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="belt-pillars">
+        <div class="pillars-label">What you're developing</div>
+        <div class="pillar-row">
+          <div class="pillar-key">Mastery</div>
+          <div class="pillar-val">Continuous refinement of all techniques. There is no arrived. There is only the next layer.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Exploration</div>
+          <div class="pillar-val">Seek paths you haven't walked. Your established game is the safety net — not the destination.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Teaching</div>
+          <div class="pillar-val">Optional — but available. Coaching BJJ is a separate skillset. Some gravitate toward it, some don't. Both are fine. Ask if you're curious.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">Community</div>
+          <div class="pillar-val">Contributing to the mat culture — how you roll, how you help others, what you model — is its own form of instruction.</div>
+        </div>
+        <div class="pillar-row">
+          <div class="pillar-key">The journey</div>
+          <div class="pillar-val">The belt is an acknowledgement, not an endpoint. Enjoy the training. That's always been the point.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end brown/black belt-cards -->
+
+  <div class="callout callout-muted">
+    <div class="callout-title">How to use this map</div>
+    <p>The pyramid reads bottom-up — the foundation must be solid before the layers above it become available. If you're finding the higher layers inconsistent, the problem is almost always one level below where you think it is. Read your current belt level first. Then read the next — not to rush toward it, but so you know what direction you're already heading.</p>
+  </div>
+</div>
+
+<!-- ── AXIOMS ───────────────────────────────────────────────── -->
+<div class="section" id="axioms">
+  <div class="section-eyebrow">Principles</div>
+  <h2>The Rules That<br>Never Change</h2>
+
+  <p>Regardless of position, format, or level — these six principles always apply. When something isn't working, the answer is almost always that one of these has been forgotten.</p>
+
+  <div class="axiom-grid">
+    <div class="axiom-row">
+      <div class="axiom-rule">Push = Defend</div>
+      <div class="axiom-meaning">When your hands are pushing, you're creating space — but not using it. Pushing is a defensive move, not an attacking one.</div>
+    </div>
+    <div class="axiom-row">
+      <div class="axiom-rule">Pull = Attack</div>
+      <div class="axiom-meaning">Pulling closes distance and creates leverage. If you want to attack, your hands need to be pulling, not pushing.</div>
+    </div>
+    <div class="axiom-row">
+      <div class="axiom-rule">Hand or hip to mat</div>
+      <div class="axiom-meaning">From guard, this is the signal to attack. The moment either one touches down, their balance has shifted — enter the Funnel.</div>
+    </div>
+    <div class="axiom-row">
+      <div class="axiom-rule">Horizontal first</div>
+      <div class="axiom-meaning">Escaping from the bottom? Move sideways before you try to sit up. Going vertical before horizontal is how escapes fail.</div>
+    </div>
+    <div class="axiom-row">
+      <div class="axiom-rule">Inside space wins</div>
+      <div class="axiom-meaning">Whoever controls the space between the two bodies controls the exchange. Most frame fights are really inside-space contests.</div>
+    </div>
+    <div class="axiom-row">
+      <div class="axiom-rule">Make it meaningful</div>
+      <div class="axiom-meaning">A grip only matters if it restricts or controls your partner's movement. Grabbing without purpose wastes energy and telegraphs your intentions.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── POSITIONS ───────────────────────────────────────────── -->
+<div class="section" id="positions">
+  <div class="section-eyebrow">Position Reference</div>
+  <h2>Positions &<br>What to Do</h2>
+
+  <p>Every position has one primary question to answer. Once you answer it, you know what to do next.</p>
+
+  <div class="position-grid">
+
+    <div class="pos-card">
+      <div class="pos-name">Close Guard</div>
+      <div class="pos-question">"Have I broken their posture?"</div>
+      <div class="pos-options">
+        If no → break posture first, always<br>
+        If yes → arm drag, kimura, sweep, triangle<br>
+        They stand → K-Guard, lumberjack, star sweep
+      </div>
+    </div>
+
+    <div class="pos-card">
+      <div class="pos-name">Side Control <small style="font-size:12px;color:var(--ink-muted)">(bottom)</small></div>
+      <div class="pos-question">"Am I moving, or just waiting?"</div>
+      <div class="pos-options">
+        Move before they settle — the window is brief<br>
+        Horizontal escape first, then build height<br>
+        Underhook → back take is your main attack
+      </div>
+    </div>
+
+    <div class="pos-card">
+      <div class="pos-name">Mount <small style="font-size:12px;color:var(--ink-muted)">(bottom)</small></div>
+      <div class="pos-question">"Are my elbows in?"</div>
+      <div class="pos-options">
+        Elbows glued to ribs — protect the arms<br>
+        Bridge into them (not away) to create lift<br>
+        Opposite-hip shrimp → recover half guard
+      </div>
+    </div>
+
+    <div class="pos-card">
+      <div class="pos-name">Back Control <small style="font-size:12px;color:var(--ink-muted)">(bottom)</small></div>
+      <div class="pos-question">"Which side is safer to exit?"</div>
+      <div class="pos-options">
+        Exit toward the choking arm side, not away<br>
+        Hip escape down, trap a hook, create space<br>
+        Don't chin-tuck and wait — keep moving
+      </div>
+    </div>
+
+    <div class="pos-card">
+      <div class="pos-name">Half Guard <small style="font-size:12px;color:var(--ink-muted)">(bottom)</small></div>
+      <div class="pos-question">"Do I have the underhook?"</div>
+      <div class="pos-options">
+        No underhook → stay off your back, fight for it<br>
+        Underhook → back take or sweep<br>
+        Flattened → John Wayne sweep
+      </div>
+    </div>
+
+    <div class="pos-card">
+      <div class="pos-name">Turtle</div>
+      <div class="pos-question">"Am I getting back to guard?"</div>
+      <div class="pos-options">
+        Turtle is temporary — don't rest here<br>
+        Granby roll → guard recovery<br>
+        Being broken down → prevent by moving first
+      </div>
+    </div>
+
+    <div class="pos-card">
+      <div class="pos-name">K-Guard</div>
+      <div class="pos-question">"Which way are they leaning?"</div>
+      <div class="pos-options">
+        Forward → Matrix back take or X-Guard sweep<br>
+        Stepping out → saddle / heel hook entry<br>
+        Cross-face counter → spin under, dilemma
+      </div>
+    </div>
+
+    <div class="pos-card">
+      <div class="pos-name">Scarf Hold <small style="font-size:12px;color:var(--ink-muted)">(bottom)</small></div>
+      <div class="pos-question">"Can I connect my hook to my hand?"</div>
+      <div class="pos-options">
+        Top hook → connect bottom hand to it → rotate<br>
+        Underhook fight → Dagestani handcuffs<br>
+        Bridge into elbow side, not away from it
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout callout-muted">
+    <div class="callout-title">How to use this reference</div>
+    <p>After a session, pick one position where you felt stuck and re-read it. Ask yourself which condition you were in, and whether you were answering the right primary question. Most problems trace back to missing step zero.</p>
+  </div>
+</div>
+
+<!-- ── TECHNIQUES AT A GLANCE ──────────────────────────────── -->
+<div class="section" id="techniques">
+  <div class="section-eyebrow">Technique Reference</div>
+  <h2>Techniques<br>at a Glance</h2>
+
+  <p>You don't need to memorise this list. These are the techniques you'll encounter most in training — use this to look up a name after a session, or to understand the context for something you've been drilling.</p>
+
+  <h3>High Priority — Learn These First</h3>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-name">Arm Drag</div>
+      <div class="tech-where">Guard → Back take</div>
+      <div class="tech-key">The highest-frequency technique in the system. 2-on-1 grip, pull across, hip escape to the same side. Every student trains this in some form.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Hip Escape (Shrimp)</div>
+      <div class="tech-where">Level 1 — all positions</div>
+      <div class="tech-key">The foundational movement. Every escape and recovery starts here. If nothing else is working, shrimp.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Triangle</div>
+      <div class="tech-where">Guard → Everywhere</div>
+      <div class="tech-key">The most-used submission in the system. One arm in, one arm out. Available from guard, mount, back, and arm drag entries.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Armbar</div>
+      <div class="tech-where">Guard / Mount / Back</div>
+      <div class="tech-key">Most-referenced technique overall. Multiple entries. The belly-down variant is your stack counter — rotate with your partner's direction, don't resist it.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Kimura</div>
+      <div class="tech-where">Guard / Half guard / Top</div>
+      <div class="tech-key">The Funnel's main control point. Use it to finish, sweep, or transition to armbar. If they straighten their arm, you already have the armbar.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Scissors Sweep</div>
+      <div class="tech-where">Close Guard</div>
+      <div class="tech-key">Sleeve grip + pants grip (Gi) or wrist grip (NoGi). Bottom leg scissors the thigh, top leg sickles the arm. Gi version amplified by pants grip.</div>
+    </div>
+  </div>
+
+  <h3>Sweeps — Know the Options</h3>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-name">Star Sweep</div>
+      <div class="tech-where">Close Guard (standing)</div>
+      <div class="tech-key">No grip required. Hook ankle, push hip. Clean format-agnostic sweep for when your partner stands.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Lumberjack Sweep</div>
+      <div class="tech-where">Close Guard (standing)</div>
+      <div class="tech-key">Both hands grab one ankle, both legs push the hip. Simple leverage — pair it with Star Sweep as two reads from the same situation.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Hip Bump</div>
+      <div class="tech-where">Close Guard</div>
+      <div class="tech-key">Sit up, post hand, drive hip into chest. When they block — kimura. When they duck — guillotine. The bump is the entry, not the finish.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">John Wayne</div>
+      <div class="tech-where">Half Guard (flattened)</div>
+      <div class="tech-key">From flattened half guard bottom — use hip and leg to create space, re-secure underhook, roll your partner.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">100% Sweep</div>
+      <div class="tech-where">Close Guard</div>
+      <div class="tech-key">Both legs on hips, rotate partner off their base. Identical mechanics Gi and NoGi. Often pairs with guillotine if they base forward.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Matrix</div>
+      <div class="tech-where">K-Guard</div>
+      <div class="tech-key">From K-Guard, weight forward — back take by rotating under and behind. Your first exit from K-Guard when they lean in.</div>
+    </div>
+  </div>
+
+  <h3>Chokes — Context Matters</h3>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-name">Arm Triangle</div>
+      <div class="tech-where">Mount / Side control</div>
+      <div class="tech-key">Works both formats. Head + arm trapped, hands connected, elbows point down. Space under the arm and around the neck is the entry condition.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Guillotine</div>
+      <div class="tech-where">Shoot defense / Guard</div>
+      <div class="tech-key">Actually easier NoGi. Arm-in variant gives mechanical advantage. Entry points: hip bump, half guard scramble, defending a single leg.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Cross Lapel</div>
+      <div class="tech-where">Close Guard / Mount <span class="tag tag-gi">GI</span></div>
+      <div class="tech-key">Three variations. If they block with "phonecall" defence → Baratoplata. The counter defence is the entry for the next attack.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Rear Naked Choke</div>
+      <div class="tech-where">Back Control</div>
+      <div class="tech-key">Top arm (choking arm) over, bottom arm under. Seat belt first, hooks second, choke when upper body is isolated. NoGi primary finish from back.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">Bow & Arrow</div>
+      <div class="tech-where">Back Control <span class="tag tag-gi">GI</span></div>
+      <div class="tech-key">Collar grip + far pants grip. Extend like a bow. Near leg is the fulcrum, far leg is the post. Gi's most powerful back submission.</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-name">D'Arce / Canto</div>
+      <div class="tech-where">Top scramble</div>
+      <div class="tech-key">Both formats. Entry from top half guard or passing scrambles. The arm thread is the entry — if the arm is in, the choke is available.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GI vs NOGI ──────────────────────────────────────────── -->
+<div class="section" id="gi-nogi">
+  <div class="section-eyebrow">Format Guide</div>
+  <h2>Gi vs NoGi —<br>What Actually Changes</h2>
+
+  <p>Training both formats doesn't mean learning two different systems. It means learning one system with two different gripping languages. The positions, the Funnel, the axioms — all the same. What changes is how you <em>hold</em> things.</p>
+
+  <div class="callout callout-accent">
+    <div class="callout-title">The short version</div>
+    <p><strong>Gi:</strong> More control available. Collar and sleeve grips create pauses and amplify every technique. The game is slower, more grip-dependent, and rewards patience.<br><br>
+    <strong>NoGi:</strong> No grip anchor. Speed and body position replace textile control. The game is faster, more pressure-dependent, and rewards athleticism more.</p>
+  </div>
+
+  <h3>The Translation — Same Concept, Different Grip</h3>
+
+  <div style="margin: 20px 0; overflow-x:auto;">
+    <table style="width:100%; border-collapse:collapse; font-size:13px;">
+      <thead>
+        <tr>
+          <th style="background:var(--surface2); color:var(--ink-muted); padding:10px 14px; text-align:left; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; border:1px solid var(--border);">Concept</th>
+          <th style="background:rgba(184,255,69,0.08); color:var(--gi); padding:10px 14px; text-align:left; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; border:1px solid var(--border);">Gi Version</th>
+          <th style="background:rgba(69,212,255,0.08); color:var(--nogi); padding:10px 14px; text-align:left; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:1px; border:1px solid var(--border);">NoGi Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink);">Break posture</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Collar grip pull</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Head / neck control</td>
+        </tr>
+        <tr style="background:var(--surface2);">
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink);">Control the arm</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Sleeve grip</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Wrist / overhook</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink);">Guard retention</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Pants / belt grip</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Leg hooks, body contact</td>
+        </tr>
+        <tr style="background:var(--surface2);">
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink);">Back control</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Collar + hooks</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Seat belt emphasis</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink);">Sweep amplifier</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Pants / collar pull</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Pure hip mechanics</td>
+        </tr>
+        <tr style="background:var(--surface2);">
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink);">Best submission</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">Bow & arrow (back), cross lapel (guard)</td>
+          <td style="padding:10px 14px; border:1px solid var(--border); color:var(--ink-dim);">RNC (back), guillotine (guard)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Training both formats accelerates development in both. The Gi teaches you grip discipline and patience. NoGi teaches you that you can't rely on friction — you have to earn every position with movement. Students who train both develop a more complete understanding faster than those who specialise early.</p>
+</div>
+
+<!-- ── SELF-ASSESSMENT ─────────────────────────────────────── -->
+<div class="section" id="assess">
+  <div class="section-eyebrow">Your Development</div>
+  <h2>Where Are<br>You Now?</h2>
+
+  <p>This isn't a belt checklist. It's a practical assessment — can you do what each level requires, under resistance, without thinking about it? Use this to identify your actual focus area, not where you wish you were.</p>
+
+  <div class="assessment-grid">
+
+    <div class="assess-card">
+      <div class="assess-level">Foundation</div>
+      <div class="assess-title">Surviving Pressure</div>
+      <div class="assess-check">
+        <span></span>You don't panic in bad positions<br>
+        <span></span>You frame before trying to escape<br>
+        <span></span>You move horizontally before vertically<br>
+        <span></span>You can survive 2+ minutes in side control without being submitted<br>
+        <span></span>Your guard returns feel natural, not desperate
+      </div>
+    </div>
+
+    <div class="assess-card">
+      <div class="assess-level">Level 2</div>
+      <div class="assess-title">Guard That Works</div>
+      <div class="assess-check">
+        <span></span>You can break posture reliably from close guard<br>
+        <span></span>You recognise when a hand or hip hits the mat<br>
+        <span></span>You have at least 2 guard types you use confidently<br>
+        <span></span>You don't just hold guard — you do something with it<br>
+        <span></span>You adapt when your preferred guard is denied
+      </div>
+    </div>
+
+    <div class="assess-card">
+      <div class="assess-level">Level 3</div>
+      <div class="assess-title">Using the Funnel</div>
+      <div class="assess-check">
+        <span></span>You know which of Sweep / Choke / Lock you're going for<br>
+        <span></span>When one fails, you flow to the next — not restart<br>
+        <span></span>You can name at least one sub-funnel chain and use it live<br>
+        <span></span>Your attacks follow your partner's movement, not a script<br>
+        <span></span>You attempt submissions without waiting for perfection
+      </div>
+    </div>
+
+    <div class="assess-card">
+      <div class="assess-level">Levels 4 & 5</div>
+      <div class="assess-title">Top Game</div>
+      <div class="assess-check">
+        <span></span>Sweeps land cleanly — you follow through to top position<br>
+        <span></span>You maintain top control without using strength<br>
+        <span></span>You use chest-to-chest + underhook + cross-face together<br>
+        <span></span>You enter the Funnel from top positions, not just guard<br>
+        <span></span>You know when to abandon a position and transition
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout callout-muted">
+    <div class="callout-title">How to use this</div>
+    <p>Work on the lowest level where you have unchecked boxes. It's tempting to train the exciting stuff at Level 3 — but if your Level 1 survival is shaky, you'll spend most of every roll at Level 1 anyway. Fix the foundation first. The attacks get better by themselves once you stop losing positions.</p>
+  </div>
+</div>
+
+<!-- ── BETWEEN SESSIONS ────────────────────────────────────── -->
+<div class="section" id="between">
+  <div class="section-eyebrow">Off the Mat</div>
+  <h2>Between<br>Sessions</h2>
+
+  <p>Most of your development happens on the mat, under resistance. But there are things you can do between sessions that compound the work you're already doing.</p>
+
+  <div class="practice-row">
+    <div class="practice-icon">✍</div>
+    <div class="practice-content">
+      <div class="practice-title">Write one thing down after every session</div>
+      <div class="practice-desc">Not a technique list. One moment — what happened, what you tried, what your partner did. A single sentence is enough. Over weeks, patterns emerge that aren't visible session-to-session.</div>
+    </div>
+  </div>
+
+  <div class="practice-row">
+    <div class="practice-icon">↺</div>
+    <div class="practice-content">
+      <div class="practice-title">Replay one position mentally</div>
+      <div class="practice-desc">Pick one position you struggled with. Walk through the decision tree from that position — condition by condition. Not technique recall. "If they do X, I do Y." You're training decision speed, not muscle memory.</div>
+    </div>
+  </div>
+
+  <div class="practice-row">
+    <div class="practice-icon">◎</div>
+    <div class="practice-content">
+      <div class="practice-title">Pick one Funnel question for your next session</div>
+      <div class="practice-desc">Before you arrive, decide: "In this session I'm going to focus on the Kimura chain." Then try it regardless of whether it works. You're building a habit of intentional training, not reacting to whatever happens.</div>
+    </div>
+  </div>
+
+  <div class="practice-row">
+    <div class="practice-icon">🔲</div>
+    <div class="practice-content">
+      <div class="practice-title">Use the self-assessment once a month</div>
+      <div class="practice-desc">Not every week — progress is slow enough that weekly comparisons are discouraging. Monthly comparisons show real movement. Update the boxes honestly. The goal is accuracy, not optimism.</div>
+    </div>
+  </div>
+
+  <div class="practice-row">
+    <div class="practice-icon">⟳</div>
+    <div class="practice-content">
+      <div class="practice-title">Don't skip survival work</div>
+      <div class="practice-desc">When you drill at home or visualise — spend at least half your mental time in Level 1. Escapes and frames are the least glamorous part of the system and the most important. Everyone wants to drill the armbar. Nobody wants to drill the hip escape for the 200th time. The ones who do get better faster.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ─────────────────────────────────────────────────── -->
+<div class="section" id="faq">
+  <div class="section-eyebrow">Understanding the Approach</div>
+  <h2>Why We Train<br>This Way — FAQs</h2>
+
+  <p>These are the questions that come up most often — usually after a session that felt different from what students expected from BJJ.</p>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Why don't we drill techniques the way other gyms do?</div>
+    <div class="faq-a">Traditional technique drilling — watch a demonstration, repeat it 50 times — produces people who are good at drilling. What we want is people who can solve problems they haven't seen before, under resistance, in real time. The research on skill acquisition is clear: discovering a solution through experience, then having it named, produces better long-term retention and more adaptable skill than demonstration-first learning. The games and constraint-based training we use are designed to create that discovery. You'll feel less immediately competent — but you'll develop faster.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Why do the sessions sometimes feel chaotic or like I don't know what I'm doing?</div>
+    <div class="faq-a">That feeling is the learning. Cognitive effort during training — not knowing what to do, trying things, being wrong, trying again — is what creates durable skill. If every session feels clean and comfortable, you're probably not being challenged enough. The discomfort of "I don't know what to do here" is exactly when skill develops. Over time, those moments get shorter. That's progress.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">I keep getting tapped by the same thing. Should I drill that escape more?</div>
+    <div class="faq-a">Sometimes yes — but usually the problem is one level earlier than where you're getting tapped. If you're being armbarred repeatedly, the question isn't "how do I escape armbars?" — it's "why is my partner getting to the armbar position in the first place?" Trace it back. Almost always it's a Level 1 or Level 2 problem, not a Level 3 one. Fix the position before fixing the submission.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Why do we train Gi and NoGi? Can I just do one?</div>
+    <div class="faq-a">You can specialise, but both formats will make you better at the other. Gi training builds grip discipline and teaches you to work in tight, controlled spaces. NoGi removes the crutch of textile control and forces you to move and connect with body position instead. The translation between formats isn't complicated — mostly grip substitutions — and the system is designed so that every concept you learn applies to both. Students who train both generally develop more complete understanding than those who only do one.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">How do I know if I'm actually improving?</div>
+    <div class="faq-a">Use the self-assessment section in this guide monthly. More practically: track how long you survive in bad positions before the situation gets worse. Track how often you recognise what's available in the Funnel before your partner reacts. Track how many times you attempt something intentional vs just reacting. Progress in BJJ is slow and non-linear — there will be weeks where you feel like you're getting worse, which often means you've started trying more challenging things. That's not regression. That's development.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Why does the session sometimes feel like a game rather than technical training?</div>
+    <div class="faq-a">Because it is — and that's deliberate. Constraint games are how the system introduces new movement problems in a format that keeps both people engaged and produces emergent technique rather than copied technique. What feels like a game is actually a precisely designed learning environment. The game has a specific objective, specific constraints, and specific win conditions — all chosen to direct your attention toward the skill being developed. The technique you'd otherwise be shown in a demonstration is instead something you discover yourself, which means you'll remember it and be able to adapt it.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-q">Should I be watching BJJ videos between sessions?</div>
+    <div class="faq-a">With caution. Watching high-level rolling can help you see the Funnel in action and understand what positions look like at speed. But technique videos — especially ones that teach isolated techniques out of position context — can actually slow down your development by giving you answers before you've experienced the problems. If you watch anything, watch positions and rolls, not technique breakdowns. And watch with one question in mind: "What's the Five-Level situation here? What is this person's Funnel?"</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="padding: 48px 64px; border-top: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+  <div>
+    <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:3px; color:var(--accent);">VCBJJ</div>
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:1px; margin-top:4px;">Student Guide · March 2026</div>
+  </div>
+  <div style="font-size:12px; color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; text-align:right; line-height:1.8;">
+    Private Training · Kuala Lumpur, Malaysia<br>
+    Gi & NoGi · Small Group · 40+ Professionals
+  </div>
+</div>
+
+</div><!-- end .main -->
+</div><!-- end .app -->
+
+<script>
+// ── BELT PROGRESSION HIGHLIGHT ──────────────────────────────
+// Set this from your portal login data — e.g. window.currentBelt = studentData.belt
+// Values: 'white' | 'blue' | 'purple' | 'brown' | 'black'
+// If not set, no card is highlighted (both shown equally)
+(function () {
+  var belt = (typeof window.vcbjjBelt !== 'undefined') ? window.vcbjjBelt : null;
+  if (!belt) return;
+
+  var beltMap = {
+    'white': 'blue',
+    'blue':  'blue',
+    'purple':'purple',
+    'brown': 'brown',
+    'black': 'black'
+  };
+
+  var target = beltMap[belt.toLowerCase()];
+  if (!target) return;
+
+  // Show the badge on the matching card
+  var badge = document.querySelector('.belt-' + target + '-badge');
+  if (badge) badge.style.display = 'inline-block';
+
+  // Add current-belt class to the matching card
+  var card = document.querySelector('.belt-card-' + target);
+  if (card) card.classList.add('current-belt');
+})();
+
+// Level accordion
+function toggleLevel(head) {
+  const card = head.closest('.level-card');
+  const body = card.querySelector('.level-body');
+  body.classList.toggle('open');
+}
+
+// FAQ accordion
+function toggleFaq(item) {
+  item.classList.toggle('open');
+}
+
+// Active nav on scroll
+const navItems = document.querySelectorAll('.nav-item');
+
+function getAnchors() {
+  return Array.from(navItems).map(n => {
+    const href = n.getAttribute('href');
+    if (!href || !href.startsWith('#')) return null;
+    return { el: n, target: document.getElementById(href.slice(1)) };
+  }).filter(x => x && x.target);
+}
+
+function updateNav() {
+  const anchors = getAnchors();
+  let current = null;
+  anchors.forEach(({ target }) => {
+    if (target.getBoundingClientRect().top <= 80) current = target;
+  });
+  anchors.forEach(({ el, target }) => {
+    el.classList.toggle('active', target === current);
+  });
+}
+
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
+
+// Open the first level card by default
+document.querySelector('.level-body')?.classList.add('open');
+</script>
+</body>
+</html>

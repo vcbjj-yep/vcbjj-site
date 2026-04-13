@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VCBJJ · Groundwork — 4-Week Physical Preparation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+  :root{--bg:#fffdf5;--surface:#fff;--surface2:#fff8e0;--border:#e8dfa0;--border-mid:#d4c870;--ink:#111;--ink-mid:#2a2a2a;--ink-dim:#444;--ink-muted:#6b6340;--accent:#111;--accent-gold:#F4BB09;--red:#c0392b;--orange:#a05000;--green:#1a6b2a;--blue:#1a4a8a;--sidebar:260px}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;font-size:17px;line-height:1.85}
+  .app{display:flex;min-height:100vh}
+  .sidenav{width:var(--sidebar);position:fixed;top:0;left:0;bottom:0;background:#111;border-right:3px solid var(--accent-gold);overflow-y:auto;display:flex;flex-direction:column;z-index:100}
+  .sidenav-brand{padding:24px 20px 18px;border-bottom:1px solid var(--border)}
+  .brand-title{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;color:var(--accent-gold);line-height:1}
+  .brand-sub{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#888;text-transform:uppercase;margin-top:5px}
+  .nav-section-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;color:#555550;text-transform:uppercase;padding:16px 20px 5px}
+  .nav-item{display:block;padding:8px 20px;color:#c8c7b8;font-size:13px;text-decoration:none;transition:all .1s;line-height:1.4;border-left:2px solid transparent}
+  .nav-item:hover{color:#fff;background:rgba(244,187,9,.12)}.nav-item.active{color:var(--accent-gold);border-left-color:var(--accent-gold);background:rgba(244,187,9,.12)}
+  .nav-item.l2{padding-left:32px;font-size:12px;color:#888880}.nav-item.l2:hover{color:#fff}
+  .main{margin-left:var(--sidebar);flex:1;max-width:860px}
+  .cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 64px;position:relative;border-bottom:1px solid var(--border);overflow:hidden}
+  .cover-bg{position:absolute;top:0;right:0;bottom:0;left:0;background:radial-gradient(ellipse at 80% 20%,rgba(244,187,9,.06) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(244,187,9,.03) 0%,transparent 50%);pointer-events:none}
+  .cover-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--ink-muted);text-transform:uppercase;margin-bottom:20px}
+  .cover-title{font-family:'Bebas Neue',sans-serif;font-size:76px;letter-spacing:2px;color:var(--ink);line-height:.9;margin-bottom:32px}
+  .cover-title span{color:var(--accent-gold);-webkit-text-stroke:1px #111}
+  .cover-lead{font-size:19px;color:var(--ink-mid);max-width:560px;line-height:1.7;margin-bottom:48px}
+  .cover-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:56px}
+  .pill{padding:6px 14px;border:1px solid var(--border-mid);color:var(--ink-dim);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.5px}
+  .cover-scroll{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-muted);letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+  .section{padding:72px 64px;border-bottom:1px solid var(--border);scroll-margin-top:0}
+  .section-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--ink-muted);text-transform:uppercase;margin-bottom:10px}
+  h2{font-family:'Bebas Neue',sans-serif;font-size:48px;letter-spacing:2px;color:var(--ink);line-height:1;margin-bottom:20px}
+  h3{font-size:13px;font-weight:700;color:var(--ink-muted);text-transform:uppercase;letter-spacing:1.5px;margin:36px 0 12px;padding-bottom:4px;border-bottom:2px solid var(--accent-gold);display:inline-block}
+  h4{font-size:15px;font-weight:600;color:var(--ink);margin:24px 0 8px}
+  p{color:var(--ink-mid);margin-bottom:16px;max-width:660px}p strong{color:var(--ink);font-weight:600}p em{font-style:italic}
+  ul,ol{color:var(--ink-mid);padding-left:22px;margin-bottom:16px;max-width:660px}li{margin-bottom:6px;line-height:1.6}li strong{color:var(--ink)}
+  hr{border:none;border-top:1px solid var(--border);margin:40px 0}
+  .callout{border-left:3px solid;padding:16px 20px;margin:20px 0}
+  .callout-accent{border-color:var(--accent-gold);background:#fff8e0}.callout-muted{border-color:var(--border-mid);background:var(--surface2)}
+  .callout-red{border-color:var(--red);background:rgba(192,57,43,.05)}.callout-green{border-color:var(--green);background:rgba(26,107,42,.05)}
+  .callout-title{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+  .callout-accent .callout-title{color:#6b4a00}.callout-muted .callout-title{color:var(--ink-muted)}.callout-red .callout-title{color:var(--red)}.callout-green .callout-title{color:var(--green)}
+  .callout p{color:var(--ink-dim);margin-bottom:0;max-width:100%}.callout p+p{margin-top:8px}
+  /* Section illustration placeholders */
+  .section-illust{width:100%;border:1px dashed var(--border-mid);background:rgba(244,187,9,.03);padding:32px 24px;margin:24px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:180px}
+  .section-illust .si-icon{font-size:32px;color:var(--border-mid);opacity:.5}
+  .section-illust .si-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.5px;color:var(--ink-muted);text-transform:uppercase;text-align:center;max-width:400px}
+  .section-illust .si-brief{font-size:12px;color:var(--ink-dim);text-align:center;max-width:480px;line-height:1.5;opacity:.7;margin-top:4px}
+  /* Per-exercise thumbnail placeholders */
+  .ex-illust{width:80px;height:80px;flex-shrink:0;border:1px dashed var(--border-mid);background:rgba(244,187,9,.03);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+  .ex-illust img{width:100%;height:100%;object-fit:cover}
+  .ph-icon{display:flex;flex-direction:column;align-items:center;gap:2px}
+  .ph-icon .ph-body{font-size:22px;color:var(--border-mid);opacity:.5;line-height:1}
+  .ph-icon .ph-label{font-family:'IBM Plex Mono',monospace;font-size:7px;color:var(--ink-muted);opacity:.5;text-transform:uppercase;letter-spacing:.5px}
+  .pillar-grid{display:grid;grid-template-columns:1fr;gap:3px;margin:24px 0}
+  .pillar-card{border:1px solid var(--border);overflow:hidden;transition:border-color .15s}.pillar-card:hover{border-color:var(--border-mid)}
+  .pillar-card-head{display:flex;align-items:stretch;cursor:pointer}
+  .pillar-num{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;padding:16px 20px;min-width:72px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .p-1 .pillar-num{background:rgba(192,57,43,.1);color:var(--red)}.p-2 .pillar-num{background:rgba(230,126,34,.1);color:var(--orange)}.p-3 .pillar-num{background:rgba(244,187,9,.15);color:#7a5000}.p-4 .pillar-num{background:rgba(26,74,138,.1);color:var(--blue)}.p-5 .pillar-num{background:rgba(17,17,17,.06);color:#333}
+  .pillar-info{padding:16px 20px;flex:1;border-left:1px solid var(--border)}
+  .pillar-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;color:var(--ink);margin-bottom:2px}
+  .pillar-sub{font-size:12px;color:var(--ink-muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.5px}
+  .pillar-body{padding:0 20px 0 92px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s ease;border-top:0 solid var(--border)}
+  .pillar-body.open{max-height:1600px;padding:20px 20px 24px 92px;border-top-width:1px}.pillar-body p,.pillar-body ul{max-width:100%}
+  .week-card{border:1px solid var(--border);margin-bottom:20px;overflow:hidden}
+  .week-header{padding:18px 24px;cursor:pointer;display:flex;align-items:center;gap:16px;transition:background .15s}.week-header:hover{background:rgba(244,187,9,.04)}
+  .week-num{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;flex-shrink:0;min-width:50px}
+  .w-1 .week-num{color:var(--red)}.w-2 .week-num{color:var(--orange)}.w-3 .week-num{color:#7a5000}.w-4 .week-num{color:var(--blue)}
+  .week-title-block{flex:1}.week-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1.5px;color:var(--ink);margin-bottom:2px}
+  .week-subtitle{font-size:12px;color:var(--ink-muted);font-family:'IBM Plex Mono',monospace;letter-spacing:.5px}
+  .week-toggle{font-size:22px;color:var(--ink-muted);font-weight:300;flex-shrink:0;transition:transform .2s}.week-card.open .week-toggle{transform:rotate(45deg)}
+  .week-body{max-height:0;overflow:hidden;transition:max-height .4s ease;border-top:0 solid var(--border)}.week-card.open .week-body{max-height:15000px;border-top-width:1px}
+  .week-content{padding:24px}
+  .day-block{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}.day-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .day-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  .day-duration{font-weight:400;color:var(--ink-muted);letter-spacing:.5px}
+  .day-focus{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px}
+  .day-note{margin-top:10px;font-size:13px;color:var(--ink-muted);font-style:italic;line-height:1.5}
+  .exercise-list{list-style:none;padding:0;margin:0}
+  .exercise-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;font-size:14px;color:var(--ink-dim);line-height:1.55;border-bottom:1px solid rgba(232,223,160,.5)}
+  .exercise-list li:last-child{border-bottom:none}
+  .ex-name{flex:1;min-width:0}.ex-name strong{color:var(--ink);font-weight:600}
+  .ex-rx{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-muted);white-space:nowrap;flex-shrink:0;padding-top:2px;text-align:right;min-width:100px}
+  .ptag{display:inline-block;padding:1px 6px;font-family:'IBM Plex Mono',monospace;font-size:8px;font-weight:600;letter-spacing:.5px;border-radius:1px;vertical-align:middle;text-transform:uppercase;margin-left:4px}
+  .ptag-1{background:rgba(192,57,43,.1);color:var(--red);border:1px solid rgba(192,57,43,.3)}
+  .ptag-2{background:rgba(230,126,34,.1);color:var(--orange);border:1px solid rgba(230,126,34,.3)}
+  .ptag-3{background:rgba(244,187,9,.12);color:#7a5000;border:1px solid rgba(244,187,9,.3)}
+  .ptag-4{background:rgba(26,74,138,.1);color:var(--blue);border:1px solid rgba(26,74,138,.3)}
+  .ptag-5{background:rgba(17,17,17,.06);color:#333;border:1px solid rgba(17,17,17,.15)}
+  .a11y-bar{position:fixed;bottom:0;left:0;right:0;background:#111;border-top:2px solid var(--accent-gold);padding:8px 20px;display:flex;align-items:center;justify-content:flex-end;gap:12px;z-index:200}
+  .a11y-btn{background:none;border:1px solid #555;color:#ccc;font-family:'IBM Plex Mono',monospace;font-size:11px;padding:5px 12px;cursor:pointer;letter-spacing:.5px;transition:all .15s}
+  .a11y-btn:hover{border-color:var(--accent-gold);color:var(--accent-gold)}.a11y-btn.active{background:var(--accent-gold);color:#111;border-color:var(--accent-gold)}
+  .a11y-label{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#777;letter-spacing:1px;text-transform:uppercase;margin-right:auto}
+  body.hc-mode{--bg:#fff;--surface:#fff;--surface2:#f5f5e0;--border:#999;--border-mid:#666;--ink:#000;--ink-mid:#111;--ink-dim:#222;--ink-muted:#444}
+  body.hc-mode .sidenav{background:#000}body.hc-mode .nav-item{color:#ddd}body.hc-mode .a11y-bar{background:#000}
+  body.hc-mode .section-illust,body.hc-mode .ex-illust{border-color:#999}
+  body.lg-text{font-size:20px;line-height:2}body.lg-text .cover-title{font-size:60px}body.lg-text h2{font-size:40px}
+  body.lg-text .exercise-list li{font-size:16px}body.lg-text .ex-rx{font-size:13px}body.lg-text p{font-size:19px}
+  ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:#f0ede0}::-webkit-scrollbar-thumb{background:#d4c870}
+  @media print{.sidenav,.a11y-bar{display:none}.main{margin-left:0;max-width:100%}.cover{min-height:auto;padding:40px 24px}.week-body{max-height:none!important;border-top-width:1px!important}.pillar-body{max-height:none!important;padding:20px 20px 24px 92px!important;border-top-width:1px!important}.section-illust,.ex-illust{border-style:solid}body{font-size:13px}}
+  @media(max-width:768px){.sidenav{display:none}.main{margin-left:0}.cover{padding:40px 24px}.cover-title{font-size:48px}.section{padding:48px 24px}h2{font-size:36px}.week-content{padding:16px}.pillar-body.open{padding-left:20px}.a11y-bar{padding:6px 12px;gap:8px}.a11y-btn{font-size:10px;padding:4px 8px}.section-illust{min-height:120px;padding:20px 16px}.ex-illust{width:64px;height:64px}}
+  @media(max-width:480px){.cover-title{font-size:38px}.section{padding:32px 16px}.week-content{padding:12px}h2{font-size:30px}.pillar-num{min-width:50px;font-size:36px;padding:12px 14px}.pillar-body.open{padding-left:14px}body{padding-bottom:48px}.exercise-list li{flex-wrap:wrap}.ex-illust{width:56px;height:56px}.ex-rx{text-align:left;min-width:auto}}
+</style>
+</head>
+<body>
+<div class="app">
+<nav class="sidenav">
+  <div class="sidenav-brand"><div class="brand-title">VCBJJ</div><div class="brand-sub">Physical Preparation</div></div>
+  <div class="nav-section-label">Start Here</div>
+  <a class="nav-item" href="#intro">What This Is</a><a class="nav-item l2" href="#who">Who It's For</a><a class="nav-item l2" href="#how">How to Use It</a>
+  <div class="nav-section-label">The Five Pillars</div>
+  <a class="nav-item" href="#pillars">Overview</a><a class="nav-item l2" href="#p1">Suppleness</a><a class="nav-item l2" href="#p2">Structure</a><a class="nav-item l2" href="#p3">Mobility</a><a class="nav-item l2" href="#p4">Movement</a><a class="nav-item l2" href="#p5">Conditioning</a>
+  <div class="nav-section-label">The Programme</div>
+  <a class="nav-item" href="#programme">4-Week Overview</a><a class="nav-item l2" href="#week1">W1 — Loosen & Learn</a><a class="nav-item l2" href="#week2">W2 — Load & Hold</a><a class="nav-item l2" href="#week3">W3 — Link & Flow</a><a class="nav-item l2" href="#week4">W4 — Build & Test</a>
+  <div class="nav-section-label">Guidelines</div>
+  <a class="nav-item" href="#scaling">Scaling</a><a class="nav-item" href="#recovery">Recovery</a><a class="nav-item" href="#blend">Blending With Classes</a>
+</nav>
+<div class="main">
+
+<!-- COVER -->
+<div class="cover" id="intro">
+  <div class="cover-bg"></div>
+  <div class="cover-eyebrow">VCBJJ · Physical Preparation · 2026</div>
+  <div class="cover-title">Lay the<br><span>Groundwork.</span></div>
+  <div class="cover-lead">A 4-week physical preparation programme for adults over 40 who train BJJ — or want to start. Five pillars. No gym membership required. Built to complement your mat time, not replace it.</div>
+  <div class="cover-pills"><div class="pill">Suppleness</div><div class="pill">Structure</div><div class="pill">Mobility</div><div class="pill">Movement</div><div class="pill">Conditioning</div></div>
+  <div class="cover-scroll">↓ &nbsp; scroll to begin</div>
+</div>
+
+<!-- WHO & HOW -->
+<div class="section" id="who">
+  <div class="section-eyebrow">Before You Begin</div>
+  <h2>Who This<br>Is For</h2>
+  <p>This programme is written for <strong>adults over 40</strong> who train BJJ as a serious hobby — for health, personal growth, and the challenge of learning something difficult. You are not preparing for competition. You are preparing your body to <em>learn without breaking</em>.</p>
+  <p>If you feel stiff getting onto the mat, if your shoulders ache the morning after training, if you gas out halfway through a roll — this programme addresses those things directly.</p>
+
+  <div class="section-illust" data-illust-id="SI-01"><div class="si-icon">◎</div><div class="si-label">Illustration: The Five Pillars Overview</div><div class="si-brief">Diagram showing five pillars as interconnected foundations beneath a silhouette in BJJ guard. Pillars labelled. Visual metaphor: building blocks supporting the body.</div></div>
+
+  <div class="callout callout-red"><div class="callout-title">Medical Clearance</div><p>If you have existing injuries, joint replacements, cardiovascular conditions, or haven't exercised in more than 6 months, get clearance from your doctor before starting.</p></div>
+
+  <h3 id="how">How to Use This Programme</h3>
+  <p>The programme runs <strong>4 days per week</strong>, each session lasting <strong>20–35 minutes</strong>. You can do it at home — a yoga mat, a resistance band, and a wall.</p>
+
+  <div class="section-illust" data-illust-id="SI-02"><div class="si-icon">◎</div><div class="si-label">Illustration: 4-Week Progression Arc</div><div class="si-brief">Timeline: W1 (Suppleness/Mobility) → W2 (Structure/Movement) → W3 (Movement/Conditioning) → W4 (all integrated). Duration grows: 20→25→30→35 min. Stacked bar or gradient band.</div></div>
+
+  <div class="callout callout-accent"><div class="callout-title">The Rule</div><p><strong>If it hurts, stop.</strong> Discomfort is fine. Pain is a signal. There is an important difference between "this is hard" and "something is wrong."</p></div>
+  <div class="callout callout-muted"><div class="callout-title">Equipment</div><p><strong>Required:</strong> Yoga mat, light resistance band (loop), wall space.<br><strong>Optional:</strong> Tennis/lacrosse ball, foam roller, yoga block.</p></div>
+</div>
+
+<!-- FIVE PILLARS -->
+<div class="section" id="pillars">
+  <div class="section-eyebrow">The Foundation</div>
+  <h2>Five Pillars of<br>Physical Readiness</h2>
+  <p>Every exercise maps to one or more of these pillars. They are the physical attributes that make BJJ technique possible. Click any pillar to expand.</p>
+
+  <div class="pillar-grid">
+    <div class="pillar-card p-1" id="p1">
+      <div class="pillar-card-head" onclick="togglePillar(this)"><div class="pillar-num">1</div><div class="pillar-info"><div class="pillar-title">SUPPLENESS</div><div class="pillar-sub">Restore softness and elasticity. Stiff bodies break.</div></div></div>
+      <div class="pillar-body">
+        <p>Suppleness is not flexibility. Flexibility is a measurement. Suppleness is a <strong>quality</strong> — how soft, elastic, and resilient your tissues feel under load. A supple body absorbs force. A stiff body transfers it into joints.</p>
+        <div class="section-illust" data-illust-id="SI-03" style="min-height:140px"><div class="si-icon">◎</div><div class="si-label">Illustration: Supple vs Stiff Tissue</div><div class="si-brief">Side-by-side: supple tissue bending under load and returning vs stiff tissue cracking. Like a green branch vs a dry one.</div></div>
+        <h4>Key areas for BJJ</h4>
+        <ul><li>Hip flexors and adductors (guard, shrimping)</li><li>Thoracic spine (rotational escapes)</li><li>Shoulders and neck (pressure from pins)</li><li>Ankles and wrists (base, posting)</li></ul>
+      </div>
+    </div>
+    <div class="pillar-card p-2" id="p2">
+      <div class="pillar-card-head" onclick="togglePillar(this)"><div class="pillar-num">2</div><div class="pillar-info"><div class="pillar-title">STRUCTURE</div><div class="pillar-sub">Hold shapes under load. The strength that withstands pressure.</div></div></div>
+      <div class="pillar-body">
+        <p>Structure is the ability to <strong>hold a position</strong> while someone tries to collapse it. Isometric resilience.</p>
+        <div class="section-illust" data-illust-id="SI-04" style="min-height:140px"><div class="si-icon">◎</div><div class="si-label">Illustration: Structure Shapes → BJJ Positions</div><div class="si-brief">Three figures: plank (= frame), glute bridge (= upa), wall sit (= combat base). Arrows connecting exercise to BJJ equivalent.</div></div>
+        <p>Muscle mass declines 3–8% per decade after 30. Isometric holds that mirror BJJ shapes are the intervention.</p>
+      </div>
+    </div>
+    <div class="pillar-card p-3" id="p3">
+      <div class="pillar-card-head" onclick="togglePillar(this)"><div class="pillar-num">3</div><div class="pillar-info"><div class="pillar-title">MOBILITY</div><div class="pillar-sub">Full, pain-free range of motion in every joint.</div></div></div>
+      <div class="pillar-body">
+        <p>Mobility is flexibility plus control. <strong>Strong and stable</strong> at end range.</p>
+        <div class="section-illust" data-illust-id="SI-05" style="min-height:140px"><div class="si-icon">◎</div><div class="si-label">Illustration: BJJ Mobility Checklist</div><div class="si-brief">Figure in four test positions: cross-legged sit, deep squat, torso rotation, hands-behind-back reach. Green/amber marks.</div></div>
+        <ul><li><strong>Hips:</strong> Cross-legged without pain? Squat below parallel?</li><li><strong>Spine:</strong> Rotate 45° each way?</li><li><strong>Shoulders:</strong> Hands behind back touch?</li><li><strong>Ankles:</strong> Kneel without discomfort?</li></ul>
+      </div>
+    </div>
+    <div class="pillar-card p-4" id="p4">
+      <div class="pillar-card-head" onclick="togglePillar(this)"><div class="pillar-num">4</div><div class="pillar-info"><div class="pillar-title">MOVEMENT</div><div class="pillar-sub">Foundational patterns that unlock grappling techniques.</div></div></div>
+      <div class="pillar-body">
+        <p>The basic motor patterns BJJ is built on — the <strong>movement vocabulary</strong> that makes techniques possible.</p>
+        <div class="section-illust" data-illust-id="SI-06" style="min-height:140px"><div class="si-icon">◎</div><div class="si-label">Illustration: Ground Movement Vocabulary</div><div class="si-brief">Sequence strip: hip escape → bridge → technical stand-up → bear crawl → shoulder roll. Comic-strip panels with motion lines.</div></div>
+        <ul><li><strong>Hip escape:</strong> Every escape and guard recovery</li><li><strong>Bridge:</strong> Space from bottom mount/side control</li><li><strong>Technical stand-up:</strong> Floor to standing safely</li><li><strong>Crawling:</strong> Ground-based coordination</li><li><strong>Rolling:</strong> Safe tumbling</li></ul>
+      </div>
+    </div>
+    <div class="pillar-card p-5" id="p5">
+      <div class="pillar-card-head" onclick="togglePillar(this)"><div class="pillar-num">5</div><div class="pillar-info"><div class="pillar-title">CONDITIONING</div><div class="pillar-sub">An engine that survives training without crashing.</div></div></div>
+      <div class="pillar-body">
+        <p>An <strong>energy system</strong> matching grappling: short bursts followed by active recovery.</p>
+        <div class="section-illust" data-illust-id="SI-07" style="min-height:140px"><div class="si-icon">◎</div><div class="si-label">Illustration: BJJ Energy System Demands</div><div class="si-brief">Timeline of a 5-min roll: effort spikes during sweep attempts and escapes, recovery during holds. Aerobic/anaerobic zones annotated.</div></div>
+        <ul><li><strong>Weeks 1–2:</strong> Aerobic base — controlled breathing during movement</li><li><strong>Weeks 3–4:</strong> Work-rest intervals mirroring a 5-minute roll</li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE PROGRAMME -->
+<div class="section" id="programme">
+  <div class="section-eyebrow">The Programme</div>
+  <h2>Four Weeks.<br>Four Days Each.</h2>
+  <p>Each session is <strong>20–35 minutes</strong>. No gym required. Sessions labelled A, B, C, D — do them in order with at least one rest day between.</p>
+  <hr>
+
+  <!-- WEEK 1 -->
+  <div class="week-card w-1" id="week1" onclick="toggleWeek(this)">
+    <div class="week-header"><div class="week-num">W1</div><div class="week-title-block"><div class="week-title">LOOSEN & LEARN</div><div class="week-subtitle">Suppleness + Mobility · 4 sessions · 20 min each</div></div><div class="week-toggle">+</div></div>
+    <div class="week-body"><div class="week-content">
+      <p>Discover where your body is tight, restricted, or unfamiliar with the floor. You're <strong>mapping your body</strong>.</p>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--red)">Day A <span class="day-duration">· 20 min</span></div>
+        <div class="day-focus">Floor Introduction & Hip Opening</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-01"><div class="ph-icon"><div class="ph-body">🫁</div><div class="ph-label">EX-01</div></div></div><span class="ex-name"><strong>Diaphragmatic breathing</strong> — lying on back, knees bent, hands on ribs. Breathe into sides of ribcage. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 breaths × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-02"><div class="ph-icon"><div class="ph-body">↕</div><div class="ph-label">EX-02</div></div></div><span class="ex-name"><strong>Supine pelvic tilts</strong> — flatten lower back to mat, then arch away. Slow. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">10 reps × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-03"><div class="ph-icon"><div class="ph-body">◇</div><div class="ph-label">EX-03</div></div></div><span class="ex-name"><strong>Supine knee drops</strong> — knees bent, feet together, let knees fall each side. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">8 each side</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-04"><div class="ph-icon"><div class="ph-body">⬡</div><div class="ph-label">EX-04</div></div></div><span class="ex-name"><strong>90/90 hip sit</strong> — both legs at 90°, rock between sides. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 each side × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-05"><div class="ph-icon"><div class="ph-body">△</div><div class="ph-label">EX-05</div></div></div><span class="ex-name"><strong>Supine figure-4 stretch</strong> — ankle over knee, pull toward chest. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">30s each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-06"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-06</div></div></div><span class="ex-name"><strong>Child's pose</strong> — sit back on heels, arms extended, breathe into lower back. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">60s hold</span></li>
+        </ul>
+        <div class="day-note">Finish lying on your back 60s. Observe what felt tight. That's your map.</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--red)">Day B <span class="day-duration">· 20 min</span></div>
+        <div class="day-focus">Spine & Shoulder Awareness</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-07"><div class="ph-icon"><div class="ph-body">∿</div><div class="ph-label">EX-07</div></div></div><span class="ex-name"><strong>Cat-cow</strong> — alternate rounding and arching spine. <span class="ptag ptag-1">Suppleness</span> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">10 reps × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-08"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-08</div></div></div><span class="ex-name"><strong>Thread-the-needle</strong> — reach arm under body, rotating upper back. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">6 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-09"><div class="ph-icon"><div class="ph-body">↑↓</div><div class="ph-label">EX-09</div></div></div><span class="ex-name"><strong>Wall slides</strong> — arms goal-post, slide up/down keeping contact. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">8 reps × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-10"><div class="ph-icon"><div class="ph-body">⤴</div><div class="ph-label">EX-10</div></div></div><span class="ex-name"><strong>Prone press-up (half cobra)</strong> — elbows under shoulders, press chest up. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 reps, 3s hold</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-11"><div class="ph-icon"><div class="ph-body">◯</div><div class="ph-label">EX-11</div></div></div><span class="ex-name"><strong>Seated neck CARs</strong> — biggest circles with chin, both directions. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">3 each dir</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-12"><div class="ph-icon"><div class="ph-body">◯</div><div class="ph-label">EX-12</div></div></div><span class="ex-name"><strong>Shoulder CARs</strong> — biggest circle, one arm at a time. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">3 each arm dir</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--red)">Day C <span class="day-duration">· 20 min</span></div>
+        <div class="day-focus">Lower Body Suppleness & Base</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-13"><div class="ph-icon"><div class="ph-body">◯</div><div class="ph-label">EX-13</div></div></div><span class="ex-name"><strong>Ankle circles</strong> — full range, each foot. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">10 each dir/foot</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-14"><div class="ph-icon"><div class="ph-body">⊿</div><div class="ph-label">EX-14</div></div></div><span class="ex-name"><strong>Half-kneeling hip flexor stretch</strong> — back knee down, push hips forward. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">30s each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-15"><div class="ph-icon"><div class="ph-body">↔</div><div class="ph-label">EX-15</div></div></div><span class="ex-name"><strong>Adductor rock-back</strong> — one leg extended to side, rock hips back. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">8 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-16"><div class="ph-icon"><div class="ph-body">⬡</div><div class="ph-label">EX-16</div></div></div><span class="ex-name"><strong>Bodyweight squat to wall</strong> — wall for balance, squat as deep as comfortable. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">8 reps × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-17"><div class="ph-icon"><div class="ph-body">⊥</div><div class="ph-label">EX-17</div></div></div><span class="ex-name"><strong>Calf stretch on wall</strong> — straight leg (gastroc) + bent knee (soleus). <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">20s each pos/leg</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-18"><div class="ph-icon"><div class="ph-body">✋</div><div class="ph-label">EX-18</div></div></div><span class="ex-name"><strong>Wrist circles and flexion/extension</strong> — load wrists in different angles. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">30s exploration</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--red)">Day D <span class="day-duration">· 20 min</span></div>
+        <div class="day-focus">Full Body Flow & Breathing</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-19"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-19</div></div></div><span class="ex-name"><strong>Flow sequence:</strong> Child's pose → Cat-cow ×5 → Down dog → Forward fold → Squat → Stand. <span class="ptag ptag-1">Suppleness</span> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">4 rounds</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-20"><div class="ph-icon"><div class="ph-body">🫁</div><div class="ph-label">EX-20</div></div></div><span class="ex-name"><strong>Crocodile breathing</strong> — face down, breathe belly into floor. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">10 breaths</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-21"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-21</div></div></div><span class="ex-name"><strong>Supine scorpion</strong> — face down, sweep leg across to opposite hand. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 each, 3s</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-22"><div class="ph-icon"><div class="ph-body">↕</div><div class="ph-label">EX-22</div></div></div><span class="ex-name"><strong>Floor sit transitions</strong> — standing to sitting 5 different ways. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">5 diff ways</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-23"><div class="ph-icon"><div class="ph-body">⊥</div><div class="ph-label">EX-23</div></div></div><span class="ex-name"><strong>Legs-up-the-wall</strong> — relax, breathe. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">2–3 min</span></li>
+        </ul>
+        <div class="day-note">End-of-week: are 90/90 sits and squats easier than Day A?</div>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="week-card w-2" id="week2" onclick="toggleWeek(this)">
+    <div class="week-header"><div class="week-num">W2</div><div class="week-title-block"><div class="week-title">LOAD & HOLD</div><div class="week-subtitle">Structure + Movement · 4 sessions · 25 min each</div></div><div class="week-toggle">+</div></div>
+    <div class="week-body"><div class="week-content">
+      <p>Introduces <strong>isometric holds</strong> and the first BJJ movement patterns.</p>
+      <div class="section-illust" data-illust-id="SI-08"><div class="si-icon">◎</div><div class="si-label">Illustration: Isometric → BJJ Position Map</div><div class="si-brief">Split-screen: Plank↔Frame, Bridge↔Upa, Wall sit↔Combat base, Push-up hold↔Posting.</div></div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--orange)">Day A <span class="day-duration">· 25 min</span></div>
+        <div class="day-focus">Frames & Holds</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-24"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-24</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Cat-cow ×8, 90/90 ×4 each, Shoulder CARs ×3. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-25"><div class="ph-icon"><div class="ph-body">▬</div><div class="ph-label">EX-25</div></div></div><span class="ex-name"><strong>Forearm plank</strong> — body straight, nose-breathe. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">20s × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-26"><div class="ph-icon"><div class="ph-body">▬</div><div class="ph-label">EX-26</div></div></div><span class="ex-name"><strong>Side forearm plank</strong> — hips up and forward. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">15s each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-27"><div class="ph-icon"><div class="ph-body">⌒</div><div class="ph-label">EX-27</div></div></div><span class="ex-name"><strong>Glute bridge hold</strong> — squeeze glutes at top. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">20s × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-28"><div class="ph-icon"><div class="ph-body">⊓</div><div class="ph-label">EX-28</div></div></div><span class="ex-name"><strong>Wall sit</strong> — thighs parallel or close. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">20s × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-29"><div class="ph-icon"><div class="ph-body">↔</div><div class="ph-label">EX-29</div></div></div><span class="ex-name"><strong>Dead hang or band pull-apart</strong> <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">15s or 10r × 3</span></li>
+        </ul>
+        <div class="day-note">Plank = frame. Bridge = upa. Wall sit = combat base.</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--orange)">Day B <span class="day-duration">· 25 min</span></div>
+        <div class="day-focus">Ground Movement Introduction</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-30"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-30</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Flow sequence × 3. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-31"><div class="ph-icon"><div class="ph-body">⇥</div><div class="ph-label">EX-31</div></div></div><span class="ex-name"><strong>Hip escape (solo shrimp)</strong> — bridge onto shoulder, push hips away. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">5 each × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-32"><div class="ph-icon"><div class="ph-body">⌒</div><div class="ph-label">EX-32</div></div></div><span class="ex-name"><strong>Bridge (upa)</strong> — drive hips, roll onto shoulder. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">5 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-33"><div class="ph-icon"><div class="ph-body">↑</div><div class="ph-label">EX-33</div></div></div><span class="ex-name"><strong>Technical stand-up</strong> — post hand, kick leg, stand. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">4 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-34"><div class="ph-icon"><div class="ph-body">🐻</div><div class="ph-label">EX-34</div></div></div><span class="ex-name"><strong>Bear crawl</strong> — knees hover, hips level. <span class="ptag ptag-4">Movement</span> <span class="ptag ptag-5">Conditioning</span></span><span class="ex-rx">5m fwd/back × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-35"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-35</div></div></div><span class="ex-name"><strong>Seated guard recovery drill</strong> <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">6 reps × 2</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--orange)">Day C <span class="day-duration">· 25 min</span></div>
+        <div class="day-focus">Upper Body Structure & Mobility</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-36"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-36</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Neck CARs ×3, Shoulder CARs ×3, Thread-needle ×5. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-37"><div class="ph-icon"><div class="ph-body">▽</div><div class="ph-label">EX-37</div></div></div><span class="ex-name"><strong>Push-up from knees</strong> — 3s down, 1s up. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">6 reps × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-38"><div class="ph-icon"><div class="ph-body">←</div><div class="ph-label">EX-38</div></div></div><span class="ex-name"><strong>Band rows</strong> — pull to ribs, squeeze. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">10 reps × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-39"><div class="ph-icon"><div class="ph-body">YTW</div><div class="ph-label">EX-39</div></div></div><span class="ex-name"><strong>Prone Y-T-W raises</strong> <span class="ptag ptag-2">Structure</span> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-40"><div class="ph-icon"><div class="ph-body">✋</div><div class="ph-label">EX-40</div></div></div><span class="ex-name"><strong>Wrist work with band</strong> <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">10 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-41"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-41</div></div></div><span class="ex-name"><strong>Open book thoracic rotation</strong> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">6 each, 3s</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--orange)">Day D <span class="day-duration">· 25 min</span></div>
+        <div class="day-focus">Combined: Hold + Move</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-42"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-42</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Hip flexor 20s each, Adductor rock ×6, Squats ×8. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-43"><div class="ph-icon"><div class="ph-body">▬⇥</div><div class="ph-label">EX-43</div></div></div><span class="ex-name"><strong>Plank to hip escape</strong> — 10s plank, hip escape, alternate. <span class="ptag ptag-2">Structure</span> <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">4 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-44"><div class="ph-icon"><div class="ph-body">⌒↑</div><div class="ph-label">EX-44</div></div></div><span class="ex-name"><strong>Bridge to technical stand-up</strong> <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">4 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-45"><div class="ph-icon"><div class="ph-body">🦀</div><div class="ph-label">EX-45</div></div></div><span class="ex-name"><strong>Crab walk</strong> <span class="ptag ptag-4">Movement</span> <span class="ptag ptag-5">Conditioning</span></span><span class="ex-rx">5m each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-46"><div class="ph-icon"><div class="ph-body">⬡</div><div class="ph-label">EX-46</div></div></div><span class="ex-name"><strong>Squat hold</strong> — lowest depth, hold, breathe. <span class="ptag ptag-2">Structure</span> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">20s × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-47"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-47</div></div></div><span class="ex-name"><strong>Cool-down:</strong> Child's pose → Figure-4 → Legs-up-wall. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">4 min</span></li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="week-card w-3" id="week3" onclick="toggleWeek(this)">
+    <div class="week-header"><div class="week-num">W3</div><div class="week-title-block"><div class="week-title">LINK & FLOW</div><div class="week-subtitle">Movement + Conditioning · 4 sessions · 30 min each</div></div><div class="week-toggle">+</div></div>
+    <div class="week-body"><div class="week-content">
+      <p>Chain exercises into sequences. First <strong>work-rest intervals</strong>.</p>
+      <div class="section-illust" data-illust-id="SI-09"><div class="si-icon">◎</div><div class="si-label">Illustration: Movement Chain Flow</div><div class="si-brief">Circular flow: Hip escape → Bridge → Sit up → Technical stand-up → Squat down → Repeat. Outline figures, continuous loop.</div></div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:#7a5000">Day A <span class="day-duration">· 30 min</span></div>
+        <div class="day-focus">Movement Chains</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-48"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-48</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Flow ×3 + Hip CARs ×3. <span class="ptag ptag-1">Suppleness</span> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">6 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-49"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-49</div></div></div><span class="ex-name"><strong>Chain A:</strong> Hip escape ×3 → Bridge ×2 → Tech stand-up → Squat down → Repeat. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">4 rounds each</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-50"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-50</div></div></div><span class="ex-name"><strong>Forward shoulder roll</strong> — tuck chin, roll over shoulder. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">4 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-51"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-51</div></div></div><span class="ex-name"><strong>Granby roll (modified)</strong> — turtle to seated guard via shoulder roll. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">3 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-52"><div class="ph-icon"><div class="ph-body">🐻🦀</div><div class="ph-label">EX-52</div></div></div><span class="ex-name"><strong>Bear-to-crab transitions</strong> — crawl, sit through, crab, sit through. <span class="ptag ptag-4">Movement</span> <span class="ptag ptag-5">Conditioning</span></span><span class="ex-rx">4 trans × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-53"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-53</div></div></div><span class="ex-name"><strong>Cool-down:</strong> 90/90 ×5, Open book ×4, Legs-up-wall 2 min. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:#7a5000">Day B <span class="day-duration">· 30 min</span></div>
+        <div class="day-focus">Structure Under Fatigue</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-54"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-54</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Cat-cow ×8, Hip flexor 20s, Squats ×10. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-55"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-55</div></div></div><span class="ex-name"><strong>Circuit ×3:</strong> Plank 25s → Push-ups ×8 → Bridge 25s → Rows ×10 → Wall sit 25s → Pull-aparts ×10. 90s rest. <span class="ptag ptag-2">Structure</span> <span class="ptag ptag-5">Conditioning</span></span><span class="ex-rx">3 rounds</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-56"><div class="ph-icon"><div class="ph-body">⌒</div><div class="ph-label">EX-56</div></div></div><span class="ex-name"><strong>Single-leg glute bridge</strong> — 3s hold. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">6 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-57"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-57</div></div></div><span class="ex-name"><strong>Cool-down:</strong> Child's pose, Scorpion ×4, Press-up ×4. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">4 min</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:#7a5000">Day C <span class="day-duration">· 30 min</span></div>
+        <div class="day-focus">Mobility Deepening & Ground Flow</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-58"><div class="ph-icon"><div class="ph-body">◯</div><div class="ph-label">EX-58</div></div></div><span class="ex-name"><strong>Hip CARs</strong> — full range, slow. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 each dir/hip</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-59"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-59</div></div></div><span class="ex-name"><strong>Deep squat + thoracic rotation</strong> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-60"><div class="ph-icon"><div class="ph-body">↔</div><div class="ph-label">EX-60</div></div></div><span class="ex-name"><strong>Seated straddle reach</strong> <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 each, 5s</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-61"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-61</div></div></div><span class="ex-name"><strong>Ground flow:</strong> Hip escape → Turtle → Granby → Guard → Tech stand-up → Repeat. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">3 each dir</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-62"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-62</div></div></div><span class="ex-name"><strong>Half-kneeling band rotation</strong> <span class="ptag ptag-3">Mobility</span> <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">8 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-63"><div class="ph-icon"><div class="ph-body">⊿</div><div class="ph-label">EX-63</div></div></div><span class="ex-name"><strong>Pigeon stretch</strong> <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">45s each</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:#7a5000">Day D <span class="day-duration">· 30 min</span></div>
+        <div class="day-focus">Interval Introduction</div>
+        <div class="section-illust" data-illust-id="SI-10" style="min-height:120px"><div class="si-icon">◎</div><div class="si-label">Illustration: Work-Rest Intervals</div><div class="si-brief">Timeline: 30s work/30s rest ×3 then 20s/40s ×3. Gold=work, grey=rest. Total: 4.5 min effort.</div></div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-64"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-64</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Flow ×2, Shoulder CARs ×3, Hip CARs ×3. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-65"><div class="ph-icon"><div class="ph-body">⏱</div><div class="ph-label">EX-65</div></div></div><span class="ex-name"><strong>Interval 1:</strong> 30s bear crawl→crab / 30s rest. <span class="ptag ptag-5">Conditioning</span> <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">3 rounds</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-66"><div class="ph-icon"><div class="ph-body">⏱</div><div class="ph-label">EX-66</div></div></div><span class="ex-name"><strong>Interval 2:</strong> 30s hip escape→bridge / 30s rest. <span class="ptag ptag-5">Conditioning</span> <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">3 rounds</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-67"><div class="ph-icon"><div class="ph-body">⏱</div><div class="ph-label">EX-67</div></div></div><span class="ex-name"><strong>Interval 3:</strong> 20s squat-to-stand / 40s rest. <span class="ptag ptag-5">Conditioning</span> <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">3 rounds</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-68"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-68</div></div></div><span class="ex-name"><strong>Cool-down:</strong> Child's pose → Figure-4 → Twist → Breathing ×10. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+        </ul>
+      </div>
+    </div></div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="week-card w-4" id="week4" onclick="toggleWeek(this)">
+    <div class="week-header"><div class="week-num">W4</div><div class="week-title-block"><div class="week-title">BUILD & TEST</div><div class="week-subtitle">All five pillars · 4 sessions · 30–35 min each</div></div><div class="week-toggle">+</div></div>
+    <div class="week-body"><div class="week-content">
+      <p>Everything combined. Each session touches all five pillars.</p>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--blue)">Day A <span class="day-duration">· 30 min</span></div>
+        <div class="day-focus">Full Integration — Lower Body</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-69"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-69</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Ankle circles ×8, Hip CARs ×4, Squat hold 20s. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-70"><div class="ph-icon"><div class="ph-body">⬡</div><div class="ph-label">EX-70</div></div></div><span class="ex-name"><strong>Bodyweight squat</strong> — full depth, 3s pause. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">8 reps × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-71"><div class="ph-icon"><div class="ph-body">⊿↑</div><div class="ph-label">EX-71</div></div></div><span class="ex-name"><strong>Reverse lunge to knee drive</strong> <span class="ptag ptag-2">Structure</span> <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">6 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-72"><div class="ph-icon"><div class="ph-body">⇥⇥</div><div class="ph-label">EX-72</div></div></div><span class="ex-name"><strong>Hip escape chain:</strong> 5 continuous each direction. <span class="ptag ptag-4">Movement</span> <span class="ptag ptag-5">Conditioning</span></span><span class="ex-rx">3 sets</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-73"><div class="ph-icon"><div class="ph-body">⌒</div><div class="ph-label">EX-73</div></div></div><span class="ex-name"><strong>Single-leg glute bridge</strong> — 3s hold. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">8 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-74"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-74</div></div></div><span class="ex-name"><strong>Cool-down:</strong> Hip flexor 30s, Pigeon 45s, Adductor rock ×6. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--blue)">Day B <span class="day-duration">· 30 min</span></div>
+        <div class="day-focus">Full Integration — Upper Body</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-75"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-75</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Shoulder CARs ×4, Thread-needle ×5, Wrist circles 30s. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-76"><div class="ph-icon"><div class="ph-body">▽</div><div class="ph-label">EX-76</div></div></div><span class="ex-name"><strong>Push-ups</strong> — toes or knees, 3s down. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">6–10 reps × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-77"><div class="ph-icon"><div class="ph-body">←</div><div class="ph-label">EX-77</div></div></div><span class="ex-name"><strong>Band rows</strong> — 2s hold at chest. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">10 reps × 3</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-78"><div class="ph-icon"><div class="ph-body">↻</div><div class="ph-label">EX-78</div></div></div><span class="ex-name"><strong>Shoulder rolls</strong> — forward and backward from kneeling. <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">4 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-79"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-79</div></div></div><span class="ex-name"><strong>Turtle → Granby → Seated guard</strong> <span class="ptag ptag-4">Movement</span></span><span class="ex-rx">4 each × 2</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-80"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-80</div></div></div><span class="ex-name"><strong>Cool-down:</strong> Open book ×5, Press-up ×5, Child's pose 60s. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">5 min</span></li>
+        </ul>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--blue)">Day C <span class="day-duration">· 35 min</span></div>
+        <div class="day-focus">The Mat Simulation</div>
+        <div class="section-illust" data-illust-id="SI-11" style="min-height:140px"><div class="si-icon">◎</div><div class="si-label">Illustration: 5-Minute Ground Flow Map</div><div class="si-brief">Circular flow: Standing → Squat → Hip escapes → Bridges → Turtle → Granby → Guard → Tech stand-up → repeat. Clock: 5:00. "Your roll simulation."</div></div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-81"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-81</div></div></div><span class="ex-name"><strong>Warm-up:</strong> Flow ×3, Hip CARs ×3. <span class="ptag ptag-1">Suppleness</span> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">6 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-82"><div class="ph-icon"><div class="ph-body">⟳⟳</div><div class="ph-label">EX-82</div></div></div><span class="ex-name"><strong>5-min ground flow:</strong> Standing → Squat → Hip escapes → Bridges → Turtle → Granby → Guard → Stand → Repeat. Don't stop. <span class="ptag ptag-4">Movement</span> <span class="ptag ptag-5">Conditioning</span></span><span class="ex-rx">5 min cont.</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-83"><div class="ph-icon"><div class="ph-body">🚶</div><div class="ph-label">EX-83</div></div></div><span class="ex-name"><strong>Rest:</strong> Walk, nasal breathing. <span class="ptag ptag-5">Conditioning</span></span><span class="ex-rx">2 min</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-84"><div class="ph-icon"><div class="ph-body">⏱</div><div class="ph-label">EX-84</div></div></div><span class="ex-name"><strong>Interval circuit ×4:</strong> 30s bear crawl → rest → 30s push-ups → rest → 30s hip escapes → rest → 30s squat-to-stand. 60s between rounds. <span class="ptag ptag-5">Conditioning</span> <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">4 rounds</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-85"><div class="ph-icon"><div class="ph-body">⌓</div><div class="ph-label">EX-85</div></div></div><span class="ex-name"><strong>Cool-down:</strong> Pigeon 45s, Straddle reach 30s, Legs-up-wall 3 min. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">6 min</span></li>
+        </ul>
+        <div class="day-note">The 5-min ground flow simulates a roll. If you complete it without stopping, you're ready for the mat.</div>
+      </div>
+
+      <div class="day-block">
+        <div class="day-label" style="color:var(--blue)">Day D <span class="day-duration">· 30 min</span></div>
+        <div class="day-focus">Recovery & Assessment</div>
+        <ul class="exercise-list">
+          <li><div class="ex-illust" data-illust-id="EX-86"><div class="ph-icon"><div class="ph-body">⟳</div><div class="ph-label">EX-86</div></div></div><span class="ex-name"><strong>Flow sequence</strong> — slow, max range. <span class="ptag ptag-1">Suppleness</span> <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 rounds</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-87"><div class="ph-icon"><div class="ph-body">⬡</div><div class="ph-label">EX-87</div></div></div><span class="ex-name"><strong>90/90 assessment</strong> — compare to W1. <span class="ptag ptag-3">Mobility</span></span><span class="ex-rx">5 each side</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-88"><div class="ph-icon"><div class="ph-body">⬡</div><div class="ph-label">EX-88</div></div></div><span class="ex-name"><strong>Deep squat hold</strong> — time max. Compare. <span class="ptag ptag-3">Mobility</span> <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">Max hold</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-89"><div class="ph-icon"><div class="ph-body">▬</div><div class="ph-label">EX-89</div></div></div><span class="ex-name"><strong>Forearm plank</strong> — max hold. Compare to W2. <span class="ptag ptag-2">Structure</span></span><span class="ex-rx">Max hold</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-90"><div class="ph-icon"><div class="ph-body">⊿</div><div class="ph-label">EX-90</div></div></div><span class="ex-name"><strong>Pigeon stretch</strong> — more range than W3? <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">60s each</span></li>
+          <li><div class="ex-illust" data-illust-id="EX-91"><div class="ph-icon"><div class="ph-body">🫁</div><div class="ph-label">EX-91</div></div></div><span class="ex-name"><strong>Diaphragmatic breathing</strong> — eyes closed. <span class="ptag ptag-1">Suppleness</span></span><span class="ex-rx">3 min</span></li>
+        </ul>
+        <div class="day-note">Write down your numbers. These are benchmarks for the next cycle.</div>
+      </div>
+    </div></div>
+  </div>
+</div><!-- /programme -->
+
+<!-- SCALING -->
+<div class="section" id="scaling">
+  <div class="section-eyebrow">Guidelines</div>
+  <h2>Scaling &<br>Modifications</h2>
+  <div class="section-illust" data-illust-id="SI-12"><div class="si-icon">◎</div><div class="si-label">Illustration: Scaling Ladder</div><div class="si-brief">Three-tier: each exercise at Easier → Standard → Harder. Push-up wall → knees → full. Squat chair → bodyweight → with pause. Step diagram.</div></div>
+  <h4>Can't do a movement at all</h4><p>Reduce the range. Meet your body where it is.</p>
+  <h4>Something causes pain</h4><p>Stop. Substitute the closest pain-free alternative.</p>
+  <h4>Programme feels too easy</h4><p>Increase hold times 50%. Slow everything down.</p>
+  <h4>Knee, shoulder, or back issues</h4><p>Knees: reduce depth. Shoulders: below shoulder height. Backs: cat-cow, pelvic tilts, strict planks.</p>
+</div>
+
+<!-- RECOVERY -->
+<div class="section" id="recovery">
+  <div class="section-eyebrow">Guidelines</div>
+  <h2>Recovery &<br>Listening</h2>
+  <div class="section-illust" data-illust-id="SI-13"><div class="si-icon">◎</div><div class="si-label">Illustration: Readiness Self-Check</div><div class="si-brief">1–10 gauge: 1–3 red "Rest", 4–5 amber "Mobility only", 6–10 green "Full session".</div></div>
+  <p>After 40, recovery is where adaptation happens.</p>
+  <h4>Sleep</h4><p>7–9 hours. Non-negotiable.</p>
+  <h4>Hydration</h4><p>Drink throughout the day. Dark urine = behind.</p>
+  <h4>Soreness vs injury</h4><p><strong>DOMS</strong> = general ache, peaks 24–48h. <strong>Injury</strong> = sharp, joint-localised, worsens with movement.</p>
+  <div class="callout callout-green"><div class="callout-title">Self-check</div><p>Before each session: "1–10, how ready?" Below 5 → mobility only. Below 3 → rest.</p></div>
+</div>
+
+<!-- BLENDING -->
+<div class="section" id="blend">
+  <div class="section-eyebrow">Guidelines</div>
+  <h2>Blending With<br>Your Classes</h2>
+  <div class="section-illust" data-illust-id="SI-14"><div class="si-icon">◎</div><div class="si-label">Illustration: Weekly Schedule Templates</div><div class="si-brief">Three calendars: (1) BJJ 2×/week + 3 sessions, (2) BJJ 3×/week + 2 sessions, (3) No BJJ — full 4. Gold=BJJ, grey=programme, white=rest.</div></div>
+  <h4>BJJ 2×/week</h4><p>3 programme sessions. Drop Day D. Programme on non-BJJ days.</p>
+  <h4>BJJ 3×/week</h4><p>2 sessions. Prioritise Day A + Day C. Use suppleness work as pre-class warm-up.</p>
+  <h4>Not started BJJ yet</h4><p>Complete the full 4 weeks first.</p>
+  <div class="callout callout-accent"><div class="callout-title">After the 4 weeks</div><p>Repeat with increased hold times, more rounds, faster tempos. Keep suppleness/mobility as a permanent 10–15 min pre-class routine.</p></div>
+</div>
+
+<!-- FOOTER -->
+<div style="padding:48px 64px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+  <div><div style="font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--accent)">VCBJJ</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-muted);letter-spacing:1px;margin-top:4px">Lay the Groundwork · April 2026</div></div>
+  <div style="font-size:12px;color:var(--ink-muted);font-family:'IBM Plex Mono',monospace;text-align:right;line-height:1.8">Physical Preparation Programme<br>Jeet Academy · Kuala Lumpur</div>
+</div>
+
+</div></div><!-- .main .app -->
+
+<div class="a11y-bar">
+  <span class="a11y-label">Accessibility</span>
+  <button class="a11y-btn" onclick="toggleHC(this)">High Contrast</button>
+  <button class="a11y-btn" onclick="toggleLgText(this)">Larger Text</button>
+</div>
+
+<script>
+function togglePillar(h){h.closest('.pillar-card').querySelector('.pillar-body').classList.toggle('open')}
+function toggleWeek(c){if(event.target.closest('.week-content'))return;c.classList.toggle('open')}
+function toggleHC(b){document.body.classList.toggle('hc-mode');b.classList.toggle('active')}
+function toggleLgText(b){document.body.classList.toggle('lg-text');b.classList.toggle('active')}
+const navItems=document.querySelectorAll('.nav-item');
+function getAnchors(){return Array.from(navItems).map(n=>{const h=n.getAttribute('href');if(!h||!h.startsWith('#'))return null;return{el:n,target:document.getElementById(h.slice(1))}}).filter(x=>x&&x.target)}
+function updateNav(){const a=getAnchors();let c=null;a.forEach(({target:t})=>{if(t.getBoundingClientRect().top<=80)c=t});a.forEach(({el,target:t})=>{el.classList.toggle('active',t===c)})}
+window.addEventListener('scroll',updateNav,{passive:true});updateNav();
+document.querySelector('.pillar-body')?.classList.add('open');
+</script>
+</body>
+</html>
