@@ -145,32 +145,6 @@ a{color:inherit;text-decoration:none}
   .guide-cred-primary{font-size:11px}
 }
 
-/* ══ 4. PLAN ══════════════════════════════════════════════ */
-.plan-section{background:var(--dark);padding:80px 20px;position:relative;overflow:hidden}
-.plan-section::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:var(--accent);opacity:0.08}
-.plan-section::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;border-radius:50%;background:var(--teal);opacity:0.06}
-.plan-inner{max-width:var(--content-max);margin:0 auto;position:relative;z-index:1}
-.plan-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.plan-heading{font-size:28px;font-weight:700;color:var(--dark-text);margin-bottom:8px}
-.plan-sub{font-size:16px;color:var(--dark-muted);margin-bottom:36px}
-.plan-steps{display:flex;flex-direction:column;gap:0}
-.plan-step{display:flex;align-items:flex-start;gap:20px;padding:24px 0;border-bottom:1px solid #333}
-.plan-step:last-child{border-bottom:none}
-.plan-num{font-family:var(--mono);font-size:36px;font-weight:700;color:var(--accent);line-height:1;flex-shrink:0;width:48px;text-align:center}
-.plan-step-body{flex:1}
-.plan-label{font-size:17px;font-weight:600;color:var(--dark-text);margin-bottom:4px}
-.plan-desc{font-size:14px;color:var(--dark-muted);line-height:1.6}
-.plan-cta{margin-top:36px;text-align:center}
-.plan-cta .btn{font-size:15px;padding:18px 40px}
-
-@media(max-width:480px){
-  .plan-section{padding:60px 20px}
-  .plan-heading{font-size:24px}
-  .plan-step{gap:14px}
-  .plan-num{font-size:28px;width:36px}
-  .plan-cta .btn{width:100%;padding:20px 24px}
-}
-
 /* ══ 5. TESTIMONIALS ══════════════════════════════════════ */
 .testi-carousel{position:relative;overflow:hidden;margin-top:32px}
 .testi-track{display:flex;transition:transform 0.4s ease}
@@ -214,22 +188,7 @@ a{color:inherit;text-decoration:none}
 .loc-map{width:100%;height:280px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
 .loc-map iframe{width:100%;height:100%;border:none}
 
-/* ══ 8. KIDS BANNER ═══════════════════════════════════════ */
-.kids-banner{background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:8px}
-.kids-text{font-size:15px;color:var(--text)}
-.kids-text strong{font-weight:600}
-.kids-link{font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--teal);font-weight:600;white-space:nowrap}
-.kids-link:hover{text-decoration:underline}
-@media(max-width:480px){
-  .kids-banner{flex-direction:column;text-align:center}
-}
-
-/* ══ 9. WHAT IS BJJ ═══════════════════════════════════════ */
-.bjj-text{font-size:16px;line-height:1.8;color:var(--text)}
-.bjj-text p{margin-bottom:16px}
-.bjj-text p:last-child{margin-bottom:0}
-
-/* ══ 10. FOOTER ═══════════════════════════════════════════ */
+/* ══ FOOTER ═══════════════════════════════════════════════ */
 .footer{background:var(--dark);padding:48px 20px 32px;color:var(--dark-muted)}
 .footer-inner{max-width:var(--nav-max);margin:0 auto}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
@@ -319,42 +278,7 @@ a{color:inherit;text-decoration:none}
         <a href="about.html" class="guide-link">Read more &rarr;</a>
       </div>
     </div>
-    <img class="guide-cert" src="https://i.ibb.co/hRFcvW0j/3rd-degree-BJJ-Globetrotters.webp" alt="BJJ 3rd Degree Black Belt certificate — Beltchecker verified" loading="lazy">
-  </div>
-</section>
-
-<!-- ══ 4. THE PLAN ═════════════════════════════════════════ -->
-<section class="plan-section">
-  <div class="plan-inner">
-    <div class="plan-eyebrow">How to Start</div>
-    <div class="plan-heading">Three steps. That&rsquo;s it.</div>
-    <div class="plan-sub">No trial classes. No pressure. Just a clear path in.</div>
-    <div class="plan-steps">
-      <div class="plan-step">
-        <div class="plan-num">1</div>
-        <div class="plan-step-body">
-          <div class="plan-label">Read the Info Page</div>
-          <div class="plan-desc">See if VCBJJ is the right fit for you. No sales pitch &mdash; just honest information.</div>
-        </div>
-      </div>
-      <div class="plan-step">
-        <div class="plan-num">2</div>
-        <div class="plan-step-body">
-          <div class="plan-label">Complete Onboarding</div>
-          <div class="plan-desc">Register, sign the participation agreement, and make your first payment.</div>
-        </div>
-      </div>
-      <div class="plan-step">
-        <div class="plan-num">3</div>
-        <div class="plan-step-body">
-          <div class="plan-label">Show Up</div>
-          <div class="plan-desc">Book your first session through the member portal. We&rsquo;ll take it from there.</div>
-        </div>
-      </div>
-    </div>
-    <div class="plan-cta">
-      <a href="getstarted.html" class="btn btn-primary">Get Started &rarr;</a>
-    </div>
+    <img class="guide-cert" src="https://i.ibb.co/N6xNGGty/3rd-degree-BJJ-Globetrotters.webp" alt="BJJ 3rd Degree Black Belt certificate — Beltchecker verified" loading="lazy">
   </div>
 </section>
 
@@ -500,28 +424,7 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- ══ 8. KIDS BANNER ══════════════════════════════════════ -->
-<section class="section">
-  <div class="section-inner">
-    <div class="kids-banner">
-      <div class="kids-text"><strong>Looking for Kids BJJ?</strong> Our children&rsquo;s programme runs through Jeet Academy.</div>
-      <a href="#" class="kids-link">Learn more &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 9. WHAT IS BJJ? ═════════════════════════════════════ -->
-<section class="section section-alt">
-  <div class="section-inner">
-    <div class="eyebrow">About the Art</div>
-    <div class="bjj-text">
-      <p>Brazilian Jiu-Jitsu is a grappling-based martial art focused on control, leverage, and problem-solving. There are no strikes. Instead, you learn to manage distance, control positions, and apply submissions using technique rather than strength.</p>
-      <p>It&rsquo;s often described as &ldquo;human chess&rdquo; &mdash; a thinking person&rsquo;s martial art. At VCBJJ, we teach it as a functional skill: something you learn to use under pressure, not just perform in a drill. Most of our students had zero martial arts experience before starting.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 10. FOOTER ══════════════════════════════════════════ -->
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-grid">
