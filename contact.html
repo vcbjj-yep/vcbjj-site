@@ -33,6 +33,11 @@
 .form-success-icon{font-size:48px;margin-bottom:16px}
 .form-success h2{font-size:22px;font-weight:700;margin-bottom:8px}
 .form-success p{font-size:15px;color:var(--muted)}
+.form-success-links{margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
+.form-success-meta{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.form-success-links a{display:block;font-size:15px;font-weight:600;color:var(--teal);padding:10px 0;transition:color 0.2s}
+.form-success-links a:hover{color:var(--dark)}
+.form-success-links a::after{content:' \2192';color:var(--muted)}  
 .footer{background:var(--dark);padding:48px 20px 32px;color:var(--dark-muted)}.footer-inner{max-width:var(--nav-max);margin:0 auto}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}.footer-col-title{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}.footer-links{list-style:none}.footer-links li{margin-bottom:8px}.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}.footer-links a:hover{color:var(--dark-text)}.footer-bottom{border-top:1px solid #333;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}.footer-bottom a{color:var(--gold)}
 @media(max-width:480px){.form-row{grid-template-columns:1fr}.btn{width:100%;padding:18px 24px;font-size:14px}.footer-grid{grid-template-columns:1fr;gap:24px}}
 </style>
@@ -98,18 +103,16 @@
           <option value="Other">Other</option>
         </select>
       </div>
-      <div class="form-check">
-        <input type="checkbox" id="tc-agree">
-        <label for="tc-agree">I understand that VCBJJ does not offer trial classes and that all training is pay-as-you-go with no contracts. I have read the <a href="info.html">information page</a>.</label>
-      </div>
-      <button class="btn btn-primary btn-submit" onclick="submitContact()">Submit</button>
-    </div>
-    <div class="form-success" id="form-success">
-      <div class="form-success-icon">&#10003;</div>
-      <h2>Thank you for contacting us</h2>
-      <p>We&rsquo;ve received your details and Coach Vince will get back to you shortly. Please check your email in a few moments.</p>
-    </div>
+      <div class="form-success" id="form-success">
+  <div class="form-success-icon">&#10003;</div>
+  <h2>Thank you</h2>
+  <p>We&rsquo;ve received your details. Coach Vince will get back to you shortly &mdash; usually within 24 hours. Please check your email then.</p>
+  <div class="form-success-links">
+    <p class="form-success-meta">While you wait, you might want to read:</p>
+    <a href="info.html">Is VCBJJ Right For You?</a>
+    <a href="getstarted.html">How to Get Started</a>
   </div>
+</div>
 </section>
 
 <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjj" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
