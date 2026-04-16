@@ -101,6 +101,19 @@ a{color:inherit;text-decoration:none}
   .hero-ctas{flex-direction:column;align-items:stretch}
 }
 
+/* ══ 1.5 WHY ════════════════════════════════════════════ */
+.why{background:var(--dark);padding:60px 20px;border-top:1px solid #333}
+.why-inner{max-width:var(--content-max);margin:0 auto;position:relative;padding-left:24px}
+.why-inner::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);border-radius:2px}
+.why-text{font-size:18px;line-height:1.85;color:var(--dark-muted);font-style:italic}
+.why-text p{margin-bottom:16px}
+.why-text p:last-child{margin-bottom:0}
+.why-cite{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-top:20px;font-style:normal}
+@media(max-width:480px){
+  .why{padding:48px 20px}
+  .why-text{font-size:16px}
+}
+
 /* ══ 2. PROBLEM ═══════════════════════════════════════════ */
 .problem-img{width:100%;max-height:280px;object-fit:cover;border-radius:var(--radius);margin-bottom:28px;filter:grayscale(100%) contrast(1.1)}
 .problem p{font-size:18px;line-height:1.8;color:var(--text);margin-bottom:20px}
@@ -266,6 +279,17 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
+<!-- ══ 1.5 WHY ══════════════════════════════════════════════ -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-text">
+      <p>I built VCBJJ because I think adults deserve a place that isn&rsquo;t work and isn&rsquo;t home &mdash; somewhere you&rsquo;re not managing anyone, not answering to anyone, and not performing for anyone. Just a room where you can be challenged properly, learn something real, and nobody&rsquo;s trying to prove anything to anyone.</p>
+      <p>Most of my students walked in not knowing what BJJ was. They stay because they found something they didn&rsquo;t know they were looking for.</p>
+    </div>
+    <div class="why-cite">&mdash; Coach Vince</div>
+  </div>
+</section>
+
 <!-- ══ 2. THE PROBLEM (StoryBrand conflict) ════════════════ -->
 <section class="section problem">
   <div class="section-inner">
@@ -295,6 +319,7 @@ a{color:inherit;text-decoration:none}
         <a href="about.html" class="guide-link">Read more &rarr;</a>
       </div>
     </div>
+    <img class="guide-cert" src="https://i.ibb.co/hRFcvW0j/3rd-degree-BJJ-Globetrotters.webp" alt="BJJ 3rd Degree Black Belt certificate — Beltchecker verified" loading="lazy">
   </div>
 </section>
 
@@ -338,6 +363,7 @@ a{color:inherit;text-decoration:none}
   <div class="section-inner">
     <div class="eyebrow">What Our Members Say</div>
     <div style="font-size:22px;font-weight:700;margin-bottom:4px">Real people. Real results.</div>
+    <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:0">They&rsquo;re consultants, professors, lawyers, business owners. They came for the training. They stayed for the room.</p>
 
     <div class="testi-carousel" id="testi-carousel">
       <div class="testi-track" id="testi-track">
@@ -479,7 +505,7 @@ a{color:inherit;text-decoration:none}
   <div class="section-inner">
     <div class="kids-banner">
       <div class="kids-text"><strong>Looking for Kids BJJ?</strong> Our children&rsquo;s programme runs through Jeet Academy.</div>
-      <a href="https://www.jeetacademykl.com/classes" target="_blank" rel="noopener" class="kids-link">Learn more &rarr;</a>
+      <a href="#" class="kids-link">Learn more &rarr;</a>
     </div>
   </div>
 </section>
