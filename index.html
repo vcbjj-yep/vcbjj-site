@@ -259,6 +259,13 @@ a{color:inherit;text-decoration:none}
   .guide-cred-primary{font-size:11px}
 }
 
+/* ══ 5.5 COMMUNITY ════════════════════════════════════════ */
+.comm-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:28px 0 24px}
+.comm-photo{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3}
+.comm-photo img{width:100%;height:100%;object-fit:cover}
+.comm-photo-cap{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;background:linear-gradient(transparent,rgba(30,30,30,0.85));font-family:var(--mono);font-size:10px;letter-spacing:0.5px;color:var(--dark-muted)}
+@media(max-width:600px){.comm-grid{grid-template-columns:1fr;gap:10px}}
+
 /* ══ 5. TESTIMONIALS ══════════════════════════════════════ */
 .testi-carousel{position:relative;overflow:hidden;margin-top:32px}
 .testi-track{display:flex;transition:transform 0.4s ease}
@@ -488,6 +495,28 @@ a{color:inherit;text-decoration:none}
     </div><!-- /testi-carousel -->
 
     <div class="testi-nav" id="testi-nav"></div>
+  </div>
+</section>
+
+<!-- ══ 5.5 COMMUNITY ═══════════════════════════════════════ -->
+<section class="section section-dark">
+  <div class="section-inner">
+    <div class="eyebrow">Beyond the Mat</div>
+    <div style="font-size:22px;font-weight:700;margin-bottom:20px;color:var(--dark-text)">More than training.</div>
+    <div class="prose" style="color:var(--dark-muted)">
+      <p>People come for the BJJ. But what keeps them here &mdash; year after year &mdash; is everything else.</p>
+      <p>This is a small gym on purpose. When you train with the same group of people every week, something happens that doesn&rsquo;t happen in a big commercial class. You start looking out for each other. You learn how your training partner moves, what they&rsquo;re working on, where they&rsquo;ve improved. You notice when someone&rsquo;s been away for a while. You check in.</p>
+      <p>My students train together, eat together, and travel together. Some of them have been with me for over a decade. That doesn&rsquo;t happen because of technique. That happens because of trust.</p>
+    </div>
+    <div class="comm-grid">
+      <div class="comm-photo"><img src="https://i.ibb.co/HLnQdYGv/NMB-2023.webp" alt="VCBJJ group meal with American friends at a local Malaysian restaurant" loading="lazy"><div class="comm-photo-cap">Group meal &middot; Malaysia, 2023</div></div>
+      <div class="comm-photo"><img src="https://i.ibb.co/Qv50GGtd/Bedouine-2025.webp" alt="VCBJJ year-end team dinner 2025" loading="lazy"><div class="comm-photo-cap">Year-end dinner &middot; 2025</div></div>
+      <div class="comm-photo"><img src="https://i.ibb.co/sdmc5tpJ/Rayong2021.webp" alt="VCBJJ team beach day and surfing in Rayong, Thailand" loading="lazy"><div class="comm-photo-cap">Post-training surf &middot; Thailand, 2021</div></div>
+    </div>
+    <div class="prose" style="color:var(--dark-muted)">
+      <p>I&rsquo;ve run gyms long enough to know that the training is only half of it. The other half is having a place where you belong &mdash; somewhere that isn&rsquo;t work and isn&rsquo;t home, where you can switch off, be challenged, and be around people who are genuinely glad you showed up.</p>
+      <p>If you&rsquo;re looking for a hobby that actually gives back more than it takes &mdash; physically, mentally, socially &mdash; this might be the room you&rsquo;ve been looking for.</p>
+    </div>
   </div>
 </section>
 
