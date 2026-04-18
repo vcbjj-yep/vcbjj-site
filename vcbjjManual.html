@@ -1039,17 +1039,154 @@
 
   /* ── MOBILE ── */
   @media (max-width: 768px) {
-    .sidenav { display: none; }
+    .sidenav { display: none; transform: translateX(-100%); transition: transform 0.3s ease; }
+    .sidenav.open { display: flex; transform: translateX(0); }
     .main { margin-left: 0; }
     .cover { padding: 40px 24px; }
     .cover-title { font-size: 52px; }
     .section { padding: 48px 24px; }
     h2 { font-size: 36px; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .subfunnel-grid { grid-template-columns: 1fr; }
+    .position-grid { grid-template-columns: 1fr; }
+    .assessment-grid { grid-template-columns: 1fr; }
+    .axiom-row { grid-template-columns: 1fr; }
+    .axiom-rule { border-right: none; border-bottom: 1px solid var(--border); }
+    .funnel-viz { flex-direction: column; gap: 4px; }
+    .funnel-arrow { transform: rotate(90deg); padding: 4px 0; }
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 99; }
+    .nav-overlay.open { display: block; }
+  }
+
+  /* ── HAMBURGER BUTTON ── */
+  .hamburger-btn {
+    display: none;
+    position: fixed;
+    top: 14px; left: 14px;
+    z-index: 200;
+    width: 44px; height: 44px;
+    background: #111111;
+    border: 2px solid #F4BB09;
+    cursor: pointer;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .hamburger-btn span {
+    display: block;
+    width: 22px; height: 2px;
+    background: #F4BB09;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .hamburger-btn.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger-btn.active span:nth-child(2) { opacity: 0; }
+  .hamburger-btn.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 768px) {
+    .hamburger-btn { display: flex; }
+  }
+
+  /* ── ACCESSIBILITY TOOLBAR ── */
+  .a11y-toolbar {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 200;
+    display: flex;
+    gap: 6px;
+  }
+
+  .a11y-btn {
+    width: 40px; height: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border-mid);
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+    padding: 0;
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .a11y-btn:hover { border-color: #F4BB09; background: var(--surface2); }
+  .a11y-btn.active { background: #F4BB09; border-color: #111; color: #111; }
+
+  @media (max-width: 768px) {
+    .a11y-toolbar { right: 66px; }
+  }
+
+  /* ── FONT SIZE LEVELS ── */
+  body.font-size-1 { font-size: 17px; }
+  body.font-size-2 { font-size: 20px; }
+  body.font-size-3 { font-size: 23px; }
+
+  /* ── HIGH CONTRAST MODE ── */
+  body.high-contrast {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface2: #fff4c0;
+    --border: #999900;
+    --border-mid: #666600;
+    --ink: #000000;
+    --ink-mid: #000000;
+    --ink-dim: #1a1a1a;
+    --ink-muted: #333300;
+  }
+
+  body.high-contrast .sidenav { background: #000000; }
+  body.high-contrast .nav-item { color: #ffffff; }
+  body.high-contrast .axiom-rule { background: #000000; }
+
+  /* ── REDUCED MOTION ── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ── FOCUS VISIBLE ── */
+  *:focus-visible {
+    outline: 3px solid #F4BB09;
+    outline-offset: 2px;
+  }
+
+  .nav-item:focus-visible {
+    outline-color: #F4BB09;
+    background: rgba(244,187,9,0.12);
+  }
+
+  .level-card-head:focus-visible,
+  .faq-q:focus-visible {
+    outline: 3px solid #F4BB09;
+    outline-offset: -2px;
   }
 </style>
 </head>
 <body>
 <div class="app">
+
+<!-- MOBILE NAV TOGGLE -->
+<button class="hamburger-btn" aria-label="Toggle navigation menu" onclick="toggleMobileNav()">
+  <span></span><span></span><span></span>
+</button>
+<div class="nav-overlay" onclick="toggleMobileNav()"></div>
+
+<!-- ACCESSIBILITY TOOLBAR -->
+<div class="a11y-toolbar">
+  <button class="a11y-btn" id="fontSizeBtn" aria-label="Cycle font size" title="Font size" onclick="cycleFontSize()">A</button>
+  <button class="a11y-btn" id="contrastBtn" aria-label="Toggle high contrast" title="High contrast" onclick="toggleContrast()">◐</button>
+</div>
 
 <!-- SIDEBAR -->
 <nav class="sidenav">
@@ -1389,6 +1526,11 @@
         <li><strong>Shin-to-Shin</strong> — standing entry guard; works both formats</li>
         <li><strong>Open / Seated Guard</strong> — fluid; used when they're standing or passing</li>
       </ul>
+      <h4>How destabilization works — the mechanics</h4>
+      <p>Getting your partner's hands or hips to the mat isn't random — it's mechanical. The key is connecting to one of their legs, then using <strong>leverage</strong> to move their hips over their knees. Think of your connection as a crowbar: your grip is the fulcrum, and your body is the lever arm.</p>
+      <p>From open guard, your foot connects to your partner's leg in one of four compass directions — inside, outside, front, or behind. Each direction opens different sweep and destabilization paths. The grip you use on their foot or ankle matters: in the Gi, a <strong>pant cuff grip</strong>, a <strong>heel cup</strong>, or an <strong>underhook to your own shin</strong> each give different control. Your other foot manages their movement — blocking their ability to step somewhere unfavourable for you.</p>
+      <p>Two tools control your range: a <strong>long leg frame</strong> keeps distance when you need it, and <strong>shoelace hooks</strong> pull you back into grip range when you've been pushed away. Learning when to use each is the difference between maintaining your guard and losing the connection entirely.</p>
+
       <div class="callout callout-both">
         <div class="callout-title">The single question at Level 2</div>
         <p>"Have I destabilized them?" If the answer is no — keep working on posture control and connection. If yes — you're entering Level 3.</p>
@@ -1913,6 +2055,18 @@
       </div>
     </div>
 
+    <div class="pos-card">
+      <div class="pos-name">Open Guard <small style="font-size:12px;color:var(--ink-muted)">(bottom)</small></div>
+      <div class="pos-question">"Am I connected to a leg — and which direction?"</div>
+      <div class="pos-options">
+        No connection → re-acquire grip on foot or ankle first<br>
+        Outside connection → crowbar lever: move hips over knees<br>
+        Use free foot to block their step options<br>
+        Too far → shoelace hook to pull back into range<br>
+        Too close → long leg frame to reset distance
+      </div>
+    </div>
+
   </div>
 
   <div class="callout callout-muted">
@@ -2254,7 +2408,7 @@
 <div style="padding: 48px 64px; border-top: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
   <div>
     <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:3px; color:var(--accent);">VCBJJ</div>
-    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:1px; margin-top:4px;">Student Guide · March 2026</div>
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:1px; margin-top:4px;">Student Guide · April 2026</div>
   </div>
   <div style="font-size:12px; color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; text-align:right; line-height:1.8;">
     Private Training · Kuala Lumpur, Malaysia<br>
@@ -2267,9 +2421,6 @@
 
 <script>
 // ── BELT PROGRESSION HIGHLIGHT ──────────────────────────────
-// Set this from your portal login data — e.g. window.currentBelt = studentData.belt
-// Values: 'white' | 'blue' | 'purple' | 'brown' | 'black'
-// If not set, no card is highlighted (both shown equally)
 (function () {
   var belt = (typeof window.vcbjjBelt !== 'undefined') ? window.vcbjjBelt : null;
   if (!belt) return;
@@ -2285,46 +2436,130 @@
   var target = beltMap[belt.toLowerCase()];
   if (!target) return;
 
-  // Show the badge on the matching card
   var badge = document.querySelector('.belt-' + target + '-badge');
   if (badge) badge.style.display = 'inline-block';
 
-  // Add current-belt class to the matching card
   var card = document.querySelector('.belt-card-' + target);
   if (card) card.classList.add('current-belt');
 })();
 
-// Level accordion
-function toggleLevel(head) {
-  const card = head.closest('.level-card');
-  const body = card.querySelector('.level-body');
-  body.classList.toggle('open');
+// ── MOBILE NAVIGATION ──────────────────────────────────────
+function toggleMobileNav() {
+  var nav = document.querySelector('.sidenav');
+  var btn = document.querySelector('.hamburger-btn');
+  var overlay = document.querySelector('.nav-overlay');
+  var isOpen = nav.classList.toggle('open');
+  btn.classList.toggle('active', isOpen);
+  overlay.classList.toggle('open', isOpen);
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 }
 
-// FAQ accordion
+// Close mobile nav when a link is clicked
+document.querySelectorAll('.sidenav .nav-item').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (window.innerWidth <= 768) {
+      toggleMobileNav();
+    }
+  });
+});
+
+// ── LEVEL ACCORDION ─────────────────────────────────────────
+function toggleLevel(head) {
+  var card = head.closest('.level-card');
+  var body = card.querySelector('.level-body');
+  var isOpen = body.classList.toggle('open');
+  head.setAttribute('aria-expanded', isOpen);
+}
+
+// ── FAQ ACCORDION ───────────────────────────────────────────
 function toggleFaq(item) {
   item.classList.toggle('open');
 }
 
-// Active nav on scroll
-const navItems = document.querySelectorAll('.nav-item');
+// ── KEYBOARD SUPPORT ────────────────────────────────────────
+// Level cards — make heads focusable and keyboard-operable
+document.querySelectorAll('.level-card-head').forEach(function(head) {
+  head.setAttribute('tabindex', '0');
+  head.setAttribute('role', 'button');
+  head.setAttribute('aria-expanded', head.closest('.level-card').querySelector('.level-body').classList.contains('open'));
+  head.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleLevel(head);
+    }
+  });
+});
+
+// FAQ items — make questions focusable and keyboard-operable
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.setAttribute('tabindex', '0');
+  q.setAttribute('role', 'button');
+  q.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleFaq(q.closest('.faq-item'));
+    }
+  });
+});
+
+// ── FONT SIZE CYCLING ───────────────────────────────────────
+var fontLevel = 1;
+function cycleFontSize() {
+  document.body.classList.remove('font-size-1', 'font-size-2', 'font-size-3');
+  fontLevel = (fontLevel % 3) + 1;
+  document.body.classList.add('font-size-' + fontLevel);
+  var btn = document.getElementById('fontSizeBtn');
+  btn.textContent = fontLevel === 1 ? 'A' : fontLevel === 2 ? 'A+' : 'A++';
+  btn.classList.toggle('active', fontLevel > 1);
+  try { localStorage.setItem('vcbjj-font', fontLevel); } catch(e) {}
+}
+
+// ── HIGH CONTRAST TOGGLE ────────────────────────────────────
+function toggleContrast() {
+  var isHC = document.body.classList.toggle('high-contrast');
+  document.getElementById('contrastBtn').classList.toggle('active', isHC);
+  try { localStorage.setItem('vcbjj-contrast', isHC ? '1' : '0'); } catch(e) {}
+}
+
+// ── RESTORE PREFERENCES ────────────────────────────────────
+(function() {
+  try {
+    var savedFont = localStorage.getItem('vcbjj-font');
+    if (savedFont) {
+      fontLevel = parseInt(savedFont, 10) || 1;
+      if (fontLevel > 1) {
+        document.body.classList.add('font-size-' + fontLevel);
+        var btn = document.getElementById('fontSizeBtn');
+        btn.textContent = fontLevel === 2 ? 'A+' : 'A++';
+        btn.classList.add('active');
+      }
+    }
+    if (localStorage.getItem('vcbjj-contrast') === '1') {
+      document.body.classList.add('high-contrast');
+      document.getElementById('contrastBtn').classList.add('active');
+    }
+  } catch(e) {}
+})();
+
+// ── ACTIVE NAV ON SCROLL ────────────────────────────────────
+var navItems = document.querySelectorAll('.nav-item');
 
 function getAnchors() {
-  return Array.from(navItems).map(n => {
-    const href = n.getAttribute('href');
+  return Array.from(navItems).map(function(n) {
+    var href = n.getAttribute('href');
     if (!href || !href.startsWith('#')) return null;
     return { el: n, target: document.getElementById(href.slice(1)) };
-  }).filter(x => x && x.target);
+  }).filter(function(x) { return x && x.target; });
 }
 
 function updateNav() {
-  const anchors = getAnchors();
-  let current = null;
-  anchors.forEach(({ target }) => {
-    if (target.getBoundingClientRect().top <= 80) current = target;
+  var anchors = getAnchors();
+  var current = null;
+  anchors.forEach(function(a) {
+    if (a.target.getBoundingClientRect().top <= 80) current = a.target;
   });
-  anchors.forEach(({ el, target }) => {
-    el.classList.toggle('active', target === current);
+  anchors.forEach(function(a) {
+    a.el.classList.toggle('active', a.target === current);
   });
 }
 
@@ -2332,7 +2567,12 @@ window.addEventListener('scroll', updateNav, { passive: true });
 updateNav();
 
 // Open the first level card by default
-document.querySelector('.level-body')?.classList.add('open');
+var firstBody = document.querySelector('.level-body');
+if (firstBody) {
+  firstBody.classList.add('open');
+  var firstHead = firstBody.previousElementSibling;
+  if (firstHead) firstHead.setAttribute('aria-expanded', 'true');
+}
 </script>
 </body>
 </html>
