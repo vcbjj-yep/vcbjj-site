@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Here — VCBJJ</title>
+<meta name="description" content="Thinking about BJJ in KL? Here's how to take the next step with VCBJJ, Bangsar.">
+<meta name="robots" content="noindex"><!-- link-in-bio utility page; not for indexing -->
+
+<!-- Open Graph -->
+<meta property="og:title" content="Start Here — VCBJJ">
+<meta property="og:description" content="Not sure where to begin? Ask a question or register your interest — your call.">
+<meta property="og:image" content="https://i.ibb.co/TD2nmtBj/1200x800-index.webp">
+<meta property="og:url" content="https://vcbjj.com/start.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_MY">
+<meta property="og:site_name" content="VCBJJ">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:           #0E0E0E;
+  --bg-alt:       #1A1A1A;
+  --surface:      #1E1E1E;
+  --text:         #F5F0E8;
+  --muted:        #9A9080;
+  --gold:         #C9A84C;
+  --accent-hover: #B8963E;
+  --border:       #2E2E2E;
+  --dark:         #0E0E0E;
+  --dark-text:    #F5F0E8;
+  --dark-muted:   #9A9080;
+  --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:  'IBM Plex Mono', 'SF Mono', monospace;
+  --nav-max:   760px;
+  --content-max: 520px;
+  --radius: 6px;
+  --pill:   4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* ── Nav ── */
+.nav {
+  background: var(--dark);
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #1f1f1f;
+}
+.nav-inner {
+  max-width: var(--nav-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+.nav-brand img { height: 36px; width: auto; }
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--dark-muted);
+  padding: 8px 12px;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--dark-text); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark-muted);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 6px;
+}
+@media (max-width: 600px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 56px; left: 0; right: 0;
+    background: var(--dark);
+    flex-direction: column;
+    padding: 8px 20px 16px;
+    border-top: 1px solid #1f1f1f;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    padding: 14px 0;
+    font-size: 13px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .nav-links a:last-child { border-bottom: none; }
+}
+
+/* ── Main layout ── */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 20px 80px;
+}
+.inner {
+  max-width: var(--content-max);
+  width: 100%;
+}
+
+/* ── Eyebrow ── */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+/* ── Heading ── */
+.heading {
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--dark-text);
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+/* ── Subtext ── */
+.subtext {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 48px;
+  max-width: 440px;
+}
+
+/* ── Choice cards ── */
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.choice-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+.choice-card:hover {
+  border-color: var(--gold);
+  background: #232323;
+}
+
+.choice-card.primary {
+  border-color: rgba(201, 168, 76, 0.35);
+}
+.choice-card.primary:hover {
+  border-color: var(--gold);
+}
+
+.choice-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 76, 0.1);
+  border-radius: var(--radius);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.choice-body { flex: 1; }
+
+.choice-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.choice-title {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--dark-text);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.choice-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.choice-arrow {
+  font-size: 18px;
+  color: var(--muted);
+  align-self: center;
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.2s;
+}
+.choice-card:hover .choice-arrow {
+  color: var(--gold);
+  transform: translateX(3px);
+}
+
+/* ── Divider ── */
+.or-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.or-divider::before,
+.or-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Footer links ── */
+.footer-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.footer-links-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 100%;
+  margin-bottom: 8px;
+}
+.footer-links-row a {
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.footer-links-row a:hover { color: var(--gold); }
+
+/* ── Footer ── */
+.footer {
+  background: #0A0A0A;
+  padding: 32px 20px;
+  color: var(--dark-muted);
+  border-top: 1px solid #1a1a1a;
+}
+.footer-inner {
+  max-width: var(--nav-max);
+  margin: 0 auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+.footer-inner a { color: var(--gold); }
+
+@media (max-width: 480px) {
+  .heading { font-size: 24px; }
+  .main { padding: 48px 20px 64px; }
+  .choice-card { padding: 20px; gap: 16px; }
+  .choice-title { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="https://i.ibb.co/PZ7SrppN/VCBJJ-circle-2.png" alt="VCBJJ">
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="info.html">Is It Right For You?</a>
+      <a href="about.html">Coach Vince</a>
+      <a href="getstarted.html">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Main -->
+<main class="main">
+  <div class="inner">
+
+    <div class="eyebrow">VCBJJ · Bangsar, KL</div>
+
+    <h1 class="heading">Glad you're here.<br>What would help most?</h1>
+
+    <p class="subtext">You don't have to be ready to commit. Pick where you are right now.</p>
+
+    <div class="choices">
+
+      <!-- Option A: DM -->
+      <a class="choice-card" href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">
+        <div class="choice-icon">💬</div>
+        <div class="choice-body">
+          <div class="choice-label">Still deciding</div>
+          <div class="choice-title">Ask me a question on Instagram</div>
+          <div class="choice-desc">DM Coach Vince directly. No pitch, no pressure — just an honest answer to whatever's on your mind.</div>
+        </div>
+        <div class="choice-arrow">→</div>
+      </a>
+
+      <div class="or-divider">or</div>
+
+      <!-- Option B: Register -->
+      <a class="choice-card primary" href="contact.html">
+        <div class="choice-icon">✦</div>
+        <div class="choice-body">
+          <div class="choice-label">Ready to start</div>
+          <div class="choice-title">Register your interest</div>
+          <div class="choice-desc">Fill in a short form and Coach Vince will follow up personally. First class is paid — no free trials, no contracts.</div>
+        </div>
+        <div class="choice-arrow">→</div>
+      </a>
+
+    </div>
+
+    <!-- Secondary nav links -->
+    <div class="footer-links-row">
+      <div class="footer-links-label">More reading</div>
+      <a href="info.html">Is VCBJJ Right For You?</a>
+      <a href="about.html">About Coach Vince</a>
+      <a href="getstarted.html">How It Works</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>
+    &copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo
+  </div>
+</footer>
+
+</body>
+</html>
