@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
 :root{--bg:#0E0E0E;--bg-alt:#1A1A1A;--surface:#1E1E1E;--text:#F5F0E8;--muted:#9A9080;--accent:#C9A84C;--accent-hover:#B8963E;--gold:#C9A84C;--border:#2E2E2E;--dark:#0E0E0E;--dark-text:#F5F0E8;--dark-muted:#9A9080;--sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;--mono:'IBM Plex Mono','SF Mono',monospace;--content-max:720px;--nav-max:760px;--radius:6px;--pill:4px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
@@ -40,6 +42,8 @@
 .form-success-links a{display:block;font-size:15px;font-weight:500;color:var(--gold);padding:10px 0;transition:color 0.2s}
 .form-success-links a:hover{color:var(--dark-text)}
 .form-success-links a::after{content:' \2192';color:var(--muted)}
+/* Turnstile widget container */
+.turnstile-wrap{margin-top:20px}
 .footer{background:#0A0A0A;padding:48px 20px 32px;color:var(--dark-muted);border-top:1px solid #1a1a1a}.footer-inner{max-width:var(--nav-max);margin:0 auto}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}.footer-col-title{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}.footer-links{list-style:none}.footer-links li{margin-bottom:8px}.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}.footer-links a:hover{color:var(--dark-text)}.footer-bottom{border-top:1px solid #1a1a1a;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}.footer-bottom a{color:var(--gold)}
 @media(max-width:480px){.form-row{grid-template-columns:1fr}.btn{width:100%;padding:18px 24px;font-size:14px}.footer-grid{grid-template-columns:1fr;gap:24px}}
 </style>
@@ -103,6 +107,24 @@
         <input type="checkbox" id="tc-agree">
         <label for="tc-agree">I have read the <a href="info.html">Is It Right For You?</a> page and understand what VCBJJ is about.</label>
       </div>
+
+      <!-- HONEYPOT: hidden from real users, bots fill it. Must stay invisible. -->
+      <div style="position:absolute;left:-9999px;top:-9999px;opacity:0;pointer-events:none;" aria-hidden="true">
+        <label for="vcbjj_confirm">Leave this blank</label>
+        <input type="text" id="vcbjj_confirm" name="vcbjj_confirm" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- Cloudflare Turnstile widget -->
+      <!-- IMPORTANT: Replace YOUR_SITE_KEY with the key from Cloudflare dashboard -->
+      <!-- Dashboard → Turnstile → Add site → vcbjj.com → copy Site Key -->
+      <div class="turnstile-wrap">
+        <div class="cf-turnstile"
+             data-sitekey="0x4AAAAAADDIy-bFa2-1dZnV"
+             data-theme="dark"
+             data-size="normal">
+        </div>
+      </div>
+
       <button class="btn btn-primary btn-submit" onclick="submitContact()">Submit &rarr;</button>
       <div class="form-success" id="form-success">
   <div class="form-success-icon">&#10003;</div>
@@ -119,13 +141,16 @@
 <footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
 
 <script>
-var GAS_URL = 'https://script.google.com/macros/s/AKfycbyLBmJXsUPvbA3qMPjIqMQ8LkIT3glL9SgopOhJkub8lI5oBxs1SIPo-11zx8i597mRjg/exec';
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbyLBmJXsUPjIqMQ8LkIT3glL9SgopOhJkub8lI5oBxs1SIPo-11zx8i597mRjg/exec';
 
 function submitContact() {
-  // Validate required fields
   var fullname = document.getElementById('fullname').value.trim();
-  var email   = document.getElementById('email').value.trim();
-  var agree   = document.getElementById('tc-agree').checked;
+  var email    = document.getElementById('email').value.trim();
+  var agree    = document.getElementById('tc-agree').checked;
+
+  // Honeypot check — if filled, silently abort (bot detected)
+  var honeypot = document.getElementById('vcbjj_confirm').value;
+  if (honeypot) { return; }
 
   if (!fullname || !email) {
     alert('Please fill in your name and email.');
@@ -136,17 +161,21 @@ function submitContact() {
     return;
   }
 
-  // Split full name into fname/lname for GAS compatibility
+  // Turnstile token check
+  var turnstileToken = document.querySelector('[name="cf-turnstile-response"]');
+  if (!turnstileToken || !turnstileToken.value) {
+    alert('Please complete the security check.');
+    return;
+  }
+
   var parts = fullname.split(' ');
   var fname = parts[0];
   var lname = parts.slice(1).join(' ') || '-';
 
-  // Disable button while submitting
   var btn = document.querySelector('.btn-submit');
   btn.disabled = true;
-  btn.textContent = 'Submitting…';
+  btn.textContent = 'Submitting\u2026';
 
-  // Build JSONP URL
   var url = GAS_URL + '?action=submitContactForm'
     + '&fname='    + encodeURIComponent(fname)
     + '&lname='    + encodeURIComponent(lname)
@@ -155,9 +184,9 @@ function submitContact() {
     + '&program='  + encodeURIComponent(document.getElementById('program').value)
     + '&belt='     + encodeURIComponent(document.getElementById('belt').value)
     + '&referral=' + encodeURIComponent(document.getElementById('referral').value)
+    + '&hp='       + encodeURIComponent(honeypot)
     + '&callback=_vcbjjContactCb';
 
-  // JSONP callback
   window._vcbjjContactCb = function(resp) {
     if (resp && resp.status === 'ok') {
       document.getElementById('contact-form').style.display = 'none';
@@ -167,7 +196,7 @@ function submitContact() {
     } else {
       btn.disabled = false;
       btn.textContent = 'Submit';
-      alert('Something went wrong. Please try again or contact us directly at vkychoo@gmail.com.');
+      alert('Something went wrong. Please try again or reach out via the contact form.');
     }
   };
 
