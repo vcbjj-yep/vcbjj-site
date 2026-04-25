@@ -47,20 +47,14 @@
 <body>
 <nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-brand"><img src="https://i.ibb.co/PZ7SrppN/VCBJJ-circle-2.png" alt="VCBJJ"></a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button><div class="nav-links"><a href="info.html">Is It Right For You?</a><a href="about.html">Coach Vince</a><a href="getstarted.html">Get Started</a></div></div></nav>
 
-<section class="page-hero"><div class="page-hero-inner"><div class="eyebrow">Get in Touch</div><h1>Register Your Interest</h1><p>Fill in the form below and we&rsquo;ll get back to you.</p></div></section>
+<section class="page-hero"><div class="page-hero-inner"><div class="eyebrow">Get in Touch</div><h1>Register Your Interest</h1><p>Coach Vince responds to every enquiry personally &mdash; usually within 24 hours.</p></div></section>
 
 <section class="section">
   <div class="section-inner">
     <div id="contact-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">First Name<span class="req">*</span></label>
-          <input class="form-input" type="text" id="fname" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Last Name<span class="req">*</span></label>
-          <input class="form-input" type="text" id="lname" required>
-        </div>
+      <div class="form-group">
+        <label class="form-label">Full Name<span class="req">*</span></label>
+        <input class="form-input" type="text" id="fullname" required>
       </div>
       <div class="form-group">
         <label class="form-label">Email<span class="req">*</span></label>
@@ -105,6 +99,11 @@
           <option value="Other">Other</option>
         </select>
       </div>
+      <div class="form-check">
+        <input type="checkbox" id="tc-agree">
+        <label for="tc-agree">I have read the <a href="info.html">Is It Right For You?</a> page and understand what VCBJJ is about.</label>
+      </div>
+      <button class="btn btn-primary btn-submit" onclick="submitContact()">Submit &rarr;</button>
       <div class="form-success" id="form-success">
   <div class="form-success-icon">&#10003;</div>
   <h2>Thank you</h2>
@@ -124,19 +123,23 @@ var GAS_URL = 'https://script.google.com/macros/s/AKfycbyLBmJXsUPvbA3qMPjIqMQ8Lk
 
 function submitContact() {
   // Validate required fields
-  var fname   = document.getElementById('fname').value.trim();
-  var lname   = document.getElementById('lname').value.trim();
+  var fullname = document.getElementById('fullname').value.trim();
   var email   = document.getElementById('email').value.trim();
   var agree   = document.getElementById('tc-agree').checked;
 
-  if (!fname || !lname || !email) {
-    alert('Please fill in your first name, last name, and email.');
+  if (!fullname || !email) {
+    alert('Please fill in your name and email.');
     return;
   }
   if (!agree) {
     alert('Please tick the checkbox to confirm you have read the information page.');
     return;
   }
+
+  // Split full name into fname/lname for GAS compatibility
+  var parts = fullname.split(' ');
+  var fname = parts[0];
+  var lname = parts.slice(1).join(' ') || '-';
 
   // Disable button while submitting
   var btn = document.querySelector('.btn-submit');
