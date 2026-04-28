@@ -293,6 +293,25 @@ body {
   max-width: 500px; margin: 0 auto;
 }
 
+.result-personal {
+  margin: 28px auto 0;
+  max-width: 480px;
+  text-align: left;
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.18);
+  border-radius: 6px;
+  padding: 20px 24px;
+}
+.result-personal p {
+  font-size: 15px; color: var(--text); line-height: 1.6;
+  margin-bottom: 8px;
+}
+.result-personal p:last-child { margin-bottom: 0; }
+.result-personal-closer {
+  font-weight: 500; color: var(--gold) !important;
+  margin-top: 12px !important;
+}
+
 .signals { margin-bottom: 40px; }
 .signals-label {
   font-family: var(--mono); font-size: 11px;
@@ -379,7 +398,7 @@ body {
 <!-- HERO -->
 <section class="hero">
   
-  <h1>Still deciding whether<br>BJJ is the <em>right activity</em> for you?</h1><p style="font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:1px;margin-top:12px;margin-bottom:0;">Take this quiz to find out.</p>
+  <h1>Before you sign up for anything —<br>find out if VCBJJ is <em>actually right</em> for you.</h1>
   <p class="hero-sub">
     VCBJJ is a small, private BJJ gym built specifically for working adults over 40.
     Not every gym is right for every person — and that's fine.
@@ -753,13 +772,18 @@ function showResults() {
   document.getElementById('results').style.display = 'block';
 
   // Determine outcome
-  let badge, title, summary, ctaHtml;
+  let badge, title, summary, ctaHtml, headerExtra = '';
   const signals = buildSignals();
 
   if (pct >= 0.80) {
+    const personalLines = buildPersonalisedLines();
+    const personalHtml = personalLines.length
+      ? `<div class="result-personal">${personalLines.map(l => `<p>${l}</p>`).join('')}<p class="result-personal-closer">You're exactly who this gym was built for.</p></div>`
+      : '';
     badge = '<span class="result-badge badge-strong">Strong fit</span>';
     title = 'VCBJJ looks like the right room for you.';
-    summary = 'Your answers match what the gym was designed for — a working adult who wants structured, intelligent training in a small, low-ego environment. The next step is reading the full information page, then reaching out.';
+    summary = 'Your answers match what the gym was designed for — a working adult who wants structured, intelligent training in a small, low-ego environment.';
+    headerExtra = personalHtml;
     ctaHtml = `
       <div class="cta-box-eyebrow">Next Step</div>
       <h3>Read the full information page first.</h3>
@@ -799,12 +823,39 @@ function showResults() {
 
   // Fix badge (rendered differently)
   document.getElementById('results').querySelector('.result-header').innerHTML =
-    badge + '<div class="result-title">' + title + '</div><div class="result-summary">' + summary + '</div>';
+    badge + '<div class="result-title">' + title + '</div><div class="result-summary">' + summary + '</div>' + headerExtra;
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function buildSignals() {
+function buildPersonalisedLines() {
+  const lines = [];
+
+  // Q1: Age
+  if (scores[1] === 2) {
+    lines.push("You're in the exact age range this gym was designed for.");
+  }
+
+  // Q5: Mindset — val 2 = comfortable being a beginner (either "Fine" or "Uncomfortable but can sit with it")
+  if (scores[5] === 2) {
+    lines.push("The fact that you're okay being a beginner — that's the most important thing. It's rarer than people admit.");
+  }
+
+  // Q4: Schedule — val 2 on options 1 (1-2x/week) or 4 (3+x/week); val 1 = once a month
+  if (scores[4] === 2) {
+    lines.push("Your schedule works. Consistency beats intensity here — and you've got the right expectations.");
+  }
+
+  // Q2: Goals — community / skill / mental health all val 2
+  if (scores[2] === 2) {
+    lines.push("What you're looking for is exactly what training here produces.");
+  }
+
+  // Return top 2–3 lines, capped
+  return lines.slice(0, 3);
+}
+
+
   const map = {
     1: {
       2: { dot: 'dot-green', text: 'Age — you\'re in the target range', note: 'The gym was built for this demographic.' },
