@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is VCBJJ Right For You? — Self-Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:           #0E0E0E;
+  --bg-alt:       #1A1A1A;
+  --surface:      #1E1E1E;
+  --text:         #F5F0E8;
+  --muted:        #9A9080;
+  --gold:         #C9A84C;
+  --accent-hover: #B8963E;
+  --border:       #2E2E2E;
+  --sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid #1f1f1f;
+  padding: 0 24px;
+  height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 100%;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo img { height: 32px; width: 32px; border-radius: 50%; }
+.nav-logo-text {
+  font-family: var(--mono); font-size: 13px; font-weight: 500;
+  color: var(--text); letter-spacing: 1px;
+}
+.nav-link {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--gold); letter-spacing: 1.5px; text-decoration: none;
+  text-transform: uppercase;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 80px 24px 64px;
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-eyebrow {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 3px; color: var(--gold); text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 500; line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.hero h1 em {
+  font-style: normal; color: var(--gold);
+}
+.hero-sub {
+  font-size: 17px; color: var(--muted);
+  line-height: 1.65;
+  max-width: 520px; margin: 0 auto 40px;
+}
+.hero-meta {
+  display: flex; align-items: center; justify-content: center;
+  gap: 24px; flex-wrap: wrap;
+}
+.hero-meta-item {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 1px;
+}
+.hero-meta-item span { color: var(--text); }
+
+/* ── VIDEO PLACEHOLDER ── */
+.video-section {
+  padding: 0 24px 64px;
+  max-width: 680px; margin: 0 auto;
+}
+.video-placeholder {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  aspect-ratio: 16/9;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 16px;
+  position: relative; overflow: hidden;
+}
+.video-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #1a1a1a 0%, #111 50%, #1e1e1e 100%);
+}
+.video-play-btn {
+  position: relative; z-index: 1;
+  width: 64px; height: 64px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.video-play-btn::after {
+  content: '';
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent var(--gold);
+  margin-left: 4px;
+}
+.video-label {
+  position: relative; z-index: 1;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  width: 40px; height: 1px;
+  background: var(--border);
+  margin: 0 auto 48px;
+}
+
+/* ── ASSESSMENT SHELL ── */
+.assess-shell {
+  max-width: 640px; margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── PROGRESS ── */
+.progress-wrap { margin-bottom: 40px; }
+.progress-top {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px;
+}
+.progress-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 1px;
+}
+.progress-count {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--gold); letter-spacing: 1px;
+}
+.progress-track {
+  height: 2px; background: var(--border); border-radius: 2px;
+}
+.progress-fill {
+  height: 100%; background: var(--gold); border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+/* ── QUESTION ── */
+.question-block {
+  display: none; animation: fadeSlide 0.3s ease;
+}
+.question-block.active { display: block; }
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.q-number {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.q-text {
+  font-size: 20px; font-weight: 500; line-height: 1.35;
+  color: var(--text); margin-bottom: 8px;
+}
+.q-context {
+  font-size: 14px; color: var(--muted); line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+/* ── OPTIONS ── */
+.options { display: flex; flex-direction: column; gap: 10px; }
+
+.opt {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  text-align: left;
+}
+.opt:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: #222;
+}
+.opt.selected {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.06);
+}
+.opt-marker {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 1px solid var(--border);
+  flex-shrink: 0; margin-top: 2px;
+  transition: all 0.15s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.opt.selected .opt-marker {
+  background: var(--gold); border-color: var(--gold);
+}
+.opt.selected .opt-marker::after {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%; background: #0E0E0E;
+}
+.opt-text { font-size: 15px; color: var(--text); line-height: 1.4; }
+.opt-sub  { font-size: 13px; color: var(--muted); margin-top: 2px; line-height: 1.4; }
+
+/* ── NAV BUTTONS ── */
+.q-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 32px;
+}
+.btn {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 12px 24px; border-radius: 4px;
+  border: 1px solid var(--border);
+  cursor: pointer; text-decoration: none; display: inline-block;
+  transition: all 0.15s ease;
+}
+.btn-ghost {
+  background: transparent; color: var(--muted);
+}
+.btn-ghost:hover { color: var(--text); border-color: #444; }
+.btn-primary {
+  background: var(--gold); color: #0E0E0E;
+  border-color: var(--gold);
+}
+.btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn-primary:disabled,
+.btn-primary[disabled] {
+  background: #2a2a2a; color: #555;
+  border-color: #2a2a2a; cursor: default;
+}
+
+/* ── RESULTS ── */
+#results { display: none; animation: fadeSlide 0.4s ease; }
+
+.result-header {
+  text-align: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+.result-badge {
+  display: inline-block;
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 6px 14px; border-radius: 4px;
+  margin-bottom: 20px;
+}
+.badge-strong  { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+.badge-possible { background: rgba(201,168,76,0.06); color: var(--gold); border: 1px solid rgba(201,168,76,0.15); }
+.badge-honest  { background: rgba(154,144,128,0.1); color: var(--muted); border: 1px solid rgba(154,144,128,0.2); }
+
+.result-title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 500; line-height: 1.25;
+  margin-bottom: 16px;
+}
+.result-summary {
+  font-size: 16px; color: var(--muted); line-height: 1.65;
+  max-width: 500px; margin: 0 auto;
+}
+
+.signals { margin-bottom: 40px; }
+.signals-label {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.signal-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.signal-row:last-child { border-bottom: none; }
+.signal-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 6px;
+}
+.dot-green  { background: #7EC8A0; }
+.dot-amber  { background: var(--gold); }
+.dot-grey   { background: #555; }
+.signal-text { font-size: 15px; color: var(--text); line-height: 1.4; }
+.signal-note { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+/* ── CTA BOX ── */
+.cta-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+.cta-box-eyebrow {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--gold); letter-spacing: 2px; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.cta-box h3 { font-size: 20px; font-weight: 500; margin-bottom: 12px; }
+.cta-box p  { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 20px; }
+.cta-box .btn { width: 100%; text-align: center; display: block; }
+
+.restart-row {
+  text-align: center; margin-top: 24px;
+}
+.restart-link {
+  font-family: var(--mono); font-size: 11px;
+  color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase;
+  cursor: pointer; text-decoration: underline;
+  background: none; border: none;
+}
+.restart-link:hover { color: var(--text); }
+
+/* ── FOOTER ── */
+.footer {
+  background: #0A0A0A; border-top: 1px solid #1a1a1a;
+  padding: 32px 24px;
+  text-align: center;
+}
+.footer-text {
+  font-family: var(--mono); font-size: 11px;
+  color: #555; letter-spacing: 1px; line-height: 1.8;
+}
+.footer-text a { color: var(--muted); text-decoration: none; }
+.footer-text a:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 480px) {
+  .hero { padding: 56px 20px 48px; }
+  .assess-shell { padding: 0 20px 64px; }
+  .cta-box { padding: 24px 20px; }
+  .q-nav { flex-direction: column-reverse; gap: 12px; }
+  .q-nav .btn { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="https://vcbjj.com">
+    <img src="https://i.ibb.co/PZ7SrppN/VCBJJ-circle-2.png" alt="VCBJJ logo">
+    <span class="nav-logo-text">VCBJJ</span>
+  </a>
+  <a class="nav-link" href="https://vcbjj.com/contact.html">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  
+  <h1>Still deciding whether<br>BJJ is the <em>right activity</em> for you?</h1><p style="font-family:var(--mono);font-size:13px;color:var(--muted);letter-spacing:1px;margin-top:12px;margin-bottom:0;">Take this quiz to find out.</p>
+  <p class="hero-sub">
+    VCBJJ is a small, private BJJ gym built specifically for working adults over 40.
+    Not every gym is right for every person — and that's fine.
+    This takes 2 minutes and gives you an honest answer.
+  </p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">⏱ <span>2 minutes</span></div>
+    <div class="hero-meta-item">✦ <span>8 questions</span></div>
+    <div class="hero-meta-item">◎ <span>No email required</span></div>
+  </div>
+</section>
+
+<!-- VIDEO PLACEHOLDER -->
+<section class="video-section">
+  <div class="video-placeholder">
+    <div class="video-play-btn"></div>
+    <span class="video-label">Coach Vince — Who this is for (2 min)</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ASSESSMENT -->
+<div class="assess-shell">
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-top">
+      <span class="progress-label">Your Assessment</span>
+      <span class="progress-count" id="progressCount">1 / 8</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width: 12.5%"></div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="questionsArea">
+
+    <!-- Q1 -->
+    <div class="question-block active" id="q1">
+      <div class="q-number">Question 01</div>
+      <div class="q-text">How old are you?</div>
+      <div class="q-context">VCBJJ was built for adults whose bodies and schedules aren't what they were at 25. The training is designed accordingly.</div>
+      <div class="options">
+        <div class="opt" data-q="1" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">40 – 55+</div><div class="opt-sub">Prime demographic. The gym was designed around you.</div></div>
+        </div>
+        <div class="opt" data-q="1" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">56 – 65+</div><div class="opt-sub">Several current members are in this range. Training adapts to where you are.</div></div>
+        </div>
+        <div class="opt" data-q="1" data-val="1" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">30 – 39</div><div class="opt-sub">You can train here, but the culture is adult-paced — not high-intensity competition prep.</div></div>
+        </div>
+        <div class="opt" data-q="1" data-val="0" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Under 30</div><div class="opt-sub">VCBJJ probably isn't the right room for you at this stage.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <span></span>
+        <button class="btn btn-primary" id="next1" onclick="nextQ(1)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="question-block" id="q2">
+      <div class="q-number">Question 02</div>
+      <div class="q-text">What are you looking for from BJJ?</div>
+      <div class="q-context">Your honest goal determines whether what VCBJJ offers is what you actually need.</div>
+      <div class="options">
+        <div class="opt" data-q="2" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Physical and mental challenge, stress relief</div><div class="opt-sub">The primary reason most members train here.</div></div>
+        </div>
+        <div class="opt" data-q="2" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Learning a real skill — something I can actually use</div><div class="opt-sub">Functional, resistant-tested. That's what the training produces.</div></div>
+        </div>
+        <div class="opt" data-q="2" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Community — a third space outside work and home</div><div class="opt-sub">Strong fit. The culture here is built around this.</div></div>
+        </div>
+        <div class="opt" data-q="2" data-val="0" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Competition training and tournament preparation</div><div class="opt-sub">VCBJJ is not the right gym for this. Better options exist.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="prevQ(2)">← Back</button>
+        <button class="btn btn-primary" id="next2" onclick="nextQ(2)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="question-block" id="q3">
+      <div class="q-number">Question 03</div>
+      <div class="q-text">How do you feel about your current physical condition?</div>
+      <div class="q-context">Not a test — just a baseline. BJJ builds fitness; it doesn't require it as an entry condition.</div>
+      <div class="options">
+        <div class="opt" data-q="3" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Not very fit — that's part of why I'm here</div><div class="opt-sub">Honest and common. Most people start here.</div></div>
+        </div>
+        <div class="opt" data-q="3" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Reasonably active but not a dedicated athlete</div><div class="opt-sub">Good starting point. You'll be challenged and you'll adapt.</div></div>
+        </div>
+        <div class="opt" data-q="3" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">I have existing injuries or chronic pain I need to work around</div><div class="opt-sub">Common over 40. Flagging this upfront means it gets managed from day one.</div></div>
+        </div>
+        <div class="opt" data-q="3" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Fit and active — looking for an intelligent challenge</div><div class="opt-sub">BJJ will test dimensions of fitness you may not have encountered before.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="prevQ(3)">← Back</button>
+        <button class="btn btn-primary" id="next3" onclick="nextQ(3)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="question-block" id="q4">
+      <div class="q-number">Question 04</div>
+      <div class="q-text">How consistent can you realistically be?</div>
+      <div class="q-context">Honest scheduling. VCBJJ has group classes twice a week. Progress in BJJ is non-linear — but it does require showing up.</div>
+      <div class="options">
+        <div class="opt" data-q="4" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">1–2 times a week, most weeks</div><div class="opt-sub">This is the standard. Enough to make real progress.</div></div>
+        </div>
+        <div class="opt" data-q="4" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Inconsistent — work and travel get in the way</div><div class="opt-sub">Pay-as-you-go means no penalty for missing sessions. Life happens.</div></div>
+        </div>
+        <div class="opt" data-q="4" data-val="1" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">I can come once a month at best</div><div class="opt-sub">Progress will be slow. It can still be worth it, but expectations matter.</div></div>
+        </div>
+        <div class="opt" data-q="4" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">3+ times a week — I want to go deep</div><div class="opt-sub">Private sessions can supplement group classes to build that volume.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="prevQ(4)">← Back</button>
+        <button class="btn btn-primary" id="next4" onclick="nextQ(4)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="question-block" id="q5">
+      <div class="q-number">Question 05</div>
+      <div class="q-text">How do you feel about being a beginner — in public, as an adult?</div>
+      <div class="q-context">BJJ requires you to be visibly not good at something, in a room with other people. This question matters more than most people expect.</div>
+      <div class="options">
+        <div class="opt" data-q="5" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Fine — I'm used to learning new things</div><div class="opt-sub">Strong indicator. Intellectual curiosity transfers well to BJJ.</div></div>
+        </div>
+        <div class="opt" data-q="5" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Uncomfortable at first, but I can sit with it</div><div class="opt-sub">Honest and enough. The discomfort usually passes within a few sessions.</div></div>
+        </div>
+        <div class="opt" data-q="5" data-val="1" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">I find it very difficult — I don't like looking incompetent</div><div class="opt-sub">Worth flagging. BJJ will put you in that position regularly. It's part of how it works.</div></div>
+        </div>
+        <div class="opt" data-q="5" data-val="0" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">I want to look good from the start — that matters to me</div><div class="opt-sub">Misaligned with how BJJ actually works. Worth reconsidering the timing.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="prevQ(5)">← Back</button>
+        <button class="btn btn-primary" id="next5" onclick="nextQ(5)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="question-block" id="q6">
+      <div class="q-number">Question 06</div>
+      <div class="q-text">What's your reaction to close physical contact with training partners?</div>
+      <div class="q-context">BJJ involves grappling — close contact, clinch work, ground positions. This is unavoidable and part of why it works. How you feel about it matters.</div>
+      <div class="options">
+        <div class="opt" data-q="6" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Fine — I understand it's part of the training</div><div class="opt-sub">No barrier here.</div></div>
+        </div>
+        <div class="opt" data-q="6" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">A little uncomfortable, but I'm willing to try</div><div class="opt-sub">Most new students feel this. It normalises faster than expected in a well-run room.</div></div>
+        </div>
+        <div class="opt" data-q="6" data-val="1" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">It's a real concern — I've had experiences that make this difficult</div><div class="opt-sub">Worth a direct conversation before joining. Reach out — it's a reasonable discussion to have.</div></div>
+        </div>
+        <div class="opt" data-q="6" data-val="0" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">I don't want contact — I'm looking for something more distance-based</div><div class="opt-sub">BJJ isn't the right fit. Different martial arts may serve you better.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="prevQ(6)">← Back</button>
+        <button class="btn btn-primary" id="next6" onclick="nextQ(6)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="question-block" id="q7">
+      <div class="q-number">Question 07</div>
+      <div class="q-text">Do you have prior martial arts or combat sports experience?</div>
+      <div class="q-context">There's no right answer. The training starts from zero regardless — prior experience just changes the starting texture.</div>
+      <div class="options">
+        <div class="opt" data-q="7" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">None — complete beginner</div><div class="opt-sub">The majority of students started here. Everything is built from scratch.</div></div>
+        </div>
+        <div class="opt" data-q="7" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Some — another striking or grappling art</div><div class="opt-sub">Useful foundation. Some habits may need adjusting.</div></div>
+        </div>
+        <div class="opt" data-q="7" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Yes — I've trained BJJ before</div><div class="opt-sub">Good. You'll slot in. The methodology may be different from what you've experienced.</div></div>
+        </div>
+        <div class="opt" data-q="7" data-val="1" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Lots — I'm an experienced grappler looking for casual training</div><div class="opt-sub">Worth a conversation first. VCBJJ is structured, not a drop-in open mat.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="prevQ(7)">← Back</button>
+        <button class="btn btn-primary" id="next7" onclick="nextQ(7)" disabled>Next →</button>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="question-block" id="q8">
+      <div class="q-number">Question 08</div>
+      <div class="q-text">How do you feel about paying RM 65 per class, with no contract?</div>
+      <div class="q-context">No registration fees. No grading fees. No admin fees. Pay when you come. The model is designed to remove barriers — but RM 65 per session is the honest number.</div>
+      <div class="options">
+        <div class="opt" data-q="8" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Reasonable — I prefer pay-as-you-go over contracts</div><div class="opt-sub">Built for you. No lock-in, no pressure.</div></div>
+        </div>
+        <div class="opt" data-q="8" data-val="2" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Fine — small group, expert coaching justifies it</div><div class="opt-sub">That's the logic behind the pricing. Correct read.</div></div>
+        </div>
+        <div class="opt" data-q="8" data-val="1" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">It's a stretch — I'd need to commit to get value from it</div><div class="opt-sub">Worth thinking about before joining. Consistency matters for progress.</div></div>
+        </div>
+        <div class="opt" data-q="8" data-val="0" onclick="selectOpt(this)">
+          <div class="opt-marker"></div>
+          <div><div class="opt-text">Too much — I'm looking for something more affordable</div><div class="opt-sub">Honest answer. VCBJJ is not the lowest-cost option in KL.</div></div>
+        </div>
+      </div>
+      <div class="q-nav">
+        <button class="btn btn-ghost" onclick="prevQ(8)">← Back</button>
+        <button class="btn btn-primary" id="next8" onclick="showResults()" disabled>See My Result →</button>
+      </div>
+    </div>
+
+  </div><!-- /questionsArea -->
+
+  <!-- RESULTS -->
+  <div id="results">
+
+    <div class="result-header">
+      <div class="result-badge" id="resultBadge"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-summary" id="resultSummary"></div>
+    </div>
+
+    <div class="signals">
+      <div class="signals-label">What your answers show</div>
+      <div id="signalsList"></div>
+    </div>
+
+    <div class="cta-box" id="ctaBox"></div>
+
+    <div class="restart-row">
+      <button class="restart-link" onclick="restartAssessment()">Start over</button>
+    </div>
+
+  </div><!-- /results -->
+
+</div><!-- /assess-shell -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-text">
+    VCBJJ · Jeet Academy KL · 14-2 Jalan Telawi 3, Bangsar, Kuala Lumpur<br>
+    <a href="https://vcbjj.com">vcbjj.com</a> &nbsp;·&nbsp;
+    <a href="https://vcbjj.com/info.html">Full Information</a> &nbsp;·&nbsp;
+    <a href="https://vcbjj.com/contact.html">Get in Touch</a>
+  </div>
+</footer>
+
+<script>
+const TOTAL_Q = 8;
+let current = 1;
+let scores = {};
+
+function selectOpt(el) {
+  const q = el.dataset.q;
+  const val = parseInt(el.dataset.val);
+  // Deselect siblings
+  el.closest('.options').querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  scores[q] = val;
+  // Enable next button
+  const nextBtn = document.getElementById('next' + q);
+  if (nextBtn) nextBtn.disabled = false;
+}
+
+function nextQ(from) {
+  if (scores[from] === undefined) return;
+  document.getElementById('q' + from).classList.remove('active');
+  const nextNum = from + 1;
+  if (nextNum <= TOTAL_Q) {
+    document.getElementById('q' + nextNum).classList.add('active');
+    current = nextNum;
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function prevQ(from) {
+  document.getElementById('q' + from).classList.remove('active');
+  const prevNum = from - 1;
+  if (prevNum >= 1) {
+    document.getElementById('q' + prevNum).classList.add('active');
+    current = prevNum;
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function updateProgress() {
+  const pct = (current / TOTAL_Q) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressCount').textContent = current + ' / ' + TOTAL_Q;
+}
+
+function showResults() {
+  // Calculate total
+  let total = 0;
+  for (let k in scores) total += scores[k];
+  const maxPossible = TOTAL_Q * 2; // 16
+  let pct = total / maxPossible;
+
+  // Dealbreaker override: Q2=0 (wants competition) or Q6=0 (no contact) or Q1=0 (under 30) or Q8=0 (price barrier) alone can't disqualify, but two 0s = hard cap
+  const dealbreakers = [1,2,5,6].filter(q => scores[q] === 0);
+  if (dealbreakers.length >= 2) pct = Math.min(pct, 0.45); // force "not a fit"
+  if (scores[2] === 0 && scores[6] === 0) pct = Math.min(pct, 0.40); // competition + no contact = definitely not right room
+  if (scores[2] === 0) pct = Math.min(pct, 0.70); // competition goal alone caps at Possible
+  if (scores[1] === 0) pct = Math.min(pct, 0.45); // under 30 alone = not the right room
+
+  // Hide questions, show results
+  document.getElementById('questionsArea').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+
+  // Determine outcome
+  let badge, title, summary, ctaHtml;
+  const signals = buildSignals();
+
+  if (pct >= 0.80) {
+    badge = '<span class="result-badge badge-strong">Strong fit</span>';
+    title = 'VCBJJ looks like the right room for you.';
+    summary = 'Your answers match what the gym was designed for — a working adult who wants structured, intelligent training in a small, low-ego environment. The next step is reading the full information page, then reaching out.';
+    ctaHtml = `
+      <div class="cta-box-eyebrow">Next Step</div>
+      <h3>Read the full information page first.</h3>
+      <p>It covers how training works, what to expect on your first day, policies, and FAQ. No surprises after that.</p>
+      <a href="https://vcbjj.com/info.html" class="btn btn-primary">Is It Right For You? →</a>
+    `;
+  } else if (pct >= 0.55) {
+    badge = '<span class="result-badge badge-possible">Possible fit — worth a conversation</span>';
+    title = 'There\'s a good chance this works. A few things to consider first.';
+    summary = 'Most of your answers align with what VCBJJ offers, but a couple of areas are worth discussing before you commit. The information page will answer most of it — and if not, reaching out costs nothing.';
+    ctaHtml = `
+      <div class="cta-box-eyebrow">Recommended Next Step</div>
+      <h3>Read the information page, then reach out.</h3>
+      <p>The FAQ section covers most of the grey areas your answers surfaced. If something is still unclear, ask directly — honest questions get honest answers.</p>
+      <a href="https://vcbjj.com/info.html" class="btn btn-primary">Read: Is It Right For You? →</a>
+    `;
+  } else {
+    badge = '<span class="result-badge badge-honest">Honest answer: probably not the right fit right now</span>';
+    title = 'VCBJJ may not be what you\'re looking for.';
+    summary = 'A few of your answers point to a mismatch — not with BJJ necessarily, but with how VCBJJ specifically runs. That doesn\'t mean the door is closed, but it means a direct conversation is more useful than signing up.';
+    ctaHtml = `
+      <div class="cta-box-eyebrow">If you still want to explore</div>
+      <h3>Have the conversation first.</h3>
+      <p>If something in your answers feels like a barrier rather than a deal-breaker, reach out directly. Sometimes context changes the picture.</p>
+      <a href="https://vcbjj.com/contact.html" class="btn btn-ghost">Get in Touch →</a>
+    `;
+  }
+
+  document.getElementById('resultBadge').outerHTML = badge;
+  // Re-select after replacing
+  document.getElementById('results').querySelector('.result-badge').outerHTML = badge;
+  document.querySelector('.result-header').querySelector('.result-badge') || document.querySelector('#resultBadge');
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultSummary').textContent = summary;
+  document.getElementById('signalsList').innerHTML = signals;
+  document.getElementById('ctaBox').innerHTML = ctaHtml;
+
+  // Fix badge (rendered differently)
+  document.getElementById('results').querySelector('.result-header').innerHTML =
+    badge + '<div class="result-title">' + title + '</div><div class="result-summary">' + summary + '</div>';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildSignals() {
+  const map = {
+    1: {
+      2: { dot: 'dot-green', text: 'Age — you\'re in the target range', note: 'The gym was built for this demographic.' },
+      1: { dot: 'dot-amber', text: 'Age — slightly outside the primary demographic', note: 'You can train here, but the culture is adult-paced, not high-energy competition prep.' },
+      0: { dot: 'dot-grey', text: 'Age — outside the intended range', note: 'VCBJJ is unlikely to be the right room.' }
+    },
+    2: {
+      2: { dot: 'dot-green', text: 'Goals — aligned with what the training produces', note: 'Functional skill, stress relief, community — these are the outcomes the gym is built around.' },
+      1: { dot: 'dot-amber', text: 'Goals — partially aligned', note: 'Worth clarifying what specifically you\'re after.' },
+      0: { dot: 'dot-grey', text: 'Goals — competition focus doesn\'t match VCBJJ', note: 'Competition-focused training is not offered here.' }
+    },
+    3: {
+      2: { dot: 'dot-green', text: 'Physical condition — no barrier to starting', note: 'The training builds fitness; it doesn\'t require it upfront.' },
+      1: { dot: 'dot-amber', text: 'Physical condition — some consideration needed', note: 'Worth discussing before your first session.' },
+      0: { dot: 'dot-grey', text: 'Physical condition — flagged', note: 'Reach out before committing.' }
+    },
+    4: {
+      2: { dot: 'dot-green', text: 'Schedule — workable consistency', note: 'Pay-as-you-go means no penalty for life getting in the way.' },
+      1: { dot: 'dot-amber', text: 'Schedule — low frequency expected', note: 'Progress will be slow but not impossible.' },
+      0: { dot: 'dot-grey', text: 'Schedule — very infrequent', note: 'Hard to build skill with very irregular training.' }
+    },
+    5: {
+      2: { dot: 'dot-green', text: 'Mindset — comfortable with the beginner experience', note: 'Strong indicator. Intellectual curiosity is the best asset a new student can bring.' },
+      1: { dot: 'dot-amber', text: 'Mindset — some discomfort with looking incompetent', note: 'Worth acknowledging before starting. BJJ will put you in that position regularly.' },
+      0: { dot: 'dot-grey', text: 'Mindset — image-consciousness may be a barrier', note: 'The training requires a genuine willingness to be bad at something for a while.' }
+    },
+    6: {
+      2: { dot: 'dot-green', text: 'Contact comfort — no barrier', note: 'Physical contact is how the training works. No issue here.' },
+      1: { dot: 'dot-amber', text: 'Contact — a real concern worth discussing', note: 'Flagging it upfront means it can be managed from day one.' },
+      0: { dot: 'dot-grey', text: 'Contact — misaligned with BJJ as a format', note: 'Striking or weapons-based arts may be a better fit.' }
+    },
+    7: {
+      2: { dot: 'dot-green', text: 'Experience level — appropriate starting point', note: 'Everything is introduced from scratch regardless of background.' },
+      1: { dot: 'dot-amber', text: 'Experience — worth a conversation', note: 'Structured classes, not open mats. Worth confirming the fit.' },
+      0: { dot: 'dot-grey', text: 'Experience — flagged', note: 'Discuss before booking.' }
+    },
+    8: {
+      2: { dot: 'dot-green', text: 'Pricing — comfortable with the model', note: 'Pay-as-you-go with no contract. Designed to remove financial lock-in.' },
+      1: { dot: 'dot-amber', text: 'Pricing — a stretch', note: 'Worth being honest with yourself about whether the commitment makes sense.' },
+      0: { dot: 'dot-grey', text: 'Pricing — a barrier', note: 'VCBJJ is not the most affordable option in KL.' }
+    }
+  };
+
+  let html = '';
+  for (let q = 1; q <= TOTAL_Q; q++) {
+    const val = scores[q];
+    if (val === undefined) continue;
+    const tier = val === 2 ? 2 : val === 1 ? 1 : 0;
+    const sig = map[q][tier];
+    if (!sig) continue;
+    html += `
+      <div class="signal-row">
+        <div class="signal-dot ${sig.dot}"></div>
+        <div>
+          <div class="signal-text">${sig.text}</div>
+          <div class="signal-note">${sig.note}</div>
+        </div>
+      </div>
+    `;
+  }
+  return html;
+}
+
+function restartAssessment() {
+  scores = {};
+  current = 1;
+  document.querySelectorAll('.question-block').forEach(b => b.classList.remove('active'));
+  document.getElementById('q1').classList.add('active');
+  document.querySelectorAll('.opt').forEach(o => o.classList.remove('selected'));
+  document.querySelectorAll('[id^="next"]').forEach(b => b.disabled = true);
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('questionsArea').style.display = 'block';
+  document.getElementById('progressWrap').style.display = 'block';
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
