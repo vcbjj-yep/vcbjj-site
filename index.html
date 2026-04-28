@@ -314,6 +314,18 @@ a{color:inherit;text-decoration:none}
   .testi-stars{justify-content:center}
 }
 
+/* ══ Testi pull quote ════════════════════════════════════ */
+.testi-pullquote{border-left:3px solid var(--gold);padding:16px 20px;margin:28px 0 24px;background:rgba(201,168,76,0.06);font-size:17px;font-style:italic;line-height:1.65;color:var(--text)}
+.testi-pullquote cite{display:block;margin-top:10px;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--gold)}
+
+/* ══ Testi static stack ══════════════════════════════════ */
+.testi-static{display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+
+/* ══ More reviews button ═════════════════════════════════ */
+.testi-more-btn{display:block;width:100%;padding:14px 20px;background:transparent;border:1px solid #3a3a3a;border-radius:var(--pill);font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all 0.2s;text-align:center;margin-bottom:0}
+.testi-more-btn:hover{border-color:var(--gold);color:var(--gold)}
+.testi-more-btn[aria-expanded="true"]{color:var(--gold);border-color:var(--gold)}
+
 /* ══ 6. SCHEDULE & FEES ═══════════════════════════════════ */
 .sched-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
 .sched-card{background:#1a1a1a;border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px}
@@ -448,104 +460,114 @@ a{color:inherit;text-decoration:none}
     <div style="font-size:22px;font-weight:500;margin-bottom:4px">Real people. Real results.</div>
     <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:0">They&rsquo;re consultants, professors, lawyers, business owners. They came for the training. They stayed for the room.</p>
 
-    <div class="testi-carousel" id="testi-carousel">
-      <div class="testi-track" id="testi-track">
+    <!-- Pull quote -->
+    <blockquote class="testi-pullquote">&ldquo;It&rsquo;s a safe place to train if one intends to practice BJJ for a long period.&rdquo;<cite>&mdash; Johann M.</cite></blockquote>
 
-        <!-- Slide 1: Michael G. -->
-        <div class="testi-slide">
-          <div class="testi-card">
-            <img class="testi-avatar" src="/assets/Mike-G.jpg" alt="Michael G.">
-            <div class="testi-body">
-              <p class="testi-quote">&ldquo;If you are looking to train Brazilian Jiujitsu (BJJ) in a safe, supportive and superlative environment in Malaysia, then VCBJJ should be your port of call. The teacher, Professor Vince Choo, is one of the best coaches, if not the best, that I have encountered in my BJJ journey. His teaching skills are second to none. Furthermore, his explanations and demonstrations of concepts and techniques are done in a very clear and concise manner. I highly recommend that you try this place :)&rdquo;</p>
-              <div class="testi-name">Michael G.</div>
-              <div class="testi-role">Consultant, 50+</div>
-              <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+    <!-- Static cards: always visible -->
+    <div class="testi-static">
+
+      <!-- Johann M. -->
+      <div class="testi-card">
+        <img class="testi-avatar" src="/assets/Johann.jpg" alt="Johann M.">
+        <div class="testi-body">
+          <p class="testi-quote">&ldquo;BJJ may not be everyone&rsquo;s cup of tea, but I feel that this gym is the right place to start one&rsquo;s journey. There are no pressure or egos, and it&rsquo;s a safe place to train if one intends to practice BJJ for a long period. I&rsquo;m more aware of my health and what I need to do/avoid to maintain it. It has helped my self-confidence, moreso when interacting with others in a business environment. BJJ is challenging in my opinion, but learning new skills and learning more about oneself is always fun and rewarding.&rdquo;</p>
+          <div class="testi-name">Johann M.</div>
+          <div class="testi-role">Business Owner, 40+</div>
+          <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+        </div>
+      </div>
+
+      <!-- Jayne K. -->
+      <div class="testi-card">
+        <img class="testi-avatar" src="/assets/Jayne-K.jpg" alt="Jayne K.">
+        <div class="testi-body">
+          <p class="testi-quote">&ldquo;Vince Choo is an excellent instructor. He is knowledgeable, patient and genuinely invested in his students&rsquo; progress. His instructions are clear and structured, and he takes the time to ensure that the students understand the techniques; including why it works and what needs redressing when it is not working. His teaching forte is evolving and adapting to match the students&rsquo; ability to learn, and the student is steered to think for him/herself to better understand the technique.&rdquo;</p>
+          <div class="testi-name">Jayne K.</div>
+          <div class="testi-role">Legal Professional, 60+</div>
+          <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+        </div>
+      </div>
+
+    </div><!-- /testi-static -->
+
+    <!-- More reviews toggle -->
+    <button class="testi-more-btn" id="testi-more-btn" onclick="initTestiCarousel()" aria-expanded="false" aria-controls="testi-more-wrap">More reviews &#8595;</button>
+
+    <!-- Collapsed carousel: remaining 5 reviews -->
+    <div class="testi-more-wrap" id="testi-more-wrap" style="display:none">
+      <div class="testi-carousel" id="testi-carousel">
+        <div class="testi-track" id="testi-track">
+
+          <!-- Michael G. -->
+          <div class="testi-slide">
+            <div class="testi-card">
+              <img class="testi-avatar" src="/assets/Mike-G.jpg" alt="Michael G.">
+              <div class="testi-body">
+                <p class="testi-quote">&ldquo;If you are looking to train Brazilian Jiujitsu (BJJ) in a safe, supportive and superlative environment in Malaysia, then VCBJJ should be your port of call. The teacher, Professor Vince Choo, is one of the best coaches, if not the best, that I have encountered in my BJJ journey. His teaching skills are second to none. Furthermore, his explanations and demonstrations of concepts and techniques are done in a very clear and concise manner. I highly recommend that you try this place :)&rdquo;</p>
+                <div class="testi-name">Michael G.</div>
+                <div class="testi-role">Consultant, 50+</div>
+                <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Slide 2: Dr. Joel M. -->
-        <div class="testi-slide">
-          <div class="testi-card">
-            <img class="testi-avatar" src="/assets/Joel-M.jpg" alt="Dr. Joel M.">
-            <div class="testi-body">
-              <p class="testi-quote">&ldquo;What really impressed me was how well-structured the sessions are. Vince clearly puts thought into every class, with a logical flow from warm-ups through technique work and positional drilling, before finishing with live rolls. The coaching was sharp, and the feedback from Vince was exactly what I needed. If you&rsquo;re visiting KL and training BJJ, don&rsquo;t even think twice &mdash; get yourself to Vince&rsquo;s gym. The combination of top-quality coaching, intelligent programming, and genuinely welcoming people makes it a must-visit.&rdquo;</p>
-              <div class="testi-name">Dr. Joel M.</div>
-              <div class="testi-role">Uni Professor, 40+</div>
-              <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+          <!-- Dr. Joel M. -->
+          <div class="testi-slide">
+            <div class="testi-card">
+              <img class="testi-avatar" src="/assets/Joel-M.jpg" alt="Dr. Joel M.">
+              <div class="testi-body">
+                <p class="testi-quote">&ldquo;What really impressed me was how well-structured the sessions are. Vince clearly puts thought into every class, with a logical flow from warm-ups through technique work and positional drilling, before finishing with live rolls. The coaching was sharp, and the feedback from Vince was exactly what I needed. If you&rsquo;re visiting KL and training BJJ, don&rsquo;t even think twice &mdash; get yourself to Vince&rsquo;s gym. The combination of top-quality coaching, intelligent programming, and genuinely welcoming people makes it a must-visit.&rdquo;</p>
+                <div class="testi-name">Dr. Joel M.</div>
+                <div class="testi-role">Uni Professor, 40+</div>
+                <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Slide 3: Johann M. -->
-        <div class="testi-slide">
-          <div class="testi-card">
-            <img class="testi-avatar" src="/assets/Johann.jpg" alt="Johann M.">
-            <div class="testi-body">
-              <p class="testi-quote">&ldquo;BJJ may not be everyone&rsquo;s cup of tea, but I feel that this gym is the right place to start one&rsquo;s journey. There are no pressure or egos, and it&rsquo;s a safe place to train if one intends to practice BJJ for a long period. I&rsquo;m more aware of my health and what I need to do/avoid to maintain it. It has helped my self-confidence, moreso when interacting with others in a business environment. BJJ is challenging in my opinion, but learning new skills and learning more about oneself is always fun and rewarding.&rdquo;</p>
-              <div class="testi-name">Johann M.</div>
-              <div class="testi-role">Business Owner, 40+</div>
-              <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+          <!-- Keisuke T. -->
+          <div class="testi-slide">
+            <div class="testi-card">
+              <img class="testi-avatar" src="/assets/Keisuke.jpg" alt="Keisuke T.">
+              <div class="testi-body">
+                <p class="testi-quote">&ldquo;Coach Vince is very patient and kind to me. He helps me learn BJJ at my own pace. My health and fitness have definitely improved. In terms of self-confidence, BJJ helps me to be humble. Coach Vince helps and encourages me to find solutions on my own &mdash; and he shows a few solutions when I cannot find them on my own. Every class is a new discovery for me. People in VCBJJ are all very kind, friendly and helpful. It is such a wonderful community of people.&rdquo;</p>
+                <div class="testi-name">Keisuke T.</div>
+                <div class="testi-role">Language Teacher, 40+</div>
+                <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Slide 4: Jayne K. -->
-        <div class="testi-slide">
-          <div class="testi-card">
-            <img class="testi-avatar" src="/assets/Jayne-K.jpg" alt="Jayne K.">
-            <div class="testi-body">
-              <p class="testi-quote">&ldquo;Vince Choo is an excellent instructor. He is knowledgeable, patient and genuinely invested in his students&rsquo; progress. His instructions are clear and structured, and he takes the time to ensure that the students understand the techniques; including why it works and what needs redressing when it is not working. His teaching forte is evolving and adapting to match the students&rsquo; ability to learn, and the student is steered to think for him/herself to better understand the technique.&rdquo;</p>
-              <div class="testi-name">Jayne K.</div>
-              <div class="testi-role">Legal Professional, 60+</div>
-              <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+          <!-- Edmund N. -->
+          <div class="testi-slide">
+            <div class="testi-card">
+              <img class="testi-avatar" src="/assets/Edmund.jpg" alt="Edmund N.">
+              <div class="testi-body">
+                <p class="testi-quote">&ldquo;I was initially drawn to the club because of the safe and structured approach to teaching, the cleanliness of the facility, and most importantly, Coach Vince. His deep experience gives me confidence that he can guide me effectively through my BJJ journey &mdash; and that&rsquo;s what keeps me coming back. Training here has had a huge physical impact on me. I used to be stiff and not very flexible, but now I&rsquo;ve gained a lot more mobility. Safety is a top priority here, and the training is built around understanding core concepts rather than just memorizing individual techniques. That makes a huge difference.&rdquo;</p>
+                <div class="testi-name">Edmund N.</div>
+                <div class="testi-role">Business Owner, 50+</div>
+                <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Slide 5: Keisuke T. -->
-        <div class="testi-slide">
-          <div class="testi-card">
-            <img class="testi-avatar" src="/assets/Keisuke.jpg" alt="Keisuke T.">
-            <div class="testi-body">
-              <p class="testi-quote">&ldquo;Coach Vince is very patient and kind to me. He helps me learn BJJ at my own pace. My health and fitness have definitely improved. In terms of self-confidence, BJJ helps me to be humble. Coach Vince helps and encourages me to find solutions on my own &mdash; and he shows a few solutions when I cannot find them on my own. Every class is a new discovery for me. People in VCBJJ are all very kind, friendly and helpful. It is such a wonderful community of people.&rdquo;</p>
-              <div class="testi-name">Keisuke T.</div>
-              <div class="testi-role">Language Teacher, 40+</div>
-              <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+          <!-- Farrah -->
+          <div class="testi-slide">
+            <div class="testi-card">
+              <img class="testi-avatar" src="/assets/farrah.webp" alt="Farrah">
+              <div class="testi-body">
+                <p class="testi-quote">&ldquo;I&rsquo;ve had a great experience training under Coach Vince. He&rsquo;s incredibly meticulous in his teaching, breaking down techniques in a way that&rsquo;s easy to understand while still respecting the complexity of the art. He has deep knowledge of the subject and stays true to proper fundamentals. What really stands out is the environment he creates. Training always feels safe, structured, and respectful. Whether you&rsquo;re a beginner or more advanced, he makes sure everyone is learning at the right pace without feeling overwhelmed or overlooked. Coach Vince is also very supportive and approachable, always willing to answer questions and provide extra guidance when needed. Highly recommend for anyone looking to improve their BJJ in a positive and well guided setting.&rdquo;</p>
+                <div class="testi-name">Farrah</div>
+                <div class="testi-role">3rd Stripe Purple Belt</div>
+                <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Slide 6: Edmund N. -->
-        <div class="testi-slide">
-          <div class="testi-card">
-            <img class="testi-avatar" src="/assets/Edmund.jpg" alt="Edmund N.">
-            <div class="testi-body">
-              <p class="testi-quote">&ldquo;I was initially drawn to the club because of the safe and structured approach to teaching, the cleanliness of the facility, and most importantly, Coach Vince. His deep experience gives me confidence that he can guide me effectively through my BJJ journey &mdash; and that&rsquo;s what keeps me coming back. Training here has had a huge physical impact on me. I used to be stiff and not very flexible, but now I&rsquo;ve gained a lot more mobility. Safety is a top priority here, and the training is built around understanding core concepts rather than just memorizing individual techniques. That makes a huge difference.&rdquo;</p>
-              <div class="testi-name">Edmund N.</div>
-              <div class="testi-role">Business Owner, 50+</div>
-              <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
-            </div>
-          </div>
-        </div>
+        </div><!-- /testi-track -->
+      </div><!-- /testi-carousel -->
+      <div class="testi-nav" id="testi-nav"></div>
+    </div><!-- /testi-more-wrap -->
 
-        <!-- Slide 7: Farrah -->
-        <div class="testi-slide">
-          <div class="testi-card">
-            <img class="testi-avatar" src="/assets/farrah.webp" alt="Farrah">
-            <div class="testi-body">
-              <p class="testi-quote">&ldquo;I&rsquo;ve had a great experience training under Coach Vince. He&rsquo;s incredibly meticulous in his teaching, breaking down techniques in a way that&rsquo;s easy to understand while still respecting the complexity of the art. He has deep knowledge of the subject and stays true to proper fundamentals. What really stands out is the environment he creates. Training always feels safe, structured, and respectful. Whether you&rsquo;re a beginner or more advanced, he makes sure everyone is learning at the right pace without feeling overwhelmed or overlooked. Coach Vince is also very supportive and approachable, always willing to answer questions and provide extra guidance when needed. Highly recommend for anyone looking to improve their BJJ in a positive and well guided setting.&rdquo;</p>
-              <div class="testi-name">Farrah</div>
-              <div class="testi-role">3rd Stripe Purple Belt</div>
-              <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /testi-track -->
-    </div><!-- /testi-carousel -->
-
-    <div class="testi-nav" id="testi-nav"></div>
   </div>
 </section>
 
@@ -650,8 +672,29 @@ a{color:inherit;text-decoration:none}
 
 <!-- ══ SCRIPTS ═════════════════════════════════════════════ -->
 <script>
-// ── Testimonial carousel ──
-(function(){
+// ── More reviews toggle + lazy carousel init ──
+var testiCarouselInited=false;
+function initTestiCarousel(){
+  var wrap=document.getElementById('testi-more-wrap');
+  var btn=document.getElementById('testi-more-btn');
+  if(!wrap||!btn) return;
+
+  // Toggle visibility
+  var isOpen=wrap.style.display!=='none';
+  if(isOpen){
+    wrap.style.display='none';
+    btn.setAttribute('aria-expanded','false');
+    btn.textContent='More reviews \u2193';
+    return;
+  }
+  wrap.style.display='block';
+  btn.setAttribute('aria-expanded','true');
+  btn.textContent='Hide reviews \u2191';
+
+  // Initialise carousel only once
+  if(testiCarouselInited) return;
+  testiCarouselInited=true;
+
   var track=document.getElementById('testi-track');
   var navEl=document.getElementById('testi-nav');
   if(!track||!navEl) return;
@@ -660,7 +703,6 @@ a{color:inherit;text-decoration:none}
   var current=0;
   var autoTimer;
 
-  // Build dots
   for(var i=0;i<total;i++){
     var dot=document.createElement('button');
     dot.className='testi-dot'+(i===0?' active':'');
@@ -681,7 +723,6 @@ a{color:inherit;text-decoration:none}
   function next(){goTo((current+1)%total)}
   function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(next,6000)}
 
-  // Touch swipe support
   var startX=0,moveX=0;
   track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;moveX=0},{passive:true});
   track.addEventListener('touchmove',function(e){moveX=e.touches[0].clientX-startX},{passive:true});
@@ -691,7 +732,7 @@ a{color:inherit;text-decoration:none}
   });
 
   resetAuto();
-})();
+}
 </script>
 </body>
 </html>
