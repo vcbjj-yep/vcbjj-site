@@ -219,6 +219,10 @@ a{color:inherit;text-decoration:none}
 .hero-quote blockquote{font-size:14px;font-style:italic;color:var(--dark-muted);line-height:1.7;margin-bottom:8px}
 .hero-quote cite{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--gold);font-style:normal}
 
+.hero-secondary-link{font-family:var(--mono);font-size:12px;color:var(--dark-muted);letter-spacing:0.5px;margin-top:14px}
+.hero-secondary-link a{color:var(--gold);text-decoration:none}
+.hero-secondary-link a:hover{text-decoration:underline}
+
 @media(max-width:480px){
   .hero{padding:64px 20px 60px}
   .hero h1{font-size:28px}
@@ -248,6 +252,17 @@ a{color:inherit;text-decoration:none}
 @media(max-width:480px){
   .problem p{font-size:16px}
   .problem-img{max-height:200px}
+}
+
+/* ══ 4. ASSESS BLOCK ══════════════════════════════════════ */
+.assess-block{background:var(--dark);border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a;padding:64px 20px;text-align:center}
+.assess-block-inner{max-width:520px;margin:0 auto}
+.assess-block h2{font-size:26px;font-weight:500;color:var(--dark-text);line-height:1.3;margin-bottom:12px}
+.assess-block p{font-size:16px;color:var(--dark-muted);line-height:1.7;margin-bottom:28px}
+.assess-time{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-top:16px}
+@media(max-width:480px){
+  .assess-block{padding:48px 20px}
+  .assess-block h2{font-size:22px}
 }
 
 /* ══ 3. GUIDE ═════════════════════════════════════════════ */
@@ -361,9 +376,9 @@ a{color:inherit;text-decoration:none}
     <h1>You&rsquo;ve been meaning to start. This is the place.</h1>
     <p class="hero-sub">Adult-focused BJJ in a private gym. Small classes, structured coaching, zero ego. Pay as you go.</p>
     <div class="hero-ctas">
-      <a href="info.html" class="btn btn-primary">Is It Right For You?</a>
-      <a href="getstarted.html" class="btn btn-ghost">Get Started</a>
+      <a href="assess.html" class="btn btn-primary">Find Out If It&rsquo;s Right For You</a>
     </div>
+    <p class="hero-secondary-link">Already decided? <a href="getstarted.html">Get started &rarr;</a></p>
     <div class="hero-quote">
       <blockquote>&ldquo;There are no pressure or egos, and it&rsquo;s a safe place to train if one intends to practice BJJ for a long period.&rdquo;</blockquote>
       <cite>&mdash; Johann M., Business Owner</cite>
@@ -389,6 +404,16 @@ a{color:inherit;text-decoration:none}
     <img class="problem-img" src="/assets/655bddfe-6a77-4745-81ae-ffa37a4ce32b.webp" alt="Coach Vince rolling with a student during BJJ training" loading="lazy">
     <p>If you&rsquo;ve trained somewhere before and stopped because you kept getting hurt, you&rsquo;re not alone. Most of our students came to VCBJJ after that exact experience. They weren&rsquo;t looking for a new gym. They were looking for a place that wouldn&rsquo;t break them.</p>
     <p>Training should build your body up &mdash; not wear it down. That sounds obvious. But if you&rsquo;ve been in rooms where the pace was set by the youngest, strongest person on the mat, you already know how rare it is.</p>
+  </div>
+</section>
+
+<!-- ══ 4. ASSESSMENT BLOCK ══════════════════════════════════ -->
+<section class="assess-block">
+  <div class="assess-block-inner">
+    <h2>Not sure if this is for you?<br>Good. Find out first.</h2>
+    <p>8 honest questions. No pitch at the end &mdash; just a straight answer on whether VCBJJ is the right fit for where you are right now.</p>
+    <a href="assess.html" class="btn btn-primary">Take the 2-Minute Assessment</a>
+    <div class="assess-time">Takes 2 minutes &middot; No sign-up required</div>
   </div>
 </section>
 
