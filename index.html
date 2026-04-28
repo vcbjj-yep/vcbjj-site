@@ -293,10 +293,17 @@ a{color:inherit;text-decoration:none}
 @media(max-width:600px){.comm-grid{grid-template-columns:1fr;gap:10px}}
 
 /* ══ 5. TESTIMONIALS ══════════════════════════════════════ */
-.testi-carousel{position:relative;overflow:hidden;margin-top:32px}
-.testi-track{display:flex;transition:transform 0.4s ease}
-.testi-slide{min-width:100%;padding:0 4px}
-/* Testimonial cards: surface lifted above bg for mobile legibility */
+
+/* Pull quote */
+.testi-pull{border-left:3px solid var(--gold);padding:4px 0 4px 24px;margin:28px 0 36px}
+.testi-pull-text{font-size:20px;line-height:1.55;font-style:italic;color:var(--text);margin-bottom:10px}
+.testi-pull-cite{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold)}
+@media(max-width:480px){
+  .testi-pull-text{font-size:17px}
+}
+
+/* Static featured cards */
+.testi-static{display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
 .testi-card{background:#242424;border:1px solid #333333;border-radius:var(--radius);padding:28px 24px;display:flex;gap:20px;align-items:flex-start}
 .testi-avatar{width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid #3a3a3a}
 .testi-body{flex:1}
@@ -305,6 +312,16 @@ a{color:inherit;text-decoration:none}
 .testi-role{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted)}
 .testi-stars{display:flex;gap:3px;margin-top:8px}
 .testi-star{width:14px;height:14px;fill:var(--gold)}
+
+/* More reviews toggle */
+.testi-more-toggle{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);background:none;border:1px solid #2e2e2e;border-radius:var(--pill);padding:10px 20px;cursor:pointer;transition:all 0.2s;display:block;margin:0 auto 24px}
+.testi-more-toggle:hover{color:var(--gold);border-color:var(--gold)}
+
+/* Carousel (shown when expanded) */
+.testi-carousel{position:relative;overflow:hidden;display:none}
+.testi-carousel.open{display:block}
+.testi-track{display:flex;transition:transform 0.4s ease}
+.testi-slide{min-width:100%;padding:0 4px}
 .testi-nav{display:flex;justify-content:center;gap:8px;margin-top:20px}
 .testi-dot{width:8px;height:8px;border-radius:50%;background:#333;border:none;cursor:pointer;padding:0;transition:background 0.2s}
 .testi-dot.active{background:var(--gold)}
@@ -447,6 +464,43 @@ a{color:inherit;text-decoration:none}
     <div style="font-size:22px;font-weight:500;margin-bottom:4px">Real people. Real results.</div>
     <p style="font-size:15px;color:var(--muted);line-height:1.7;margin-bottom:0">They&rsquo;re consultants, professors, lawyers, business owners. They came for the training. They stayed for the room.</p>
 
+    <!-- Pull quote -->
+    <blockquote class="testi-pull">
+      <div class="testi-pull-text">&ldquo;It&rsquo;s a safe place to train if one intends to practice BJJ for a long period.&rdquo;</div>
+      <cite class="testi-pull-cite">&mdash; Johann M., Business Owner</cite>
+    </blockquote>
+
+    <!-- Static featured cards -->
+    <div class="testi-static">
+
+      <!-- Johann M. -->
+      <div class="testi-card">
+        <img class="testi-avatar" src="/assets/Johann.jpg" alt="Johann M.">
+        <div class="testi-body">
+          <p class="testi-quote">&ldquo;BJJ may not be everyone&rsquo;s cup of tea, but I feel that this gym is the right place to start one&rsquo;s journey. There are no pressure or egos, and it&rsquo;s a safe place to train if one intends to practice BJJ for a long period. I&rsquo;m more aware of my health and what I need to do/avoid to maintain it. It has helped my self-confidence, moreso when interacting with others in a business environment.&rdquo;</p>
+          <div class="testi-name">Johann M.</div>
+          <div class="testi-role">Business Owner, 40+</div>
+          <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+        </div>
+      </div>
+
+      <!-- Jayne K. -->
+      <div class="testi-card">
+        <img class="testi-avatar" src="/assets/Jayne-K.jpg" alt="Jayne K.">
+        <div class="testi-body">
+          <p class="testi-quote">&ldquo;Vince Choo is an excellent instructor. He is knowledgeable, patient and genuinely invested in his students&rsquo; progress. His instructions are clear and structured, and he takes the time to ensure that the students understand the techniques; including why it works and what needs redressing when it is not working. His teaching forte is evolving and adapting to match the students&rsquo; ability to learn, and the student is steered to think for him/herself to better understand the technique.&rdquo;</p>
+          <div class="testi-name">Jayne K.</div>
+          <div class="testi-role">Legal Professional, 60+</div>
+          <div class="testi-stars"><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></div>
+        </div>
+      </div>
+
+    </div><!-- /testi-static -->
+
+    <!-- More reviews toggle -->
+    <button class="testi-more-toggle" id="testi-toggle" onclick="toggleCarousel()">More reviews &#9660;</button>
+
+    <!-- Carousel (collapsed by default) -->
     <div class="testi-carousel" id="testi-carousel">
       <div class="testi-track" id="testi-track">
 
@@ -649,8 +703,19 @@ a{color:inherit;text-decoration:none}
 
 <!-- ══ SCRIPTS ═════════════════════════════════════════════ -->
 <script>
-// ── Testimonial carousel ──
-(function(){
+// ── Testimonial carousel toggle + carousel ──
+var carouselInited=false;
+
+function toggleCarousel(){
+  var carousel=document.getElementById('testi-carousel');
+  var btn=document.getElementById('testi-toggle');
+  var isOpen=carousel.classList.toggle('open');
+  btn.innerHTML=isOpen?'Less reviews &#9650;':'More reviews &#9660;';
+  if(isOpen&&!carouselInited){ initCarousel(); }
+}
+
+function initCarousel(){
+  carouselInited=true;
   var track=document.getElementById('testi-track');
   var navEl=document.getElementById('testi-nav');
   if(!track||!navEl) return;
@@ -659,13 +724,12 @@ a{color:inherit;text-decoration:none}
   var current=0;
   var autoTimer;
 
-  // Build dots
   for(var i=0;i<total;i++){
     var dot=document.createElement('button');
     dot.className='testi-dot'+(i===0?' active':'');
     dot.setAttribute('aria-label','Testimonial '+(i+1));
     dot.dataset.idx=i;
-    dot.onclick=function(){goTo(parseInt(this.dataset.idx))};
+    dot.onclick=function(){goTo(parseInt(this.dataset.idx));};
     navEl.appendChild(dot);
   }
 
@@ -677,20 +741,19 @@ a{color:inherit;text-decoration:none}
     resetAuto();
   }
 
-  function next(){goTo((current+1)%total)}
-  function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(next,6000)}
+  function next(){goTo((current+1)%total);}
+  function resetAuto(){clearInterval(autoTimer);autoTimer=setInterval(next,6000);}
 
-  // Touch swipe support
   var startX=0,moveX=0;
-  track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;moveX=0},{passive:true});
-  track.addEventListener('touchmove',function(e){moveX=e.touches[0].clientX-startX},{passive:true});
+  track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;moveX=0;},{passive:true});
+  track.addEventListener('touchmove',function(e){moveX=e.touches[0].clientX-startX;},{passive:true});
   track.addEventListener('touchend',function(){
     if(moveX<-40) goTo(Math.min(current+1,total-1));
     else if(moveX>40) goTo(Math.max(current-1,0));
   });
 
   resetAuto();
-})();
+}
 </script>
 </body>
 </html>
