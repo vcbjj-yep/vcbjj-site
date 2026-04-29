@@ -1046,6 +1046,442 @@
     .section { padding: 48px 24px; }
     h2 { font-size: 36px; }
   }
+
+  /* ── TECHNIQUE LIBRARY ────────────────── */
+  .tl-intro {
+    font-size: 16px;
+    color: var(--ink-dim);
+    line-height: 1.8;
+    max-width: 680px;
+    margin-bottom: 32px;
+  }
+
+  .tl-article {
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+    overflow: hidden;
+  }
+
+  .tl-article-header {
+    display: flex;
+    align-items: stretch;
+    background: #111111;
+    gap: 0;
+  }
+
+  .tl-article-badge {
+    background: #F4BB09;
+    color: #111111;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 3px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    padding: 12px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    min-width: 36px;
+  }
+
+  .tl-article-title-block {
+    padding: 20px 24px;
+    flex: 1;
+  }
+
+  .tl-article-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(244,187,9,0.65);
+    margin-bottom: 6px;
+  }
+
+  .tl-article-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .tl-article-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .tl-article-body {
+    padding: 28px 28px 32px;
+    background: var(--surface);
+  }
+
+  .tl-context {
+    background: var(--surface2);
+    border-left: 3px solid #F4BB09;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.7;
+  }
+
+  .tl-context strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* Step-by-step sequence */
+  .tl-sequence {
+    margin: 0 0 28px;
+    padding: 0;
+    list-style: none;
+    counter-reset: seq;
+  }
+
+  .tl-sequence > li {
+    counter-increment: seq;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tl-sequence > li:last-child { border-bottom: none; }
+
+  .tl-seq-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--border-mid);
+    flex-shrink: 0;
+    width: 32px;
+    text-align: right;
+  }
+
+  .tl-seq-content { flex: 1; }
+
+  .tl-seq-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .tl-seq-desc {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.65;
+  }
+
+  .tl-seq-cue {
+    display: inline-block;
+    margin-top: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-muted);
+    background: var(--surface3);
+    padding: 3px 8px;
+    border: 1px solid var(--border);
+  }
+
+  /* Key principles block */
+  .tl-principles {
+    margin: 28px 0;
+  }
+
+  .tl-principles-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 12px;
+  }
+
+  .tl-principle-row {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tl-principle-row:last-child { border-bottom: none; }
+
+  .tl-principle-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    width: 28px;
+    text-align: center;
+    margin-top: 1px;
+  }
+
+  .tl-principle-text { flex: 1; font-size: 14px; color: var(--ink-dim); line-height: 1.65; }
+  .tl-principle-text strong { color: var(--ink); }
+
+  /* Sub-section heading within article */
+  .tl-sub-heading {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    padding: 6px 0 10px;
+    border-bottom: 2px solid #F4BB09;
+    margin: 24px 0 16px;
+    display: inline-block;
+  }
+
+  /* Response/escape grid */
+  .tl-response-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 16px 0 24px;
+  }
+
+  @media (max-width: 600px) {
+    .tl-response-grid { grid-template-columns: 1fr; }
+  }
+
+  .tl-response-card {
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+  }
+
+  .tl-response-trigger {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 6px;
+  }
+
+  .tl-response-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .tl-response-desc {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.6;
+  }
+
+  /* Submission menu */
+  .tl-submission-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 16px 0;
+  }
+
+  @media (max-width: 600px) {
+    .tl-submission-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  .tl-sub-pill {
+    border: 1px solid var(--border);
+    padding: 10px 12px;
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.4;
+  }
+
+  .tl-sub-pill-name {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .tl-sub-pill-type {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+  }
+
+  /* Accordion panels for escape options */
+  .tl-escape-option {
+    border: 1px solid var(--border);
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+
+  .tl-escape-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    cursor: pointer;
+    background: var(--surface);
+    transition: background 0.15s;
+    user-select: none;
+  }
+
+  .tl-escape-head:hover { background: var(--surface2); }
+
+  .tl-escape-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    color: var(--border-mid);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+  }
+
+  .tl-escape-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .tl-escape-arrow {
+    font-size: 14px;
+    color: var(--ink-muted);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .tl-escape-option.open .tl-escape-arrow { transform: rotate(90deg); }
+
+  .tl-escape-body {
+    padding: 0 18px 0 60px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.2s;
+  }
+
+  .tl-escape-option.open .tl-escape-body {
+    max-height: 400px;
+    padding: 0 18px 18px 60px;
+  }
+
+  .tl-escape-steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tl-escape-steps li {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.65;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+  }
+
+  .tl-escape-steps li:last-child { border-bottom: none; }
+
+  .tl-escape-steps li::before {
+    content: '→';
+    color: var(--ink-muted);
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+  }
+
+  /* Coach note callout */
+  .tl-coach-note {
+    background: #111111;
+    color: #ffffff;
+    padding: 20px 24px;
+    margin: 24px 0 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .tl-coach-note-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .tl-coach-note-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+  }
+
+  .tl-coach-note-text strong {
+    color: #F4BB09;
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  /* Accessibility: high-contrast focus ring */
+  .tl-escape-head:focus-visible,
+  .faq-item:focus-visible {
+    outline: 3px solid #F4BB09;
+    outline-offset: 2px;
+  }
+
+  /* Font-size toggle button */
+  .a11y-bar {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    gap: 6px;
+    z-index: 200;
+  }
+
+  .a11y-btn {
+    background: #111111;
+    border: 2px solid #F4BB09;
+    color: #F4BB09;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    border-radius: 0;
+  }
+
+  .a11y-btn:hover { background: #F4BB09; color: #111111; }
+  .a11y-btn:focus-visible { outline: 3px solid #F4BB09; outline-offset: 3px; }
+
+  body.large-text { font-size: 20px; }
+  body.large-text .tl-article-title { font-size: 32px; }
+  body.large-text .tl-seq-desc,
+  body.large-text .tl-response-desc,
+  body.large-text .tl-escape-steps li,
+  body.large-text .tl-coach-note-text,
+  body.large-text .tl-principle-text { font-size: 17px; }
+
+  @media (max-width: 768px) {
+    .tl-article-title { font-size: 22px; }
+    .tl-submission-grid { grid-template-columns: 1fr 1fr; }
+    .tl-article-body { padding: 20px 16px 24px; }
+    .tl-escape-option.open .tl-escape-body { padding: 0 12px 16px 46px; }
+    .a11y-bar { bottom: 12px; right: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -1089,13 +1525,16 @@
   <a class="nav-item" href="#axioms">The Rules That Never Change</a>
   <a class="nav-item" href="#positions">Positions & What to Do</a>
   <a class="nav-item" href="#techniques">Techniques at a Glance</a>
-  <a class="nav-item" href="#guard-passing">How to Pass the Guard</a>
   <a class="nav-item" href="#gi-nogi">Gi vs NoGi — What's Different</a>
 
   <div class="nav-section-label">Your Development</div>
   <a class="nav-item" href="#assess">Where Are You Now?</a>
   <a class="nav-item" href="#between">Between Sessions</a>
   <a class="nav-item" href="#faq">Why We Train This Way</a>
+
+  <div class="nav-section-label">Technique Library</div>
+  <a class="nav-item" href="#tl-crucifix">Crucifix — Entry & Attacks</a>
+  <a class="nav-item" href="#tl-rev-scarf">Reverse Scarf Hold Escapes</a>
 </nav>
 
 <!-- MAIN -->
@@ -2032,51 +2471,6 @@
   </div>
 </div>
 
-<!-- ── GUARD PASSING ────────────────────────────────────────── -->
-<div class="section" id="guard-passing">
-  <div class="section-eyebrow">Level 5 — Top Control</div>
-  <h2>How to Pass<br>the Guard</h2>
-
-  <p>Think of passing guard like applying glue. The moment your partner's back is stuck flat to the mat, everything else becomes significantly easier. That's the whole objective — get their back down and keep it there. Everything you do in a guard pass is in service of that one goal.</p>
-
-  <p>The pass follows a clear sequence. Each stage removes one tool your partner uses to keep you out.</p>
-
-  <div class="axiom-grid" style="margin: 28px 0;">
-    <div class="axiom-row">
-      <div class="axiom-rule" style="font-size:12px; letter-spacing:1px;">Step 1 — Feet</div>
-      <div class="axiom-meaning">Start at the feet. Pin or control them so they can't push, post, or create distance. Feet touching you gives your partner leverage — take that away first. Once the feet are neutralised, begin walking your base toward the knees.</div>
-    </div>
-    <div class="axiom-row">
-      <div class="axiom-rule" style="font-size:12px; letter-spacing:1px;">Step 2 — Knees</div>
-      <div class="axiom-meaning">When you reach the knee line, your job is to either split the knees apart or smash them together. Either way, the result is the same: knees that can't work cannot keep their back off the mat. No foot contact, no knee drive — their back stays down.</div>
-    </div>
-    <div class="axiom-row">
-      <div class="axiom-rule" style="font-size:12px; letter-spacing:1px;">Step 3 — Get in front</div>
-      <div class="axiom-meaning">Once you're at the knees, push through to get in front of them. This is where your partner's hands come in — they'll post on you to stop your advance. That's expected. Your job now is to remove those hands by any means: strip, redirect, or go around.</div>
-    </div>
-    <div class="axiom-row">
-      <div class="axiom-rule" style="font-size:12px; letter-spacing:1px;">Step 4 — Chest to chest</div>
-      <div class="axiom-meaning">Hands removed — close the distance. Get chest to chest or chest to back. That connection, on top of a flat partner, is the pass completed. This is where Level 5 begins.</div>
-    </div>
-  </div>
-
-  <div class="callout callout-accent">
-    <div class="callout-title">The core principle</div>
-    <p>Your partner needs their feet, their knees, and their hands to keep you out of top position. The pass is the process of systematically taking each one away — in sequence, not all at once. Rush any stage and you'll find yourself back at the feet.</p>
-  </div>
-
-  <h3>Why the Sequence Matters</h3>
-
-  <p>Most failed passes skip a stage. You jump to the knees before controlling the feet — and a foot finds your hip and resets everything. You try to go chest to chest before clearing the hands — and you get framed back to distance. The body is a connected system; remove the tools in the right order and passing becomes methodical rather than athletic.</p>
-
-  <p>When a pass stalls, ask which stage you're actually at and whether the previous stage was fully resolved. Nine times out of ten, the answer is that you advanced too early.</p>
-
-  <div class="callout callout-muted">
-    <div class="callout-title">For the top player</div>
-    <p>The pass isn't a sprint — it's a methodical advance. Pressure replaces speed. Each step forward is held before the next begins. Your partner's job is to deny you the next step; your job is to take it anyway, patiently.</p>
-  </div>
-</div>
-
 <!-- ── GI vs NOGI ──────────────────────────────────────────── -->
 <div class="section" id="gi-nogi">
   <div class="section-eyebrow">Format Guide</div>
@@ -2296,11 +2690,354 @@
 
 </div>
 
+<!-- ── TECHNIQUE LIBRARY — CRUCIFIX ─────────────────────── -->
+<div class="section" id="tl-crucifix">
+  <div class="section-eyebrow">Technique Library</div>
+  <h2>Crucifix<br>Entry &amp; Attacks</h2>
+
+  <p class="tl-intro">The crucifix is one of the most versatile pinning and attacking positions in BJJ. This page covers how to enter it from the double-under stack pass, how to lock it in securely, and what you can do once your partner is trapped there.</p>
+
+  <!-- ARTICLE 1: Entry -->
+  <div class="tl-article" id="tl-crucifix-entry">
+    <div class="tl-article-header">
+      <div class="tl-article-badge">Entry</div>
+      <div class="tl-article-title-block">
+        <div class="tl-article-eyebrow">Technique Library · Crucifix · Part 1</div>
+        <div class="tl-article-title">Double-Under Stack Pass → Crucifix</div>
+        <div class="tl-article-tags">
+          <span class="tag tag-both">Gi &amp; NoGi</span>
+          <span class="tag tag-nogi">Passing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-article-body">
+      <div class="tl-context">
+        <strong>Where does this come from?</strong> You've passed your partner's legs and taken a double-under grip — both arms threading under both their thighs. From here, instead of completing a standard stack pass, you redirect the energy into a crucifix position. The key is that their hips go up and over their own shoulders.
+      </div>
+
+      <div class="tl-sub-heading">The Entry Sequence</div>
+      <ol class="tl-sequence">
+        <li>
+          <div class="tl-seq-num">1</div>
+          <div class="tl-seq-content">
+            <div class="tl-seq-title">Connect your hips to their lap</div>
+            <div class="tl-seq-desc">Before anything else, your hips need to be pressing down into your partner's lap — not just your hands. This is the anchor point. If this connection is loose, the whole pass loses its force.</div>
+            <span class="tl-seq-cue">Feel: pressure through your whole pelvis, not just your arms</span>
+          </div>
+        </li>
+        <li>
+          <div class="tl-seq-num">2</div>
+          <div class="tl-seq-content">
+            <div class="tl-seq-title">Ratchet your torso up — chest to sacrum</div>
+            <div class="tl-seq-desc">Walk your upper body upward until your chest is pressing into your partner's sacrum (the base of their spine). You are essentially wrapping around them. Think of it as stacking them rather than pushing them.</div>
+            <span class="tl-seq-cue">Landmark: your chest connects to their sacrum, not their lower back</span>
+          </div>
+        </li>
+        <li>
+          <div class="tl-seq-num">3</div>
+          <div class="tl-seq-content">
+            <div class="tl-seq-title">Drive their hips over their shoulders</div>
+            <div class="tl-seq-desc">The downward drive from your chest tips their hips up and over. When this works, their knees are heading toward the mat behind their own head — they are in a highly compressed position with very limited power.</div>
+            <span class="tl-seq-cue">Target: partner's knees touch or approach the mat behind them</span>
+          </div>
+        </li>
+        <li>
+          <div class="tl-seq-num">4</div>
+          <div class="tl-seq-content">
+            <div class="tl-seq-title">Set your legs to trap and enter crucifix</div>
+            <div class="tl-seq-desc">This is the most technical step — see the leg configuration section below. One leg secures their near arm; the other hooks under their far leg. Done correctly, this creates a wedge that makes escape very difficult.</div>
+            <span class="tl-seq-cue">Both legs are doing different jobs simultaneously</span>
+          </div>
+        </li>
+      </ol>
+
+      <div class="tl-sub-heading">Leg Configuration</div>
+      <div class="tl-context">
+        The crucifix is only as secure as your leg arrangement. Both legs are active and doing different jobs. Getting this right is the difference between a solid pin and your partner simply rolling out.
+      </div>
+      <div class="tl-response-grid">
+        <div class="tl-response-card">
+          <div class="tl-response-trigger">Far leg (your leg furthest from their head)</div>
+          <div class="tl-response-title">Hooks over their near arm</div>
+          <div class="tl-response-desc">Your far leg goes over and traps your partner's near arm against their body. This prevents them from posting or framing with that arm.</div>
+        </div>
+        <div class="tl-response-card">
+          <div class="tl-response-trigger">Near leg (your leg closest to their head)</div>
+          <div class="tl-response-title">Hooks under their far leg</div>
+          <div class="tl-response-desc">Your near leg reaches under and hooks their far leg. This stops them from turning into you or using their legs to create space and roll out.</div>
+        </div>
+      </div>
+      <p style="font-size:14px; color:var(--ink-dim); line-height:1.7; margin-bottom: 8px;">Together, these two hooks create a wedge — one controlling the upper body and one controlling the lower body. Your partner cannot move effectively in any direction without breaking one, and breaking one usually gives the other more leverage.</p>
+
+      <div class="tl-sub-heading">How They Will Try to Escape</div>
+      <p style="font-size:14px; color:var(--ink-dim); line-height:1.7; margin-bottom:16px;">Most partners will try one of three things. Knowing these in advance means you can stay ahead of the reaction:</p>
+      <div class="tl-response-grid">
+        <div class="tl-response-card">
+          <div class="tl-response-trigger">Escape attempt 1</div>
+          <div class="tl-response-title">Slide down</div>
+          <div class="tl-response-desc">They try to wriggle their hips downward, out of compression. Counter: keep your downward hip drive consistent. Any gap you give them is the space they'll use.</div>
+        </div>
+        <div class="tl-response-card">
+          <div class="tl-response-trigger">Escape attempt 2</div>
+          <div class="tl-response-title">Free the arm</div>
+          <div class="tl-response-desc">They try to pull the trapped arm out. Counter: your leg configuration should make this very hard — if they're freeing an arm easily, check your far leg position.</div>
+        </div>
+        <div class="tl-response-card" style="grid-column: span 2;">
+          <div class="tl-response-trigger">Escape attempt 3 — most common</div>
+          <div class="tl-response-title">Turtle toward the head</div>
+          <div class="tl-response-desc">They try to tuck their chin and roll forward (toward where their head is), hoping to come up to a turtle position. Counter: follow the roll and keep your chest connection. Don't let them get space between your chest and their back.</div>
+        </div>
+      </div>
+
+      <div class="tl-coach-note">
+        <div class="tl-coach-note-icon">◈</div>
+        <div class="tl-coach-note-text">
+          <strong>Coach's note</strong>
+          The hardest part of this entry isn't strength — it's the sequence. Many people try to set their legs before they've properly stacked the partner, and then wonder why it doesn't hold. Stack first, then legs. The compression is what creates the opportunity for the leg configuration to work.
+        </div>
+      </div>
+    </div>
+  </div><!-- end article 1 -->
+
+  <!-- ARTICLE 2: Submissions -->
+  <div class="tl-article" id="tl-crucifix-subs">
+    <div class="tl-article-header">
+      <div class="tl-article-badge">Attacks</div>
+      <div class="tl-article-title-block">
+        <div class="tl-article-eyebrow">Technique Library · Crucifix · Part 2</div>
+        <div class="tl-article-title">Submissions from the Crucifix</div>
+        <div class="tl-article-tags">
+          <span class="tag tag-both">Gi &amp; NoGi</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-article-body">
+      <div class="tl-context">
+        <strong>Why so many options?</strong> The crucifix controls both of your partner's arms and immobilises their body. That leaves a lot of attacking surface available. The two most common submissions — neck crank and straight arm lock — are your default go-to. The triangles and leg-only arm locks are available when your partner defends or adjusts, giving you follow-up options without having to reset.
+      </div>
+
+      <div class="tl-sub-heading">Your Primary Attacks</div>
+      <div class="tl-submission-grid">
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Primary · Most Common</div>
+          <div class="tl-sub-pill-name">Neck Crank</div>
+          Using your arm or both arms to apply lateral pressure on the neck while the body is fixed.
+        </div>
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Primary · Most Common</div>
+          <div class="tl-sub-pill-name">Straight Arm Lock</div>
+          Isolating one arm and extending it at the elbow — elbow joint attack using your body as a lever.
+        </div>
+      </div>
+
+      <div class="tl-sub-heading">Additional Options</div>
+      <p style="font-size:14px; color:var(--ink-dim); line-height:1.7; margin-bottom:16px;">These become available depending on how your partner defends or how their body position shifts. You don't need to hunt for them — recognise when the shape appears.</p>
+      <div class="tl-submission-grid">
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Triangle</div>
+          <div class="tl-sub-pill-name">Variant 1</div>
+          Triangle using the near arm and neck.
+        </div>
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Triangle</div>
+          <div class="tl-sub-pill-name">Variant 2</div>
+          Triangle using the far arm and neck.
+        </div>
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Triangle</div>
+          <div class="tl-sub-pill-name">Variant 3</div>
+          Inverted triangle using leg configuration.
+        </div>
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Leg-Only Arm Lock</div>
+          <div class="tl-sub-pill-name">Variant 1</div>
+          Knee locks the trapped arm at the elbow — no hands needed.
+        </div>
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Leg-Only Arm Lock</div>
+          <div class="tl-sub-pill-name">Variant 2</div>
+          Heel hooks the arm using thigh and calf as the lever.
+        </div>
+        <div class="tl-sub-pill">
+          <div class="tl-sub-pill-type">Leg-Only Arm Lock</div>
+          <div class="tl-sub-pill-name">Variant 3</div>
+          Calf slicer applied to the trapped arm from leg hook position.
+        </div>
+      </div>
+
+      <div class="tl-coach-note">
+        <div class="tl-coach-note-icon">◈</div>
+        <div class="tl-coach-note-text">
+          <strong>Coach's note</strong>
+          Don't try to memorise all six additional options and hunt for each one. Instead, learn the two primary attacks well. The others will show themselves when you're relaxed and holding the position with good structure. When you feel your partner shift to defend the neck crank, that's when an arm lock opens. When they protect the arm, the triangle appears. Let the position tell you.
+        </div>
+      </div>
+    </div>
+  </div><!-- end article 2 -->
+</div><!-- end section crucifix -->
+
+<!-- ── TECHNIQUE LIBRARY — REVERSE SCARF HOLD ──────────── -->
+<div class="section" id="tl-rev-scarf">
+  <div class="section-eyebrow">Technique Library</div>
+  <h2>Escaping<br>Reverse Scarf Hold</h2>
+
+  <p class="tl-intro">Reverse scarf hold (kesa gatame facing away) is a pin that many people ignore in training — until they get stuck in it. This page covers why it's awkward, how to stop it getting worse, and four routes out of it.</p>
+
+  <div class="tl-article">
+    <div class="tl-article-header">
+      <div class="tl-article-badge">Survival</div>
+      <div class="tl-article-title-block">
+        <div class="tl-article-eyebrow">Technique Library · Pins · Bottom</div>
+        <div class="tl-article-title">Reverse Scarf Hold — Escape Options</div>
+        <div class="tl-article-tags">
+          <span class="tag tag-both">Gi &amp; NoGi</span>
+          <span class="tag tag-nogi">Bottom Position</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-article-body">
+      <div class="tl-context">
+        <strong>Why is this position tricky?</strong> In reverse scarf hold, your partner is beside you but facing your feet. Their weight is across your upper body. The instinct is to push them off — but pushing rarely works here because their weight distribution makes that easy for them to absorb. The solution is hip and knee management, not strength.
+      </div>
+
+      <div class="tl-sub-heading">First — Stop the Situation Getting Worse</div>
+      <div class="tl-principles">
+        <div class="tl-principles-label">Anti-mount defence — do this before attempting any escape</div>
+        <div class="tl-principle-row">
+          <div class="tl-principle-icon">🦵</div>
+          <div class="tl-principle-text">
+            <strong>Use your near knee, driven from the hip.</strong> Point your near knee across your body toward your partner's hip. This blocks them from sliding into mount. The knee movement must come from the hip — not just bending the knee in place.
+          </div>
+        </div>
+        <div class="tl-principle-row">
+          <div class="tl-principle-icon">📐</div>
+          <div class="tl-principle-text">
+            <strong>Use your posting leg to adjust your hip angle.</strong> Your far leg posts on the mat and allows you to shift your hips left or right — keep this mobile so you can continuously point your near knee at your partner's hip as they move.
+          </div>
+        </div>
+        <div class="tl-principle-row">
+          <div class="tl-principle-icon">🙅</div>
+          <div class="tl-principle-text">
+            <strong>Keep your posting foot high and out of reach.</strong> If your partner can grab your foot, they can straighten your leg and remove the post. Foot high, heel up.
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-sub-heading">Your Four Escape Options</div>
+      <p style="font-size:14px; color:var(--ink-dim); line-height:1.7; margin-bottom:16px;">Each option opens because of something your partner does. You're not forcing these — you're reading their movement and taking what's offered. Tap each option to expand the steps.</p>
+
+      <!-- Option 1 -->
+      <div class="tl-escape-option" onclick="toggleEscape(this)">
+        <div class="tl-escape-head" tabindex="0" role="button" aria-expanded="false">
+          <div class="tl-escape-num">1</div>
+          <div class="tl-escape-name">Crucifix Set-Up via Top Armpit</div>
+          <div class="tl-escape-arrow">▶</div>
+        </div>
+        <div class="tl-escape-body">
+          <ul class="tl-escape-steps">
+            <li>Your partner hand-fights to clear your posting leg from their hip — this exposes their triceps and the space near their elbow.</li>
+            <li>Take an underhook into their top armpit (the armpit facing the ceiling, away from the mat).</li>
+            <li>Use this underhook to begin entering a crucifix — the same position covered in the section above.</li>
+            <li>The hand-fighting that was meant to solve their problem has actually created yours.</li>
+          </ul>
+          <div class="tl-coach-note" style="margin:12px 0 0;">
+            <div class="tl-coach-note-icon">◈</div>
+            <div class="tl-coach-note-text">
+              <strong>Coach's note</strong>
+              This is the direct connection between Daryl's session and Farrah's session on the same day. The crucifix is not just a top position — it's also an escape route from the bottom.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option 2 -->
+      <div class="tl-escape-option" onclick="toggleEscape(this)">
+        <div class="tl-escape-head" tabindex="0" role="button" aria-expanded="false">
+          <div class="tl-escape-num">2</div>
+          <div class="tl-escape-name">Seatbelt Grip + Backwards Roll to Top Pin</div>
+          <div class="tl-escape-arrow">▶</div>
+        </div>
+        <div class="tl-escape-body">
+          <ul class="tl-escape-steps">
+            <li>Underhook your partner's bottom armpit — the one nearest the mat.</li>
+            <li>Reach your other arm over their shoulder or neck to create a seatbelt grip (one arm under, one arm over).</li>
+            <li>Pull their back to your chest — you want chest-to-back contact before you move.</li>
+            <li>Perform a backwards roll, taking them with you. You end up on top.</li>
+            <li>Maintain the top pressure as you land and work to establish your pin.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Option 3 -->
+      <div class="tl-escape-option" onclick="toggleEscape(this)">
+        <div class="tl-escape-head" tabindex="0" role="button" aria-expanded="false">
+          <div class="tl-escape-num">3</div>
+          <div class="tl-escape-name">Hip Walk + Bridge Sweep</div>
+          <div class="tl-escape-arrow">▶</div>
+        </div>
+        <div class="tl-escape-body">
+          <ul class="tl-escape-steps">
+            <li>Underhook your partner's hip — reach your arm around their hip closest to your head.</li>
+            <li>Connect both hands around their belt line (or waist in NoGi).</li>
+            <li>Walk your hips away from them — keep walking until your spine is roughly parallel to theirs. This takes time and small steps; don't rush it.</li>
+            <li>Bridge upward and turn your head in the direction you're sweeping — your body follows your head in a bridge.</li>
+            <li>Once on top, keep your pressure down and walk yourself forward to flatten them out for the pin.</li>
+          </ul>
+          <div class="tl-coach-note" style="margin:12px 0 0;">
+            <div class="tl-coach-note-icon">◈</div>
+            <div class="tl-coach-note-text">
+              <strong>Coach's note</strong>
+              The hip walk is where most people give up too early. You need to keep walking until the spines are genuinely parallel — that's when the bridge becomes mechanical and powerful rather than just muscular.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option 4 -->
+      <div class="tl-escape-option" onclick="toggleEscape(this)">
+        <div class="tl-escape-head" tabindex="0" role="button" aria-expanded="false">
+          <div class="tl-escape-num">4</div>
+          <div class="tl-escape-name">Frame + Bridge When They've Already Established a High Pin</div>
+          <div class="tl-escape-arrow">▶</div>
+        </div>
+        <div class="tl-escape-body">
+          <ul class="tl-escape-steps">
+            <li>If your partner has already settled their weight high across your upper chest — don't panic and push. Build a frame first.</li>
+            <li>Use your elbows and forearms to create a firm structure against their body — not stiff arms, but bent, load-bearing frames.</li>
+            <li>Engage your lats (the muscles on the sides of your back) and your legs — this connects your frame to your whole body.</li>
+            <li>Bridge — push the mat away with your legs — and walk your hips upward until your partner's body is sitting across your hip line, not your chest.</li>
+            <li>From here, look for Options 1, 2, or 3 above. You've reset the situation into something more workable.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-principles" style="margin-top:28px;">
+        <div class="tl-principles-label">The bigger picture — practise in context</div>
+        <div class="tl-principle-row">
+          <div class="tl-principle-icon">🔗</div>
+          <div class="tl-principle-text">
+            <strong>Don't drill these in isolation.</strong> The value of escape training comes from recognising the transition that put you in reverse scarf hold in the first place. When you know how you ended up there, you have three choices: prevent it early, allow it on purpose (because you know you can escape), or start the escape immediately before they settle.
+          </div>
+        </div>
+        <div class="tl-principle-row">
+          <div class="tl-principle-icon">🔄</div>
+          <div class="tl-principle-text">
+            <strong>Start from the preceding position when you drill.</strong> If reverse scarf hold usually appears after a failed guard recovery, start your drill from the guard recovery attempt. Practise the full sequence, not just the escape. This builds timing, not just technique.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end article -->
+</div><!-- end section rev-scarf -->
+
 <!-- FOOTER -->
 <div style="padding: 48px 64px; border-top: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
   <div>
     <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:3px; color:var(--accent);">VCBJJ</div>
-    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:1px; margin-top:4px;">Student Guide · March 2026</div>
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:1px; margin-top:4px;">Student Guide · April 2026</div>
   </div>
   <div style="font-size:12px; color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; text-align:right; line-height:1.8;">
     Private Training · Kuala Lumpur, Malaysia<br>
@@ -2310,6 +3047,12 @@
 
 </div><!-- end .main -->
 </div><!-- end .app -->
+
+<!-- Accessibility font-size toggle -->
+<div class="a11y-bar" role="group" aria-label="Text size controls">
+  <button class="a11y-btn" onclick="setTextSize('normal')" aria-label="Normal text size" title="Normal text size">A</button>
+  <button class="a11y-btn" onclick="setTextSize('large')" aria-label="Large text size" title="Large text size" style="font-size:17px;">A</button>
+</div>
 
 <script>
 // ── BELT PROGRESSION HIGHLIGHT ──────────────────────────────
@@ -2379,6 +3122,49 @@ updateNav();
 
 // Open the first level card by default
 document.querySelector('.level-body')?.classList.add('open');
+
+// ── ESCAPE OPTION ACCORDION ──────────────────────────────────
+function toggleEscape(el) {
+  const isOpen = el.classList.contains('open');
+  // Close all
+  document.querySelectorAll('.tl-escape-option').forEach(o => {
+    o.classList.remove('open');
+    const btn = o.querySelector('.tl-escape-head');
+    if (btn) btn.setAttribute('aria-expanded', 'false');
+  });
+  // Open clicked if it wasn't already open
+  if (!isOpen) {
+    el.classList.add('open');
+    const btn = el.querySelector('.tl-escape-head');
+    if (btn) btn.setAttribute('aria-expanded', 'true');
+  }
+}
+
+// Keyboard support for escape options
+document.querySelectorAll('.tl-escape-head').forEach(function(head) {
+  head.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleEscape(head.closest('.tl-escape-option'));
+    }
+  });
+});
+
+// ── TEXT SIZE TOGGLE ─────────────────────────────────────────
+function setTextSize(size) {
+  if (size === 'large') {
+    document.body.classList.add('large-text');
+    localStorage.setItem('vcbjjTextSize', 'large');
+  } else {
+    document.body.classList.remove('large-text');
+    localStorage.setItem('vcbjjTextSize', 'normal');
+  }
+}
+// Restore preference on load
+(function() {
+  var saved = localStorage.getItem('vcbjjTextSize');
+  if (saved === 'large') document.body.classList.add('large-text');
+})();
 </script>
 </body>
 </html>
