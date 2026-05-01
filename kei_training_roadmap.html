@@ -16,6 +16,37 @@
     --next-color:     #b05a00;
     --next-badge-bg:  rgba(176,90,0,0.12);
   }
+
+  .technique-spotlight {
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--surface);
+  }
+  .spotlight-label {
+    background: var(--ink);
+    color: var(--bg);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+  }
+  .technique-img {
+    display: block;
+    width: 100%;
+    max-height: 320px;
+    object-fit: cover;
+    object-position: center top;
+  }
+  .spotlight-caption {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    padding: 0.6rem 0.75rem;
+    margin: 0;
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -28,10 +59,10 @@
 
 <div class="hero">
   <span class="hero-initial">K</span>
-  <div class="academy-label">VCBJJ System· Training Roadmap</div>
+  <div class="academy-label">Jeet Academy · VCBJJ · Training Roadmap</div>
   <h1>KEI<br><span>ROADMAP</span></h1>
-  <div class="hero-meta">Updated: 29 Apr 2026 &nbsp;|&nbsp; Private Training</div>
-  <span class="hero-session-count">Sessions #45 – #53 &nbsp;·&nbsp; 9 logged in 2026</span>
+  <div class="hero-meta">Updated: 1 May 2026 &nbsp;|&nbsp; Private Training</div>
+  <span class="hero-session-count">Sessions #45 – #54 &nbsp;·&nbsp; 10 logged in 2026</span>
 </div>
 
 <div class="container">
@@ -193,13 +224,13 @@
       </div>
     </div>
 
-    <!-- Phase 7 — NOW (today) -->
+    <!-- Phase 7 — DONE (guard retention) -->
     <div class="phase">
-      <div class="phase-dot now"></div>
-      <div class="phase-card now-card">
+      <div class="phase-dot done"></div>
+      <div class="phase-card done-card">
         <div class="phase-header">
           <span class="phase-num">Phase 6b</span>
-          <span class="status-badge badge-now">&#9654; Most Recent</span>
+          <span class="status-badge badge-done">&#10003; Covered</span>
           <span class="phase-title">Guard Retention Games — Building the Hip Instinct</span>
         </div>
         <div class="phase-body">
@@ -217,19 +248,58 @@
       </div>
     </div>
 
-    <!-- Phase 8 — NEXT -->
+    <!-- Phase 8 — NOW (most recent) -->
+    <div class="phase">
+      <div class="phase-dot now"></div>
+      <div class="phase-card now-card">
+        <div class="phase-header">
+          <span class="phase-num">Phase 7</span>
+          <span class="status-badge badge-now">&#9654; Most Recent</span>
+          <span class="phase-title">Mount Attacks — Funnels, Cross Lapel Defense, Arm Triangle Variation &amp; S-Mount</span>
+        </div>
+        <div class="phase-body">
+          <p>Session #54 (1 May 2026) returned to the top game with deeper attack architecture — funnels as a decision framework, defensive survival from bottom mount, and expanding the submission menu from S-Mount:</p>
+          <ul>
+            <li><strong>Funnel concept:</strong> clarified the framework — attack sequences organised as decision trees based on partner's reactions, not fixed technique chains. Each partner response leads to a specific next move; the funnel reads them, you follow the read</li>
+            <li><strong>Reading escape attempts:</strong> after a failed mount attack, observe <em>how</em> your partner is escaping before committing to the next move — direction and method determine the correct follow-up</li>
+            <li><strong>Cross lapel choke defense from bottom mount:</strong> 3 grip options a top player can use to complete the choke; 2 positions needed to prevent it closing. Survival alone is not the goal — use the defense window to escape to a better position</li>
+            <li><strong>Arm triangle variation — arm under to arm over:</strong> transition from standard kata gatame (arm under partner's neck) to the arm-over-partner's-arm variation</li>
+          </ul>
+
+          <div class="technique-spotlight">
+            <div class="spotlight-label">Technique: Jigoku Jime (Hell Strangle)</div>
+            <img src="assets/jigokujime.webp" alt="Jigoku jime — arm triangle variation with arm over partner's arm" class="technique-img" loading="lazy">
+            <p class="spotlight-caption">The arm-over variation of the arm triangle. Where kata gatame traps the near arm under your neck, jigoku jime passes your arm <em>over</em> the partner's far arm to complete the strangle — a useful counter when they defend the standard entry by hiding their near elbow.</p>
+          </div>
+
+          <ul>
+            <li><strong>Mount → S-Mount — 4 submissions:</strong>
+              <ul>
+                <li>Armbar option 1 (near arm)</li>
+                <li>Armbar option 2 (far arm)</li>
+                <li>Lapel choke from S-Mount</li>
+                <li>Triangle choke from S-Mount</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="evidence"><strong>Session #54</strong> (1 May 2026) — Thursday PT session</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 9 — NEXT -->
     <div class="phase">
       <div class="phase-dot next"></div>
       <div class="phase-card next-card">
         <div class="phase-header">
-          <span class="phase-num">Phase 7</span>
+          <span class="phase-num">Phase 8</span>
           <span class="status-badge badge-next">&#9654; Next Major Upgrade</span>
           <span class="phase-title">Connecting Top &amp; Bottom — A Two-Way Game</span>
         </div>
         <div class="phase-body">
           <p>You now have significant material on both top and bottom. The next upgrade is connecting them into a coherent two-way game:</p>
           <ul>
-            <li><strong>From top:</strong> closed guard passing (Session #52) → consolidate with consistent pressure and smash pass entries → transition to your existing submission dilemma chains from Phases 1–2</li>
+            <li><strong>From top:</strong> closed guard passing (Session #52) → consolidate with consistent pressure and smash pass entries → transition to your existing submission dilemma chains from Phases 1–2 and the expanded S-Mount menu (Session #54)</li>
             <li><strong>From bottom:</strong> your standing-partner attack funnel (Session #50) + guard retention (Session #53) → attack chains launch reliably because the guard holds long enough to use them</li>
             <li><strong>The bridge:</strong> Session #49's principle — when pinning: keep flat, underhook, cross face, chest to chest, then attack. After a successful sweep from your standing-partner funnel, this is your immediate next step.</li>
             <li><strong>Turtle material:</strong> your crucifix and Turk entries (Session #51) now need live application against resisting partners — this is where that material becomes yours, not just familiar</li>
@@ -244,7 +314,7 @@
       <div class="phase-dot future"></div>
       <div class="phase-card future-card">
         <div class="phase-header">
-          <span class="phase-num">Phase 8</span>
+          <span class="phase-num">Phase 9</span>
           <span class="status-badge badge-future">Future</span>
           <span class="phase-title">Systematic Submission Pressure — Dilemmas from Every Position</span>
         </div>
@@ -260,26 +330,26 @@
   <div class="section-label">Next Session Focus</div>
   <h2>What to Bring to Your Next Class</h2>
   <div class="today-box">
-    <div class="today-label">Phase 6 → Phase 7 Transition</div>
-    <h3>Connecting what you know on top with what you know on bottom</h3>
+    <div class="today-label">Phase 7 → Phase 8 Transition</div>
+    <h3>Applying your expanded mount attack menu under live pressure</h3>
 
     <div class="game-block">
-      <div class="game-title">From Inside Closed Guard — Apply Session #52</div>
-      <div class="game-desc">When you find yourself inside a closed guard: check posture first (head, eyeline, tailbone), hands to biceps, avoid the 45º. Do not rush a pass. Feel the guard open before moving. You now have the framework — apply it slowly and with intention. Pressure forces errors. You do not need to force the pass itself.</div>
+      <div class="game-title">Mount — Read the Escape, Then Attack</div>
+      <div class="game-desc">From Session #54: do not commit to the next attack until you have seen how your partner is trying to escape. Their direction and method are the information — let the escape tell you which submission to enter. This is the funnel in action from top mount.</div>
     </div>
 
     <div class="game-block">
-      <div class="game-title">After a Sweep — Immediate Pin</div>
-      <div class="game-desc">When you complete a sweep from your standing-partner funnel (Roleta, Star, or Lumberjack), your immediate task is: keep flat, underhook, cross face, chest to chest. Do not pause to assess — the pin structure is already decided. Going from the sweep directly into pin position is the connection between Phase 4 and Phase 7.</div>
+      <div class="game-title">Cross Lapel Defense — Survive Into Escape</div>
+      <div class="game-desc">When caught under mount with a cross lapel choke coming: identify which of the 3 grip options is being used, place both positions to prevent the choke closing, then use the defense window to initiate your escape. Survival alone is not the goal — the defense is a launch pad.</div>
     </div>
 
     <div class="game-block">
-      <div class="game-title">Guard Retention — Perpendicular Movement</div>
-      <div class="game-desc">From Session #53: when a partner moves around you, your spine needs to stay perpendicular to their hip line. Not pushing back, not retreating — rotating. This is the single movement that keeps your guard active. If you feel your guard breaking, ask whether you moved perpendicular or just resisted.</div>
+      <div class="game-title">S-Mount — Drill the 4-Submission Menu</div>
+      <div class="game-desc">From Session #54: once you establish S-Mount, you have 4 attack options available — 2 armbars, 1 lapel choke, 1 triangle choke. Slow-roll into S-Mount position and practise reading which option opens based on how your partner responds. You are not picking a technique; you are following the opening.</div>
     </div>
 
     <div class="coaching-note">
-      <strong>Biggest gap to close:</strong> The closed guard top material from Session #52 is important precisely because it was new to you. Give it extra attention in live rolling — it will come up in every session. The posture triangle (head, eyeline, tailbone) is the check. If your posture is breaking, the partner's attacks will land and you will not know why.
+      <strong>Supplementary training — Hikari BJJ:</strong> You have been attending group classes at Hikari BJJ over the past two weeks. This is excellent. Live rolling with unfamiliar partners is where technique gets pressure-tested. Bring the cross lapel defense and S-Mount material there — exposure under uncertainty is how these become instinctive rather than just known.
     </div>
   </div>
 
@@ -289,14 +359,14 @@
   <div class="upgrade-box">
     <div class="upgrade-label">Target Capability</div>
     <h3>A Complete Two-Way Game — You Are Dangerous from Anywhere</h3>
-    <p>Right now your strengths are weighted toward the top game (Phases 1–2 were your starting point). The upgrade is building the bottom game to match — so that wherever a roll takes you, you have a clear purpose and a mapped next move.</p>
+    <p>Your top game is now significantly expanded. The upgrade is connecting both directions into a consistent, pressure-tested game.</p>
     <ul>
-      <li><strong>Top game (Phase 1–2):</strong> kata gatame and high mount dilemmas are already there. The next layer is getting there more reliably — which means your passing game (Session #52) needs to become consistent.</li>
-      <li><strong>Bottom game (Phases 4–5):</strong> your standing-partner funnel and guard retention are in place. The upgrade is trusting them under pressure — launching the attack instead of waiting for the perfect moment.</li>
-      <li><strong>The gap material:</strong> closed guard top fundamentals were genuinely new in Session #52. Everything else builds from a stronger foundation now that this is in place.</li>
-      <li><strong>Turtle:</strong> your crucifix and Turk entries from Session #51 need live rolling to consolidate. These will become reliable tools once you have applied them a dozen times against resistance — you have the knowledge, now it needs the mileage.</li>
+      <li><strong>Top game (Phases 1–2 + Phase 7):</strong> kata gatame, high mount dilemmas, cross lapel choke, jigoku jime variation, and the full S-Mount submission menu are all there. The next layer is entering these positions more reliably — which means your passing game (Session #52) needs to become consistent under live pressure</li>
+      <li><strong>Bottom game (Phases 4–5):</strong> your standing-partner funnel and guard retention are in place. The upgrade is trusting them under pressure — launching the attack instead of waiting for the perfect moment</li>
+      <li><strong>Cross lapel defense:</strong> this is new material — give it live rolling attention. Recognising the 3 grip options quickly is a skill that comes from repetition, not just knowing the theory</li>
+      <li><strong>Hikari BJJ classes:</strong> your supplementary group training is building the live-exposure layer that private sessions alone cannot replicate. Keep going</li>
     </ul>
-    <p style="margin-top:0.75rem; font-style: italic; color: var(--ink-muted);">Your 2026 progression has been systematic and methodical — 9 sessions covering a wide range of material cleanly. The next step is depth over breadth: fewer new techniques, more live application of what is already there.</p>
+    <p style="margin-top:0.75rem; font-style: italic; color: var(--ink-muted);">Your 2026 progression has been systematic and methodical — 10 sessions covering a wide range of material cleanly. The next step is depth over breadth: fewer new techniques, more live application of what is already there.</p>
   </div>
 
   <!-- PRINCIPLES -->
@@ -323,11 +393,16 @@
     <p>From Session #53: guard retention is not about strength or speed. It is about angle. Spine perpendicular to your partner's hip line as they move is the geometric answer to almost every passing attempt. Learn this body shape and it becomes automatic.</p>
   </div>
 
+  <div class="concept">
+    <h4>A funnel is not a technique — it is a read.</h4>
+    <p>From Session #54: a funnel organises your attack options into a decision tree driven by your partner's responses. You do not decide which submission to use — your partner's reaction decides it for you. Your job is to read that reaction quickly enough to follow it. When you miss a tap, ask what the partner did and what that opens next — that is the funnel updating itself.</p>
+  </div>
+
 </div>
 
 <footer>
-  VCBJJ System · Kei's Personal Roadmap<br>
-  Generated from coaching session data · 29 Apr 2026 · Private document
+  Jeet Academy · VCBJJ System · Kei's Personal Roadmap<br>
+  Generated from coaching session data · 1 May 2026 · Private document
 </footer>
 
 <script>
