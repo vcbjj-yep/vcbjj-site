@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Still Rolling — Training Notes by Vince Choo | VCBJJ</title>
+<meta name="description" content="Still Rolling is the blog of Vince Choo, BJJ 3rd-Degree Black Belt and head coach at VCBJJ in Bangsar, KL. Honest writing about BJJ, coaching, and training for adults.">
+<meta property="og:title" content="Still Rolling — Training Notes by Vince Choo">
+<meta property="og:description" content="Honest writing about BJJ, coaching, and what it means to keep training past 40. By Vince Choo, VCBJJ Bangsar KL.">
+<meta property="og:url" content="https://vcbjj.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VCBJJ">
+<meta property="og:locale" content="en_MY">
+<link rel="canonical" href="https://vcbjj.com/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:           #0E0E0E;
+  --bg-alt:       #1A1A1A;
+  --surface:      #1E1E1E;
+  --text:         #F5F0E8;
+  --muted:        #9A9080;
+  --accent:       #C9A84C;
+  --accent-hover: #B8963E;
+  --gold:         #C9A84C;
+  --border:       #2E2E2E;
+  --dark:         #0E0E0E;
+  --dark-text:    #F5F0E8;
+  --dark-muted:   #9A9080;
+  --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:  'IBM Plex Mono', 'SF Mono', monospace;
+  --content-max:  720px;
+  --nav-max:      760px;
+  --section-py:   80px;
+  --radius:       6px;
+  --pill:         4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{background:var(--dark);padding:0 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid #1f1f1f}
+.nav-inner{max-width:var(--nav-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-brand{display:flex;align-items:center}
+.nav-brand img{height:36px;width:auto}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-muted);padding:8px 12px;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-toggle{display:none;background:none;border:none;color:var(--dark-muted);font-size:22px;cursor:pointer;padding:6px}
+
+@media(max-width:600px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--dark);flex-direction:column;padding:8px 20px 16px;border-top:1px solid #1f1f1f}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;font-size:13px;border-bottom:1px solid #1a1a1a}
+  .nav-links a:last-child{border-bottom:none}
+}
+
+/* BLOG HEADER */
+.blog-header{background:var(--dark);padding:64px 20px 56px;border-bottom:1px solid var(--border)}
+.blog-header-inner{max-width:var(--content-max);margin:0 auto}
+.blog-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.blog-title{font-family:var(--sans);font-size:40px;font-weight:300;line-height:1.2;color:var(--dark-text);margin-bottom:16px;letter-spacing:-0.5px}
+.blog-title em{font-style:italic;font-weight:300}
+.blog-desc{font-size:16px;line-height:1.7;color:var(--dark-muted);max-width:520px}
+.blog-meta{margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted);display:flex;gap:24px;flex-wrap:wrap}
+.blog-meta span{display:flex;align-items:center;gap:6px}
+
+/* POST LIST */
+.post-list{padding:60px 20px 80px}
+.post-list-inner{max-width:var(--content-max);margin:0 auto}
+
+.post-card{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);overflow:hidden;transition:border-color 0.2s;margin-bottom:24px}
+.post-card:hover{border-color:#4a4535}
+.post-card-img{width:100%;height:220px;object-fit:cover;background:var(--bg-alt)}
+.post-card-img-placeholder{width:100%;height:220px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center}
+.post-card-img-placeholder span{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.post-card-body{padding:28px}
+.post-card-date{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.post-card-title{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.35;color:var(--text);margin-bottom:12px;transition:color 0.2s}
+.post-card:hover .post-card-title{color:var(--gold)}
+.post-card-excerpt{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:20px}
+.post-card-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.post-card-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);background:var(--bg-alt);border:1px solid var(--border);border-radius:3px;padding:3px 8px}
+.post-card-read{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);transition:color 0.2s}
+.post-card:hover .post-card-read{color:var(--accent-hover)}
+
+/* FEATURED POST */
+.post-card.featured{grid-template-columns:1fr;border-color:#3a3527}
+.post-card.featured .post-card-img{height:300px}
+.post-card.featured .post-card-date{color:var(--gold)}
+
+/* YEAR DIVIDER */
+.year-divider{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding:32px 0 16px;border-bottom:1px solid var(--border);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.year-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* CTA STRIP */
+.cta-strip{background:var(--bg-alt);padding:56px 20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-strip-inner{max-width:var(--content-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cta-strip-text h3{font-size:20px;font-weight:500;color:var(--text);margin-bottom:8px}
+.cta-strip-text p{font-size:15px;color:var(--muted);max-width:420px}
+.btn{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;border-radius:var(--pill);cursor:pointer;transition:all 0.2s;border:1px solid transparent;text-align:center}
+.btn-primary{background:var(--gold);color:#0E0E0E;border-color:var(--gold)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-ghost{background:transparent;color:var(--gold);border-color:var(--gold)}
+.btn-ghost:hover{background:rgba(201,168,76,0.08)}
+
+/* FOOTER */
+.footer{background:var(--dark);padding:48px 20px 32px;border-top:1px solid #1a1a1a}
+.footer-inner{max-width:var(--nav-max);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-col-title{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:8px}
+.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}
+.footer-links a:hover{color:var(--dark-text)}
+.footer-bottom{border-top:1px solid #1a1a1a;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .cta-strip-inner{flex-direction:column;align-items:flex-start}
+  .blog-title{font-size:30px}
+  .btn{width:100%;padding:16px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-brand"><img src="/assets/VCBJJ-circle-2.png" alt="VCBJJ"></a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="/info.html">Is It Right For You?</a>
+      <a href="/about.html">Coach Vince</a>
+      <a href="/blog/" class="active">Still Rolling</a>
+      <a href="/getstarted.html">Get Started</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BLOG HEADER -->
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <div class="blog-eyebrow">VCBJJ &middot; Training Notes</div>
+    <h1 class="blog-title"><em>Still Rolling</em></h1>
+    <p class="blog-desc">Writing about BJJ, coaching, and what it means to keep training past 40. By Vince Choo &mdash; 3rd-Degree Black Belt, Bangsar KL.</p>
+    <div class="blog-meta">
+      <span>Since 2020</span>
+      <span>26 posts</span>
+      <span>vcbjj.com/blog</span>
+    </div>
+  </div>
+</header>
+
+<!-- POST LIST -->
+<main class="post-list">
+  <div class="post-list-inner">
+
+    <!-- 2026 -->
+    <div class="year-divider">2026</div>
+
+    <!-- Post 1 — Featured (newest) -->
+    <article class="post-card featured">
+      <img class="post-card-img" src="/assets/blog/images/why-i-dont-teach-bjj.jpg" alt="Why I Don't Teach BJJ the Way Most Gyms Teach BJJ" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">1 May 2026</div>
+        <h2 class="post-card-title"><a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do/">Why I Don&rsquo;t Teach BJJ the Way Most Gyms Teach BJJ</a></h2>
+        <p class="post-card-excerpt">The standard model treats learning as information transfer. That&rsquo;s not how motor skills develop in adults. Here&rsquo;s what I use instead, and why it works.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Coaching Philosophy</span><span class="tag">Adult Learning</span><span class="tag">CLA</span></div>
+          <a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/the-thing-nobody-tells-you.jpg" alt="The Thing Nobody Tells You About Starting BJJ at 45" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">24 April 2026</div>
+        <h2 class="post-card-title"><a href="/blog/the-thing-nobody-tells-you-about-starting-bjj-at-45/">The Thing Nobody Tells You About Starting BJJ at 45</a></h2>
+        <p class="post-card-excerpt">You&rsquo;re not picturing our room. You&rsquo;re picturing a room that exists somewhere else. Let me tell you what nobody actually explains about starting late.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Getting Started</span><span class="tag">Adult Martial Arts</span></div>
+          <a href="/blog/the-thing-nobody-tells-you-about-starting-bjj-at-45/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/you-missed-a-session.jpg" alt="You Missed a Session. Good. Now Read This." loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">4 April 2026</div>
+        <h2 class="post-card-title"><a href="/blog/you-missed-a-session-good-now-read-this/">You Missed a Session. Good. Now Read This.</a></h2>
+        <p class="post-card-excerpt">Missing a session isn&rsquo;t the problem. Deciding you&rsquo;ve failed is. Real consistency isn&rsquo;t a perfect streak &mdash; it&rsquo;s a general direction.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Consistency</span><span class="tag">Mindset</span></div>
+          <a href="/blog/you-missed-a-session-good-now-read-this/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/vcbjj-for-people-who-already-know.jpg" alt="VCBJJ — For People Who Already Know This Isn't For Everyone" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">15 March 2026</div>
+        <h2 class="post-card-title"><a href="/blog/vcbjj-for-people-who-already-know-this-isnt-for-everyone/">VCBJJ &mdash; For People Who Already Know This Isn&rsquo;t For Everyone</a></h2>
+        <p class="post-card-excerpt">Most people who find their way here aren&rsquo;t looking for a gym. They&rsquo;re looking for something harder to name. This is that door. It just doesn&rsquo;t advertise much.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/vcbjj-for-people-who-already-know-this-isnt-for-everyone/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2025 -->
+    <div class="year-divider">2025</div>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/the-unfolding-current.jpg" alt="The Unfolding Current" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">24 June 2025</div>
+        <h2 class="post-card-title"><a href="/blog/the-unfolding-current-reflections-on-growth-and-letting-go/">The Unfolding Current: Reflections on Growth and Letting Go</a></h2>
+        <p class="post-card-excerpt">A mentor&rsquo;s true success is measured not in perpetual students, but in those who carry the lessons forward on their own path.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Reflection</span></div>
+          <a href="/blog/the-unfolding-current-reflections-on-growth-and-letting-go/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/rolling-with-purpose.jpg" alt="Rolling with Purpose" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">13 June 2025</div>
+        <h2 class="post-card-title"><a href="/blog/rolling-with-purpose-a-coachs-intentional-approach/">Rolling with Purpose: A Coach&rsquo;s Intentional Approach</a></h2>
+        <p class="post-card-excerpt">What intentional rolling actually looks like, and why it produces better results than just adding more rounds.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Coaching</span><span class="tag">Rolling</span></div>
+          <a href="/blog/rolling-with-purpose-a-coachs-intentional-approach/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/influenced-by-influencers.jpg" alt="Influenced by Influencers?" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">2 March 2025</div>
+        <h2 class="post-card-title"><a href="/blog/influenced-by-influencers/">Influenced by Influencers?</a></h2>
+        <p class="post-card-excerpt">The algorithm shows you the highlight. It doesn&rsquo;t show you the ten years of unglamorous repetition behind it.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Coaching Philosophy</span></div>
+          <a href="/blog/influenced-by-influencers/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/which-bjj-academy-to-choose.jpg" alt="Which BJJ Academy to Choose?" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">1 March 2025</div>
+        <h2 class="post-card-title"><a href="/blog/which-bjj-academy-to-choose/">Which BJJ Academy to Choose?</a></h2>
+        <p class="post-card-excerpt">Not every gym will be right for you. Here are the things that actually matter when you&rsquo;re deciding where to train.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Getting Started</span></div>
+          <a href="/blog/which-bjj-academy-to-choose/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">27 February 2025</div>
+        <h2 class="post-card-title"><a href="/blog/well-are-they-important/">Well, Are They Important?</a></h2>
+        <p class="post-card-excerpt">On belts, stripes, and what they actually tell you about someone&rsquo;s training.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">BJJ</span></div>
+          <a href="/blog/well-are-they-important/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">26 February 2025</div>
+        <h2 class="post-card-title"><a href="/blog/its-your-journey-make-it-so/">It&rsquo;s Your Journey. Make It So.</a></h2>
+        <p class="post-card-excerpt">Your BJJ path doesn&rsquo;t have to look like anyone else&rsquo;s. Here&rsquo;s why that&rsquo;s not a weakness.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Mindset</span></div>
+          <a href="/blog/its-your-journey-make-it-so/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/assets/blog/images/ganbaru.jpg" alt="頑張る — Ganbaru" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">25 February 2025</div>
+        <h2 class="post-card-title"><a href="/blog/ganbaru/">頑張る</a></h2>
+        <p class="post-card-excerpt">On perseverance. The Japanese concept of ganbaru, and what it has to do with showing up on a hard week.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Mindset</span></div>
+          <a href="/blog/ganbaru/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2024 -->
+    <div class="year-divider">2024</div>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">23 December 2024</div>
+        <h2 class="post-card-title"><a href="/blog/winning-at-any-cost/">Winning at Any Cost</a></h2>
+        <p class="post-card-excerpt">A hard look at what &ldquo;winning&rdquo; actually means on the mats, and when that drive starts working against you.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Philosophy</span></div>
+          <a href="/blog/winning-at-any-cost/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">23 December 2024</div>
+        <h2 class="post-card-title"><a href="/blog/consistency-vs-intensity/">Consistency vs Intensity</a></h2>
+        <p class="post-card-excerpt">Most people get this the wrong way around. Intensity is the thing you chase. Consistency is the thing that actually builds you.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Training</span></div>
+          <a href="/blog/consistency-vs-intensity/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">23 December 2024</div>
+        <h2 class="post-card-title"><a href="/blog/fixing-your-leaky-bucket/">Fixing Your Leaky Bucket: A Guide to Strengthening Your Jiu-Jitsu Game</a></h2>
+        <p class="post-card-excerpt">Everyone has holes in their game. The question is whether you know where yours are and what you&rsquo;re actually doing about them.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Technique</span><span class="tag">Training</span></div>
+          <a href="/blog/fixing-your-leaky-bucket/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2023 -->
+    <div class="year-divider">2023</div>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">12 March 2023</div>
+        <h2 class="post-card-title"><a href="/blog/print-on-demand/">Print-On-Demand and Custom Logo Design Work Available</a></h2>
+        <p class="post-card-excerpt">VCBJJ merchandise is now available on a print-on-demand basis. Custom logo design work also available.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/print-on-demand/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">12 March 2023</div>
+        <h2 class="post-card-title"><a href="/blog/automating-and-the-immediate-future/">Automating and the Immediate Future</a></h2>
+        <p class="post-card-excerpt">On AI, automation, and what it means for small gyms and coaches who rely on direct relationships.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Technology</span></div>
+          <a href="/blog/automating-and-the-immediate-future/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">22 February 2023</div>
+        <h2 class="post-card-title"><a href="/blog/tis-but-a-number/">Tis But a Number</a></h2>
+        <p class="post-card-excerpt">On age, and why the number doesn&rsquo;t mean what people think it means on the mats.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Adult Martial Arts</span></div>
+          <a href="/blog/tis-but-a-number/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">13 February 2023</div>
+        <h2 class="post-card-title"><a href="/blog/wrestling-with-the-uncomfortable/">Wrestling with the Uncomfortable</a></h2>
+        <p class="post-card-excerpt">Discomfort is the mechanism. Not the obstacle &mdash; the actual vehicle for change. That&rsquo;s true on the mats and everywhere else.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Mindset</span></div>
+          <a href="/blog/wrestling-with-the-uncomfortable/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">10 January 2023</div>
+        <h2 class="post-card-title"><a href="/blog/mat-tales-episode-1-the-window-maker/">Mat Tales, Episode 1: The Window Maker</a></h2>
+        <p class="post-card-excerpt">Stories from the mats. The first in a series of moments that stuck with me from years of teaching and training.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Mat Tales</span></div>
+          <a href="/blog/mat-tales-episode-1-the-window-maker/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">9 January 2023</div>
+        <h2 class="post-card-title"><a href="/blog/youtube-channel/">YouTube Channel</a></h2>
+        <p class="post-card-excerpt">The VCBJJ YouTube channel is live. What you&rsquo;ll find there, and why it took this long.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/youtube-channel/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">9 January 2023</div>
+        <h2 class="post-card-title"><a href="/blog/defense-first/">Defense First</a></h2>
+        <p class="post-card-excerpt">Why I teach defense before offense, and what most coaches get wrong about where to start with beginners.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Coaching Philosophy</span><span class="tag">Technique</span></div>
+          <a href="/blog/defense-first/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">8 January 2023</div>
+        <h2 class="post-card-title"><a href="/blog/google-business-website-response-bot/">Google Business Website Enables a Response Bot</a></h2>
+        <p class="post-card-excerpt">An update on the gym&rsquo;s online presence, and what changed with Google Business in late 2022.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/google-business-website-response-bot/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">8 January 2023</div>
+        <h2 class="post-card-title"><a href="/blog/onwards-and-upwards/">Onwards and Upwards</a></h2>
+        <p class="post-card-excerpt">Two years at Jeet Academy. A reflection on where VCBJJ has been and where it&rsquo;s heading.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/onwards-and-upwards/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2021 -->
+    <div class="year-divider">2021</div>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">1 February 2021</div>
+        <h2 class="post-card-title"><a href="/blog/one-door-closes-another-opens/">One Door Closes, Another Opens</a></h2>
+        <p class="post-card-excerpt">On endings and new beginnings &mdash; and why sometimes the thing that looks like a setback is actually the better path.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/one-door-closes-another-opens/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2020 -->
+    <div class="year-divider">2020</div>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">18 November 2020</div>
+        <h2 class="post-card-title"><a href="/blog/blueprint-martial-arts-damansara-heights/">BluePrint Martial Arts: Damansara Heights Branch</a></h2>
+        <p class="post-card-excerpt">An update on the proposed new coaching space at Damansara Heights and what it means for VCBJJ members.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/blueprint-martial-arts-damansara-heights/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <div class="post-card-body">
+        <div class="post-card-date">9 November 2020</div>
+        <h2 class="post-card-title"><a href="/blog/the-return-and-beyond/">The Return and Beyond</a></h2>
+        <p class="post-card-excerpt">Training resumes after the MCO. What it feels like to be back on the mats after a long forced break.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">VCBJJ</span></div>
+          <a href="/blog/the-return-and-beyond/" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="cta-strip-inner">
+    <div class="cta-strip-text">
+      <h3>Ready to train?</h3>
+      <p>Small classes, structured coaching, no ego. Pay as you go. Bangsar, KL.</p>
+    </div>
+    <a href="/getstarted.html" class="btn btn-primary">Get Started</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/info.html">Is It Right For You?</a></li>
+          <li><a href="/about.html">Coach Vince</a></li>
+          <li><a href="/blog/">Still Rolling</a></li>
+          <li><a href="/getstarted.html">Get Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li>
+          <li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>
+      &copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
