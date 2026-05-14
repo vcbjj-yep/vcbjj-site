@@ -29,7 +29,7 @@
   "description": "VCBJJ is a private Brazilian Jiu-Jitsu gym in Bangsar, Kuala Lumpur (KL), Malaysia. Founded and coached by Vince Choo, BJJ 3rd-Degree Black Belt. Specialising in structured, safe BJJ training for working adults aged 40+. Small classes (max 10), no contracts, pay-as-you-go.",
   "url": "https://vcbjj.com",
   "logo": "/assets/VCBJJ-circle-2.png",
-  "image": "/assets/Vince-headshot-2026.webp",
+  "image": "/assets/vince.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "14-2 Jalan Telawi 3, Bangsar",
@@ -78,7 +78,7 @@
     "description": "BJJ 3rd-Degree Black Belt, 5th Dan Karate, in martial arts since 1978, running own gym since 1993",
     "sameAs": [
       "https://www.beltchecker.com/profile.php?id=412",
-      "https://www.instagram.com/vcbjjcoach/"
+      "https://www.instagram.com/vcbjjcoach"
     ]
   },
   "sameAs": [
@@ -135,9 +135,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="/assets/1200x800-index.webp" fetchpriority="high">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"></noscript>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ══ DESIGN TOKENS — Graphite & Gold ════════════════════════ */
 :root {
@@ -166,7 +164,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
-img{max-width:100%;height:auto;display:block}
+img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 
 /* ══ NAV ══════════════════════════════════════════════════ */
@@ -383,8 +381,6 @@ a{color:inherit;text-decoration:none}
   </div>
 </nav>
 
-<main>
-
 <!-- ══ 1. HERO ═════════════════════════════════════════════ -->
 <section class="hero section-dark">
   <div class="hero-inner">
@@ -441,7 +437,7 @@ a{color:inherit;text-decoration:none}
     <div class="eyebrow">Your Coach</div>
     <img class="guide-scene" src="/assets/Vince-coaching-2021-09.webp" alt="Coach Vince explaining a concept to students during training" loading="lazy">
     <div class="guide-card">
-      <img class="guide-photo" src="/assets/Vince-headshot-2026.webp" alt="Coach Vince Choo">
+      <img class="guide-photo" src="/assets/vince.jpg" alt="Coach Vince Choo">
       <div class="guide-body">
         <div class="guide-name">Coach Vince Choo</div>
         <div class="guide-title">Head Coach &middot; VCBJJ</div>
@@ -666,7 +662,11 @@ a{color:inherit;text-decoration:none}
     <h2 style="font-size:26px;font-weight:500;line-height:1.3;margin-bottom:12px">Writing about BJJ, coaching, and the long game</h2>
     <p style="color:var(--muted);font-size:16px;max-width:500px;margin-bottom:28px">Honest notes from the mat. For people who are curious, already training, or wondering if it&rsquo;s too late to start.</p>
     <a href="blog/" class="btn btn-ghost" style="font-size:11px">Read the Blog &rarr;</a>
-    <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;max-width:680px" class="blog-preview-grid">
+            <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;max-width:680px" class="blog-preview-grid">
+      <a href="blog/can-you-do-bjj-with-a-bad-back-bad-knees/" style="display:block;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:6px">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">15 May 2026</div>
+        <div style="font-size:14px;line-height:1.4;color:var(--text)">Can You Do BJJ With a Bad Back, Bad Knees&hellip;</div>
+      </a>
       <a href="blog/why-i-dont-teach-bjj-the-way-most-gyms-do/" style="display:block;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:6px">
         <div style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">1 May 2026</div>
         <div style="font-size:14px;line-height:1.4;color:var(--text)">Why I Don&rsquo;t Teach BJJ the Way Most Gyms Teach BJJ</div>
@@ -675,16 +675,10 @@ a{color:inherit;text-decoration:none}
         <div style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">24 Apr 2026</div>
         <div style="font-size:14px;line-height:1.4;color:var(--text)">The Thing Nobody Tells You About Starting BJJ at 45</div>
       </a>
-      <a href="blog/you-missed-a-session-good-now-read-this/" style="display:block;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:6px">
-        <div style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">4 Apr 2026</div>
-        <div style="font-size:14px;line-height:1.4;color:var(--text)">You Missed a Session. Good. Now Read This.</div>
-      </a>
     </div>
   </div>
 </section>
 <style>@media(max-width:600px){.blog-preview-grid{grid-template-columns:1fr !important}}</style>
-
-</main>
 
 <!-- ══ FOOTER ══════════════════════════════════════════════ -->
 <footer class="footer">
@@ -704,7 +698,7 @@ a{color:inherit;text-decoration:none}
       <div>
         <div class="footer-col-title">Connect</div>
         <ul class="footer-links">
-          <li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">VCBJJ Instagram</a></li>
+          <li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li>
           <li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li>
         </ul>
