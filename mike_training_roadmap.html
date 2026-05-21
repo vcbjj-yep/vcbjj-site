@@ -16,6 +16,11 @@
     --next-color:     #0d6b6b;
     --next-badge-bg:  rgba(13,107,107,0.12);
   }
+
+  @media print {
+    .no-print { display: none !important; }
+    .a11y-bar { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -24,14 +29,15 @@
   <span class="a11y-label">Accessibility</span>
   <button class="a11y-btn" onclick="toggleHC(this)">High Contrast</button>
   <button class="a11y-btn" onclick="toggleLarge(this)">Large Text</button>
+  <button class="a11y-btn pdf-btn no-print" onclick="window.print()" title="Save as PDF">&#128438; Save as PDF</button>
 </div>
 
 <div class="hero">
   <span class="hero-initial">M</span>
   <div class="academy-label">Jeet Academy · VCBJJ · Training Roadmap</div>
   <h1>MIKE<br><span>ROADMAP</span></h1>
-  <div class="hero-meta">Updated: 29 Apr 2026 &nbsp;|&nbsp; Mike Gong</div>
-  <span class="hero-session-count">Sessions #23 – #34 &nbsp;·&nbsp; 12 logged in 2026</span>
+  <div class="hero-meta">Updated: 4 May 2026 &nbsp;|&nbsp; Mike Gong</div>
+  <span class="hero-session-count">Sessions #23 – #36 &nbsp;·&nbsp; 14 logged in 2026</span>
 </div>
 
 <div class="container">
@@ -116,11 +122,11 @@
 
     <!-- Phase 4 — NOW -->
     <div class="phase">
-      <div class="phase-dot now"></div>
-      <div class="phase-card now-card">
+      <div class="phase-dot done"></div>
+      <div class="phase-card done-card">
         <div class="phase-header">
           <span class="phase-num">Phase 4</span>
-          <span class="status-badge badge-now">&#9654; You Are Here</span>
+          <span class="status-badge badge-done">&#10003; Covered</span>
           <span class="phase-title">Seated Guard Concepts + CLA Games — Making It Click</span>
         </div>
         <div class="phase-body">
@@ -140,34 +146,72 @@
       </div>
     </div>
 
-    <!-- Phase 5 — NEXT -->
+    <!-- Phase 5 — NOW -->
     <div class="phase">
-      <div class="phase-dot next"></div>
-      <div class="phase-card next-card">
+      <div class="phase-dot now"></div>
+      <div class="phase-card now-card">
         <div class="phase-header">
           <span class="phase-num">Phase 5</span>
-          <span class="status-badge badge-next">&#9654; Next Major Upgrade</span>
-          <span class="phase-title">The Game Loop in Live Rolling — Pulling the Trigger</span>
+          <span class="status-badge badge-now">&#9654; You Are Here</span>
+          <span class="phase-title">Funnels, Guard as a Tool &amp; Hip Movement — Applying the Framework</span>
         </div>
         <div class="phase-body">
-          <p>You know the loop. The next upgrade is <em>running the loop in a live roll without stopping to check your notes</em>. This is not about adding new material — it is about trusting what you already have:</p>
+          <p>Sessions #35–#36 (Apr–May 2026) moved from conceptual understanding to applied drilling — clarifying what a funnel actually is, and using a regression drill to address your presenting problem directly:</p>
           <ul>
-            <li><strong>Seated guard entry:</strong> get under the hip or pull the hip to you — commit to one and go. The CLA games have shown you the movement is there.</li>
-            <li><strong>K-Guard to X-Guard funnel:</strong> from Session #30 — partner stands, attack inside space with K-Guard to X-Guard sweep. You have the map, now walk it under pressure.</li>
-            <li><strong>Reset after each phase:</strong> you do not need to force a finish from every position. Reach a phase, reset intentionally, read the next phase. This is not passive — it is structured patience, which your judo background has actually prepared you for better than you may realise.</li>
-            <li><strong>Grips:</strong> establish your own grips rather than reacting to your partner's. One meaningful grip at a time, not a grip battle. Your judo sensitivity is an asset here — the recalibration is about <em>when</em> to engage, not whether.</li>
+            <li><strong>Session #35 — Funnel clarification:</strong>
+              <ul>
+                <li>A funnel is not just adjusting one variable in the same attack. True funnel: partner's defensive response causes a positional change, and your attack changes with it, each transition removing another defensive option</li>
+                <li>Judo parallels: o-soto gari → tai-otoshi → uchi-mata <em>is</em> a funnel (posture changes with each). Ken-ken uchi-mata is <em>not</em> a funnel — same throw, one variable adjusted</li>
+                <li>BJJ example: scissors sweep → partner counterbalances → grip switch from lapel to over-shoulder belt grip → gullwing/magic sweep in opposite direction — this is a funnel</li>
+                <li>Guard agnostic use: guard selection driven by partner's positioning and available space — below their hips, between their legs, or around their hips. Guard is a tool, not an identity. Avoid attachment to one guard type</li>
+                <li>6-minute roll: Vince locked up upper body to force Mike to use hips and legs for all positional escapes</li>
+              </ul>
+            </li>
+            <li><strong>Session #36 — CLA regression drill from Americana:</strong>
+              <ul>
+                <li>You raised the concern: you don't move your hips enough, movements feel textbook, cannot identify how and when to move efficiently</li>
+                <li>CLA regression: started at end position (chest-to-chest pin with Americana applied). Removed one control function — Mike fights to re-earn it. Repeated progressively, removing one more function per iteration, working backwards toward the hip-line entry</li>
+                <li>Regression pathway: open guard or standing → build connections to get partner's hands/hips to mat → work forward through the funnel to submission</li>
+                <li>Root cause identified: you cannot yet read which door is open, and move instead through a memorised sequence. The regression drill forces you to re-earn each control function rather than assume it</li>
+              </ul>
+            </li>
           </ul>
-          <div class="evidence"><strong>Begins in next rolling sessions.</strong> The conceptual groundwork is done — this phase is mat time and repetition, not new input.</div>
+          <div class="callout callout-amber">
+            <strong>Key observation from Session #36:</strong> Your self-awareness stops at symptom level — you know you don't move your hips, but the cause is that you cannot yet read which door is open. The regression drill addresses this directly. The goal is not better technique; it is better reading.
+          </div>
+          <div class="evidence"><strong>Sessions #35–#36</strong> (30 Apr – 4 May 2026)</div>
         </div>
       </div>
     </div>
 
-    <!-- Phase 6 — FUTURE -->
+    <!-- Phase 6 — NEXT -->
+    <div class="phase">
+      <div class="phase-dot next"></div>
+      <div class="phase-card next-card">
+        <div class="phase-header">
+          <span class="phase-num">Phase 6</span>
+          <span class="status-badge badge-next">&#9654; Next Major Upgrade</span>
+          <span class="phase-title">The Game Loop Running — Reading Doors, Not Following Maps</span>
+        </div>
+        <div class="phase-body">
+          <p>You have the loop. You have the funnel concept. You have the regression drill to build entry reading. The upgrade is executing the loop in live rolling while reading which door is open at each step — not following a memorised sequence.</p>
+          <ul>
+            <li><strong>From the regression drill (Session #36):</strong> continue working backwards from the end position. Each iteration: re-earn one more control function from a position where it has been removed. This is how tactical reading develops — not from more techniques, but from more re-earning of positions under resistance</li>
+            <li><strong>Scissors sweep CLA moment (Session #34):</strong> that uncoached sweep happened because you were responding to the situation, not following a plan. The regression drill is designed to replicate that state — intentionally and repeatedly</li>
+            <li><strong>K-Guard to X-Guard funnel (Session #30):</strong> partner stands inside your guard → attack inside space → X-Guard sweep. You have the map. Now walk it while reading their base shift, not from instruction</li>
+            <li><strong>Hip movement diagnosis:</strong> the issue is not a lack of hip movement technique. It is the gap between recognising the open door and acting on it. Regression drilling closes this gap.</li>
+          </ul>
+          <div class="evidence"><strong>Foundation complete.</strong> Phase 6 is mat time with the regression framework — same positions, increasing resistance.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 7 — FUTURE -->
     <div class="phase">
       <div class="phase-dot future"></div>
       <div class="phase-card future-card">
         <div class="phase-header">
-          <span class="phase-num">Phase 6</span>
+          <span class="phase-num">Phase 7</span>
           <span class="status-badge badge-future">Future</span>
           <span class="phase-title">Consolidating Your Judo Assets Into a BJJ System</span>
         </div>
@@ -180,29 +224,34 @@
   </div>
 
   <!-- TODAY -->
-  <div class="section-label">Next Session Focus</div>
-  <h2>What to Bring to Your Next Class</h2>
+  <div class="section-label">Most Recent Session — 4 May 2026</div>
+  <h2>Session #36 — Hip Movement &amp; CLA Regression Drill</h2>
   <div class="today-box">
-    <div class="today-label">Phase 4 → Phase 5 Transition</div>
-    <h3>From understanding it to doing it</h3>
+    <div class="today-label">Regression Drill from Americana — Building Tactical Reading</div>
+    <h3>Working backwards to find where the reading breaks down</h3>
 
     <div class="game-block">
-      <div class="game-title">The One-Loop Check</div>
-      <div class="game-desc">Before your next roll, run the loop once in your head: meaningful connection → hip line → chest-to-chest → submission or pin → if on bottom, connect under or over. That is the whole game. You do not need to plan beyond step one — just be ready to run the loop from wherever you land.</div>
+      <div class="game-title">Why Regression, Not More Technique</div>
+      <div class="game-desc">You came in with a clear self-diagnosis: you don't move your hips enough, your movements feel textbook, you cannot identify how and when to move efficiently. That is not a technique problem — it is a reading problem. You move through a memorised sequence rather than reading which door is open. Adding more techniques would make this worse, not better. The regression drill addresses the actual cause.</div>
     </div>
 
     <div class="game-block">
-      <div class="game-title">Seated Guard — First Connection Wins</div>
-      <div class="game-desc">From Sessions #33–#34: the first meaningful connection from seated decides the direction. Pull, do not push. If you catch yourself pushing from seated guard, stop, reset the grip, and pull instead. One correction, consistently applied, will change more than five new techniques.</div>
+      <div class="game-title">The Regression Drill — How It Works</div>
+      <div class="game-desc">Start at the end: chest-to-chest pin with the Americana already applied. Remove one control function (a grip, a post, a position). You fight to re-earn it. Once re-earned, that function is removed again plus one more. Each iteration you are starting from further back. The goal is not to complete the Americana — it is to read, from each reduced position, which function to pursue next. That is the door-reading skill.</div>
     </div>
 
     <div class="game-block">
-      <div class="game-title">Allow the Mistake</div>
-      <div class="game-desc">From Session #31: you play better when you give yourself permission to be wrong. If something fails, it is information — what did your partner give you after the failure? That answer is already in the loop. The sweep you hit in Game 3 of Session #34 came from exactly this. You were not thinking about technique. You were responding to the situation.</div>
+      <div class="game-title">The Regression Pathway</div>
+      <div class="game-desc">Americana applied → remove one grip → re-earn → remove two controls → re-earn → ... → remove all controls (just chest-to-chest) → re-earn → working from hip line entry → working from open guard or standing. Same funnel, entered from the beginning. By the time you have worked the whole pathway, you have physically experienced every decision point in the chain — not read about it.</div>
+    </div>
+
+    <div class="game-block">
+      <div class="game-title">Connection to Session #35</div>
+      <div class="game-desc">Session #35 clarified what a funnel is — attacks that change as the position changes, not technique adjustments within the same attack. Session #36 is the drill that builds the reading ability the funnel requires. You cannot run the funnel if you cannot read the open door. The regression drill builds exactly that — by forcing you to identify, under resistance, what is available from each reduced state.</div>
     </div>
 
     <div class="coaching-note">
-      <strong>One thing to measure:</strong> At the end of your next roll, ask yourself — did I push more or pull more? That single question will tell you whether the recalibration is landing.
+      <strong>Follow-up required:</strong> Hip awareness and movement efficiency — entries are still telegraphed and sequential rather than positionally reactive. The regression drill is the ongoing prescription. Each session: one more step back in the regression pathway. No new techniques needed yet.
     </div>
   </div>
 
@@ -211,14 +260,15 @@
   <h2>Major Skill Upgrade — What Unlocks Next</h2>
   <div class="upgrade-box">
     <div class="upgrade-label">Target Capability</div>
-    <h3>The Game Loop Running Automatically in Live Rolling</h3>
-    <p>You have the knowledge. You can articulate the concepts. You have felt the CLA games work. The upgrade is not more information — it is the same information repeating on the mat until it stops feeling like effort.</p>
+    <h3>Door-Reading — Moving to the Open Space, Not the Memorised Next Step</h3>
+    <p>Sessions #35–#36 identified the root cause precisely: you move through a memorised sequence rather than reading which door is open. The upgrade is closing that gap.</p>
     <ul>
-      <li><strong>The scissors sweep from Session #34:</strong> that happened because you were not overthinking. That is the standard. Reproduce it deliberately — not by thinking more carefully, but by thinking <em>less</em> and reacting to what your partner gives.</li>
-      <li><strong>Ma-ai distance control:</strong> briefly covered in Session #34 — your judo has this deeply embedded. In BJJ, use it to decide when to engage and when to reset, not when to force a grip battle.</li>
-      <li><strong>The knowledge integration problem:</strong> you train with multiple coaches. That breadth is valuable. The upgrade is using Jeet Academy sessions to build a clear operational spine — one loop, executed well — and filing everything else as supporting material, not as competing instruction.</li>
+      <li><strong>Continue the regression drill (Session #36):</strong> each session, work one step further back in the pathway. The goal is not to finish the Americana — it is to feel, from each reduced state, where the opening is. Repetition is the mechanism.</li>
+      <li><strong>The funnel principle (Session #35):</strong> a true funnel responds to positional changes, not just technique variations. When your partner defends, ask: has the <em>position</em> changed? If yes, a different attack applies. If no, adjust within the same attack. This is the distinction that makes the difference.</li>
+      <li><strong>The scissors sweep (Session #34):</strong> happened because you were responding, not planning. That state is the target. The regression drill is designed to reproduce it — by removing the plan and forcing the response.</li>
+      <li><strong>Jeet Academy as the operational spine:</strong> you train with multiple coaches. Use these sessions to build one clear loop — meaningful connection → hip line → chest-to-chest → finish or reset. File everything else from other coaches as supporting material, not competing instruction.</li>
     </ul>
-    <p style="margin-top:0.75rem; font-style: italic; color: var(--ink-muted);">Estimated timeline: consistent mat time over the next 4–6 sessions — same concepts, increasing pressure. No new techniques needed yet.</p>
+    <p style="margin-top:0.75rem; font-style: italic; color: var(--ink-muted);">14 sessions in 2026. The conceptual foundation is solid. Phase 6 is the same material under increasing resistance — no new input needed yet.</p>
   </div>
 
   <!-- PRINCIPLES -->
@@ -249,7 +299,7 @@
 
 <footer>
   VCBJJ System · Mike's Personal Roadmap<br>
-  Generated from coaching session data · 29 Apr 2026 · Private document
+  Generated from coaching session data · 4 May 2026 · Private document
 </footer>
 
 <script>

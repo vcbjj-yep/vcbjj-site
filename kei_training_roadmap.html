@@ -47,6 +47,11 @@
     margin: 0;
     line-height: 1.5;
   }
+
+  @media print {
+    .no-print { display: none !important; }
+    .a11y-bar { display: none !important; }
+  }
 </style>
 </head>
 <body>
@@ -55,6 +60,7 @@
   <span class="a11y-label">Accessibility</span>
   <button class="a11y-btn" onclick="toggleHC(this)">High Contrast</button>
   <button class="a11y-btn" onclick="toggleLarge(this)">Large Text</button>
+  <button class="a11y-btn pdf-btn no-print" onclick="window.print()" title="Save as PDF">&#128438; Save as PDF</button>
 </div>
 
 <div class="hero">
