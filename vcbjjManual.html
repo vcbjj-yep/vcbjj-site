@@ -625,6 +625,242 @@
     line-height: 1.8;
   }
 
+  /* ── POSITION WEBS ───────────────────── */
+  .pw-block {
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+
+  .pw-header {
+    background: #111111;
+    padding: 16px 20px;
+  }
+
+  .pw-pos-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #F4BB09;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .pw-pos-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .pw-pos-bottom {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin-top: 2px;
+  }
+
+  .pw-body {
+    padding: 20px;
+    background: var(--surface);
+  }
+
+  .pw-context {
+    font-size: 14px;
+    color: var(--ink-dim);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .pw-diagram-wrap {
+    margin: 0 0 8px 0;
+  }
+
+  .pw-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+  }
+
+  .pw-centre {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    background: #111111;
+    border: 3px solid #F4BB09;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #F4BB09;
+    text-align: center;
+    line-height: 1.1;
+    z-index: 2;
+  }
+
+  .pw-centre-sub {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: rgba(244,187,9,0.7);
+  }
+
+  .pw-svg-lines {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .pw-node {
+    position: absolute;
+    width: 88px; height: 62px;
+    border: 1.5px solid var(--border);
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, transform 0.15s;
+    z-index: 3;
+  }
+
+  .pw-node:hover,
+  .pw-node.active {
+    background: #F4BB09;
+    border-color: #111111;
+    transform: scale(1.05);
+  }
+
+  .pw-node.active .pw-node-label { color: #111111; }
+
+  .pw-node-label {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    padding: 4px 6px;
+  }
+
+  .pw-tap-hint {
+    text-align: center;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--ink-muted);
+    margin: 8px 0 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .pw-detail-panel {
+    display: none;
+    background: var(--surface3);
+    border: 1px solid #F4BB09;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    animation: pwFadeIn 0.2s ease;
+  }
+
+  .pw-detail-panel.visible { display: block; }
+
+  @keyframes pwFadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .pw-detail-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .pw-detail-cue {
+    font-size: 12px;
+    color: #6b4a00;
+    font-style: italic;
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+
+  .pw-detail-note {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.75;
+  }
+
+  .pw-options-list {
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+
+  .pw-opt-row {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .pw-opt-num {
+    flex: 0 0 28px;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: #111111;
+    color: #F4BB09;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pw-opt-content { flex: 1; }
+
+  .pw-opt-name {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+
+  .pw-opt-cue {
+    font-size: 12px;
+    color: #6b4a00;
+    font-style: italic;
+    margin-bottom: 5px;
+    line-height: 1.55;
+  }
+
+  .pw-opt-note {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .pw-diagram { max-width: 300px; }
+    .pw-node { width: 68px; height: 52px; }
+    .pw-node-label { font-size: 10px; }
+    .pw-centre { width: 74px; height: 74px; font-size: 13px; }
+  }
+
   /* ── AXIOM TABLE ─────────────────────── */
   .axiom-grid {
     display: grid;
@@ -1591,12 +1827,22 @@
   <div class="nav-section-label">Understanding Your Training</div>
   <a class="nav-item" href="#axioms">The Rules That Never Change</a>
   <a class="nav-item" href="#positions">Positions & What to Do</a>
+  <a class="nav-item" href="#position-webs">Position Webs</a>
+  <a class="nav-item" href="#sparring-game">Building Your Game</a>
+  <a class="nav-item l2" href="#body-mapping">Exploration &amp; Body Mapping</a>
+  <a class="nav-item l2" href="#your-game">Your Personal Game</a>
+  <a class="nav-item l2" href="#sparring">Sparring</a>
+  <a class="nav-item l2" href="#competition">Competition</a>
   <a class="nav-item" href="#techniques">Techniques at a Glance</a>
   <a class="nav-item" href="#gi-nogi">Gi vs NoGi — What's Different</a>
 
   <div class="nav-section-label">Your Development</div>
   <a class="nav-item" href="#assess">Where Are You Now?</a>
   <a class="nav-item" href="#between">Between Sessions</a>
+  <a class="nav-item" href="#plateau">When Progress Stalls</a>
+  <a class="nav-item l2" href="#plateau-what">Is It Actually a Plateau?</a>
+  <a class="nav-item l2" href="#plateau-types">The Four Types</a>
+  <a class="nav-item l2" href="#plateau-loop">The Feedback Loop</a>
   <a class="nav-item" href="#faq">Why We Train This Way</a>
 
   <div class="nav-section-label">Before You Train</div>
@@ -2730,6 +2976,207 @@
   </div>
 </div>
 
+<!-- ── PLATEAU / FEEDBACK LOOP ────────────────────────────── -->
+<div class="section" id="plateau">
+  <div class="section-eyebrow">Your Development</div>
+  <h2>When Progress<br>Stalls</h2>
+
+  <p>Every student reaches a point where the mat feels the same week after week. You're showing up, putting the time in, and nothing seems to change. This section is about understanding what's actually happening — and what to do about it.</p>
+
+  <p>A plateau is rarely what it looks like. In most cases it isn't a ceiling you've hit. It's a signal that something in the feedback loop has broken down. Once you identify what, you have a clear way forward.</p>
+
+  <!-- ANCHOR 1 -->
+  <div class="section" id="plateau-what" style="padding:0; margin: 32px 0 0 0; background:none; border:none;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,3vw,30px); letter-spacing:2px; margin-bottom:12px;">Is It Actually a Plateau?</h3>
+
+    <p>Before diagnosing a plateau, it's worth checking whether the feeling matches the reality. Progress in BJJ is not linear and it's not always visible. The following are common experiences that <em>feel</em> like stagnation but aren't:</p>
+
+    <div class="callout callout-muted" style="margin:20px 0;">
+      <div class="callout-title">Signs That You're Actually Moving Forward</div>
+      <p style="margin-bottom:8px;"><strong>You're surviving longer in bad positions</strong> — even if you're still getting submitted, the time between the mistake and the tap is growing. That's real development.</p>
+      <p style="margin-bottom:8px;"><strong>You're attempting more, not less</strong> — if you're failing more often because you're trying more, that's not a plateau. That's the training working.</p>
+      <p style="margin-bottom:8px;"><strong>The chaos feels familiar</strong> — BJJ stops feeling like a random sequence of things happening to you and starts feeling like a set of problems you recognise, even if you can't yet solve them. That recognition is a major advance.</p>
+      <p style="margin-bottom:0;"><strong>You're rolling with harder partners</strong> — if the difficulty of your rolls has increased, your results naturally decline. That's not regression. That's calibration.</p>
+    </div>
+
+    <p>A genuine plateau is when none of the above apply: your training context is the same, your partners are the same, and nothing is shifting in any direction. That's worth investigating.</p>
+  </div>
+
+  <!-- ANCHOR 2 -->
+  <div class="section" id="plateau-types" style="padding:0; margin: 40px 0 0 0; background:none; border:none;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,3vw,30px); letter-spacing:2px; margin-bottom:16px;">The Four Types of Plateau</h3>
+
+    <p>Most plateaus fall into one of four categories. They look similar from the outside — training feels flat — but they have different causes and different fixes.</p>
+
+    <!-- Type 1 -->
+    <div style="border:1px solid var(--border); padding:24px 28px; margin:16px 0; position:relative;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:6px;">Type 1</div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; margin-bottom:10px;">The Same Loop, Repeated</div>
+      <p style="margin-bottom:10px;">You have a game that works well enough that you keep using it — and because it keeps working, you never need to grow past it. This is the most comfortable plateau to be in and the hardest one to notice, because things don't feel stuck. You're not losing. You're not struggling. But you're also not developing.</p>
+      <p style="margin-bottom:10px;"><strong>What it looks like:</strong> You have two or three things you rely on. They work against the partners you usually roll with. You rarely feel genuinely challenged.</p>
+      <div class="callout callout-accent" style="margin:12px 0 0 0; padding:12px 16px;">
+        <strong>What moves this:</strong> Deliberately constrain yourself. Give your usual options away — roll without using your best position, without attacking your favourite submission. If you can't function without your two go-to moves, those moves are doing your thinking for you. The goal is a game that survives when the obvious path is closed.
+      </div>
+    </div>
+
+    <!-- Type 2 -->
+    <div style="border:1px solid var(--border); padding:24px 28px; margin:16px 0; position:relative;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:6px;">Type 2</div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; margin-bottom:10px;">Knowing Without Feeling</div>
+      <p style="margin-bottom:10px;">You can explain the technique. You understand the concept. But when rolling, it disappears. You revert to what's automatic. This gap between understanding and action is one of the most common and most frustrating experiences in BJJ.</p>
+      <p style="margin-bottom:10px;"><strong>What it looks like:</strong> You know exactly what you should have done — five seconds after the moment has passed. You can describe the correct response, but your body doesn't produce it under pressure.</p>
+      <div class="callout callout-accent" style="margin:12px 0 0 0; padding:12px 16px;">
+        <strong>What moves this:</strong> The gap closes through <em>repetition with intent</em>, not more information. Choose one concept — a single position, a single entry — and make it the only question you're asking in your next three sessions. Don't try to execute it perfectly. Try to find the situation it applies to, and attempt it every single time it appears, regardless of outcome. Volume of attempt matters more than success rate at this stage.
+      </div>
+    </div>
+
+    <!-- Type 3 -->
+    <div style="border:1px solid var(--border); padding:24px 28px; margin:16px 0; position:relative;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:6px;">Type 3</div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; margin-bottom:10px;">Collecting Without Connecting</div>
+      <p style="margin-bottom:10px;">You're training consistently and absorbing material — but the pieces aren't joining up into a game. You have techniques without a context for them. When a situation arises, you freeze because you have too many options and no reliable way to choose between them.</p>
+      <p style="margin-bottom:10px;"><strong>What it looks like:</strong> Training feels productive. Knowledge is growing. But in live rolling, decision time is slow and you regularly feel overwhelmed. You find yourself thinking rather than moving.</p>
+      <div class="callout callout-accent" style="margin:12px 0 0 0; padding:12px 16px;">
+        <strong>What moves this:</strong> Step back from accumulating and start connecting. Take the Funnel framework and map what you already know onto it — not what you want to learn, but what you have. Pick one sweep, one choke, one lock you already own, and commit to running those three as a chain. A small connected game is more useful than a large disconnected library.
+      </div>
+    </div>
+
+    <!-- Type 4 -->
+    <div style="border:1px solid var(--border); padding:24px 28px; margin:16px 0; position:relative;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--accent); text-transform:uppercase; margin-bottom:6px;">Type 4</div>
+      <div style="font-family:'Bebas Neue',sans-serif; font-size:22px; letter-spacing:2px; margin-bottom:10px;">The Invisible Foundation</div>
+      <p style="margin-bottom:10px;">Progress in the more advanced parts of your game has stalled because something earlier in the pyramid is shaky — and it's invisible because it's not where your attention is. You're working on Level 3 and Level 4 material, but Level 1 or Level 2 still has gaps that undercut everything built on top of it.</p>
+      <p style="margin-bottom:10px;"><strong>What it looks like:</strong> You attempt attacks, but rarely from a stable position. You get close to finishing submissions but regularly lose the position before you can complete them. You feel like the technique is right, but it keeps not working.</p>
+      <div class="callout callout-accent" style="margin:12px 0 0 0; padding:12px 16px;">
+        <strong>What moves this:</strong> Use the self-assessment in this guide honestly. Work on the lowest level where anything feels uncertain. The instinct is to keep working at the exciting end — but almost every advanced technique problem traces back to a survival or connection problem earlier in the system. Fix the floor, and the ceiling rises by itself.
+      </div>
+    </div>
+  </div>
+
+  <!-- ANCHOR 3 -->
+  <div class="section" id="plateau-loop" style="padding:0; margin: 40px 0 0 0; background:none; border:none;">
+    <h3 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(22px,3vw,30px); letter-spacing:2px; margin-bottom:16px;">The Feedback Loop</h3>
+
+    <p>Improvement in BJJ isn't a straight line from ignorance to competence. It's a loop — and when that loop runs well, you develop naturally. When it breaks down at any point, you plateau. Understanding the loop makes it easier to see where yours has broken.</p>
+
+    <!-- Loop visual -->
+    <div style="margin: 32px 0; overflow-x:auto;">
+      <div style="display:flex; flex-direction:column; gap:0; max-width:620px; margin:0 auto;" role="list" aria-label="Feedback loop stages">
+
+        <!-- Stage 1 -->
+        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
+          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">1</div>
+            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
+          </div>
+          <div style="padding: 4px 0 28px 20px;">
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Experience</div>
+            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">Something happens on the mat. You attempt something, you get caught, you survive a position, you make a move instinctively. This is raw material — it only becomes learning if you do something with it.</p>
+          </div>
+        </div>
+
+        <!-- Stage 2 -->
+        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
+          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">2</div>
+            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
+          </div>
+          <div style="padding: 4px 0 28px 20px;">
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Notice</div>
+            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">You pay attention to what happened. Not just the result — but the moment before it. What did your partner do? What did your body do? What made the situation what it was? This is where most students drop the thread — the session ends, and the experience evaporates.</p>
+            <div style="margin-top:10px; padding:10px 14px; border-left:3px solid var(--accent); background:var(--surface-raise);">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted);">BROKEN LOOP SIGNAL: You can't recall a single specific moment from your last session. The whole session exists as a vague impression of how it generally went.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 3 -->
+        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
+          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">3</div>
+            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
+          </div>
+          <div style="padding: 4px 0 28px 20px;">
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Reflect</div>
+            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">You turn the moment into a question. Not "what technique should I have used?" — but "what was actually happening in that position? What was the position asking for?" This is where coaching, this manual, and the Funnel framework are most useful — as a lens to make sense of what you experienced, not as instructions to follow.</p>
+            <div style="margin-top:10px; padding:10px 14px; border-left:3px solid var(--accent); background:var(--surface-raise);">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted);">BROKEN LOOP SIGNAL: You reflect on what you should have done but can't connect it to what your body actually did. The answer exists in theory but not in experience.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 4 -->
+        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
+          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">4</div>
+            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
+          </div>
+          <div style="padding: 4px 0 28px 20px;">
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Set One Intention</div>
+            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">From the reflection, you carry one specific, testable question into your next session. Not "I'll try to be better at guard." One thing: "When my partner stands up, I'm going to immediately look for the inside space." This gives your attention somewhere to go during the fog of live rolling.</p>
+            <div style="margin-top:10px; padding:10px 14px; border-left:3px solid var(--accent); background:var(--surface-raise);">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted);">BROKEN LOOP SIGNAL: You arrive at every session with no particular focus. Whatever happens, happens. Sessions feel productive but not directional.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage 5 — completes the loop -->
+        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
+          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">5</div>
+            <div style="width:2px; flex:1; background:transparent; margin-top:4px;"></div>
+          </div>
+          <div style="padding: 4px 0 8px 20px;">
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Try Again — With the New Question</div>
+            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">You return to the mat. The intention from Stage 4 shapes what you notice in Stage 2. The loop restarts — now with slightly more experience, slightly more data. Progress is happening, even when the result of any individual roll looks identical to last week.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Arrow suggesting loop -->
+    <div style="text-align:center; margin:-8px 0 24px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted); letter-spacing:2px;">↺ &nbsp; LOOPS BACK TO STAGE 1</div>
+
+    <div class="callout callout-neutral" style="margin:20px 0; padding:16px 20px;">
+      <strong>The loop doesn't require perfection at any stage.</strong> You don't need to notice everything — just one thing. You don't need a sophisticated reflection — just one honest question. The intention doesn't need to work — just be specific enough to give your attention a direction. Small inputs into each stage compound over months into genuine development.
+    </div>
+
+    <h3 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(20px,2.5vw,26px); letter-spacing:2px; margin: 32px 0 14px;">A Simple Way to Run the Loop</h3>
+
+    <p>You don't need a journal or a system. Three questions, after every session, kept as brief as you like:</p>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin:20px 0;">
+
+      <div style="border:1px solid var(--border); padding:20px 22px; border-top:3px solid var(--accent);">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--ink-muted); text-transform:uppercase; margin-bottom:8px;">Question 1</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:1px; margin-bottom:8px;">What happened once that I want to understand?</div>
+        <p style="margin:0; font-size:0.85rem; color:var(--ink-dim); line-height:1.6;">One moment. Not a summary of the session — a specific moment. If nothing comes to mind, that's the signal that you need to start paying closer attention on the mat.</p>
+      </div>
+
+      <div style="border:1px solid var(--border); padding:20px 22px; border-top:3px solid var(--accent);">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--ink-muted); text-transform:uppercase; margin-bottom:8px;">Question 2</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:1px; margin-bottom:8px;">What was the position asking for that I didn't give it?</div>
+        <p style="margin:0; font-size:0.85rem; color:var(--ink-dim); line-height:1.6;">Not "what technique should I have used?" — but what was the situation? Was it a survival moment? A connection problem? A timing issue? Use the Five Levels and the Funnel as your map.</p>
+      </div>
+
+      <div style="border:1px solid var(--border); padding:20px 22px; border-top:3px solid var(--accent);">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--ink-muted); text-transform:uppercase; margin-bottom:8px;">Question 3</div>
+        <div style="font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:1px; margin-bottom:8px;">What's my one question for next time?</div>
+        <p style="margin:0; font-size:0.85rem; color:var(--ink-dim); line-height:1.6;">A single, specific, testable intention. "Next session I'm going to try to stay perpendicular every time someone tries to pass." That's the loop completing. That's what makes the next session different from the last one.</p>
+      </div>
+
+    </div>
+
+    <div class="callout callout-muted" style="margin:24px 0 8px;">
+      <div class="callout-title">When to Bring It to Your Coach</div>
+      <p style="margin:0;">If you've been running the loop sincerely for three or four sessions and nothing is shifting — not more success, but not even more clarity about what's happening — bring that to a session. Not "I feel stuck," but: "This is the moment I keep experiencing, this is what I think is happening, and this is what I've tried." That conversation will be far more productive than any amount of general technique drilling.</p>
+    </div>
+
+  </div><!-- end plateau-loop -->
+
+</div><!-- end plateau section -->
+
 <!-- ── FAQ ─────────────────────────────────────────────────── -->
 <div class="section" id="faq">
   <div class="section-eyebrow">Understanding the Approach</div>
@@ -3515,11 +3962,430 @@
 </div>
 <!-- /CARs WARM-UP -->
 
+<!-- ── POSITION WEBS ────────────────────────────────────────── -->
+<div class="section" id="position-webs">
+  <div class="section-eyebrow">Positional Thinking</div>
+  <h2>Position Webs —<br>What's Available Right Now</h2>
+
+  <p>Every position you land in is a junction, not a dead end. From any given spot there are usually four or five different things available — sweeps, submissions, escapes, transitions — all accessible depending on where your partner is and what they're doing.</p>
+
+  <p>The problem that most students hit is treating positions like a one-way street: "I tried the sweep, it didn't work, now I'm stuck." The position hasn't failed. You've just looked down one branch and not seen the others.</p>
+
+  <div class="callout callout-accent" style="margin: 24px 0;">
+    <div class="callout-title">The key shift</div>
+    <p>Stop asking: <em>"What is the next technique in my sequence?"</em><br>
+    Start asking: <em>"What is my partner giving me right now?"</em></p>
+    <p style="margin-top:8px;">Your partner's reaction — the direction they lean, which hand they base with, which leg they step — selects your option. The position is the same. What changes is which branch is ripe.</p>
+  </div>
+
+  <p>The diagrams below show three positions you'll regularly find yourself in. Each one has multiple exits. Read the web before you move — it takes half a second and changes everything.</p>
+
+  <!-- ── WEB 1: KNEE SHIELD HALF GUARD ─────── -->
+  <div class="pw-block" id="pw-kshield">
+    <div class="pw-header">
+      <div class="pw-pos-label">Position Web 1</div>
+      <div class="pw-pos-name">Knee Shield Half Guard <span class="tag tag-both">GI &amp; NOGI</span></div>
+      <div class="pw-pos-bottom">(bottom player)</div>
+    </div>
+    <div class="pw-body">
+      <p class="pw-context">You're on your back, near leg threaded through, knee shield up and pressing against your partner's chest or shoulder. This is not a passive position — it's a launching pad. The specific angle your partner takes tells you which branch to enter.</p>
+
+      <div class="pw-diagram-wrap">
+        <div class="pw-diagram" id="pwd-kshield">
+          <!-- Centre node -->
+          <div class="pw-centre">Knee Shield<br><span class="pw-centre-sub">Half Guard</span></div>
+
+          <!-- Branch nodes — positioned by CSS -->
+          <div class="pw-node pw-node-1" data-pos="kshield" data-idx="0">
+            <div class="pw-node-label">Underhook →<br>Back Take</div>
+          </div>
+          <div class="pw-node pw-node-2" data-pos="kshield" data-idx="1">
+            <div class="pw-node-label">Dogfight →<br>Sweep</div>
+          </div>
+          <div class="pw-node pw-node-3" data-pos="kshield" data-idx="2">
+            <div class="pw-node-label">Kimura<br>(far arm)</div>
+          </div>
+          <div class="pw-node pw-node-4" data-pos="kshield" data-idx="3">
+            <div class="pw-node-label">Guillotine<br>(near arm)</div>
+          </div>
+          <div class="pw-node pw-node-5" data-pos="kshield" data-idx="4">
+            <div class="pw-node-label">Close Guard<br>Re-entry</div>
+          </div>
+        </div>
+        <p class="pw-tap-hint">Tap any option to see when it's available</p>
+      </div>
+
+      <div class="pw-detail-panel" id="pwp-kshield">
+        <div class="pw-detail-inner">
+          <div class="pw-detail-name" id="pwdn-kshield"></div>
+          <div class="pw-detail-cue" id="pwdc-kshield"></div>
+          <div class="pw-detail-note" id="pwdnote-kshield"></div>
+        </div>
+      </div>
+
+      <div class="pw-options-list">
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">1</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Underhook → Back Take</div>
+            <div class="pw-opt-cue">When: they flatten their chest down and try to eliminate the knee shield</div>
+            <div class="pw-opt-note">The moment they drop weight on you, the underhook is available. Whip through, get to the elbow, take the back. Their pressure is doing the work — you just redirect it.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">2</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Dogfight → Sweep</div>
+            <div class="pw-opt-cue">When: they post up on their hand or knee and try to re-establish base</div>
+            <div class="pw-opt-note">If they post up, come up to your elbow and match the angle. Now you're in a dogfight — whip the underhook hard through to the far side and drive with your hips. They base in one direction; you take the other.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">3</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Kimura (far arm)</div>
+            <div class="pw-opt-cue">When: their far arm is posted on the mat outside their base</div>
+            <div class="pw-opt-note">Their far arm reaching to post or base opens the kimura. Your top hand comes over and locks the wrist, your bottom arm scoops the elbow. You can attack the kimura directly or use it to force the sweep — they'll often give you the underhook to defend it.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">4</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Guillotine (near arm)</div>
+            <div class="pw-opt-cue">When: they reach their near arm across to flatten or cross-face</div>
+            <div class="pw-opt-note">Their near arm crossing creates a guillotine window. Catch the neck with your near arm, lock your hands, and use the knee shield to create the extension. Works best before they establish cross-face — catch it early.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">5</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Close Guard Re-entry</div>
+            <div class="pw-opt-cue">When: they step up to pass or stand upright, relieving pressure</div>
+            <div class="pw-opt-note">When they stand or reduce pressure to reposition, the path back to closed guard is open. Drag them in with your top hand and close your legs. This resets the position rather than attacking, but it's better than allowing a pass.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── KNEE SHIELD FUNNEL CHAIN ──────────── -->
+  <div class="pw-block" id="kshield-funnel-chain" style="margin-top:32px;">
+    <div class="pw-header">
+      <div class="pw-pos-label">Technique Chain</div>
+      <div class="pw-pos-name">Knee Shield Half Guard — The Funnel in Action <span class="tag tag-both">GI &amp; NOGI</span></div>
+      <div class="pw-pos-bottom">(bottom player — proactive sequence)</div>
+    </div>
+    <div class="pw-body">
+
+      <p class="pw-context">The position web on the previous page gives you the options. This section shows how to string them into a chain where every defence your partner chooses becomes the entry to the next attack. You don't wait for openings — you create them by threatening something real.</p>
+
+      <div class="callout callout-accent" style="margin:18px 0 24px;">
+        <div class="callout-title">The core idea</div>
+        <p>Most people look for an opening before they move. The problem is your partner is doing the same thing — so you're both waiting, and whoever reacts first is already one step behind. Instead: <strong>push the pace, force a reaction, use that reaction as your entry.</strong> The funnel is a chain of initiated threats, not a menu of responses.</p>
+      </div>
+
+      <h3 style="font-size:1.05rem; margin:0 0 16px; color:var(--gold);">Step 1 — Open the underhook without telegraphing</h3>
+      <p>From knee shield half guard, your first objective is the underhook. Don't reach for it directly. Your partner knows it's coming and will fight it before you get there. Instead, use the knee shield to threaten the tilt sweep — make their hips the problem. As they post their hand and shift weight to defend the sweep, the space for the underhook appears as a byproduct. Shoot it then, not before.</p>
+      <div class="callout callout-neutral" style="margin:8px 0 20px; padding:12px 16px;">
+        <strong>Key point:</strong> Three connection points established (underhook, near knee, foot position) always beat one or two. The more connected you are, the stronger the platform and the more options you hold.
+      </div>
+
+      <h3 style="font-size:1.05rem; margin:0 0 16px; color:var(--gold);">Step 2 — Back take attempt; read the defence</h3>
+      <p>With the underhook in, attempt the back take. Most partners will anticipate this and respond immediately. Two common counters, both of which you want:</p>
+
+      <div class="pw-options-list" style="margin-top:12px;">
+
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">A</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">They whizzer (overhook your underhook)</div>
+            <div class="pw-opt-cue">They insert their arm over your underhooking arm to block the back take and square up.</div>
+            <div class="pw-opt-note"><strong>Use it.</strong> Control their whizzering wrist, push that arm toward their own belly, and underhook their near knee (protecting yourself against an accidental self-Americana). Sweep to top position. <br><br><strong>Timing detail:</strong> During the sweep there is a moment when both of their knees point upward. Extract your trapped leg at that exact moment. Miss it and you land in their half guard instead of on top.</div>
+          </div>
+        </div>
+
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">B</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">They post hard on their far arm</div>
+            <div class="pw-opt-cue">They extend their far arm strongly to the mat to resist being taken to the back, rather than using the whizzer.</div>
+            <div class="pw-opt-note"><strong>Don't grip-fight the post.</strong> Use it as a prop. Elevate your hips off it and move them high, bringing your knee over their shoulder to enter the <strong>Choi Bar</strong>. The harder they post, the better the leverage you have.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <h3 style="font-size:1.05rem; margin:24px 0 16px; color:var(--gold);">Step 3 — Low knee-tap variation</h3>
+      <p>From the underhook position, a low knee-tap takedown attempt will draw a posting response. Rather than abandoning the attack, use the underhook to hang your weight off your partner and keep pressure on the posting arm. Force them to further commit their weight through the post. Once they are committed and loaded, transition into a leg triangle. The key is continuous side pressure — it keeps them committed to that posting arm long enough for your leg to be freed and swing behind their neck.</p>
+
+      <h3 style="font-size:1.05rem; margin:24px 0 16px; color:var(--gold);">Octopus Guard Chain</h3>
+      <p>The Octopus guard entry (reaching your far arm through their near leg from half guard bottom) can reach a hip bump sweep. When it works, it works cleanly. When it doesn't, here is what to expect:</p>
+
+      <div class="pw-options-list" style="margin-top:12px;">
+
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">1</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Partner cross-faces with their free arm</div>
+            <div class="pw-opt-cue">They reach their free arm across your face to disrupt the Octopus entry.</div>
+            <div class="pw-opt-note">Anticipate this — it is the most common counter. Don't fight to remove the arm. They have already given it to you. Use the knee shield to create space, reach your top hand over their shoulder, connect to a Gable grip, and establish an <strong>arm saddle</strong> on that arm. Extend away and keep their elbow off the mat to sweep. <br><br>If they defend the sweep, transition directly to a <strong>Choi Bar</strong> on the same arm. The cross-face defence has now been funnelled into a submission.</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout callout-neutral" style="margin:24px 0 0; padding:14px 16px;">
+        <strong>The thread running through all of this:</strong> you are never looking for a single technique to land cleanly. You are creating a problem your partner must solve, then using the solution they choose as your next entry. That is a funnel — not a reaction sequence, but a chain of initiated threats that removes their options one by one.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── WEB 2: DLR GUARD ─────────────────── -->
+  <div class="pw-block" id="pw-dlr">
+    <div class="pw-header">
+      <div class="pw-pos-label">Position Web 2</div>
+      <div class="pw-pos-name">De La Riva Guard <span class="tag tag-gi">GI</span></div>
+      <div class="pw-pos-bottom">(bottom player)</div>
+    </div>
+    <div class="pw-body">
+      <p class="pw-context">Foot on their hip, outside hook on their thigh, sleeve and collar gripped. The DLR connection turns your partner's legs into levers. Where they put their weight — and which way they try to free themselves — determines which attack is live.</p>
+
+      <div class="pw-diagram-wrap">
+        <div class="pw-diagram" id="pwd-dlr">
+          <div class="pw-centre">DLR<br><span class="pw-centre-sub">Guard</span></div>
+          <div class="pw-node pw-node-1" data-pos="dlr" data-idx="0">
+            <div class="pw-node-label">Far Arm<br>Sweep</div>
+          </div>
+          <div class="pw-node pw-node-2" data-pos="dlr" data-idx="1">
+            <div class="pw-node-label">Near Arm<br>Sweep</div>
+          </div>
+          <div class="pw-node pw-node-3" data-pos="dlr" data-idx="2">
+            <div class="pw-node-label">Berimbolo →<br>Back Take</div>
+          </div>
+          <div class="pw-node pw-node-4" data-pos="dlr" data-idx="3">
+            <div class="pw-node-label">Leg Drag<br>Pass Counter</div>
+          </div>
+          <div class="pw-node pw-node-5" data-pos="dlr" data-idx="4">
+            <div class="pw-node-label">Destabilise →<br>Re-guard</div>
+          </div>
+        </div>
+        <p class="pw-tap-hint">Tap any option to see when it's available</p>
+      </div>
+
+      <div class="pw-detail-panel" id="pwp-dlr">
+        <div class="pw-detail-inner">
+          <div class="pw-detail-name" id="pwdn-dlr"></div>
+          <div class="pw-detail-cue" id="pwdc-dlr"></div>
+          <div class="pw-detail-note" id="pwdnote-dlr"></div>
+        </div>
+      </div>
+
+      <div class="pw-options-list">
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">1</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Far Arm Sweep</div>
+            <div class="pw-opt-cue">When: they keep their far arm close to their body (not posted)</div>
+            <div class="pw-opt-note">Tilt them over their far side. Your three-point connection — foot on hip, hook on thigh, grip on sleeve — creates the lever. Pull the sleeve across, push the hip with your foot, and drive them over the planted foot. Their far arm can't post if it's not out.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">2</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Near Arm Sweep</div>
+            <div class="pw-opt-cue">When: they post their far arm out wide to stop the far arm tilt</div>
+            <div class="pw-opt-note">Their posted far arm removes the far arm tilt. Switch direction — feed their near arm across your body and tilt them over the near side instead. Partner's counter just gave you the new branch.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">3</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Berimbolo → Back Take</div>
+            <div class="pw-opt-cue">When: they step forward and load weight over you to flatten the DLR</div>
+            <div class="pw-opt-note">When they step in and stack, invert under their hip line. Your hook transitions from outside thigh to inside hip. Complete the rotation and surface behind them. The inversion is not a trick — it's a direct response to their forward weight.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">4</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Leg Drag Pass Counter</div>
+            <div class="pw-opt-cue">When: they attempt to drag your hooking leg to the mat to pass</div>
+            <div class="pw-opt-note">When they go for the leg drag, allow the hook to collapse but redirect it — swing your hips away, recover your knee shield or sit-up guard, and re-establish contact. Defending the leg drag is mostly about hip movement, not grip fighting.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">5</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Destabilise → Re-guard</div>
+            <div class="pw-opt-cue">When: you're losing the connection and the sweep isn't landing</div>
+            <div class="pw-opt-note">If the connection is breaking and no attack is live, use the remaining grip to tilt and off-balance them — even briefly — then recover to shin-to-shin or seated guard. A controlled reset is better than an abandoned position. You're not giving up; you're choosing the next entry.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── WEB 3: CLOSE GUARD ────────────────── -->
+  <div class="pw-block" id="pw-closeguard">
+    <div class="pw-header">
+      <div class="pw-pos-label">Position Web 3</div>
+      <div class="pw-pos-name">Close Guard <span class="tag tag-both">GI &amp; NOGI</span></div>
+      <div class="pw-pos-bottom">(bottom player — posture broken)</div>
+    </div>
+    <div class="pw-body">
+      <p class="pw-context">Legs locked, their posture broken, their weight low. This is the highest-control guard you have. From here, the specific shape of their posture and their hand positions map directly to different attacks. You're not making decisions — you're reading them.</p>
+
+      <div class="pw-diagram-wrap">
+        <div class="pw-diagram" id="pwd-closeguard">
+          <div class="pw-centre">Close<br><span class="pw-centre-sub">Guard</span></div>
+          <div class="pw-node pw-node-1" data-pos="closeguard" data-idx="0">
+            <div class="pw-node-label">Scissor<br>Sweep</div>
+          </div>
+          <div class="pw-node pw-node-2" data-pos="closeguard" data-idx="1">
+            <div class="pw-node-label">Kimura<br>(posted arm)</div>
+          </div>
+          <div class="pw-node pw-node-3" data-pos="closeguard" data-idx="2">
+            <div class="pw-node-label">Triangle<br>Choke</div>
+          </div>
+          <div class="pw-node pw-node-4" data-pos="closeguard" data-idx="3">
+            <div class="pw-node-label">Arm Drag →<br>Back Take</div>
+          </div>
+          <div class="pw-node pw-node-5" data-pos="closeguard" data-idx="4">
+            <div class="pw-node-label">Hip Bump<br>Sweep</div>
+          </div>
+        </div>
+        <p class="pw-tap-hint">Tap any option to see when it's available</p>
+      </div>
+
+      <div class="pw-detail-panel" id="pwp-closeguard">
+        <div class="pw-detail-inner">
+          <div class="pw-detail-name" id="pwdn-closeguard"></div>
+          <div class="pw-detail-cue" id="pwdc-closeguard"></div>
+          <div class="pw-detail-note" id="pwdnote-closeguard"></div>
+        </div>
+      </div>
+
+      <div class="pw-options-list">
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">1</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Scissor Sweep</div>
+            <div class="pw-opt-cue">When: their weight is fairly even across both knees and neither arm is posted wide</div>
+            <div class="pw-opt-note">Grip the sleeve and collar. Knee-to-armpit on one side, foot-to-hip on the other. Open your guard, create the scissor angle, and pull the sleeve across as you drive with the hip leg. Classic because it works — and because their defence opens the kimura.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">2</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Kimura (posted arm)</div>
+            <div class="pw-opt-cue">When: they post one hand on the mat or on your hip to defend a sweep</div>
+            <div class="pw-opt-note">A posted arm is an isolated arm. Two-on-one the wrist, turn your body away from it, elbow up and over their shoulder. You don't need to finish — often the threat alone reverses their decision and walks them back into the sweep. This is the Funnel at work.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">3</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Triangle Choke</div>
+            <div class="pw-opt-cue">When: one arm is inside (pushing on your hip or chest) and one is outside</div>
+            <div class="pw-opt-note">The triangle requires one arm in, one arm out — and when you've broken posture, this is often how they brace. Pull the outside arm across your centreline, kick the near leg up over their shoulder, and lock the triangle. The arm drag on one side can create this separation if it doesn't exist yet.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">4</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Arm Drag → Back Take</div>
+            <div class="pw-opt-cue">When: they have one arm straight and extended, reaching across your body</div>
+            <div class="pw-opt-note">Pull their wrist across your body with both hands, sit up on the same side, and take the angle to their back. Open your guard as you drag — keeping it closed will trap you. This works especially well when they reach to post or pass because they've already given you the arm.</div>
+          </div>
+        </div>
+        <div class="pw-opt-row">
+          <div class="pw-opt-num">5</div>
+          <div class="pw-opt-content">
+            <div class="pw-opt-name">Hip Bump Sweep</div>
+            <div class="pw-opt-cue">When: their weight is stacked forward and they're heavy on your chest</div>
+            <div class="pw-opt-note">Sit up fast, underhook one arm, and drive your hip into them as you rotate. Works best when they commit weight downward. Often sets up the kimura if they base — so it's the same two-step as the scissor sweep, just from a different weight commitment.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="callout callout-muted" style="margin-top:32px;">
+    <div class="callout-title">How to practise this</div>
+    <p>Pick one position. Land in it during rolling. Before you do anything, pause for half a second and ask: which of the five is available right now? You don't need to plan the whole sequence — just identify which branch your partner is giving you. That's the habit.</p>
+    <p style="margin-top:8px;">Over time you'll start reading it before you even land in the position. That's when the rolling feels different — less reactive, more like you're offering options and waiting for them to choose.</p>
+  </div>
+
+</div><!-- end position-webs section -->
+
+<!-- ── BODY MAPPING, SPARRING & COMPETITION ─── -->
+<div class="section" id="sparring-game">
+  <div class="section-eyebrow">From Exploration to Your Game</div>
+  <h2>Building Your Personal Game —<br>Exploration, Sparring, Competition</h2>
+
+  <p>There is a gap between learning a technique and actually owning it. This section is about how you cross that gap — and what the process looks like at each stage.</p>
+
+  <h3 id="body-mapping">Exploration — Mapping the Unknown</h3>
+
+  <p>Before you can build a game, you need to know what your body does and what your partner does in response. The way to learn this is not to study more technique — it is to explore with deliberate curiosity.</p>
+
+  <p>Try moving one body part at a time: your left leg. Your right leg. Your right arm. Your shoulder. Your head. Your hip. Lean your torso away, then into your partner. Each movement is a probe — a small experiment. What you are looking for is not a technique that works; you are looking for a reaction. What does your partner do when you move your hip this way? What changes when you push with your shoulder instead of your arm?</p>
+
+  <div class="callout callout-accent" style="margin:20px 0;">
+    <div class="callout-title">What this is actually doing</div>
+    <p>Every body part you move into unfamiliar territory is mapping a space you did not know before. Each reaction your partner gives is data. Over time, the unfamiliar becomes familiar. You are not learning moves — you are learning the <em>landscape</em>.</p>
+  </div>
+
+  <p>This is why the same partner drilled over many sessions reveals more than a hundred different partners drilled once. The map accumulates. You start to know what this person — and by extension, many people — will do in a given moment before they do it.</p>
+
+  <h3 id="your-game">From Reactions to Your Game</h3>
+
+  <p>At some point in your exploration, you will notice something: certain movements of yours produce the same reactions, reliably, across different partners. When you do this, they do that. Every time.</p>
+
+  <p>That reliability is the beginning of your personal game.</p>
+
+  <p>A game is not a style chosen from a menu. It is the set of positions, connections, and sequences that you have personally verified — through your own exploration — to produce consistent reactions that you know how to use. Nobody else has quite the same game, because nobody else has the same body, the same history, or the same map.</p>
+
+  <div class="callout callout-neutral" style="margin:20px 0; padding:14px 16px;">
+    <strong>Practical implication:</strong> When a technique is not working for you, the question is not always "am I doing it wrong?" Sometimes the question is "does my body shape and timing actually suit this, or is there a variant that fits me better?" Exploration is how you find that out.
+  </div>
+
+  <h3 id="sparring">Sparring — The Integration Test</h3>
+
+  <p>Sparring is what happens when you take everything you have explored and drilled — knee shield, DLR, your guard combinations, your funnel chains — and use them together against a fully resisting partner in real time. No pre-set sequences, no cooperative responses. Just two people, both trying to make their game work.</p>
+
+  <p>This is where everything gets tested. A technique that works in drilling can fail in sparring for reasons you would never discover any other way — timing, body mechanics, telegraphing, missing connections you did not know were important. Sparring reveals the gaps that drilling hides.</p>
+
+  <p>It also reveals what you genuinely own. If something works consistently in sparring — especially against people who know what you are going to do — it is yours.</p>
+
+  <div class="callout callout-accent" style="margin:20px 0;">
+    <div class="callout-title">What to look for in sparring</div>
+    <p>Not whether you won the round. Whether the thing you were working on <em>showed up</em> — and if it did not, where exactly it broke down. The breakdown point is the most useful information sparring can give you. Take it back to drilling, fix that specific thing, and test again.</p>
+  </div>
+
+  <h3 id="competition">Competition — The Proof-of-Concept Test</h3>
+
+  <p>Competition is sparring with a stranger, under rules, with something at stake. That is the whole difference. The technical challenge is not greater than good sparring — in some ways it is less, because the opponent does not know your game at all.</p>
+
+  <p>What competition tests that sparring cannot is whether your game holds up when there is pressure you cannot control: an unfamiliar body type, an unexpected style, nerves, the clock. These are conditions you can approximate in the gym but never quite replicate.</p>
+
+  <p>This is why competition is called a proof-of-concept test. Not because winning is the proof — but because finding out whether your game works when everything is unknown and the stakes feel real is the most honest assessment available to you.</p>
+
+  <div class="callout callout-neutral" style="margin:20px 0; padding:14px 16px;">
+    <strong>A note on perspective:</strong> Competing is not a requirement. It is an option. Some students find it useful as an accelerant — the preparation sharpens their game quickly. Others get equal benefit from consistent hard sparring with good training partners. What matters is that you are regularly testing your game against real resistance. Competition is one way to do that; it is not the only way.
+  </div>
+
+</div><!-- end sparring-game section -->
+
 <!-- FOOTER -->
 <div style="padding: 48px 64px; border-top: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
   <div>
     <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:3px; color:var(--accent);">VCBJJ</div>
-    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:1px; margin-top:4px;">Student Guide · April 2026</div>
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--ink-muted); letter-spacing:1px; margin-top:4px;">Student Guide · May 2026</div>
   </div>
   <div style="font-size:12px; color:var(--ink-muted); font-family:'IBM Plex Mono',monospace; text-align:right; line-height:1.8;">
     Private Training · Kuala Lumpur, Malaysia<br>
@@ -3537,6 +4403,161 @@
 </div>
 
 <script>
+// ── POSITION WEBS ─────────────────────────────────────────────
+// Data: [name, cue, note] for each of the 5 nodes per position
+var PW_DATA = {
+  kshield: [
+    ['Underhook → Back Take',
+     'When: they flatten their chest down and try to eliminate the knee shield',
+     'The moment they drop weight on you, the underhook is available. Whip through, get to the elbow, take the back. Their pressure is doing the work — you just redirect it.'],
+    ['Dogfight → Sweep',
+     'When: they post up on their hand or knee and try to re-establish base',
+     'Come up to your elbow and match the angle. Whip the underhook hard through to the far side and drive with your hips. They base in one direction; you take the other.'],
+    ['Kimura (far arm)',
+     'When: their far arm is posted on the mat outside their base',
+     'Their far arm reaching to post opens the kimura. Lock the wrist, scoop the elbow. You can attack it directly or use it to force the sweep — they\'ll often give you the underhook trying to defend it.'],
+    ['Guillotine (near arm)',
+     'When: they reach their near arm across to flatten or cross-face',
+     'Their near arm crossing creates a guillotine window. Catch the neck with your near arm, lock your hands, and use the knee shield to extend. Catch it early — before they establish cross-face.'],
+    ['Close Guard Re-entry',
+     'When: they stand or reduce pressure to reposition',
+     'When they relieve the pressure to pass or reposition, the path back to closed guard is open. Drag them in and close your legs. A controlled reset is better than allowing the pass.']
+  ],
+  dlr: [
+    ['Far Arm Sweep',
+     'When: their far arm stays close to their body (not posted wide)',
+     'Tilt them over their far side. Your three-point connection — foot on hip, hook on thigh, sleeve grip — creates the lever. Pull the sleeve across, push the hip with your foot, drive them over the planted foot.'],
+    ['Near Arm Sweep',
+     'When: they post their far arm wide to stop the far-side tilt',
+     'Their posted far arm removes the far arm tilt. Switch direction — feed their near arm across your body and tilt them over the near side. Their counter just gave you the new branch.'],
+    ['Berimbolo → Back Take',
+     'When: they step forward and load weight over you to flatten the DLR',
+     'When they stack, invert under their hip line. Your hook transitions from outside thigh to inside hip. Complete the rotation and surface behind them. This is a direct response to their forward weight, not a trick.'],
+    ['Leg Drag Pass Counter',
+     'When: they try to drag your hooking leg to the mat to pass',
+     'When they go for the leg drag, allow the hook to collapse but redirect it — swing your hips away, recover your knee shield or sit-up guard. Defending the leg drag is mostly about hip movement, not grip fighting.'],
+    ['Destabilise → Re-guard',
+     'When: the connection is breaking and no attack is live',
+     'If the connection is going and no attack is there, use the remaining grip to tilt and off-balance them briefly, then recover to shin-to-shin or seated guard. A controlled reset beats an abandoned position.']
+  ],
+  closeguard: [
+    ['Scissor Sweep',
+     'When: their weight is even across both knees and neither arm is posted wide',
+     'Grip the sleeve and collar. Knee-to-armpit on one side, foot-to-hip on the other. Open your guard, create the scissor angle, pull the sleeve across as you drive with the hip leg. Their defence opens the kimura.'],
+    ['Kimura (posted arm)',
+     'When: they post one hand on the mat or on your hip to defend a sweep',
+     'A posted arm is an isolated arm. Two-on-one the wrist, turn your body away from it, elbow up and over their shoulder. Often the threat alone reverses their decision and walks them back into the sweep.'],
+    ['Triangle Choke',
+     'When: one arm is inside (on your hip or chest) and one is outside',
+     'The triangle needs one arm in, one arm out. Pull the outside arm across your centreline, kick the near leg up over their shoulder, lock the triangle. The arm drag can create this separation if it\'s not already there.'],
+    ['Arm Drag → Back Take',
+     'When: they have one arm extended straight across your body',
+     'Pull the wrist across with both hands, sit up on the same side, take the angle to their back. Open your guard as you drag — keeping it closed traps you. Works best when they reach to post or pass.'],
+    ['Hip Bump Sweep',
+     'When: their weight is heavy and stacked forward on your chest',
+     'Sit up fast, underhook one arm, and drive your hip into them as you rotate. If they base, the kimura is right there — so the hip bump and kimura are always connected.']
+  ]
+};
+
+function initPositionWebs() {
+  var diagrams = [
+    { id: 'pwd-kshield', pos: 'kshield' },
+    { id: 'pwd-dlr', pos: 'dlr' },
+    { id: 'pwd-closeguard', pos: 'closeguard' }
+  ];
+
+  diagrams.forEach(function(d) {
+    var diagram = document.getElementById(d.id);
+    if (!diagram) return;
+
+    // Build SVG connector lines
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', 'pw-svg-lines');
+    svg.setAttribute('aria-hidden', 'true');
+    diagram.insertBefore(svg, diagram.firstChild);
+
+    var nodes = diagram.querySelectorAll('.pw-node');
+    var n = nodes.length; // 5
+
+    function positionNodes() {
+      var W = diagram.offsetWidth;
+      var H = diagram.offsetHeight;
+      var cx = W / 2;
+      var cy = H / 2;
+      var radius = Math.min(W, H) * 0.36;
+      var nw = nodes[0].offsetWidth || 88;
+      var nh = nodes[0].offsetHeight || 62;
+
+      // Clear existing lines
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+      for (var i = 0; i < n; i++) {
+        // Angle: start from top (-π/2), distribute evenly
+        var angle = -Math.PI / 2 + (2 * Math.PI * i / n);
+        var nx = cx + radius * Math.cos(angle);
+        var ny = cy + radius * Math.sin(angle);
+
+        nodes[i].style.left = (nx - nw / 2) + 'px';
+        nodes[i].style.top  = (ny - nh / 2) + 'px';
+
+        // Line from centre to node
+        var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.setAttribute('x1', cx);
+        line.setAttribute('y1', cy);
+        line.setAttribute('x2', nx);
+        line.setAttribute('y2', ny);
+        line.setAttribute('stroke', '#e8dfa0');
+        line.setAttribute('stroke-width', '1.5');
+        svg.appendChild(line);
+      }
+    }
+
+    positionNodes();
+    window.addEventListener('resize', positionNodes);
+
+    // Interactivity
+    nodes.forEach(function(node, i) {
+      node.setAttribute('tabindex', '0');
+      node.setAttribute('role', 'button');
+      node.setAttribute('aria-label', PW_DATA[d.pos][i][0]);
+
+      function activate() {
+        // Toggle off if already active
+        if (node.classList.contains('active')) {
+          node.classList.remove('active');
+          var panel = document.getElementById('pwp-' + d.pos);
+          if (panel) panel.classList.remove('visible');
+          return;
+        }
+        // Deactivate others
+        nodes.forEach(function(n2) { n2.classList.remove('active'); });
+        node.classList.add('active');
+
+        var data = PW_DATA[d.pos][i];
+        document.getElementById('pwdn-' + d.pos).textContent = data[0];
+        document.getElementById('pwdc-' + d.pos).textContent = data[1];
+        document.getElementById('pwdnote-' + d.pos).textContent = data[2];
+
+        var panel = document.getElementById('pwp-' + d.pos);
+        if (panel) {
+          panel.classList.remove('visible');
+          // Force reflow for re-animation
+          void panel.offsetWidth;
+          panel.classList.add('visible');
+        }
+      }
+
+      node.addEventListener('click', activate);
+      node.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initPositionWebs);
+
 // ── BELT SELECTOR ────────────────────────────────────────────
 var BELTS = ['blue','purple','brown','black'];
 var LS_BELT = 'vcbjj-current-belt';
