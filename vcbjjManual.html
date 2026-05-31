@@ -3072,88 +3072,263 @@
 
     <p>The loop has five stages. When it runs well, you develop naturally. When it breaks at any stage, you stop developing — regardless of how much time you put in. Most students who plateau aren't failing at the mat work. They're failing at the loop.</p>
 
-    <!-- Loop visual -->
-    <div style="margin: 32px 0; overflow-x:auto;">
-      <div style="display:flex; flex-direction:column; gap:0; max-width:620px; margin:0 auto;" role="list" aria-label="Feedback loop stages">
+    <!-- ── FEEDBACK LOOP INFOGRAPHIC ── -->
+    <div class="fl-wrap" style="margin: 28px -24px 0; border: 1px solid var(--border);">
+    <style>
+      .fl-wrap {
+        --fl-bg:      #fffdf5;
+        --fl-ink:     #111111;
+        --fl-ink-dim: #444444;
+        --fl-accent:  #F4BB09;
+        --fl-border:  #e8dfa0;
+        --fl-surf2:   #fff8e0;
+        --fl-red:     #c0392b;
+        background: var(--fl-bg);
+        color: var(--fl-ink);
+        width: 100%;
+        font-family: 'IBM Plex Sans', sans-serif;
+      }
+      .fl-wrap * { box-sizing: border-box; }
+      .fl-ifg-header {
+        background: var(--fl-ink);
+        border-top: 3px solid var(--fl-accent);
+        padding: 24px clamp(20px, 4vw, 40px) 28px;
+      }
+      .fl-eyebrow {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--fl-accent);
+        margin-bottom: 8px;
+      }
+      .fl-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(32px, 6vw, 50px);
+        line-height: 0.95;
+        color: #ffffff;
+        margin: 0 0 12px;
+        letter-spacing: 1px;
+      }
+      .fl-subtitle {
+        max-width: 700px;
+        color: #aaaaaa;
+        font-size: clamp(13px, 2vw, 15px);
+        line-height: 1.7;
+        margin: 0 0 14px;
+      }
+      .fl-meta {
+        font-family: 'IBM Plex Mono', monospace;
+        color: var(--fl-accent);
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .fl-diagram {
+        padding: 32px clamp(12px, 3vw, 28px) 20px;
+        background: var(--fl-bg);
+      }
+      .fl-svg {
+        width: 100%;
+        max-width: 560px;
+        display: block;
+        margin: 0 auto;
+        height: auto;
+        overflow: visible;
+      }
+      .fl-cards {
+        padding: 4px clamp(12px, 3vw, 28px) 32px;
+        background: var(--fl-bg);
+      }
+      .fl-card {
+        max-width: 680px;
+        margin: 0 auto 14px;
+        border: 1px solid var(--fl-border);
+        border-left: 4px solid var(--fl-accent);
+        padding: 20px 22px;
+        background: #ffffff;
+      }
+      .fl-card:nth-child(even) { background: var(--fl-surf2); }
+      .fl-card-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 10px;
+      }
+      .fl-badge {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--fl-ink);
+        border: 2px solid var(--fl-accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--fl-accent);
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 19px;
+        flex: 0 0 32px;
+        line-height: 1;
+      }
+      .fl-stage {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(17px, 2.5vw, 21px);
+        letter-spacing: 2px;
+        color: var(--fl-ink);
+        line-height: 1;
+      }
+      .fl-body {
+        font-size: clamp(13px, 1.8vw, 15px);
+        color: var(--fl-ink-dim);
+        line-height: 1.75;
+      }
+      .fl-signal {
+        margin-top: 12px;
+        border-left: 3px solid var(--fl-red);
+        background: rgba(192, 57, 43, 0.06);
+        padding: 10px 14px;
+      }
+      .fl-signal-label {
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 10px;
+        color: var(--fl-red);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 5px;
+        font-weight: 500;
+      }
+      .fl-signal-text {
+        font-size: 13px;
+        color: var(--fl-ink-dim);
+        line-height: 1.6;
+      }
+      .fl-ifg-footer {
+        background: var(--fl-ink);
+        border-top: 1px solid var(--fl-accent);
+        text-align: center;
+        padding: 12px;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: #888888;
+        text-transform: uppercase;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .fl-wrap * { transition: none !important; animation: none !important; }
+      }
+    </style>
 
-        <!-- Stage 1 -->
-        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
-          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">1</div>
-            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
-          </div>
-          <div style="padding: 4px 0 28px 20px;">
-            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Experience</div>
-            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">Something happens on the mat. You attempt something, you get caught, you survive a position, you make a move instinctively. This is raw material — it only becomes learning if you do something with it.</p>
-          </div>
+    <section class="fl-ifg-header">
+      <div class="fl-eyebrow">VCBJJ · Your Development</div>
+      <h2 class="fl-title">The Feedback Loop</h2>
+      <p class="fl-subtitle">This is what the students who never plateau have that the others don't. It's not talent. It's not more training hours. It's a repeatable process that turns every session — good or bad — into information they can use.</p>
+      <div class="fl-meta">5 Stages &nbsp;·&nbsp; Repeatable &nbsp;·&nbsp; Session-Agnostic</div>
+    </section>
+
+    <section class="fl-diagram" aria-label="Feedback Loop — five stages in a clockwise cycle">
+      <!--
+        viewBox: 0 0 640 620  |  Centre: (320,310)  |  Pentagon radius: 190
+        Nodes (clockwise from top):
+          1 EXPERIENCE   (320, 120)
+          2 NOTICE       (501, 251)
+          3 REFLECT      (432, 464)
+          4 SET INTENTION(208, 464)
+          5 TRY AGAIN    (139, 251)
+        Arrows: start/end offset 26px from each node centre
+      -->
+      <svg class="fl-svg" viewBox="0 0 640 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+        <defs>
+          <marker id="fl-arr" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+            <path d="M0,0 L10,4 L0,8 Z" fill="#F4BB09"/>
+          </marker>
+        </defs>
+        <!-- Arrows -->
+        <path d="M341,135 Q460,148 480,236" fill="none" stroke="#F4BB09" stroke-width="2.5" marker-end="url(#fl-arr)"/>
+        <path d="M493,276 Q528,390 440,439" fill="none" stroke="#F4BB09" stroke-width="2.5" marker-end="url(#fl-arr)"/>
+        <path d="M406,464 Q320,510 234,464" fill="none" stroke="#F4BB09" stroke-width="2.5" marker-end="url(#fl-arr)"/>
+        <path d="M200,439 Q112,390 147,276" fill="none" stroke="#F4BB09" stroke-width="2.5" marker-end="url(#fl-arr)"/>
+        <path d="M160,236 Q180,148 299,135" fill="none" stroke="#F4BB09" stroke-width="2.5" marker-end="url(#fl-arr)"/>
+        <!-- Node circles -->
+        <circle cx="320" cy="120" r="22" fill="#111111" stroke="#F4BB09" stroke-width="2"/>
+        <circle cx="501" cy="251" r="22" fill="#111111" stroke="#F4BB09" stroke-width="2"/>
+        <circle cx="432" cy="464" r="22" fill="#111111" stroke="#F4BB09" stroke-width="2"/>
+        <circle cx="208" cy="464" r="22" fill="#111111" stroke="#F4BB09" stroke-width="2"/>
+        <circle cx="139" cy="251" r="22" fill="#111111" stroke="#F4BB09" stroke-width="2"/>
+        <!-- Stage numbers -->
+        <text x="320" y="129" text-anchor="middle" fill="#F4BB09" font-family="Bebas Neue, sans-serif" font-size="24">1</text>
+        <text x="501" y="260" text-anchor="middle" fill="#F4BB09" font-family="Bebas Neue, sans-serif" font-size="24">2</text>
+        <text x="432" y="473" text-anchor="middle" fill="#F4BB09" font-family="Bebas Neue, sans-serif" font-size="24">3</text>
+        <text x="208" y="473" text-anchor="middle" fill="#F4BB09" font-family="Bebas Neue, sans-serif" font-size="24">4</text>
+        <text x="139" y="260" text-anchor="middle" fill="#F4BB09" font-family="Bebas Neue, sans-serif" font-size="24">5</text>
+        <!-- Stage labels -->
+        <text x="320" y="78" text-anchor="middle" fill="#111111" font-family="Bebas Neue, sans-serif" font-size="13" letter-spacing="1">EXPERIENCE</text>
+        <text x="536" y="244" text-anchor="start" fill="#111111" font-family="Bebas Neue, sans-serif" font-size="13" letter-spacing="1">NOTICE</text>
+        <text x="455" y="494" text-anchor="start" fill="#111111" font-family="Bebas Neue, sans-serif" font-size="13" letter-spacing="1">REFLECT</text>
+        <text text-anchor="end" fill="#111111" font-family="Bebas Neue, sans-serif" font-size="13" letter-spacing="1">
+          <tspan x="188" y="487">SET ONE</tspan>
+          <tspan x="188" dy="16">INTENTION</tspan>
+        </text>
+        <text x="108" y="244" text-anchor="end" fill="#111111" font-family="Bebas Neue, sans-serif" font-size="13" letter-spacing="1">TRY AGAIN</text>
+        <!-- Loop-back label -->
+        <text x="320" y="600" text-anchor="middle" fill="#6b6340" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1">↺  LOOPS BACK TO STAGE 1</text>
+      </svg>
+    </section>
+
+    <section class="fl-cards">
+      <article class="fl-card">
+        <div class="fl-card-head">
+          <div class="fl-badge" aria-hidden="true">1</div>
+          <div class="fl-stage">Experience</div>
         </div>
-
-        <!-- Stage 2 -->
-        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
-          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">2</div>
-            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
-          </div>
-          <div style="padding: 4px 0 28px 20px;">
-            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Notice</div>
-            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">You pay attention to what happened. Not just the result — but the moment before it. What did your partner do? What did your body do? What made the situation what it was? This is where most students drop the thread — the session ends, and the experience evaporates.</p>
-            <div style="margin-top:10px; padding:10px 14px; border-left:3px solid var(--accent); background:var(--surface-raise);">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted);">BROKEN LOOP SIGNAL: You can't recall a single specific moment from your last session. The whole session exists as a vague impression of how it generally went.</span>
-            </div>
-          </div>
+        <div class="fl-body">Something happens on the mat. You attempt something, you get caught, you survive a position, you make a move instinctively. This is raw material — it only becomes learning if you do something with it.</div>
+      </article>
+      <article class="fl-card">
+        <div class="fl-card-head">
+          <div class="fl-badge" aria-hidden="true">2</div>
+          <div class="fl-stage">Notice</div>
         </div>
-
-        <!-- Stage 3 -->
-        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
-          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">3</div>
-            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
-          </div>
-          <div style="padding: 4px 0 28px 20px;">
-            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Reflect</div>
-            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">You turn the moment into a question. Not "what technique should I have used?" — but "what was actually happening in that position? What was the position asking for?" This is where coaching, this manual, and the Funnel framework are most useful — as a lens to make sense of what you experienced, not as instructions to follow.</p>
-            <div style="margin-top:10px; padding:10px 14px; border-left:3px solid var(--accent); background:var(--surface-raise);">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted);">BROKEN LOOP SIGNAL: You reflect on what you should have done but can't connect it to what your body actually did. The answer exists in theory but not in experience.</span>
-            </div>
-          </div>
+        <div class="fl-body">You pay attention to what happened. Not just the result — but the moment before it. What did your partner do? What did your body do? What made the situation what it was? This is where most students drop the thread — the session ends, and the experience evaporates.</div>
+        <div class="fl-signal" role="note">
+          <div class="fl-signal-label">Broken Loop Signal</div>
+          <div class="fl-signal-text">You can't recall a single specific moment from your last session. The whole session exists as a vague impression of how it generally went.</div>
         </div>
-
-        <!-- Stage 4 -->
-        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
-          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">4</div>
-            <div style="width:2px; flex:1; background:var(--border-mid); margin-top:4px;"></div>
-          </div>
-          <div style="padding: 4px 0 28px 20px;">
-            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Set One Intention</div>
-            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">From the reflection, you carry one specific, testable question into your next session. Not "I'll try to be better at guard." One thing: "When my partner stands up, I'm going to immediately look for the inside space." This gives your attention somewhere to go during the fog of live rolling.</p>
-            <div style="margin-top:10px; padding:10px 14px; border-left:3px solid var(--accent); background:var(--surface-raise);">
-              <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted);">BROKEN LOOP SIGNAL: You arrive at every session with no particular focus. Whatever happens, happens. Sessions feel productive but not directional.</span>
-            </div>
-          </div>
+      </article>
+      <article class="fl-card">
+        <div class="fl-card-head">
+          <div class="fl-badge" aria-hidden="true">3</div>
+          <div class="fl-stage">Reflect</div>
         </div>
-
-        <!-- Stage 5 — completes the loop -->
-        <div style="display:flex; align-items:stretch; gap:0;" role="listitem">
-          <div style="display:flex; flex-direction:column; align-items:center; min-width:44px;">
-            <div style="width:36px; height:36px; border-radius:50%; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:18px; color:#000; flex-shrink:0; margin-top:4px;">5</div>
-            <div style="width:2px; flex:1; background:transparent; margin-top:4px;"></div>
-          </div>
-          <div style="padding: 4px 0 8px 20px;">
-            <div style="font-family:'Bebas Neue',sans-serif; font-size:19px; letter-spacing:1.5px; margin-bottom:6px;">Try Again — With the New Question</div>
-            <p style="margin:0; color:var(--ink-dim); font-size:0.9rem; line-height:1.6;">You return to the mat. The intention from Stage 4 shapes what you notice in Stage 2. The loop restarts — now with slightly more experience, slightly more data. Progress is happening, even when the result of any individual roll looks identical to last week.</p>
-          </div>
+        <div class="fl-body">You turn the moment into a question. Not "what technique should I have used?" — but "what was actually happening in that position? What was the position asking for?" This is where coaching, this manual, and the Funnel framework are most useful — as a lens to make sense of what you experienced, not as instructions to follow.</div>
+        <div class="fl-signal" role="note">
+          <div class="fl-signal-label">Broken Loop Signal</div>
+          <div class="fl-signal-text">You reflect on what you should have done but can't connect it to what your body actually did. The answer exists in theory but not in experience.</div>
         </div>
+      </article>
+      <article class="fl-card">
+        <div class="fl-card-head">
+          <div class="fl-badge" aria-hidden="true">4</div>
+          <div class="fl-stage">Set One Intention</div>
+        </div>
+        <div class="fl-body">From the reflection, you carry one specific, testable question into your next session. Not "I'll try to be better at guard." One thing: "When my partner stands up, I'm going to immediately look for the inside space." This gives your attention somewhere to go during the fog of live rolling.</div>
+        <div class="fl-signal" role="note">
+          <div class="fl-signal-label">Broken Loop Signal</div>
+          <div class="fl-signal-text">You arrive at every session with no particular focus. Whatever happens, happens. Sessions feel productive but not directional.</div>
+        </div>
+      </article>
+      <article class="fl-card">
+        <div class="fl-card-head">
+          <div class="fl-badge" aria-hidden="true">5</div>
+          <div class="fl-stage">Try Again — With the New Question</div>
+        </div>
+        <div class="fl-body">You return to the mat. The intention from Stage 4 shapes what you notice in Stage 2. The loop restarts — now with slightly more experience, slightly more data. Progress is happening, even when the result of any individual roll looks identical to last week.</div>
+      </article>
+    </section>
 
-      </div>
-    </div>
+    <footer class="fl-ifg-footer">VCBJJ &nbsp;·&nbsp; Student Guide &nbsp;·&nbsp; vcbjj.com</footer>
 
-    <!-- Arrow suggesting loop -->
-    <div style="text-align:center; margin:-8px 0 24px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--ink-muted); letter-spacing:2px;">↺ &nbsp; LOOPS BACK TO STAGE 1</div>
+    </div><!-- end fl-wrap -->
+    <!-- ── END INFOGRAPHIC ── -->
 
-    <div class="callout callout-neutral" style="margin:20px 0; padding:16px 20px;">
-      <strong>The loop doesn't require perfection at any stage.</strong> You don't need to notice everything — just one thing. You don't need a sophisticated reflection — just one honest question. The intention doesn't need to work — just be specific enough to give your attention a direction. Small inputs into each stage compound over months into genuine development.
-    </div>
 
     <h3 style="font-family:'Bebas Neue',sans-serif; font-size:clamp(20px,2.5vw,26px); letter-spacing:2px; margin: 32px 0 14px;">A Simple Way to Run the Loop</h3>
 
