@@ -72,7 +72,7 @@ postFiles.forEach(function(entry) {
     date:    date,
     title:   getMeta(html, 'blog:title')   || getTitle(html) || entry.name,
     excerpt: getMeta(html, 'blog:excerpt') || '',
-    image:   getMeta(html, 'blog:image')   || '',
+    image:   getMeta(html, 'blog:image')   || getMeta(html, 'og:image') || '',
     tags:    (getMeta(html, 'blog:tags')   || '').split(',').map(function(t){ return t.trim(); }).filter(Boolean),
     href:    getHref(html, entry.name)
   });
@@ -145,8 +145,8 @@ if (!fs.existsSync(BLOG_INDEX)) {
 
 function buildFeaturedCard(p) {
   var imgEl = p.image
-    ? '      <img class="post-card-img" src="' + p.image + '" alt="' + safe(p.title) + '" loading="lazy">'
-    : '      <div class="post-card-img-placeholder"><span>Still Rolling</span></div>';
+    ? '      <a href="' + p.href + '" class="post-card-img-link"><img class="post-card-img" src="' + p.image + '" alt="' + safe(p.title) + '" loading="lazy"></a>'
+    : '      <a href="' + p.href + '" class="post-card-img-link"><div class="post-card-img-placeholder"><span>Still Rolling</span></div></a>';
   var tagsEl = p.tags.length
     ? p.tags.map(function(t){ return '<span class="tag">' + safe(t) + '</span>'; }).join('')
     : '';
@@ -167,8 +167,8 @@ function buildFeaturedCard(p) {
 
 function buildRegularCard(p) {
   var imgEl = p.image
-    ? '      <img class="post-card-img" src="' + p.image + '" alt="' + safe(p.title) + '" loading="lazy">'
-    : '      <div class="post-card-img-placeholder"><span>Still Rolling</span></div>';
+    ? '      <a href="' + p.href + '" class="post-card-img-link"><img class="post-card-img" src="' + p.image + '" alt="' + safe(p.title) + '" loading="lazy"></a>'
+    : '      <a href="' + p.href + '" class="post-card-img-link"><div class="post-card-img-placeholder"><span>Still Rolling</span></div></a>';
   var tagsEl = p.tags.length
     ? p.tags.map(function(t){ return '<span class="tag">' + safe(t) + '</span>'; }).join('')
     : '';
