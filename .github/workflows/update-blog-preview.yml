@@ -6,6 +6,9 @@ on:
     paths:
       - 'blog/**.html'
 
+permissions:
+  contents: write
+
 jobs:
   update-previews:
     runs-on: ubuntu-latest
@@ -19,7 +22,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Run update script
         run: node .github/scripts/update-blog-preview.js
