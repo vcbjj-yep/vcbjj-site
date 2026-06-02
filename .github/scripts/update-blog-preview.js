@@ -117,7 +117,7 @@ function extractBlock(html, marker) {
 
 var latest3 = posts.slice(0, 3);
 var cards   = latest3.map(function(p) {
-  return '      <a href="' + p.href.replace(/^\//, '') + '" style="display:block;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:6px">\n' +
+  return '      <a href="' + p.href + '" style="display:block;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:6px">\n' +
          '        <div style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">' + displayDate(p.date) + '</div>\n' +
          '        <div style="font-size:14px;line-height:1.4;color:var(--text)">' + safe(p.title) + '</div>\n' +
          '      </a>';
