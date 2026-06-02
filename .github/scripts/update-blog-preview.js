@@ -58,41 +58,19 @@ function getHref(html, name) {
   return '/blog/' + name;
 }
 
-// Returns true only for a well-formed YYYY-MM-DD date with valid month/day
-function isValidDate(str) {
-  if (!str || !/^\d{4}-\d{2}-\d{2}$/.test(str)) return false;
-  var p = str.split('-').map(Number);
-  var year = p[0], month = p[1], day = p[2];
-  if (month < 1 || month > 12) return false;
-  if (day < 1 || day > 31) return false;
-  // Reject obviously placeholder years
-  if (year < 2020 || year > 2099) return false;
-  // Confirm the Date object agrees (catches e.g. Feb 30)
-  var d = new Date(str + 'T00:00:00Z');
-  return !isNaN(d.getTime()) && d.getUTCFullYear() === year && d.getUTCMonth() + 1 === month && d.getUTCDate() === day;
-}
-
 var posts = [];
 
 postFiles.forEach(function(entry) {
   var html = fs.readFileSync(entry.filePath, 'utf8');
   var date = getMeta(html, 'blog:date') ||
              (getMeta(html, 'article:published_time') || '').slice(0, 10) || null;
-
-  if (!date || !isValidDate(date)) {
-    console.warn('SKIP (invalid/missing blog:date "' + date + '"): ' + entry.name);
+  if (!date) {
+    console.warn('SKIP (no blog:date): ' + entry.name);
     return;
   }
-
-  var title = getMeta(html, 'blog:title') || getTitle(html) || null;
-  if (!title || title === 'POST TITLE HERE' || title.indexOf('PLACEHOLDER') !== -1) {
-    console.warn('SKIP (missing/placeholder blog:title): ' + entry.name);
-    return;
-  }
-
   posts.push({
     date:    date,
-    title:   title,
+    title:   getMeta(html, 'blog:title')   || getTitle(html) || entry.name,
     excerpt: getMeta(html, 'blog:excerpt') || '',
     image:   getMeta(html, 'blog:image')   || '',
     tags:    (getMeta(html, 'blog:tags')   || '').split(',').map(function(t){ return t.trim(); }).filter(Boolean),
