@@ -63,48 +63,13 @@ a{color:inherit;text-decoration:none}
 }
 
 /* BLOG HEADER */
-.blog-header{
-  position:relative;
-  overflow:hidden;
-  min-height:420px;
-  display:flex;
-  align-items:flex-end;
-  border-bottom:1px solid var(--border);
-}
-.blog-header-bg{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center 30%;
-  display:block;
-  filter:brightness(0.55) saturate(0.7);
-}
-.blog-header-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(
-    to bottom,
-    rgba(14,14,14,0.15) 0%,
-    rgba(14,14,14,0.20) 40%,
-    rgba(14,14,14,0.72) 70%,
-    rgba(14,14,14,0.95) 100%
-  );
-}
-.blog-header-inner{
-  position:relative;
-  z-index:2;
-  max-width:var(--content-max);
-  margin:0 auto;
-  width:100%;
-  padding:64px 20px 52px;
-}
+.blog-header{background:var(--dark);padding:64px 20px 56px;border-bottom:1px solid var(--border)}
+.blog-header-inner{max-width:var(--content-max);margin:0 auto}
 .blog-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.blog-title{font-family:var(--sans);font-size:40px;font-weight:300;line-height:1.2;color:#F5F0E8;margin-bottom:16px;letter-spacing:-0.5px;text-shadow:0 2px 12px rgba(0,0,0,0.5)}
+.blog-title{font-family:var(--sans);font-size:40px;font-weight:300;line-height:1.2;color:var(--dark-text);margin-bottom:16px;letter-spacing:-0.5px}
 .blog-title em{font-style:italic;font-weight:300}
-.blog-desc{font-size:16px;line-height:1.7;color:rgba(245,240,232,0.75);max-width:520px}
-.blog-meta{margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:rgba(245,240,232,0.45);display:flex;gap:24px;flex-wrap:wrap}
+.blog-desc{font-size:16px;line-height:1.7;color:var(--dark-muted);max-width:520px}
+.blog-meta{margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted);display:flex;gap:24px;flex-wrap:wrap}
 .blog-meta span{display:flex;align-items:center;gap:6px}
 
 /* POST LIST */
@@ -161,7 +126,6 @@ a{color:inherit;text-decoration:none}
   .footer-grid{grid-template-columns:1fr;gap:24px}
   .cta-strip-inner{flex-direction:column;align-items:flex-start}
   .blog-title{font-size:30px}
-  .blog-header{min-height:320px}
   .btn{width:100%;padding:16px 24px}
 }
 </style>
@@ -184,8 +148,6 @@ a{color:inherit;text-decoration:none}
 
 <!-- BLOG HEADER -->
 <header class="blog-header">
-  <img class="blog-header-bg" src="/blog/images/blog_index_banner.jpg" alt="">
-  <div class="blog-header-overlay"></div>
   <div class="blog-header-inner">
     <div class="blog-eyebrow">VCBJJ &middot; Training Notes</div>
     <h1 class="blog-title"><em>Still Rolling</em></h1>
@@ -204,10 +166,10 @@ a{color:inherit;text-decoration:none}
 
         <div class="year-divider">2026</div>
 
-            <!-- AUTO-GENERATED: do not edit between these comments -->
-    <!-- Post 30 — Featured (newest) -->
+        <!-- AUTO-GENERATED: do not edit between these comments -->
+    <!-- Post — Featured (newest) -->
     <article class="post-card featured">
-      <a href="/blog/the-grapplers-high.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/grapplers-high1.webp" alt="The Grappler&rsquo;s High" loading="lazy"></a>
+      <img class="post-card-img" src="/blog/images/grapplers-high1.webp" alt="The Grappler&rsquo;s High" loading="lazy">
       <div class="post-card-body">
         <div class="post-card-date">9 Jun 2026</div>
         <h2 class="post-card-title"><a href="/blog/the-grapplers-high.html">The Grappler&rsquo;s High</a></h2>
@@ -220,11 +182,11 @@ a{color:inherit;text-decoration:none}
     </article>
 
     <article class="post-card">
-      <a href="/blog/why-your-brain-freezes-during-rolling.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/flowstate1.jpg" alt="Why Your Brain Freezes During Rolling (and How to Fix It)" loading="lazy"></a>
+      <img class="post-card-img" src="/blog/images/flowstate1.jpg" alt="Why Your Brain Freezes During Rolling (and How to Fix It)" loading="lazy">
       <div class="post-card-body">
         <div class="post-card-date">2 Jun 2026</div>
         <h2 class="post-card-title"><a href="/blog/why-your-brain-freezes-during-rolling.html">Why Your Brain Freezes During Rolling (and How to Fix It)</a></h2>
-        <p class="post-card-excerpt">You know the moves. You&#39;ve drilled them. Then someone tries to smash you and your brain just stops. Here&#39;s why — and a simple game plan to fix it.</p>
+        <p class="post-card-excerpt">You know the moves. You&rsquo;ve drilled them. Then someone tries to smash you and your brain just stops. Here&rsquo;s why &mdash; and a simple game plan to fix it.</p>
         <div class="post-card-footer">
           <div class="post-card-tags"><span class="tag">Mindset</span><span class="tag">Rolling</span><span class="tag">Adult BJJ</span></div>
           <a href="/blog/why-your-brain-freezes-during-rolling.html" class="post-card-read">Read &rarr;</a>
@@ -233,338 +195,53 @@ a{color:inherit;text-decoration:none}
     </article>
 
     <article class="post-card">
-      <a href="/blog/what-bjj-looks-like-in-kl-2026.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/what-bjj-looks-like-in-kl-1.jpg" alt="What BJJ Actually Looks Like in KL in 2026" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">27 May 2026</div>
-        <h2 class="post-card-title"><a href="/blog/what-bjj-looks-like-in-kl-2026.html">What BJJ Actually Looks Like in KL in 2026</a></h2>
-        <p class="post-card-excerpt">Who</p>
-        <div class="post-card-footer">
-          <div class="post-card-tags"><span class="tag">BJJ Kuala Lumpur</span><span class="tag">Getting Started</span><span class="tag">Adult BJJ</span></div>
-          <a href="/blog/what-bjj-looks-like-in-kl-2026.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/can-you-do-bjj-with-a-bad-back/" class="post-card-img-link"><img class="post-card-img" src="/blog/images/badback1.jpg" alt="Can You Do BJJ With a Bad Back, Bad Knees&hellip;" loading="lazy"></a>
+      <img class="post-card-img" src="/blog/images/bad-back.jpg" alt="Can You Do BJJ With a Bad Back, Bad Knees&hellip;" loading="lazy">
       <div class="post-card-body">
         <div class="post-card-date">14 May 2026</div>
-        <h2 class="post-card-title"><a href="/blog/can-you-do-bjj-with-a-bad-back/">Can You Do BJJ With a Bad Back, Bad Knees&hellip;</a></h2>
+        <h2 class="post-card-title"><a href="/blog/can-you-do-bjj-with-a-bad-back.html">Can You Do BJJ With a Bad Back, Bad Knees&hellip;</a></h2>
+        <p class="post-card-excerpt">The question isn&rsquo;t whether your body is perfect. It&rsquo;s whether the room you&rsquo;re training in knows how to work with a body that isn&rsquo;t.</p>
         <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/can-you-do-bjj-with-a-bad-back/" class="post-card-read">Read &rarr;</a>
+          <div class="post-card-tags"><span class="tag">Injury</span><span class="tag">Getting Started</span><span class="tag">Adult BJJ</span></div>
+          <a href="/blog/can-you-do-bjj-with-a-bad-back.html" class="post-card-read">Read &rarr;</a>
         </div>
       </div>
     </article>
 
     <article class="post-card">
-      <a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/CLA image 1 Apr 28, 2026 at 05_05_58 PM.webp" alt="Why I Don’t Teach BJJ the Way Most Gyms Teach BJJ" loading="lazy"></a>
+      <img class="post-card-img" src="/blog/images/CLA image 1 Apr 28, 2026 at 05_05_58 PM.webp" alt="Why I Don&rsquo;t Teach BJJ the Way Most Gyms Teach BJJ" loading="lazy">
       <div class="post-card-body">
         <div class="post-card-date">1 May 2026</div>
-        <h2 class="post-card-title"><a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do.html">Why I Don’t Teach BJJ the Way Most Gyms Teach BJJ</a></h2>
+        <h2 class="post-card-title"><a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do.html">Why I Don&rsquo;t Teach BJJ the Way Most Gyms Teach BJJ</a></h2>
+        <p class="post-card-excerpt">The standard model treats learning as information transfer. That&rsquo;s not how motor skills develop in adults.</p>
         <div class="post-card-footer">
-          <div class="post-card-tags"></div>
+          <div class="post-card-tags"><span class="tag">Coaching Philosophy</span><span class="tag">Adult Learning</span><span class="tag">CLA</span></div>
           <a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do.html" class="post-card-read">Read &rarr;</a>
         </div>
       </div>
     </article>
 
     <article class="post-card">
-      <a href="/blog/the-thing-nobody-tells-you-about-starting-bjj-at-45.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/At 45 Image 1.jpg" alt="The Thing Nobody Tells You About Starting BJJ at 45" loading="lazy"></a>
+      <img class="post-card-img" src="/blog/images/At 45 Image 1.jpg" alt="The Thing Nobody Tells You About Starting BJJ at 45" loading="lazy">
       <div class="post-card-body">
         <div class="post-card-date">24 Apr 2026</div>
         <h2 class="post-card-title"><a href="/blog/the-thing-nobody-tells-you-about-starting-bjj-at-45.html">The Thing Nobody Tells You About Starting BJJ at 45</a></h2>
+        <p class="post-card-excerpt">You&rsquo;re not picturing our room. You&rsquo;re picturing a room that exists somewhere else.</p>
         <div class="post-card-footer">
-          <div class="post-card-tags"></div>
+          <div class="post-card-tags"><span class="tag">Getting Started</span><span class="tag">Adult Martial Arts</span></div>
           <a href="/blog/the-thing-nobody-tells-you-about-starting-bjj-at-45.html" class="post-card-read">Read &rarr;</a>
         </div>
       </div>
     </article>
 
     <article class="post-card">
-      <a href="/blog/you-missed-a-session-good-now-read-this.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/missed1.jpg" alt="You Missed a Session. Good. Now Read This. — Still Rolling" loading="lazy"></a>
+      <img class="post-card-img" src="/blog/images/missed1.jpg" alt="You Missed a Session. Good. Now Read This." loading="lazy">
       <div class="post-card-body">
         <div class="post-card-date">4 Apr 2026</div>
-        <h2 class="post-card-title"><a href="/blog/you-missed-a-session-good-now-read-this.html">You Missed a Session. Good. Now Read This. — Still Rolling</a></h2>
+        <h2 class="post-card-title"><a href="/blog/you-missed-a-session-good-now-read-this.html">You Missed a Session. Good. Now Read This.</a></h2>
+        <p class="post-card-excerpt">Missing a session isn&rsquo;t the problem. Deciding you&rsquo;ve failed is.</p>
         <div class="post-card-footer">
-          <div class="post-card-tags"></div>
+          <div class="post-card-tags"><span class="tag">Consistency</span><span class="tag">Mindset</span></div>
           <a href="/blog/you-missed-a-session-good-now-read-this.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/vcbjj-for-people-who-already-know-this-isnt-for-everyone.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/Quiet signal.jpg" alt="VCBJJ — For People Who Already Know This Isn’t For Everyone — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">15 Mar 2026</div>
-        <h2 class="post-card-title"><a href="/blog/vcbjj-for-people-who-already-know-this-isnt-for-everyone.html">VCBJJ — For People Who Already Know This Isn’t For Everyone — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/vcbjj-for-people-who-already-know-this-isnt-for-everyone.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/the-unfolding-current-reflections-on-growth-and-letting-go.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/MeanderingRiver.jpg" alt="The Unfolding Current: Reflections on Growth and Letting Go — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">24 Jun 2025</div>
-        <h2 class="post-card-title"><a href="/blog/the-unfolding-current-reflections-on-growth-and-letting-go.html">The Unfolding Current: Reflections on Growth and Letting Go — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/the-unfolding-current-reflections-on-growth-and-letting-go.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/rolling-with-purpose-a-coachs-intentional-approach.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/frustrationbjj.jpg" alt="Rolling with Purpose: A Coach’s Intentional Approach — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">13 Jun 2025</div>
-        <h2 class="post-card-title"><a href="/blog/rolling-with-purpose-a-coachs-intentional-approach.html">Rolling with Purpose: A Coach’s Intentional Approach — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/rolling-with-purpose-a-coachs-intentional-approach.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/influenced-by-influencers.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/man blue gi.jpg" alt="Influenced by Influencers? — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">2 Mar 2025</div>
-        <h2 class="post-card-title"><a href="/blog/influenced-by-influencers.html">Influenced by Influencers? — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/influenced-by-influencers.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/which-bjj-academy-to-choose.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/website header 2025.jpg" alt="Which BJJ Academy to Choose? — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">1 Mar 2025</div>
-        <h2 class="post-card-title"><a href="/blog/which-bjj-academy-to-choose.html">Which BJJ Academy to Choose? — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/which-bjj-academy-to-choose.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/well-are-they-important.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/faq10.jpg" alt="Well, Are They Important? — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">27 Feb 2025</div>
-        <h2 class="post-card-title"><a href="/blog/well-are-they-important.html">Well, Are They Important? — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/well-are-they-important.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/its-your-journey-make-it-so.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/lonelypath.jpg" alt="It’s Your Journey. Make It So. — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">26 Feb 2025</div>
-        <h2 class="post-card-title"><a href="/blog/its-your-journey-make-it-so.html">It’s Your Journey. Make It So. — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/its-your-journey-make-it-so.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/ganbaru.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/3Feb25b.jpg" alt="頭張る — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">25 Feb 2025</div>
-        <h2 class="post-card-title"><a href="/blog/ganbaru.html">頭張る — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/ganbaru.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/winning-at-any-cost.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/newtons-cradle-halloween.gif" alt="Winning at Any Cost — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">23 Dec 2024</div>
-        <h2 class="post-card-title"><a href="/blog/winning-at-any-cost.html">Winning at Any Cost — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/winning-at-any-cost.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/fixing-your-leaky-bucket.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/featureBucket.webp" alt="Fixing Your Leaky Bucket: A Guide to Strengthening Your Jiu-Jitsu Game — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">23 Dec 2024</div>
-        <h2 class="post-card-title"><a href="/blog/fixing-your-leaky-bucket.html">Fixing Your Leaky Bucket: A Guide to Strengthening Your Jiu-Jitsu Game — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/fixing-your-leaky-bucket.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/consistency-vs-intensity.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/treeroots1.jpg" alt="Consistency vs Intensity — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">23 Dec 2024</div>
-        <h2 class="post-card-title"><a href="/blog/consistency-vs-intensity.html">Consistency vs Intensity — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/consistency-vs-intensity.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/print-on-demand.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/man white gi.jpg" alt="Print-On-Demand and Custom Logo Design Work Available — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">12 Mar 2023</div>
-        <h2 class="post-card-title"><a href="/blog/print-on-demand.html">Print-On-Demand and Custom Logo Design Work Available — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/print-on-demand.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/automating-and-the-immediate-future.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/thinkingRobot.jpg" alt="Automating and the Immediate Future — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">12 Mar 2023</div>
-        <h2 class="post-card-title"><a href="/blog/automating-and-the-immediate-future.html">Automating and the Immediate Future — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/automating-and-the-immediate-future.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/tis-but-a-number.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/markpicton2019.jpg" alt="Tis But a Number — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">22 Feb 2023</div>
-        <h2 class="post-card-title"><a href="/blog/tis-but-a-number.html">Tis But a Number — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/tis-but-a-number.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/wrestling-with-the-uncomfortable.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/fencing.jpg" alt="Wrestling with the Uncomfortable — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">13 Feb 2023</div>
-        <h2 class="post-card-title"><a href="/blog/wrestling-with-the-uncomfortable.html">Wrestling with the Uncomfortable — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/wrestling-with-the-uncomfortable.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/mat-tales-episode-1-the-window-maker.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/casement windows.jpeg" alt="Mat Tales, Episode 1: The Window Maker — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">10 Jan 2023</div>
-        <h2 class="post-card-title"><a href="/blog/mat-tales-episode-1-the-window-maker.html">Mat Tales, Episode 1: The Window Maker — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/mat-tales-episode-1-the-window-maker.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/youtube-channel.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/subconscious.png" alt="YouTube Channel — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">9 Jan 2023</div>
-        <h2 class="post-card-title"><a href="/blog/youtube-channel.html">YouTube Channel — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/youtube-channel.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/defense-first.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/feet.jpg" alt="Defense First — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">9 Jan 2023</div>
-        <h2 class="post-card-title"><a href="/blog/defense-first.html">Defense First — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/defense-first.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/onwards-and-upwards.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/Jeet 2.jpg" alt="Onwards and Upwards — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">8 Jan 2023</div>
-        <h2 class="post-card-title"><a href="/blog/onwards-and-upwards.html">Onwards and Upwards — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/onwards-and-upwards.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/google-business-website-response-bot.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/Jeet Dec 2022.jpeg" alt="Google Business Website Enables a Response Bot — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">8 Jan 2023</div>
-        <h2 class="post-card-title"><a href="/blog/google-business-website-response-bot.html">Google Business Website Enables a Response Bot — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/google-business-website-response-bot.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/one-door-closes-another-opens.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/door.webp" alt="One Door Closes, Another Opens — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">1 Feb 2021</div>
-        <h2 class="post-card-title"><a href="/blog/one-door-closes-another-opens.html">One Door Closes, Another Opens — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/one-door-closes-another-opens.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/blueprint-martial-arts-damansara-heights.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/Blueprint Dsara Ht1.jpeg" alt="BluePrint Martial Arts: Damansara Heights Branch — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">18 Nov 2020</div>
-        <h2 class="post-card-title"><a href="/blog/blueprint-martial-arts-damansara-heights.html">BluePrint Martial Arts: Damansara Heights Branch — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/blueprint-martial-arts-damansara-heights.html" class="post-card-read">Read &rarr;</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="post-card">
-      <a href="/blog/the-return-and-beyond.html" class="post-card-img-link"><img class="post-card-img" src="/blog/images/cheers.webp" alt="The Return and Beyond — Still Rolling" loading="lazy"></a>
-      <div class="post-card-body">
-        <div class="post-card-date">9 Nov 2020</div>
-        <h2 class="post-card-title"><a href="/blog/the-return-and-beyond.html">The Return and Beyond — Still Rolling</a></h2>
-        <div class="post-card-footer">
-          <div class="post-card-tags"></div>
-          <a href="/blog/the-return-and-beyond.html" class="post-card-read">Read &rarr;</a>
         </div>
       </div>
     </article>
