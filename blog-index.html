@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Still Rolling — Training Notes by Vince Choo | VCBJJ</title>
+<meta name="description" content="Still Rolling is the blog of Vince Choo, BJJ 3rd-Degree Black Belt and head coach at VCBJJ in Bangsar, KL. Honest writing about BJJ, coaching, and training for adults.">
+<meta property="og:title" content="Still Rolling — Training Notes by Vince Choo">
+<meta property="og:description" content="Honest writing about BJJ, coaching, and what it means to keep training past 40. By Vince Choo, VCBJJ Bangsar KL.">
+<meta property="og:url" content="https://vcbjj.com/blog/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VCBJJ">
+<meta property="og:locale" content="en_MY">
+<link rel="canonical" href="https://vcbjj.com/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:           #0E0E0E;
+  --bg-alt:       #1A1A1A;
+  --surface:      #1E1E1E;
+  --text:         #F5F0E8;
+  --muted:        #9A9080;
+  --accent:       #C9A84C;
+  --accent-hover: #B8963E;
+  --gold:         #C9A84C;
+  --border:       #2E2E2E;
+  --dark:         #0E0E0E;
+  --dark-text:    #F5F0E8;
+  --dark-muted:   #9A9080;
+  --sans:  'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono:  'IBM Plex Mono', 'SF Mono', monospace;
+  --content-max:  720px;
+  --nav-max:      760px;
+  --section-py:   80px;
+  --radius:       6px;
+  --pill:         4px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{background:var(--dark);padding:0 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid #1f1f1f}
+.nav-inner{max-width:var(--nav-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-brand{display:flex;align-items:center}
+.nav-brand img{height:36px;width:auto}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-muted);padding:8px 12px;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-toggle{display:none;background:none;border:none;color:var(--dark-muted);font-size:22px;cursor:pointer;padding:6px}
+
+@media(max-width:600px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--dark);flex-direction:column;padding:8px 20px 16px;border-top:1px solid #1f1f1f}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;font-size:13px;border-bottom:1px solid #1a1a1a}
+  .nav-links a:last-child{border-bottom:none}
+}
+
+/* BLOG HEADER */
+.blog-header{background:var(--dark);padding:64px 20px 56px;border-bottom:1px solid var(--border)}
+.blog-header-inner{max-width:var(--content-max);margin:0 auto}
+.blog-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.blog-title{font-family:var(--sans);font-size:40px;font-weight:300;line-height:1.2;color:var(--dark-text);margin-bottom:16px;letter-spacing:-0.5px}
+.blog-title em{font-style:italic;font-weight:300}
+.blog-desc{font-size:16px;line-height:1.7;color:var(--dark-muted);max-width:520px}
+.blog-meta{margin-top:28px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted);display:flex;gap:24px;flex-wrap:wrap}
+.blog-meta span{display:flex;align-items:center;gap:6px}
+
+/* POST LIST */
+.post-list{padding:60px 20px 80px}
+.post-list-inner{max-width:var(--content-max);margin:0 auto}
+
+.post-card{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);overflow:hidden;transition:border-color 0.2s;margin-bottom:24px}
+.post-card:hover{border-color:#4a4535}
+.post-card-img{width:100%;height:220px;object-fit:cover;background:var(--bg-alt)}
+.post-card-img-placeholder{width:100%;height:220px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center}
+.post-card-img-placeholder span{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.post-card-body{padding:28px}
+.post-card-date{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.post-card-title{font-family:var(--sans);font-size:20px;font-weight:500;line-height:1.35;color:var(--text);margin-bottom:12px;transition:color 0.2s}
+.post-card:hover .post-card-title{color:var(--gold)}
+.post-card-excerpt{font-size:15px;line-height:1.65;color:var(--muted);margin-bottom:20px}
+.post-card-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.post-card-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);background:var(--bg-alt);border:1px solid var(--border);border-radius:3px;padding:3px 8px}
+.post-card-read{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold);transition:color 0.2s}
+.post-card:hover .post-card-read{color:var(--accent-hover)}
+
+/* FEATURED POST */
+.post-card.featured{grid-template-columns:1fr;border-color:#3a3527}
+.post-card.featured .post-card-img{height:300px}
+.post-card.featured .post-card-date{color:var(--gold)}
+
+/* YEAR DIVIDER */
+.year-divider{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);padding:32px 0 16px;border-bottom:1px solid var(--border);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.year-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* CTA STRIP */
+.cta-strip{background:var(--bg-alt);padding:56px 20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.cta-strip-inner{max-width:var(--content-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.cta-strip-text h3{font-size:20px;font-weight:500;color:var(--text);margin-bottom:8px}
+.cta-strip-text p{font-size:15px;color:var(--muted);max-width:420px}
+.btn{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;border-radius:var(--pill);cursor:pointer;transition:all 0.2s;border:1px solid transparent;text-align:center}
+.btn-primary{background:var(--gold);color:#0E0E0E !important;border-color:var(--gold)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:#0E0E0E}
+.btn-ghost{background:transparent;color:var(--gold);border-color:var(--gold)}
+.btn-ghost:hover{background:rgba(201,168,76,0.08)}
+
+/* FOOTER */
+.footer{background:var(--dark);padding:48px 20px 32px;border-top:1px solid #1a1a1a}
+.footer-inner{max-width:var(--nav-max);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-col-title{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:8px}
+.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}
+.footer-links a:hover{color:var(--dark-text)}
+.footer-bottom{border-top:1px solid #1a1a1a;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}
+@media(max-width:480px){
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .cta-strip-inner{flex-direction:column;align-items:flex-start}
+  .blog-title{font-size:30px}
+  .btn{width:100%;padding:16px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-brand"><img src="/assets/VCBJJ-circle-2.png" alt="VCBJJ"></a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="/info.html">Is It Right For You?</a>
+      <a href="/about.html">Coach Vince</a>
+      <a href="/blog/" class="active">Still Rolling</a>
+      <a href="/getstarted.html">Get Started</a>
+      <a href="/shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- BLOG HEADER -->
+<header class="blog-header">
+  <div class="blog-header-inner">
+    <div class="blog-eyebrow">VCBJJ &middot; Training Notes</div>
+    <h1 class="blog-title"><em>Still Rolling</em></h1>
+    <p class="blog-desc">Writing about BJJ, coaching, and what it means to keep training past 40. By Vince Choo &mdash; 3rd-Degree Black Belt, Bangsar KL.</p>
+    <div class="blog-meta">
+      <span>Since 2020</span>
+      <span>26 posts</span>
+      <span>vcbjj.com/blog</span>
+    </div>
+  </div>
+</header>
+
+<!-- POST LIST -->
+<main class="post-list">
+  <div class="post-list-inner">
+
+        <div class="year-divider">2026</div>
+
+        <!-- AUTO-GENERATED: do not edit between these comments -->
+    <!-- Post — Featured (newest) -->
+    <article class="post-card featured">
+      <img class="post-card-img" src="/blog/images/grapplers-high1.webp" alt="The Grappler&rsquo;s High" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">9 Jun 2026</div>
+        <h2 class="post-card-title"><a href="/blog/the-grapplers-high.html">The Grappler&rsquo;s High</a></h2>
+        <p class="post-card-excerpt">You&rsquo;ve heard of runner&rsquo;s high. What BJJ gives you is different. Quieter. And it only shows up when the thinking stops.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Mindset</span><span class="tag">Adult BJJ</span><span class="tag">Still Rolling</span></div>
+          <a href="/blog/the-grapplers-high.html" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/blog/images/flowstate1.jpg" alt="Why Your Brain Freezes During Rolling (and How to Fix It)" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">2 Jun 2026</div>
+        <h2 class="post-card-title"><a href="/blog/why-your-brain-freezes-during-rolling.html">Why Your Brain Freezes During Rolling (and How to Fix It)</a></h2>
+        <p class="post-card-excerpt">You know the moves. You&rsquo;ve drilled them. Then someone tries to smash you and your brain just stops. Here&rsquo;s why &mdash; and a simple game plan to fix it.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Mindset</span><span class="tag">Rolling</span><span class="tag">Adult BJJ</span></div>
+          <a href="/blog/why-your-brain-freezes-during-rolling.html" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/blog/images/bad-back.jpg" alt="Can You Do BJJ With a Bad Back, Bad Knees&hellip;" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">14 May 2026</div>
+        <h2 class="post-card-title"><a href="/blog/can-you-do-bjj-with-a-bad-back.html">Can You Do BJJ With a Bad Back, Bad Knees&hellip;</a></h2>
+        <p class="post-card-excerpt">The question isn&rsquo;t whether your body is perfect. It&rsquo;s whether the room you&rsquo;re training in knows how to work with a body that isn&rsquo;t.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Injury</span><span class="tag">Getting Started</span><span class="tag">Adult BJJ</span></div>
+          <a href="/blog/can-you-do-bjj-with-a-bad-back.html" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/blog/images/CLA image 1 Apr 28, 2026 at 05_05_58 PM.webp" alt="Why I Don&rsquo;t Teach BJJ the Way Most Gyms Teach BJJ" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">1 May 2026</div>
+        <h2 class="post-card-title"><a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do.html">Why I Don&rsquo;t Teach BJJ the Way Most Gyms Teach BJJ</a></h2>
+        <p class="post-card-excerpt">The standard model treats learning as information transfer. That&rsquo;s not how motor skills develop in adults.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Coaching Philosophy</span><span class="tag">Adult Learning</span><span class="tag">CLA</span></div>
+          <a href="/blog/why-i-dont-teach-bjj-the-way-most-gyms-do.html" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/blog/images/At 45 Image 1.jpg" alt="The Thing Nobody Tells You About Starting BJJ at 45" loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">24 Apr 2026</div>
+        <h2 class="post-card-title"><a href="/blog/the-thing-nobody-tells-you-about-starting-bjj-at-45.html">The Thing Nobody Tells You About Starting BJJ at 45</a></h2>
+        <p class="post-card-excerpt">You&rsquo;re not picturing our room. You&rsquo;re picturing a room that exists somewhere else.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Getting Started</span><span class="tag">Adult Martial Arts</span></div>
+          <a href="/blog/the-thing-nobody-tells-you-about-starting-bjj-at-45.html" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="post-card">
+      <img class="post-card-img" src="/blog/images/missed1.jpg" alt="You Missed a Session. Good. Now Read This." loading="lazy">
+      <div class="post-card-body">
+        <div class="post-card-date">4 Apr 2026</div>
+        <h2 class="post-card-title"><a href="/blog/you-missed-a-session-good-now-read-this.html">You Missed a Session. Good. Now Read This.</a></h2>
+        <p class="post-card-excerpt">Missing a session isn&rsquo;t the problem. Deciding you&rsquo;ve failed is.</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags"><span class="tag">Consistency</span><span class="tag">Mindset</span></div>
+          <a href="/blog/you-missed-a-session-good-now-read-this.html" class="post-card-read">Read &rarr;</a>
+        </div>
+      </div>
+    </article>
+    <!-- /AUTO-GENERATED -->
+
+  </div>
+</main>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <div class="cta-strip-inner">
+    <div class="cta-strip-text">
+      <h3>Ready to train?</h3>
+      <p>Small classes, structured coaching, no ego. Pay as you go. Bangsar, KL.</p>
+    </div>
+    <a href="/getstarted.html" class="btn btn-primary">Get Started</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/info.html">Is It Right For You?</a></li>
+          <li><a href="/about.html">Coach Vince</a></li><li><a href="/shop.html">Shop</a></li>
+          <li><a href="/blog/">Still Rolling</a></li>
+          <li><a href="/getstarted.html">Get Started</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li>
+          <li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>
+      &copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
