@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — VCBJJ</title>
 <meta name="description" content="Register your interest to train BJJ at VCBJJ, Bangsar KL.">
-<link rel="canonical" href="https://www.vcbjj.com/contact.html">  
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,7 +45,7 @@
 </style>
 </head>
 <body>
-<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-brand"><img src="/assets/VCBJJ-circle-2.png" alt="VCBJJ"></a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button><div class="nav-links"><a href="info.html">Is It Right For You?</a><a href="about.html">Coach Vince</a><a href="getstarted.html">Get Started</a><a href="shop.html">Shop</a></div></div></nav>
+<nav class="nav"><div class="nav-inner"><a href="index.html" class="nav-brand"><img src="/assets/VCBJJ-circle-2.png" alt="VCBJJ"></a><button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button><div class="nav-links"><a href="info.html">Is It Right For You?</a><a href="about.html">Coach Vince</a><a href="getstarted.html">Get Started</a></div></div></nav>
 
 <section class="page-hero"><div class="page-hero-inner"><div class="eyebrow">Get in Touch</div><h1>Register Your Interest</h1><p>Coach Vince responds to every enquiry personally &mdash; usually within 24 hours.</p></div></section>
 
@@ -70,6 +69,7 @@
           <label class="form-label">Programme</label>
           <select class="form-select" id="program">
             <option value="">Select&hellip;</option>
+            <option value="Foundations Course">Foundations Course &mdash; Oct 2026</option>
             <option value="Group Class">Group Class</option>
             <option value="Private Training">Private Training</option>
             <option value="Both">Both</option>
@@ -117,9 +117,24 @@
 </div>
 </section>
 
-<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="shop.html">Shop</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
+<footer class="footer"><div class="footer-inner"><div class="footer-grid"><div><div class="footer-col-title">Pages</div><ul class="footer-links"><li><a href="info.html">Is It Right For You?</a></li><li><a href="getstarted.html">Get Started</a></li><li><a href="about.html">Coach Vince</a></li><li><a href="seminar.html">Seminar</a></li><li><a href="camps.html">Camps</a></li><li><a href="contact.html">Contact</a></li></ul></div><div><div class="footer-col-title">Connect</div><ul class="footer-links"><li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li><li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li></ul></div></div><div class="footer-bottom">14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>&copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo</div></div></footer>
 
 <script>
+// Pre-select Programme dropdown and update hero text if arriving from beginners.html
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var enquiry = params.get('enquiry');
+  if (enquiry === 'foundations') {
+    var sel = document.getElementById('program');
+    if (sel) sel.value = 'Foundations Course';
+    // Update page hero to reflect context
+    var h1 = document.querySelector('.page-hero h1');
+    var sub = document.querySelector('.page-hero p');
+    if (h1) h1.textContent = 'Register for Foundations';
+    if (sub) sub.textContent = 'BJJ Foundations Course \u2014 8 weeks starting 7 October 2026. Places are limited to 6. Coach Vince will confirm your spot within 24 hours.';
+  }
+})();
+
 var GAS_URL = 'https://script.google.com/macros/s/AKfycbyLBmJXsUPvbA3qMPjIqMQ8LkIT3glL9SgopOhJkub8lI5oBxs1SIPo-11zx8i597mRjg/exec';
 
 function submitContact() {

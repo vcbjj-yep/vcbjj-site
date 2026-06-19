@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BJJ Foundations — 8-Week Beginner Course · VCBJJ Bangsar</title>
+<meta name="description" content="An 8-week structured introduction to Brazilian Jiu-Jitsu for adults 40+ in Bangsar, KL. Small group, coached from the ground up. Starts 7 October 2026.">
+<meta property="og:title" content="BJJ Foundations — 8-Week Beginner Course · VCBJJ">
+<meta property="og:description" content="An 8-week structured introduction to BJJ for adults 40+ in Bangsar, KL. Small group, coached from the ground up. Starts 7 October 2026.">
+<meta property="og:url" content="https://vcbjj.com/beginners">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://vcbjj.com/assets/beginners.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0E0E0E;--bg-alt:#1A1A1A;--surface:#1E1E1E;--text:#F5F0E8;
+  --muted:#9A9080;--accent:#C9A84C;--accent-hover:#B8963E;--gold:#C9A84C;
+  --border:#2E2E2E;--dark:#0E0E0E;--dark-text:#F5F0E8;--dark-muted:#9A9080;
+  --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'IBM Plex Mono','SF Mono',monospace;
+  --content-max:720px;--nav-max:760px;--radius:6px;--pill:4px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+
+/* NAV */
+.nav{background:var(--dark);padding:0 20px;position:sticky;top:0;z-index:100;border-bottom:1px solid #1f1f1f}
+.nav-inner{max-width:var(--nav-max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-brand{display:flex;align-items:center}
+.nav-brand img{height:36px;width:auto}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-muted);padding:8px 12px;transition:color 0.2s}
+.nav-links a:hover{color:var(--dark-text)}
+.nav-toggle{display:none;background:none;border:none;color:var(--dark-muted);font-size:22px;cursor:pointer;padding:6px}
+@media(max-width:600px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--dark);flex-direction:column;padding:8px 20px 16px;border-top:1px solid #1f1f1f}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;font-size:13px;border-bottom:1px solid #1a1a1a}
+  .nav-links a:last-child{border-bottom:none}
+}
+
+/* SHARED */
+.section{padding:80px 20px}
+.section-alt{background:var(--bg-alt)}
+.section-inner{max-width:var(--content-max);margin:0 auto}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.prose{color:var(--muted);line-height:1.8}
+.prose p{margin-bottom:16px}
+.prose p:last-child{margin-bottom:0}
+
+/* BUTTONS */
+.btn{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;border-radius:var(--pill);cursor:pointer;transition:all 0.2s;border:1px solid transparent;text-align:center;text-decoration:none}
+.btn-primary{background:var(--gold);color:#0E0E0E;border-color:var(--gold)}
+.btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.btn-ghost{background:transparent;color:var(--gold);border:1px solid var(--gold)}
+.btn-ghost:hover{background:rgba(201,168,76,0.08)}
+
+/* HERO */
+.hero{
+  position:relative;
+  padding:72px 20px 64px;
+  border-bottom:1px solid #1a1a1a;
+  background-color:var(--dark);
+  background-image:
+    linear-gradient(to right, rgba(14,14,14,0.96) 38%, rgba(14,14,14,0.72) 65%, rgba(14,14,14,0.45) 100%),
+    url('/assets/beginners.webp');
+  background-size:cover;
+  background-position:center right;
+  background-repeat:no-repeat;
+}
+.hero-inner{max-width:var(--content-max);margin:0 auto;position:relative;z-index:1}
+.hero-date-pill{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(201,168,76,0.35);border-radius:4px;padding:6px 14px;margin-bottom:28px}
+.hero h1{font-size:36px;font-weight:500;color:var(--dark-text);line-height:1.25;margin-bottom:20px;max-width:560px}
+.hero-sub{font-size:17px;color:var(--dark-muted);max-width:520px;line-height:1.75;margin-bottom:36px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:24px;margin-bottom:40px}
+.hero-meta-item{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.hero-meta-item span{display:block;font-size:15px;font-weight:500;color:var(--dark-text);font-family:var(--sans);letter-spacing:0;text-transform:none;margin-top:4px}
+.hero-cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.hero-cta-note{font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
+@media(max-width:540px){.hero h1{font-size:28px}.hero-meta{gap:16px}}
+
+/* WHAT IT IS */
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.intro-card{padding:20px 24px;background:#1a1a1a;border:1px solid var(--border);border-radius:var(--radius)}
+.intro-card-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.intro-card-text{font-size:14px;color:var(--muted);line-height:1.7}
+@media(max-width:540px){.intro-grid{grid-template-columns:1fr}}
+
+/* CURRICULUM */
+.curriculum{margin-top:32px}
+.week-block{border-left:2px solid var(--border);padding:0 0 32px 24px;position:relative}
+.week-block:last-child{padding-bottom:0}
+.week-block::before{content:'';position:absolute;left:-5px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--border)}
+.week-block.highlight::before{background:var(--gold)}
+.week-block.highlight{border-left-color:rgba(201,168,76,0.4)}
+.week-num{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.week-title{font-size:16px;font-weight:500;color:var(--text);margin-bottom:6px}
+.week-desc{font-size:14px;color:var(--muted);line-height:1.7}
+.week-tag{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border:1px solid var(--border);border-radius:4px;color:var(--muted);margin-top:8px}
+.week-tag.live{border-color:rgba(201,168,76,0.3);color:var(--gold);background:rgba(201,168,76,0.06)}
+
+/* WHAT'S INCLUDED */
+.included-grid{display:grid;gap:12px;margin-top:28px}
+.included-item{display:flex;gap:16px;padding:16px 20px;background:#1a1a1a;border:1px solid var(--border);border-radius:var(--radius);align-items:flex-start}
+.included-check{font-family:var(--mono);font-size:13px;color:var(--gold);flex-shrink:0;padding-top:1px}
+.included-body{}
+.included-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:3px}
+.included-desc{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* MANUAL CALLOUT */
+.manual-callout{margin-top:20px;padding:20px 24px;background:#1a1a1a;border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--radius)}
+.manual-callout-label{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.manual-callout-text{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* PRICING */
+.price-block{margin-top:32px;padding:32px;background:#1a1a1a;border:1px solid var(--border);border-radius:var(--radius)}
+.price-figure{font-family:var(--mono);font-size:42px;font-weight:500;color:var(--gold);line-height:1;margin-bottom:6px}
+.price-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:20px}
+.price-breakdown{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px}
+.price-breakdown strong{color:var(--text);font-weight:500}
+.price-compare{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted);padding:10px 14px;background:#111;border-radius:4px;border:1px solid var(--border);margin-bottom:24px}
+.price-compare span{color:var(--gold)}
+
+/* CAP WARNING */
+.cap-notice{margin-top:16px;font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-align:center}
+
+/* WHO THIS IS FOR */
+.fit-grid{display:grid;gap:10px;margin-top:24px}
+.fit-row{display:flex;gap:14px;padding:14px 18px;background:#1a1a1a;border:1px solid var(--border);border-radius:var(--radius);align-items:flex-start}
+.fit-icon{font-family:var(--mono);font-size:12px;color:var(--gold);flex-shrink:0;padding-top:1px;width:16px}
+.fit-text{font-size:14px;color:var(--muted);line-height:1.65}
+.fit-row.no .fit-icon{color:#555}
+.fit-row.no .fit-text{color:#666}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{font-size:15px;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q::after{content:'+';font-family:var(--mono);font-size:18px;color:var(--gold);flex-shrink:0;transition:transform 0.2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease}
+.faq-item.open .faq-a{max-height:300px;padding-top:12px}
+
+/* CTA SECTION */
+.cta-section{background:var(--bg-alt);padding:72px 20px;text-align:center;border-top:1px solid var(--border)}
+.cta-inner{max-width:500px;margin:0 auto}
+.cta-heading{font-size:26px;font-weight:500;color:var(--dark-text);margin-bottom:12px;line-height:1.3}
+.cta-sub{font-size:15px;color:var(--dark-muted);margin-bottom:32px;line-height:1.7}
+.cta-deadline{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:16px}
+
+/* FOOTER */
+.footer{background:#0A0A0A;padding:48px 20px 32px;color:var(--dark-muted);border-top:1px solid #1a1a1a}
+.footer-inner{max-width:var(--nav-max);margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
+.footer-col-title{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:8px}
+.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}
+.footer-links a:hover{color:var(--dark-text)}
+.footer-bottom{border-top:1px solid #1a1a1a;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}
+.footer-bottom a{color:var(--gold)}
+
+@media(max-width:480px){
+  .price-block{padding:24px 20px}
+  .price-figure{font-size:36px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .hero-cta-row{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="/assets/VCBJJ-circle-2.png" alt="VCBJJ"></a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="info.html">Is It Right For You?</a>
+      <a href="about.html">Coach Vince</a>
+      <a href="getstarted.html">Get Started</a>
+      <a href="shop.html">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-date-pill">Cohort 01 &mdash; October 2026</div>
+    <h1>Eight weeks to understand what BJJ actually is.</h1>
+    <p class="hero-sub">A structured beginner course for adults who want to start properly. Small group, coached from the ground up, no prior experience needed.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">Starts<span>Wed 7 October 2026</span></div>
+      <div class="hero-meta-item">Day &amp; Time<span>Wednesdays, 7:00pm</span></div>
+      <div class="hero-meta-item">Duration<span>8 weeks</span></div>
+      <div class="hero-meta-item">Group size<span>Max 6 students</span></div>
+      <div class="hero-meta-item">Location<span>Bangsar, KL</span></div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="contact.html?enquiry=foundations" class="btn btn-primary">Register Interest</a>
+      <div class="hero-cta-note">Registration closes 30 September</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THIS IS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow">What This Is</div>
+    <div class="prose">
+      <p>Most people who start BJJ are dropped into a regular class on day one. They tap repeatedly, have no frame of reference for what just happened, and spend the first month trying to catch up on context everyone else already has.</p>
+      <p>This course inverts that. Eight weeks of Wednesday evenings, structured specifically for beginners &mdash; so that when you move into regular training, you already know the room.</p>
+    </div>
+    <div class="intro-grid">
+      <div class="intro-card">
+        <div class="intro-card-label">Not a trial</div>
+        <div class="intro-card-text">This is a committed 8-week programme, not a sample session. You&rsquo;re here to learn, not to observe.</div>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-label">Closed cohort</div>
+        <div class="intro-card-text">The same 6 people, every Wednesday. No rotating strangers, no disruption to the group dynamic.</div>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-label">Structured curriculum</div>
+        <div class="intro-card-text">Each session builds on the last. Nothing is random, nothing repeats. You leave every week knowing exactly what you added.</div>
+      </div>
+      <div class="intro-card">
+        <div class="intro-card-label">Designed for 40+</div>
+        <div class="intro-card-text">Pace is set for adult bodies that recover differently. Smart training, not grinding.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow">The 8 Weeks</div>
+    <p style="font-size:15px;color:var(--muted);margin-bottom:36px;line-height:1.75;">Each session is 90 minutes: 15 minutes of movement prep, 50 minutes of technique and positional drilling, 25 minutes of controlled live practice.</p>
+    <div class="curriculum">
+
+      <div class="week-block">
+        <div class="week-num">Week 01</div>
+        <div class="week-title">The Ground &mdash; Your New Normal</div>
+        <div class="week-desc">How to fall safely, how to move on the mat, and why BJJ starts from positions that feel completely unnatural. Orientation to the mat environment. You will tap this session. That is the point.</div>
+        <span class="week-tag">Breakfalls &middot; Shrimping &middot; Hip escape</span>
+      </div>
+
+      <div class="week-block">
+        <div class="week-num">Week 02</div>
+        <div class="week-title">Position Before Submission</div>
+        <div class="week-desc">The core principle of BJJ hierarchy: why where you are matters more than what you&rsquo;re trying to do. Introduction to dominant positions &mdash; mount, side control, back control &mdash; and why some positions are worth more than others.</div>
+        <span class="week-tag">Mount &middot; Side control &middot; Back control &middot; Guard</span>
+      </div>
+
+      <div class="week-block">
+        <div class="week-num">Week 03</div>
+        <div class="week-title">The Guard &mdash; Fighting From Your Back</div>
+        <div class="week-desc">Most people assume being on your back means you&rsquo;re losing. In BJJ, a closed guard is a weapon. This week introduces guard retention, posture breaking, and why the bottom position is not a last resort.</div>
+        <span class="week-tag">Closed guard &middot; Posture control &middot; Hip movement</span>
+      </div>
+
+      <div class="week-block highlight">
+        <div class="week-num">Week 04</div>
+        <div class="week-title">Your First Submission &mdash; The Rear Naked Choke</div>
+        <div class="week-desc">The most important choke in BJJ, and the clearest lesson in why leverage beats strength. Anatomy of the choke, how to establish the back position, and how to finish without muscling it. First live drilling with resistance.</div>
+        <span class="week-tag live">First live drilling</span>
+      </div>
+
+      <div class="week-block">
+        <div class="week-num">Week 05</div>
+        <div class="week-title">Escapes &mdash; Getting Out of Bad Positions</div>
+        <div class="week-desc">You will end up on the bottom. This week is entirely about what to do when that happens. Bridge and roll from mount, elbow-knee escape, and why survival is a legitimate strategy. You don&rsquo;t always have to win &mdash; sometimes not losing is enough.</div>
+        <span class="week-tag">Mount escape &middot; Side control escape &middot; Bridge &amp; roll</span>
+      </div>
+
+      <div class="week-block">
+        <div class="week-num">Week 06</div>
+        <div class="week-title">Takedowns &mdash; How the Fight Goes to the Ground</div>
+        <div class="week-desc">Most BJJ happens on the mat, but it starts standing. Introduction to basic takedowns and trips that are safe for adult bodies &mdash; no high-amplitude throws. How to enter the clinch, control distance, and finish safely.</div>
+        <span class="week-tag">Single leg entry &middot; Body lock trip &middot; Clinch control</span>
+      </div>
+
+      <div class="week-block">
+        <div class="week-num">Week 07</div>
+        <div class="week-title">Putting It Together &mdash; Your First Roll</div>
+        <div class="week-desc">This is the week everything becomes live. Full rolling with partners from within the cohort, with coaching pauses and specific problem-solving. No thrown-in-at-the-deep-end moment &mdash; you&rsquo;ve had six weeks to prepare for this. Debrief on what you noticed.</div>
+        <span class="week-tag live">Full cohort rolling</span>
+      </div>
+
+      <div class="week-block highlight">
+        <div class="week-num">Week 08</div>
+        <div class="week-title">What Comes Next &mdash; Transition to Regular Training</div>
+        <div class="week-desc">Final session is half rolling, half conversation. What regular Monday and Thursday group classes look like. What to expect in your first month as a full member. Individual coaching notes for each student. A practical map for where your game goes from here.</div>
+        <span class="week-tag live">Rolling &middot; Individual debrief &middot; Next steps</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow">What&rsquo;s Included</div>
+    <div class="included-grid">
+      <div class="included-item">
+        <div class="included-check">&#10003;</div>
+        <div class="included-body">
+          <div class="included-title">8 structured sessions (90 min each)</div>
+          <div class="included-desc">Every Wednesday evening, 7:00pm&ndash;8:30pm. Same room, same group, same coach throughout.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">&#10003;</div>
+        <div class="included-body">
+          <div class="included-title">Student Manual</div>
+          <div class="included-desc">VCBJJ&rsquo;s written guide to positions, terminology, and what to expect &mdash; shared via your member portal before the first session. No need to buy anything or memorise anything before you arrive.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">&#10003;</div>
+        <div class="included-body">
+          <div class="included-title">Progression notes</div>
+          <div class="included-desc">Written coaching notes at week 4 and week 8 so you have a clear record of where you are and what you&rsquo;re working on.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">&#10003;</div>
+        <div class="included-body">
+          <div class="included-title">Member portal access</div>
+          <div class="included-desc">Book sessions, view session history, manage everything in one place. Same system used by all VCBJJ students.</div>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-check">&#10003;</div>
+        <div class="included-body">
+          <div class="included-title">Priority access to regular group classes</div>
+          <div class="included-desc">Foundations graduates have first right of refusal on group class spots before new open signups. The cap is 10 &mdash; your place in the room isn&rsquo;t guaranteed to strangers before it&rsquo;s offered to you.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="manual-callout">
+      <div class="manual-callout-label">On course materials</div>
+      <div class="manual-callout-text">No additional course materials to buy or download. The VCBJJ Student Manual covers everything you need as written reference &mdash; positions, terminology, training etiquette, the 5 Pillars framework. It&rsquo;s available via your member portal as soon as you register. Print it or read it on your phone. The eight weeks do the rest.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow">Pricing</div>
+    <div class="price-block">
+      <div class="price-figure">RM 380</div>
+      <div class="price-label">for all 8 sessions &mdash; paid upfront</div>
+      <div class="price-breakdown">
+        <strong>RM 47.50 per session.</strong> No contracts, no registration fees, no admin fees.<br>
+        Payment by bank transfer or DuitNow. Details provided on confirmation.
+      </div>
+      <div class="price-compare">
+        Regular group class rate: RM 65/session &middot; 8 sessions = <span>RM 520</span><br>
+        Foundations course: <span>RM 380</span> &middot; saving RM 140 over equivalent sessions
+      </div>
+      <a href="contact.html?enquiry=foundations" class="btn btn-primary" style="width:100%;padding:18px;font-size:13px;display:block;text-align:center;">Register Interest</a>
+    </div>
+    <p class="cap-notice">Maximum 6 students. Registration closes 30 September 2026.</p>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section class="section">
+  <div class="section-inner">
+    <div class="eyebrow">Who This Is For</div>
+    <div class="fit-grid">
+      <div class="fit-row">
+        <div class="fit-icon">&#10003;</div>
+        <div class="fit-text">Adults who want to start BJJ but don&rsquo;t want to walk into a regular class as the only complete beginner in the room.</div>
+      </div>
+      <div class="fit-row">
+        <div class="fit-icon">&#10003;</div>
+        <div class="fit-text">People who learn better when the environment is structured and the group stays consistent.</div>
+      </div>
+      <div class="fit-row">
+        <div class="fit-icon">&#10003;</div>
+        <div class="fit-text">Anyone 40+ who trains with an awareness of their body &mdash; recovery time, existing injuries, the difference between discomfort and damage.</div>
+      </div>
+      <div class="fit-row">
+        <div class="fit-icon">&#10003;</div>
+        <div class="fit-text">People who can commit to Wednesday evenings for 8 consecutive weeks.</div>
+      </div>
+      <div class="fit-row no">
+        <div class="fit-icon">&times;</div>
+        <div class="fit-text">Not for people looking for a competition training programme. VCBJJ does not train competitors.</div>
+      </div>
+      <div class="fit-row no">
+        <div class="fit-icon">&times;</div>
+        <div class="fit-text">Not for people who already have 6+ months of mat time. This curriculum is built for genuine beginners.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="eyebrow">Questions</div>
+    <div style="margin-top:8px;">
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Do I need any gear before the first session?</div>
+        <div class="faq-a">No gi required for the course &mdash; all 8 weeks are conducted no-gi. You need a rash guard or compression top, training shorts or leggings, and a mouthguard by week 4 when live drilling begins. A gear guide is in the Student Manual. If you&rsquo;re unsure what to buy, ask before you order.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What if I miss a session?</div>
+        <div class="faq-a">Life happens. If you miss one session, you can catch up on the technical content in the following week. Missing more than two sessions significantly disrupts continuity &mdash; the curriculum builds week on week and does not loop back. If a scheduling conflict looks likely, raise it before you register.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">What happens after the 8 weeks?</div>
+        <div class="faq-a">Week 8 includes an individual debrief and a practical handoff to regular Monday/Thursday group classes. Foundations graduates have priority access to group class spots. There&rsquo;s no pressure to continue &mdash; but the 8 weeks are designed to make continuing feel like the obvious next step rather than starting over.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">Is this the same as a regular VCBJJ class?</div>
+        <div class="faq-a">No. Regular Monday and Thursday group classes mix belt levels and assume some familiarity with the environment. The Foundations course is slower, more structured, and deliberately separate from the regular timetable. It&rsquo;s a different room with a different job.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-q">I&rsquo;m not sure if I&rsquo;m fit enough. Should I wait?</div>
+        <div class="faq-a">No. The course is not a fitness programme and does not require a baseline fitness level. You will be tired. You will be uncomfortable. That is different from needing to get fit first. People who wait until they&rsquo;re fit enough tend to wait indefinitely. Show up as you are.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="eyebrow" style="text-align:center;">October 2026 &mdash; Cohort 01</div>
+    <h2 class="cta-heading">Six spots. One start date. No second guessing.</h2>
+    <p class="cta-sub">Register your interest and we&rsquo;ll send you the full details, the participation agreement, and payment information. No commitment until you confirm.</p>
+    <a href="contact.html?enquiry=foundations" class="btn btn-primary" style="padding:18px 40px;font-size:13px;">Register Interest</a>
+    <div class="cta-deadline">Deadline to register: 30 September 2026</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-col-title">Pages</div>
+        <ul class="footer-links">
+          <li><a href="info.html">Is It Right For You?</a></li>
+          <li><a href="getstarted.html">Get Started</a></li>
+          <li><a href="about.html">Coach Vince</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="seminar.html">Seminar</a></li>
+          <li><a href="camps.html">Camps</a></li>
+          <li><a href="bjj-bangsar.html">BJJ in Bangsar</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Connect</div>
+        <ul class="footer-links">
+          <li><a href="https://www.instagram.com/vcbjjcoach/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.beltchecker.com/profile.php?id=412" target="_blank" rel="noopener">Belt Checker</a></li>
+          <li><a href="https://www.bjjglobetrotters.com" target="_blank" rel="noopener">BJJ Globetrotters</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      14-2 Jalan Telawi 3, Bangsar, 59100 Kuala Lumpur<br>
+      &copy; VCBJJ Martial Arts (Company Reg: RA0077915-M) &middot; Proprietor: Vince Choo
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ toggle — prevent double-toggle on inner clicks
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.addEventListener('click', function(e){
+    e.stopPropagation();
+    this.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>
