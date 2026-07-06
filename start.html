@@ -325,6 +325,31 @@ function goTo(step) {
   });
 }
 
+// Deep-link support: contact.html?enquiry=foundations is a real, confirmed
+// link used twice in beginners.html. If contact.html's links get repointed
+// to this page, ?enquiry=... still needs to land the visitor on the right
+// step instead of dropping them on the generic 4-button chooser.
+// Only "foundations" is confirmed to be in real use — "group", "private",
+// and "trial" are added defensively in case other pages use the same
+// pattern, but that has NOT been verified against live source.
+function handleEnquiryDeepLink() {
+  var params = new URLSearchParams(window.location.search);
+  var enquiry = (params.get('enquiry') || '').toLowerCase();
+  if (!enquiry) return;
+  if (enquiry === 'foundations') {
+    goTo('visitor');
+    var sel = document.getElementById('v-programme');
+    if (sel) sel.value = 'Foundations Course — Oct 2026';
+  } else if (enquiry === 'group') {
+    goTo('group');
+  } else if (enquiry === 'private') {
+    goTo('private');
+  } else if (enquiry === 'trial') {
+    goTo('visitor');
+  }
+}
+handleEnquiryDeepLink();
+
 // ============================================================
 // SUBMIT (JSONP — same pattern as the student portal)
 // ============================================================
