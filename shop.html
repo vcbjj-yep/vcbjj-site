@@ -148,7 +148,31 @@ a{color:inherit;text-decoration:none}
 .product-price{font-family:var(--mono);font-size:14px;color:var(--text)}
 .product-cta{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
 
-.testimonial{margin-top:8px;padding:28px 28px 24px;background:var(--bg);border:1px solid var(--border);border-left:2px solid var(--gold);border-radius:var(--radius)}
+.testimonial-wrap{
+  margin-top:8px;
+  position:relative;
+  border-radius:calc(var(--radius) + 3px);
+  padding:1.5px;
+  background:conic-gradient(from var(--sj-border-angle, 0deg),
+    transparent 0deg,
+    rgba(201,168,76,0) 0deg,
+    var(--gold) 18deg,
+    #F5E7B8 36deg,
+    var(--gold) 54deg,
+    rgba(201,168,76,0) 90deg,
+    transparent 180deg,
+    rgba(201,168,76,0) 270deg,
+    var(--gold) 306deg,
+    #F5E7B8 324deg,
+    var(--gold) 342deg,
+    rgba(201,168,76,0) 360deg
+  );
+  animation:sj-border-spin 4.5s linear infinite;
+}
+@media (prefers-reduced-motion:reduce){
+  .testimonial-wrap{ animation:none; }
+}
+.testimonial{padding:28px 28px 24px;background:var(--bg);border-radius:var(--radius)}
 .testimonial-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .testimonial-quote{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:18px}
 .testimonial-quote p{margin-bottom:14px}
@@ -242,7 +266,41 @@ a{color:inherit;text-decoration:none}
 .sj-cta-block{margin-top:4px}
 .sj-cta-note{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
 
-.sj-testimonial{margin-top:28px;padding:24px 24px 20px;background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.35);border-radius:var(--radius)}
+@property --sj-border-angle{
+  syntax:'<angle>';
+  inherits:false;
+  initial-value:0deg;
+}
+
+.sj-testimonial-wrap{
+  margin-top:28px;
+  position:relative;
+  border-radius:calc(var(--radius) + 3px);
+  padding:1.5px;
+  background:conic-gradient(from var(--sj-border-angle),
+    transparent 0deg,
+    rgba(201,168,76,0) 0deg,
+    var(--gold) 18deg,
+    #F5E7B8 36deg,
+    var(--gold) 54deg,
+    rgba(201,168,76,0) 90deg,
+    transparent 180deg,
+    rgba(201,168,76,0) 270deg,
+    var(--gold) 306deg,
+    #F5E7B8 324deg,
+    var(--gold) 342deg,
+    rgba(201,168,76,0) 360deg
+  );
+  animation:sj-border-spin 4.5s linear infinite;
+}
+@keyframes sj-border-spin{
+  to{ --sj-border-angle:360deg; }
+}
+@media (prefers-reduced-motion:reduce){
+  .sj-testimonial-wrap{ animation:none; }
+}
+
+.sj-testimonial{padding:24px 24px 20px;background:#151310;border-radius:var(--radius)}
 .sj-testimonial-label{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .sj-testimonial-quote{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:16px}
 .sj-testimonial-quote p{margin-bottom:12px}
@@ -485,16 +543,18 @@ a{color:inherit;text-decoration:none}
 
     </div>
 
-    <div class="testimonial">
-      <div class="testimonial-eyebrow">Reader review &mdash; The Art of Yielding Well</div>
-      <div class="testimonial-quote">
-        <p>Coach Vince Choo &mdash; a 3rd-degree BJJ black belt with a wealth of knowledge and skill, and more than three decades of martial arts experience &mdash; has developed an excellent guide for students learning and training in the art of Brazilian Jiu-Jitsu.</p>
-        <p>This guidebook gives a structured theoretical framework and describes positions, drills, and games for BJJ from day zero, taking into account all belt levels, from white to black.</p>
-        <p>Coach Vince Choo considers the strategic, technical, tactical, and mental skills being developed, plus the transfer you get out of it.</p>
-        <p>This guidebook is well written and an excellent theoretical resource for every Brazilian Jiu-Jitsu practitioner, whether a newbie or an experienced BJJ enthusiast. I can highly recommend it!</p>
-      </div>
-      <div class="testimonial-attribution">
-        <strong>Mirco Wendt</strong> &mdash; 27 years of experience in martial arts, combat sports, and physical training. BJJ brown belt. Professional defensive tactics and control tactics instructor in law enforcement. Certified PT instructor and head coach of Wendt Jiu-Jitsu, Germany.
+    <div class="testimonial-wrap">
+      <div class="testimonial">
+        <div class="testimonial-eyebrow">Reader review &mdash; The Art of Yielding Well</div>
+        <div class="testimonial-quote">
+          <p>Coach Vince Choo &mdash; a 3rd-degree BJJ black belt with a wealth of knowledge and skill, and more than three decades of martial arts experience &mdash; has developed an excellent guide for students learning and training in the art of Brazilian Jiu-Jitsu.</p>
+          <p>This guidebook gives a structured theoretical framework and describes positions, drills, and games for BJJ from day zero, taking into account all belt levels, from white to black.</p>
+          <p>Coach Vince Choo considers the strategic, technical, tactical, and mental skills being developed, plus the transfer you get out of it.</p>
+          <p>This guidebook is well written and an excellent theoretical resource for every Brazilian Jiu-Jitsu practitioner, whether a newbie or an experienced BJJ enthusiast. I can highly recommend it!</p>
+        </div>
+        <div class="testimonial-attribution">
+          <strong>Mirco Wendt</strong> &mdash; 27 years of experience in martial arts, combat sports, and physical training. BJJ brown belt. Professional defensive tactics and control tactics instructor in law enforcement. Certified PT instructor and head coach of Wendt Jiu-Jitsu, Germany.
+        </div>
       </div>
     </div>
 
@@ -573,14 +633,16 @@ a{color:inherit;text-decoration:none}
           <a href="/contact.html" class="btn btn-primary">Get in Touch &rarr;</a>
         </div>
 
-        <div class="sj-testimonial">
-          <div class="sj-testimonial-label">Smelljitsu Review</div>
-          <div class="sj-testimonial-quote">
-            <p>I&rsquo;ve got rashguards I&rsquo;ve used and washed immediately after training for up to 7&ndash;8 years &mdash; the kind that seem fine after a wash but give off a funky odour the moment you start sweating in them again.</p>
-            <p>I soaked them in hot water with 2 tablespoons of Smelljitsu powder for an hour, rinsed, then washed with regular laundry detergent. That funky odour was gone. 10/10 &mdash; recommend it for all your synthetic training gear.</p>
-          </div>
-          <div class="sj-testimonial-attribution">
-            <strong>Daryl Y.</strong> &mdash; Fitness Professional
+        <div class="sj-testimonial-wrap">
+          <div class="sj-testimonial">
+            <div class="sj-testimonial-label">Smelljitsu Review</div>
+            <div class="sj-testimonial-quote">
+              <p>I&rsquo;ve got rashguards I&rsquo;ve used and washed immediately after training for up to 7&ndash;8 years &mdash; the kind that seem fine after a wash but give off a funky odour the moment you start sweating in them again.</p>
+              <p>I soaked them in hot water with 2 tablespoons of Smelljitsu powder for an hour, rinsed, then washed with regular laundry detergent. That funky odour was gone. 10/10 &mdash; recommend it for all your synthetic training gear.</p>
+            </div>
+            <div class="sj-testimonial-attribution">
+              <strong>Daryl Y.</strong> &mdash; Fitness Professional
+            </div>
           </div>
         </div>
 
