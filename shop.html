@@ -148,37 +148,17 @@ a{color:inherit;text-decoration:none}
 .product-price{font-family:var(--mono);font-size:14px;color:var(--text)}
 .product-cta{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
 
-.testimonial-wrap{
-  margin-top:8px;
-  position:relative;
-  border-radius:calc(var(--radius) + 3px);
-  padding:1.5px;
-  background:conic-gradient(from var(--sj-border-angle, 0deg),
-    transparent 0deg,
-    rgba(201,168,76,0) 0deg,
-    var(--gold) 18deg,
-    #F5E7B8 36deg,
-    var(--gold) 54deg,
-    rgba(201,168,76,0) 90deg,
-    transparent 180deg,
-    rgba(201,168,76,0) 270deg,
-    var(--gold) 306deg,
-    #F5E7B8 324deg,
-    var(--gold) 342deg,
-    rgba(201,168,76,0) 360deg
-  );
-  animation:sj-border-spin 4.5s linear infinite;
-}
-@media (prefers-reduced-motion:reduce){
-  .testimonial-wrap{ animation:none; }
-}
-.testimonial{padding:28px 28px 24px;background:var(--bg);border-radius:var(--radius)}
-.testimonial-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.testimonial-quote{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:18px}
-.testimonial-quote p{margin-bottom:14px}
+.testimonial{position:relative;margin-top:8px;padding:40px 36px 30px;background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:var(--radius)}
+.testimonial-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.testimonial-mark{font-family:Georgia,'Times New Roman',serif;font-size:64px;line-height:0.5;color:var(--gold);opacity:0.45;display:block;margin-bottom:14px}
+.testimonial-quote{font-size:19px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:24px}
+.testimonial-quote p{margin-bottom:16px}
 .testimonial-quote p:last-child{margin-bottom:0}
-.testimonial-attribution{font-size:13px;color:var(--muted);line-height:1.6;border-top:1px solid var(--border);padding-top:16px}
-.testimonial-attribution strong{color:var(--text);font-weight:500}
+.testimonial-attribution{display:flex;align-items:center;gap:16px;font-size:13px;color:var(--muted);line-height:1.6;border-top:1px solid rgba(201,168,76,0.25);padding-top:20px}
+.testimonial-attribution strong{display:block;font-size:15px;font-style:normal;color:var(--gold);font-weight:500;margin-bottom:2px}
+.testimonial-avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:center 12%;flex-shrink:0;border:2px solid var(--gold)}
+.testimonial-avatar-fallback{width:52px;height:52px;border-radius:50%;flex-shrink:0;border:2px solid var(--gold);background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:15px;color:var(--gold)}
+.testimonial-attribution-text{flex:1}
 
 
 /* ── GEAR LIST (Shopee) ── */
@@ -266,47 +246,14 @@ a{color:inherit;text-decoration:none}
 .sj-cta-block{margin-top:4px}
 .sj-cta-note{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
 
-@property --sj-border-angle{
-  syntax:'<angle>';
-  inherits:false;
-  initial-value:0deg;
-}
-
-.sj-testimonial-wrap{
-  margin-top:28px;
-  position:relative;
-  border-radius:calc(var(--radius) + 3px);
-  padding:1.5px;
-  background:conic-gradient(from var(--sj-border-angle),
-    transparent 0deg,
-    rgba(201,168,76,0) 0deg,
-    var(--gold) 18deg,
-    #F5E7B8 36deg,
-    var(--gold) 54deg,
-    rgba(201,168,76,0) 90deg,
-    transparent 180deg,
-    rgba(201,168,76,0) 270deg,
-    var(--gold) 306deg,
-    #F5E7B8 324deg,
-    var(--gold) 342deg,
-    rgba(201,168,76,0) 360deg
-  );
-  animation:sj-border-spin 4.5s linear infinite;
-}
-@keyframes sj-border-spin{
-  to{ --sj-border-angle:360deg; }
-}
-@media (prefers-reduced-motion:reduce){
-  .sj-testimonial-wrap{ animation:none; }
-}
-
-.sj-testimonial{padding:24px 24px 20px;background:#151310;border-radius:var(--radius)}
-.sj-testimonial-label{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.sj-testimonial-quote{font-size:14px;color:var(--text);line-height:1.75;margin-bottom:16px}
-.sj-testimonial-quote p{margin-bottom:12px}
-.sj-testimonial-quote p:last-child{margin-bottom:0}
-.sj-testimonial-attribution{font-size:12px;color:var(--muted);border-top:1px solid rgba(201,168,76,0.25);padding-top:14px}
-.sj-testimonial-attribution strong{color:var(--text);font-weight:500}
+.sj-testimonial{grid-column:1/-1;margin-top:8px;padding:32px 32px 26px;background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:var(--radius)}
+.sj-testimonial-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.sj-testimonial-mark{font-family:Georgia,'Times New Roman',serif;font-size:52px;line-height:0.5;color:var(--gold);opacity:0.45;display:block;margin-bottom:12px}
+.sj-testimonial-quote{font-size:16px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:20px}
+.sj-testimonial-attribution{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--muted);line-height:1.6;border-top:1px solid rgba(201,168,76,0.25);padding-top:18px}
+.sj-testimonial-attribution strong{display:block;font-size:14px;font-style:normal;color:var(--gold);font-weight:500;margin-bottom:2px}
+.sj-testimonial-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:center 12%;flex-shrink:0;border:2px solid var(--gold)}
+.sj-testimonial-avatar-fallback{width:44px;height:44px;border-radius:50%;flex-shrink:0;border:2px solid var(--gold);background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:14px;color:var(--gold)}
 
 /* FOOTER */
 .footer{background:#0A0A0A;padding:48px 20px 32px;color:var(--dark-muted);border-top:1px solid #1a1a1a}
@@ -543,20 +490,39 @@ a{color:inherit;text-decoration:none}
 
     </div>
 
-    <div class="testimonial-wrap">
-      <div class="testimonial">
-        <div class="testimonial-eyebrow">Reader review &mdash; The Art of Yielding Well</div>
-        <div class="testimonial-quote">
-          <p>Coach Vince Choo &mdash; a 3rd-degree BJJ black belt with a wealth of knowledge and skill, and more than three decades of martial arts experience &mdash; has developed an excellent guide for students learning and training in the art of Brazilian Jiu-Jitsu.</p>
-          <p>This guidebook gives a structured theoretical framework and describes positions, drills, and games for BJJ from day zero, taking into account all belt levels, from white to black.</p>
-          <p>Coach Vince Choo considers the strategic, technical, tactical, and mental skills being developed, plus the transfer you get out of it.</p>
-          <p>This guidebook is well written and an excellent theoretical resource for every Brazilian Jiu-Jitsu practitioner, whether a newbie or an experienced BJJ enthusiast. I can highly recommend it!</p>
-        </div>
-        <div class="testimonial-attribution">
-          <strong>Mirco Wendt</strong> &mdash; 27 years of experience in martial arts, combat sports, and physical training. BJJ brown belt. Professional defensive tactics and control tactics instructor in law enforcement. Certified PT instructor and head coach of Wendt Jiu-Jitsu, Germany.
-        </div>
+    <div class="testimonial">
+      <div class="testimonial-eyebrow">Reader Review</div>
+      <span class="testimonial-mark">&ldquo;</span>
+      <div class="testimonial-quote">
+        <p>I&rsquo;ve known Vince Choo for nearly two decades, and I have tremendous respect for him both as a friend, a martial artist, and a coach.</p>
+        <p>Vince is one of the true pioneers of Brazilian Jiu-Jitsu in Malaysia. Long before BJJ had the popularity and accessibility it has today, Vince was helping build the art and its community here. What impresses me most, however, isn&rsquo;t simply how long he has been involved &mdash; it&rsquo;s the depth of thought he continues to bring to his coaching.</p>
+        <p>Vince is a student of the art in the truest sense. He is constantly learning, questioning, refining, and looking for better ways to communicate Jiu-Jitsu to his students. He doesn&rsquo;t simply teach techniques; he teaches people how to understand positions, solve problems, and develop a Jiu-Jitsu game that works for them.</p>
+        <p>As a coach myself, I have a great appreciation for someone who understands that great coaching is about much more than knowing the material. It is about being able to communicate it, adapt it to the individual in front of you, and create an environment where people can learn and improve. Vince does all of those things exceptionally well.</p>
+        <p>More importantly, Vince is simply an amazing person. He cares deeply about his students, his craft, and the community he has spent decades helping to build.</p>
+        <p>If you have the opportunity to train with Vince at VCBJJ, I highly recommend it. Whether you&rsquo;re completely new to Jiu-Jitsu or an experienced practitioner looking to deepen your understanding of the art, you will be learning from someone with an enormous amount of knowledge, experience, and genuine passion for teaching.</p>
+        <p>I&rsquo;m proud to call Vince my friend, and I have nothing but respect for what he has built and what he continues to contribute to Brazilian Jiu-Jitsu in Malaysia.</p>
+      </div>
+      <div class="testimonial-attribution">
+        <img class="testimonial-avatar" src="/assets/Eric_Kolesar.webp" alt="Eric Kolesar" loading="lazy">
+        <div class="testimonial-attribution-text"><strong>Eric Kolesar</strong>Head Coach / Owner, K2 Gym &mdash; Boxing &amp; Jiu-Jitsu. 2nd-degree BJJ black belt.</div>
       </div>
     </div>
+
+    <div class="testimonial">
+      <div class="testimonial-eyebrow">Reader Review</div>
+      <span class="testimonial-mark">&ldquo;</span>
+      <div class="testimonial-quote">
+        <p>Coach Vince Choo &mdash; a 3rd-degree BJJ black belt with a wealth of knowledge and skill, and more than three decades of martial arts experience &mdash; has developed an excellent guide for students learning and training in the art of Brazilian Jiu-Jitsu.</p>
+        <p>This guidebook gives a structured theoretical framework and describes positions, drills, and games for BJJ from day zero, taking into account all belt levels, from white to black.</p>
+        <p>Coach Vince Choo considers the strategic, technical, tactical, and mental skills being developed, plus the transfer you get out of it.</p>
+        <p>This guidebook is well written and an excellent theoretical resource for every Brazilian Jiu-Jitsu practitioner, whether a newbie or an experienced BJJ enthusiast. I can highly recommend it!</p>
+      </div>
+      <div class="testimonial-attribution">
+        <img class="testimonial-avatar" src="/assets/mirco.webp" alt="Mirco Wendt" loading="lazy">
+        <div class="testimonial-attribution-text"><strong>Mirco Wendt</strong>27 years of experience in martial arts, combat sports, and physical training. BJJ brown belt. Professional defensive tactics and control tactics instructor in law enforcement. Certified PT instructor and head coach of Wendt Jiu-Jitsu, Germany.</div>
+      </div>
+    </div>
+
 
   </div>
 </section>
@@ -633,20 +599,21 @@ a{color:inherit;text-decoration:none}
           <a href="/contact.html" class="btn btn-primary">Get in Touch &rarr;</a>
         </div>
 
-        <div class="sj-testimonial-wrap">
-          <div class="sj-testimonial">
-            <div class="sj-testimonial-label">Smelljitsu Review</div>
-            <div class="sj-testimonial-quote">
-              <p>I&rsquo;ve got rashguards I&rsquo;ve used and washed immediately after training for up to 7&ndash;8 years &mdash; the kind that seem fine after a wash but give off a funky odour the moment you start sweating in them again.</p>
-              <p>I soaked them in hot water with 2 tablespoons of Smelljitsu powder for an hour, rinsed, then washed with regular laundry detergent. That funky odour was gone. 10/10 &mdash; recommend it for all your synthetic training gear.</p>
-            </div>
-            <div class="sj-testimonial-attribution">
-              <strong>Daryl Y.</strong> &mdash; Fitness Professional
-            </div>
-          </div>
-        </div>
-
       </div>
+
+      <!-- TESTIMONIAL — placeholder. Swap in a real quote, name, and role/belt when ready. Add data-avatar photo path if available, or remove the <img> line if not. -->
+      <div class="sj-testimonial">
+        <div class="sj-testimonial-eyebrow">Student Feedback</div>
+        <span class="sj-testimonial-mark">&ldquo;</span>
+        <div class="sj-testimonial-quote">
+          <p>[Add testimonial quote here &mdash; e.g. what problem it solved, how it compares to what they used before, and whether they&rsquo;d recommend it.]</p>
+        </div>
+        <div class="sj-testimonial-attribution">
+          <div class="sj-testimonial-avatar-fallback">?</div>
+          <div><strong>[Reviewer Name]</strong>[Belt / role / how long training]</div>
+        </div>
+      </div>
+
     </div>
 
   </div>
