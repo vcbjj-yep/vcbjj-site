@@ -149,7 +149,22 @@ a{color:inherit;text-decoration:none}
 .product-price{font-family:var(--mono);font-size:14px;color:var(--text)}
 .product-cta{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
 
-.testimonial{position:relative;margin-top:8px;padding:40px 36px 30px;background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:var(--radius)}
+.testimonial{position:relative;margin-top:8px;padding:40px 36px 30px;border-radius:var(--radius)}
+
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.testimonial,.sj-testimonial{
+  --a:0deg;
+  border:2px solid transparent;
+  background:
+    linear-gradient(var(--surface),var(--surface)) padding-box,
+    conic-gradient(from var(--a),transparent 0deg,var(--gold) 55deg,transparent 130deg,transparent 230deg,var(--gold) 305deg,transparent 360deg) border-box;
+  box-shadow:0 0 28px -10px rgba(201,168,76,0.45);
+  animation:testimonial-glow 7s linear infinite;
+}
+@keyframes testimonial-glow{to{--a:360deg}}
+@media (prefers-reduced-motion: reduce){
+  .testimonial,.sj-testimonial{animation:none;border:1px solid var(--border);border-top:2px solid var(--gold);background:var(--surface)}
+}
 .testimonial-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .testimonial-mark{font-family:Georgia,'Times New Roman',serif;font-size:64px;line-height:0.5;color:var(--gold);opacity:0.45;display:block;margin-bottom:14px}
 .testimonial-quote{font-size:19px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:24px}
@@ -247,7 +262,7 @@ a{color:inherit;text-decoration:none}
 .sj-cta-block{margin-top:4px}
 .sj-cta-note{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
 
-.sj-testimonial{grid-column:1/-1;margin-top:8px;padding:32px 32px 26px;background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:var(--radius)}
+.sj-testimonial{grid-column:1/-1;margin-top:8px;padding:32px 32px 26px;border-radius:var(--radius)}
 .sj-testimonial-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .sj-testimonial-mark{font-family:Georgia,'Times New Roman',serif;font-size:52px;line-height:0.5;color:var(--gold);opacity:0.45;display:block;margin-bottom:12px}
 .sj-testimonial-quote{font-size:16px;font-style:italic;color:var(--text);line-height:1.7;margin-bottom:20px}
@@ -598,16 +613,15 @@ a{color:inherit;text-decoration:none}
 
       </div>
 
-      <!-- TESTIMONIAL — placeholder. Swap in a real quote, name, and role/belt when ready. Add data-avatar photo path if available, or remove the <img> line if not. -->
       <div class="sj-testimonial">
         <div class="sj-testimonial-eyebrow">Student Feedback</div>
         <span class="sj-testimonial-mark">&ldquo;</span>
         <div class="sj-testimonial-quote">
-          <p>[Add testimonial quote here &mdash; e.g. what problem it solved, how it compares to what they used before, and whether they&rsquo;d recommend it.]</p>
+          <p>I&rsquo;ve got rashguards I&rsquo;ve used and washed immediately after training for 7&ndash;8 years &mdash; the kind that seem fine after a wash but immediately give off a funky odour the moment you start sweating in them again. I soaked them in hot water with 2 tablespoons of Smelljitsu for an hour, rinsed, then washed with regular laundry detergent. That funky odour was gone. 10/10, recommend for all your synthetic workout wear.</p>
         </div>
         <div class="sj-testimonial-attribution">
-          <div class="sj-testimonial-avatar-fallback">?</div>
-          <div><strong>[Reviewer Name]</strong>[Belt / role / how long training]</div>
+          <img class="sj-testimonial-avatar" src="/assets/daryl.webp" alt="Daryl Y." loading="lazy">
+          <div><strong>Daryl Y.</strong></div>
         </div>
       </div>
 
