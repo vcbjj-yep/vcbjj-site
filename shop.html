@@ -149,21 +149,25 @@ a{color:inherit;text-decoration:none}
 .product-price{font-family:var(--mono);font-size:14px;color:var(--text)}
 .product-cta{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
 
-.testimonial{position:relative;margin-top:8px;padding:40px 36px 30px;border-radius:var(--radius)}
+.testimonial{position:relative;margin-top:8px;padding:40px 36px 30px;background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold);border-radius:var(--radius)}
+.sj-testimonial{background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--gold)}
 
 @property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
-.testimonial,.sj-testimonial{
+.product-card-glow,.sj-cta-block{
   --a:0deg;
+  position:relative;
   border:2px solid transparent;
+  border-radius:var(--radius);
   background:
-    linear-gradient(var(--surface),var(--surface)) padding-box,
+    linear-gradient(var(--bg),var(--bg)) padding-box,
     conic-gradient(from var(--a),transparent 0deg,var(--gold) 55deg,transparent 130deg,transparent 230deg,var(--gold) 305deg,transparent 360deg) border-box;
   box-shadow:0 0 28px -10px rgba(201,168,76,0.45);
-  animation:testimonial-glow 7s linear infinite;
+  animation:glow-rotate 7s linear infinite;
 }
-@keyframes testimonial-glow{to{--a:360deg}}
+.sj-cta-block{padding:20px 22px}
+@keyframes glow-rotate{to{--a:360deg}}
 @media (prefers-reduced-motion: reduce){
-  .testimonial,.sj-testimonial{animation:none;border:1px solid var(--border);border-top:2px solid var(--gold);background:var(--surface)}
+  .product-card-glow,.sj-cta-block{animation:none;border:1px solid var(--border);border-top:2px solid var(--gold);background:var(--bg)}
 }
 .testimonial-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
 .testimonial-mark{font-family:Georgia,'Times New Roman',serif;font-size:64px;line-height:0.5;color:var(--gold);opacity:0.45;display:block;margin-bottom:14px}
@@ -490,7 +494,7 @@ a{color:inherit;text-decoration:none}
         </div>
       </a>
 
-      <a href="https://vcbjj.com/bundle" target="_blank" rel="noopener" class="product-card">
+      <a href="https://vcbjj.com/bundle" target="_blank" rel="noopener" class="product-card product-card-glow">
         <div class="product-thumb">
           <img src="/assets/bundle.png" alt="Manual + Framework Bundle" loading="lazy">
         </div>
@@ -510,9 +514,7 @@ a{color:inherit;text-decoration:none}
       <div class="testimonial-eyebrow">Reader Review</div>
       <span class="testimonial-mark">&ldquo;</span>
       <div class="testimonial-quote">
-        <p>I&rsquo;ve known Vince Choo for nearly two decades. He&rsquo;s one of the true pioneers of Brazilian Jiu-Jitsu in Malaysia &mdash; and what impresses me most isn&rsquo;t how long he&rsquo;s been at it, but the depth of thought he brings to his coaching.</p>
-        <p>Vince doesn&rsquo;t just teach techniques. He teaches people how to understand positions, solve problems, and build a Jiu-Jitsu game that works for them. As a coach myself, I know how rare that is.</p>
-        <p>If you get the chance to train with Vince at VCBJJ, take it. I&rsquo;m proud to call him my friend, and I have nothing but respect for what he&rsquo;s built.</p>
+        <p>I don&rsquo;t think I&rsquo;ve seen a better, more complete product than what you put together. It&rsquo;s thorough without being complicated, and covers all the bases. Focused on your ideal client, yet it works for everyone.</p>
       </div>
       <div class="testimonial-attribution">
         <img class="testimonial-avatar" src="/assets/Eric_Kolesar.webp?v=2" alt="Eric Kolesar" loading="lazy">
