@@ -35,6 +35,10 @@
 .form-success-icon{font-size:48px;margin-bottom:16px;color:var(--gold)}
 .form-success h2{font-size:22px;font-weight:500;margin-bottom:8px}
 .form-success p{font-size:15px;color:var(--muted)}
+.form-success-qr{margin-top:28px;padding-top:28px;border-top:1px solid var(--border)}
+.form-success-qr img{max-width:220px;margin:16px auto 0;border-radius:var(--radius)}
+.form-success-qr p{font-size:14px;color:var(--muted)}
+.form-success-qr .amount{font-family:var(--mono);font-size:13px;letter-spacing:1px;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
 .form-success-links{margin-top:32px;padding-top:24px;border-top:1px solid var(--border)}
 .form-success-meta{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 .form-success-links a{display:block;font-size:15px;font-weight:500;color:var(--gold);padding:10px 0;transition:color 0.2s}
@@ -109,6 +113,11 @@
   <div class="form-success-icon">&#10003;</div>
   <h2>Thank you</h2>
   <p>We&rsquo;ve received your details and Coach Vince will get back to you personally. Please check your email later.</p>
+  <div class="form-success-qr">
+    <p class="amount">First Class — RM65</p>
+    <p>Scan to pay via Maybank QR. No subscriptions, no contracts — this covers your first class only. Coach Vince will confirm your session time by email.</p>
+    <img src="/assets/QRMaybank.webp" alt="Maybank QR code for RM65 first-class payment" loading="lazy">
+  </div>
   <div class="form-success-links">
     <p class="form-success-meta">While you wait, you might want to read:</p>
     <a href="info.html">Is VCBJJ Right For You?</a>
@@ -131,7 +140,7 @@
     var h1 = document.querySelector('.page-hero h1');
     var sub = document.querySelector('.page-hero p');
     if (h1) h1.textContent = 'Register for Foundations';
-    if (sub) sub.textContent = 'BJJ Foundations Course \u2014 8 weeks starting 7 October 2026. Places are limited to 6. Coach Vince will confirm your spot within 24 hours.';
+    if (sub) sub.textContent = 'BJJ Foundations Course — 8 weeks starting 7 October 2026. Places are limited to 6. Coach Vince will confirm your spot within 24 hours.';
   }
 })();
 
