@@ -133,13 +133,14 @@ function extractBlock(html, marker) {
 
 var latest3 = posts.slice(0, 3);
 var cards   = latest3.map(function(p) {
-  return '      <a href="' + p.href + '" style="display:block;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:6px">\n' +
-         '        <div style="font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px">' + displayDate(p.date) + '</div>\n' +
-         '        <div style="font-size:14px;line-height:1.4;color:var(--text)">' + safe(p.title) + '</div>\n' +
+  return '      <a href="' + p.href + '" class="bp-card">\n' +
+         '        <div class="bp-date">' + displayDate(p.date) + '</div>\n' +
+         '        <div class="bp-title">' + safe(p.title) + '</div>\n' +
          '      </a>';
 }).join('\n');
 
-var newGrid = '    <div style="margin-top:32px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;max-width:680px" class="blog-preview-grid">\n' +
+// Styling for .blog-preview-grid / .bp-card lives in index.html's <style> block.
+var newGrid = '    <div class="blog-preview-grid">\n' +
               cards + '\n    </div>';
 
 if (fs.existsSync(HOMEPAGE)) {
