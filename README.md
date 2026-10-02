@@ -19,6 +19,14 @@ Deployed via Cloudflare Pages.
 - `llms.txt` — AI agent discovery file
 - `robots.txt` — Search engine / crawler directives
 
+## Shared styles
+
+`site.css` holds the design tokens (colours, fonts, widths), reset, nav, footer, sections and buttons used by the public pages. Each page links it before its own `<style>` block, so a page can still override anything. To restyle the site, edit `site.css` first (tokens in `:root`).
+
+Not yet on `site.css` (own layout/fonts, need a manual pass): `assess.html`, `shop.html`, `start.html`, `blog/gear-strip-wash.html`. The roadmap pages use `roadmap-shared.css`.
+
+`site.css` is cached for 5 minutes (see `_headers`), so edits go live quickly.
+
 ## Stack
 
 Static HTML/CSS/JS. No frameworks, no build tools.
