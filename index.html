@@ -233,6 +233,8 @@ body{font-size:17px}
 .testi-name{font-size:16px;font-weight:600;color:var(--text)}
 .testi-role{font-size:14px;color:var(--muted);line-height:1.4}
 .testi-stars{display:flex;gap:3px;margin-top:8px}
+.link-gold.google-rating{display:inline-flex;align-items:center;gap:10px}
+.gr-stars{display:inline-flex;gap:3px}
 .testi-star{width:14px;height:14px;fill:var(--gold)}
 .testi-actions{margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px}
 .testi-more-btn{display:inline-block;padding:14px 24px;background:transparent;border:1px solid #3a3a3a;border-radius:var(--pill);font-family:var(--mono);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--soft);cursor:pointer;transition:all .2s}
@@ -483,7 +485,7 @@ body{font-size:17px}
 
     <div class="testi-actions">
       <button class="testi-more-btn" id="testi-more-btn" onclick="initTestiCarousel()" aria-expanded="false" aria-controls="testi-more-wrap">Read All Reviews &#8595;</button>
-      <a href="https://shorturl.at/NA3mh" target="_blank" rel="noopener" class="link-gold" style="color:var(--muted)">Rated 5.0 on Google (13 reviews) &#8599;</a>
+      <a href="https://shorturl.at/NA3mh" target="_blank" rel="noopener" class="link-gold google-rating" style="color:var(--muted)" aria-label="Rated 5.0 out of 5 on Google"><span class="gr-stars" aria-hidden="true"><svg class="testi-star" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg><svg class="testi-star" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1l2.39 4.84 5.35.78-3.87 3.77.91 5.32L10 13.27l-4.78 2.51.91-5.32L2.26 6.62l5.35-.78z"/></svg></span>Rated 5.0 on Google &#8599;</a>
     </div>
 
     <div class="testi-more-wrap" id="testi-more-wrap" style="display:none">
