@@ -270,6 +270,26 @@ body{font-size:17px}
 .price-detail{border-top:1px solid var(--border);padding-top:18px;font-size:16px;line-height:1.8;color:var(--soft)}
 .price-detail strong{color:var(--text);font-weight:600}
 .price-pay{margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.5px;line-height:1.6;color:var(--gold)}
+/* how it works + FAQ */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;list-style:none;counter-reset:step}
+.step{padding:28px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;gap:10px}
+.step-num{font-family:var(--serif);font-size:44px;line-height:1;color:var(--gold)}
+.step h3{font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.25;color:#fff}
+.step p{font-size:16px;line-height:1.65;color:var(--soft)}
+.steps-cta{margin-top:36px}
+.faq{max-width:820px}
+.faq details{border-bottom:1px solid var(--border)}
+.faq details:first-child{border-top:1px solid var(--border)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;min-height:44px;font-family:var(--serif);font-size:clamp(19px,2vw,22px);line-height:1.35;color:#fff}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;font-family:var(--mono);font-size:22px;color:var(--gold);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--gold)}
+.faq summary:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.faq .faq-a{padding:0 40px 24px 0;font-size:17px;line-height:1.7;color:var(--soft)}
+.faq .faq-a a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:960px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.steps{grid-template-columns:1fr}.faq .faq-a{padding-right:0}}
 .price-foot{margin-top:28px;font-family:var(--mono);font-size:12px;letter-spacing:.5px;color:var(--muted)}
 
 /* 10. location */
@@ -657,6 +677,42 @@ body{font-size:17px}
     </div>
     <div class="price-foot">No registration fees. No admin fees. No grading fees &mdash; ever.</div>
     <div class="price-pay">Cashless gym &mdash; QR code payment only. No credit card facilities.</div>
+  </div>
+</section>
+
+<!-- ══ HOW IT WORKS ═══════════════════════════════════════ -->
+<section class="sec" id="how-it-works">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:clamp(32px,4vw,48px)">
+      <h2 class="h2" style="margin-bottom:0">How It Works</h2>
+    </div>
+    <ol class="steps">
+      <li class="step"><div class="step-num" aria-hidden="true">1</div><h3>Register your interest</h3><p>Fill out the contact form so we know you&rsquo;re coming. We&rsquo;ll confirm your details and answer any questions.</p></li>
+      <li class="step"><div class="step-num" aria-hidden="true">2</div><h3>Sign the participation agreement</h3><p>BJJ is a contact sport. Before your first session you&rsquo;ll sign a participation agreement, digitally through the member portal.</p></li>
+      <li class="step"><div class="step-num" aria-hidden="true">3</div><h3>Make your first payment</h3><p>Scan the QR code, then send your payment receipt via WhatsApp for confirmation.</p></li>
+      <li class="step"><div class="step-num" aria-hidden="true">4</div><h3>Book your first session</h3><p>Once payment is confirmed you&rsquo;ll receive member portal access by email, then book group classes or private training.</p></li>
+    </ol>
+    <div class="steps-cta"><a href="getstarted.html" class="btn btn-primary btn-lg">Get Started</a></div>
+  </div>
+</section>
+
+<!-- ══ FAQ ═════════════════════════════════════════════════ -->
+<section class="sec sec-alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:clamp(24px,3vw,40px)">
+      <h2 class="h2" style="margin-bottom:0">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Am I too old to start?</summary><div class="faq-a">No. Most students are in their 40s, 50s and 60s, and most started with zero BJJ experience. No prior martial arts background is required or assumed &mdash; every concept is introduced from scratch.</div></details>
+      <details><summary>Will I get hurt?</summary><div class="faq-a">Not if the room is run properly. The pace is set by the people in it &mdash; not by the youngest or most aggressive person on the mat. You will be physically challenged, but you won&rsquo;t be thrown in over your head.</div></details>
+      <details><summary>Do I need to be fit first?</summary><div class="faq-a">No. BJJ builds fitness; it doesn&rsquo;t require it as an entry condition. Most people start with limited flexibility and cardio, and you will be tired after your first few classes. That passes.</div></details>
+      <details><summary>Will I look foolish as a beginner?</summary><div class="faq-a">You&rsquo;ll tap (submit) often when you&rsquo;re new. So does everyone &mdash; tapping is how you learn safely. The discomfort of not knowing what to do usually passes within a few sessions.</div></details>
+      <details><summary>Can I try a class first?</summary><div class="faq-a">VCBJJ doesn&rsquo;t offer trial classes. It&rsquo;s a deliberate policy that keeps the room consistent for the students already on the mat. If you&rsquo;d like a lower-pressure start, a private session lets you learn at your own pace. <a href="info.html">Read the full info page</a>.</div></details>
+      <details><summary>What do I wear?</summary><div class="faq-a">For Monday NoGi: a rash guard and shorts. For Thursday Gi: a BJJ gi. A mouthguard isn&rsquo;t required for your first session, but get one before you start live rolling. <a href="getstarted.html">See what to bring</a>.</div></details>
+      <details><summary>Are there contracts or sign-up fees?</summary><div class="faq-a">No contracts, no registration fees, no admin fees and no grading fees &mdash; ever. Group classes are RM&nbsp;65 per session, pay as you go.</div></details>
+      <details><summary>Can I just drop in?</summary><div class="faq-a">Sessions are booked in advance through the member portal. Group classes are capped at 10 students, and private training is by appointment, Monday to Saturday.</div></details>
+      <details><summary>Do women train here?</summary><div class="faq-a">Yes. Women train at VCBJJ from their 20s to their 60s, in the same small-group classes. <a href="women.html">Read more for women</a>.</div></details>
+    </div>
   </div>
 </section>
 
