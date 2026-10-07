@@ -42,14 +42,15 @@ a{color:inherit;text-decoration:none}
 .nav-brand{display:flex;align-items:center}
 .nav-brand img{height:36px;width:auto}
 .nav-links{display:flex;gap:4px}
-.nav-links a{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark-muted);padding:8px 12px;transition:color 0.2s}
+.nav-links a{font-family:var(--sans);font-size:14px;font-weight:500;letter-spacing:.02em;color:#CFC8BA;padding:10px 14px;transition:color 0.2s}
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
+@media(min-width:601px){.nav-links a[href$="getstarted.html"]{color:var(--gold);border:1px solid var(--gold);border-radius:var(--pill);margin-left:12px;padding:10px 20px}.nav-links a[href$="getstarted.html"]:hover{background:rgba(201,168,76,0.08)}}
 .nav-toggle{display:none;background:none;border:none;color:var(--dark-muted);font-size:22px;cursor:pointer;padding:6px}
 @media(max-width:600px){
   .nav-toggle{display:block}
   .nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:var(--dark);flex-direction:column;padding:8px 20px 16px;border-top:1px solid #1f1f1f}
   .nav-links.open{display:flex}
-  .nav-links a{padding:14px 0;font-size:13px;border-bottom:1px solid #1a1a1a}
+  .nav-links a{padding:14px 0;font-size:16px;border-bottom:1px solid #1a1a1a}
   .nav-links a:last-child{border-bottom:none}
 }
 
@@ -58,10 +59,10 @@ a{color:inherit;text-decoration:none}
 .section-inner{max-width:var(--content-max);margin:0 auto}
 .section-alt{background:var(--bg-alt)}
 .section-dark{background:var(--dark);color:var(--dark-text)}
-.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 
 /* ---- Buttons ----------------------------------------------------------- */
-.btn{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;padding:14px 28px;border-radius:var(--pill);cursor:pointer;transition:all 0.2s;border:1px solid transparent;text-align:center}
+.btn{display:inline-block;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:.01em;padding:15px 28px;border-radius:var(--pill);cursor:pointer;transition:all 0.2s;border:1px solid transparent;text-align:center}
 .btn-primary{background:var(--gold);color:#0E0E0E !important;border-color:var(--gold)}
 .btn-primary:hover{background:var(--accent-hover);border-color:var(--accent-hover);color:#0E0E0E}
 .btn-ghost{background:transparent;border-color:var(--gold);color:var(--gold)}
@@ -74,13 +75,16 @@ a{color:inherit;text-decoration:none}
 .footer{background:#0A0A0A;padding:48px 20px 32px;color:var(--dark-muted);border-top:1px solid #1a1a1a}
 .footer-inner{max-width:var(--nav-max);margin:0 auto}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:32px}
-.footer-col-title{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.footer-col-title{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
 .footer-links{list-style:none}
-.footer-links li{margin-bottom:8px}
-.footer-links a{font-size:14px;color:var(--dark-muted);transition:color 0.2s}
+.footer-links li{margin-bottom:0}
+.footer-links a{display:inline-block;padding:10px 0;font-size:15px;color:var(--dark-muted);transition:color 0.2s}
 .footer-links a:hover{color:var(--dark-text)}
-.footer-bottom{border-top:1px solid #1a1a1a;padding-top:20px;font-family:var(--mono);font-size:10px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}
+.footer-bottom{border-top:1px solid #1a1a1a;padding-top:20px;font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--dark-muted);line-height:1.8}
 .footer-bottom a{color:var(--gold)}
 @media(max-width:600px){
   .footer-grid{grid-template-columns:1fr;gap:24px}
 }
+
+/* ---- Keyboard focus ---------------------------------------------------- */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
