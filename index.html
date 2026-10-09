@@ -357,7 +357,8 @@ body{font-size:17px}
 @media(max-width:700px){
   .hero-grid{gap:0}
   .hero-img{order:-1;aspect-ratio:1/1}
-  .hero-img img{height:100%;object-position:50% 10%}
+  .hero-img img{height:100%;object-position:50% 4%;filter:none}
+  .hero-img::after{content:'';position:absolute;left:0;right:0;bottom:0;height:38%;background:linear-gradient(to bottom,rgba(14,14,14,0),var(--bg,#0E0E0E));pointer-events:none}
   .hero-copy{padding-top:32px}
 }
 @media(prefers-reduced-motion:reduce){.testi-track{transition:none}.hero h1 .h-a,.hero h1 .h-b{opacity:1;animation:none}}
