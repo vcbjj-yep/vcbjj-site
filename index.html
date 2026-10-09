@@ -356,8 +356,8 @@ body{font-size:17px}
 /* phone: portrait hero image leads, above the headline */
 @media(max-width:700px){
   .hero-grid{gap:0}
-  .hero-img{order:-1;aspect-ratio:1/1}
-  .hero-img img{height:100%;object-position:50% 10%}
+  .hero-img{order:-1;aspect-ratio:auto;min-height:0;height:100vw}
+  .hero-img img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:50% 10%}
   .hero-copy{padding-top:32px}
 }
 @media(prefers-reduced-motion:reduce){.testi-track{transition:none}.hero h1 .h-a,.hero h1 .h-b{opacity:1;animation:none}}
