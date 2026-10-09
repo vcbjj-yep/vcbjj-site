@@ -177,6 +177,12 @@ body{font-size:17px}
 .hero .eyebrow{color:var(--gold)}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.6vw,72px);line-height:1.02;letter-spacing:-0.028em;color:var(--text);margin:0 0 28px}
 .hero h1 em{font-style:italic;color:var(--gold)}
+/* hero headline: two beats. Problem rises in, pause, resolution fades in. */
+.hero h1 .h-a,.hero h1 .h-b{display:block;opacity:0;animation-fill-mode:forwards}
+.hero h1 .h-a{animation:hero-rise 600ms ease-out 150ms forwards}
+.hero h1 .h-b{animation:hero-fade 900ms cubic-bezier(.2,.6,.2,1) 1350ms forwards}
+@keyframes hero-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes hero-fade{from{opacity:0}to{opacity:1}}
 .hero .lead{max-width:480px}
 .hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;margin-top:40px}
 .hero-img{position:relative;overflow:hidden;min-height:560px;margin-right:calc(-1*max(var(--gutter),(100vw - var(--wrap))/2))}
@@ -347,7 +353,7 @@ body{font-size:17px}
   .mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 20px calc(10px + env(safe-area-inset-bottom));background:rgba(14,14,14,.97);border-top:1px solid #2a2a2a}
   .mobile-cta .btn{display:block;width:100%}
 }
-@media(prefers-reduced-motion:reduce){.testi-track{transition:none}}
+@media(prefers-reduced-motion:reduce){.testi-track{transition:none}.hero h1 .h-a,.hero h1 .h-b{opacity:1;animation:none}}
 
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -377,7 +383,7 @@ body{font-size:17px}
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <div class="eyebrow">Brazilian Jiu-Jitsu &middot; Bangsar, KL</div>
-      <h1>You&rsquo;ve been meaning to start. <em>This is the place.</em></h1>
+      <h1><span class="h-a">You&rsquo;ve been meaning to start.</span> <em class="h-b">This is the place.</em></h1>
       <p class="lead">At some point, most people over 40 look up and realise their body is losing the argument. Not dramatically &mdash; just gradually.</p>
       <div class="hero-ctas">
         <a href="assess.html" class="btn btn-primary btn-lg">Find out if it&rsquo;s right for you</a>
