@@ -353,6 +353,13 @@ body{font-size:17px}
   .mobile-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:90;padding:10px 20px calc(10px + env(safe-area-inset-bottom));background:rgba(14,14,14,.97);border-top:1px solid #2a2a2a}
   .mobile-cta .btn{display:block;width:100%}
 }
+/* phone: portrait hero image leads, above the headline */
+@media(max-width:700px){
+  .hero-grid{gap:0}
+  .hero-img{order:-1;aspect-ratio:1/1}
+  .hero-img img{height:100%;object-position:50% 10%}
+  .hero-copy{padding-top:32px}
+}
 @media(prefers-reduced-motion:reduce){.testi-track{transition:none}.hero h1 .h-a,.hero h1 .h-b{opacity:1;animation:none}}
 
 </style>
@@ -391,7 +398,10 @@ body{font-size:17px}
       </div>
     </div>
     <div class="hero-img">
-      <img src="/assets/1200x800-index-v3.webp" alt="Two students training BJJ on the mat at VCBJJ" width="1179" height="896" fetchpriority="high">
+      <picture>
+        <source media="(max-width:700px)" srcset="/assets/hero-portrait-480.webp 480w, /assets/hero-portrait-800.webp 800w" sizes="100vw">
+        <img src="/assets/1200x800-index-v3.webp" alt="Two students training BJJ on the mat at VCBJJ" width="1179" height="896" fetchpriority="high">
+      </picture>
     </div>
   </div>
 </section>
