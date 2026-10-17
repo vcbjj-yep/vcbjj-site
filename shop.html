@@ -793,41 +793,68 @@ a{color:inherit;text-decoration:none}
 <script>
 var GAS_URL = 'https://script.google.com/macros/s/AKfycbyLBmJXsUPvbA3qMPjIqMQ8LkIT3glL9SgopOhJkub8lI5oBxs1SIPo-11zx8i597mRjg/exec';
 
-/* ── Load stock indicators on page load ── */
+/* ── Stock indicators ──
+   MERCH_INVENTORY = physical stock on hand (update when stock changes; last: 17 Oct 2026).
+   Displayed stock = the lower of this and the live backend figure, so new orders still count down. ── */
+var MERCH_INVENTORY = {
+  ivory: { M: 1, L: 0 },
+  navy:  { M: 2, L: 0 },
+  gold:  { M: 2, L: 0 }
+};
+function renderMerchStock(remaining) {
+  var lTotal = 0;
+  ['ivory','navy','gold'].forEach(function(colour) {
+    var el = document.getElementById('stock-' + colour);
+    var inv = MERCH_INVENTORY[colour] || {};
+    var live = (remaining && remaining[colour]) || null;
+    var mQty = inv['M'] || 0, lQty = inv['L'] || 0;
+    if (live) {
+      if (typeof live['M'] === 'number') mQty = Math.min(mQty, live['M']);
+      if (typeof live['L'] === 'number') lQty = Math.min(lQty, live['L']);
+    }
+    lTotal += lQty;
+    if (!el) return;
+    var total = mQty + lQty;
+    var sizes = (mQty && !lQty) ? ' (M only)' : (!mQty && lQty) ? ' (L only)' : '';
+    if (total === 0) {
+      el.className = 'stock-indicator stock-out';
+      el.textContent = 'Sold out';
+    } else if (total <= 2) {
+      el.className = 'stock-indicator stock-low';
+      el.textContent = 'Low stock — ' + total + ' left' + sizes;
+    } else {
+      el.className = 'stock-indicator stock-in';
+      el.textContent = 'Available — M: ' + mQty + ' · L: ' + lQty;
+    }
+  });
+  var sel = document.getElementById('merch-size');
+  if (sel) {
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === 'L') {
+        sel.options[i].disabled = (lTotal === 0);
+        if (lTotal === 0 && sel.value === 'L') sel.value = '';
+      }
+    }
+  }
+  var pills = document.querySelectorAll('.merch-card .size-pill');
+  for (var j = 0; j < pills.length; j++) {
+    if (pills[j].textContent.trim() === 'L' && lTotal === 0) {
+      pills[j].style.opacity = '0.35';
+      pills[j].style.textDecoration = 'line-through';
+    }
+  }
+}
 function loadMerchStock() {
+  renderMerchStock(null);
   var cbName = 'vcbjjStockCb_' + Date.now();
   window[cbName] = function(resp) {
     delete window[cbName];
     if (!resp || !resp.success) return;
-    var remaining = resp.stockRemaining || {};
-    ['ivory','navy','gold'].forEach(function(colour) {
-      var el = document.getElementById('stock-' + colour);
-      if (!el) return;
-      var s = remaining[colour] || {};
-      var mQty = typeof s['M'] === 'number' ? s['M'] : 0;
-      var lQty = typeof s['L'] === 'number' ? s['L'] : 0;
-      var total = mQty + lQty;
-      if (total === 0) {
-        el.className = 'stock-indicator stock-out';
-        el.textContent = 'Sold out';
-      } else if (total <= 2) {
-        el.className = 'stock-indicator stock-low';
-        el.textContent = 'Low stock — ' + total + ' left';
-      } else {
-        el.className = 'stock-indicator stock-in';
-        el.textContent = 'Available — M: ' + mQty + ' · L: ' + lQty;
-      }
-    });
+    renderMerchStock(resp.stockRemaining || {});
   };
   var s = document.createElement('script');
   s.src = GAS_URL + '?action=getMerchOrders&fname=&callback=' + cbName;
-  s.onerror = function() {
-    delete window[cbName];
-    ['ivory','navy','gold'].forEach(function(c) {
-      var el = document.getElementById('stock-' + c);
-      if (el) el.style.display = 'none';
-    });
-  };
+  s.onerror = function() { delete window[cbName]; };
   document.head.appendChild(s);
 }
 window.addEventListener('load', loadMerchStock);
